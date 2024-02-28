@@ -1,12 +1,9 @@
 {
-	"version": "0.0.1",
+	"version": "0.2.0",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Roulette",
 	"description": "Adds HITMAPS Roulette support to peacock aswell as adding custom randomized contracts. TODO: Think of a better description. Yikes.",
-	"authors": [
-		"Riisikumi",
-		"Burn, the witch"
-	],
+	"authors": ["Riisikumi", "Burn, the witch"],
 	"localisation": {
 		"english": {
 			"RR_OG": "Random Roulette",
@@ -19,29 +16,22 @@
 			"RR_HARD": "Random Roulette: Hard Difficulty",
 			"UI_MENU_PAGE_HUB_ROULETTE": "Roulette"
 		},
-			
-		"french": {
-		},
+		"french": {},
 		"italian": {},
-		"german": {			
-		},
-		"spanish": {
-		},
-		"russian": {
-		},
-		"chineseSimplified": {
-
-			},
-		"japanese": {
-		}
+		"german": {},
+		"spanish": {},
+		"russian": {},
+		"chineseSimplified": {},
+		"japanese": {}
 	},
-	"frameworkVersion": "2.0.0",
-	"peacockPlugins": ["peacock plugins/base/Contractsearch.plugin.js",
-					"peacock plugins/base/Contractresponse.plugin.js",
-					"peacock plugins/RR/facility/freeform training/RandomCompFreeform.plugin.js",
-					"peacock plugins/RR/facility/freeform training/RandomFreeplayFreeform.plugin.js"],
-"contentFolders": [
-  "mod content"
-],
-"blobsFolders": ["blobs"]
-	}
+	"frameworkVersion": "2.33.7",
+	"peacockPlugins": [
+		"peacock plugins/base/Contractsearch.plugin.js",
+		"peacock plugins/base/Contractresponse.plugin.js",
+		"peacock plugins/RR/facility/freeform training/RandomCompFreeform.plugin.js",
+		"peacock plugins/RR/facility/freeform training/RandomFreeplayFreeform.plugin.js"
+	],
+	"contentFolders": ["mod content"],
+	"blobsFolders": ["blobs"],
+	"updateCheck": "https://github.com/riisikumi/roulette/releases/latest/download/updates.json"
+}

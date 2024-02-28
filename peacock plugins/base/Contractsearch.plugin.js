@@ -1,213 +1,213 @@
-const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
-(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] HITMAPS Contract Filters now active.")
+const loggingInterop_1 = require("@peacockproject/core/loggingInterop")
+;(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] HITMAPS Contract Filters now active.")
 module.exports = function HUI_PEACOCK_MENU_DASHBOARD(controller) {
-    controller.configManager.configs.FilterData = [
-                {
-                    "Title":"UI_SEARCH_PAGE_CATEGORY_MISSIONS_TITLE",
-                    "Key":"Location",
-                    "Values":[
-                        {
-                            "Title":"UI_LOCATION_ICA_FACILITY_TITLE",
-                            "Value":"LOCATION_ICA_FACILITY",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_PARIS_TITLE",
-                            "Value":"LOCATION_PARIS",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_PARIS_NOEL_TITLE",
-                            "Value":"LOCATION_PARIS_NOEL",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COASTALTOWN_TITLE",
-                            "Value":"LOCATION_COASTALTOWN",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COASTALTOWN_MOVIESET_TITLE",
-                            "Value":"LOCATION_COASTALTOWN_MOVIESET",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COASTALTOWN_NIGHT_TITLE",
-                            "Value":"LOCATION_COASTALTOWN_NIGHT",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COASTALTOWN_EBOLA_TITLE",
-                            "Value":"LOCATION_COASTALTOWN_EBOLA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MARRAKECH_TITLE",
-                            "Value":"LOCATION_MARRAKECH",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MARRAKECH_NIGHT_TITLE",
-                            "Value":"LOCATION_MARRAKECH_NIGHT",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_BANGKOK_TITLE",
-                            "Value":"LOCATION_BANGKOK",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_BANGKOK_ZIKA_TITLE",
-                            "Value":"LOCATION_BANGKOK_ZIKA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COLORADO_TITLE",
-                            "Value":"LOCATION_COLORADO",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_HOKKAIDO_TITLE",
-                            "Value":"LOCATION_HOKKAIDO",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_CONTRACT_MAMUSHI_TITLE",
-                            "Value":"LOCATION_HOKKAIDO_MAMUSHI",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_HOKKAIDO_FLU_TITLE",
-                            "Value":"LOCATION_HOKKAIDO_FLU",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_NEWZEALAND_TITLE",
-                            "Value":"LOCATION_NEWZEALAND",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MIAMI_TITLE",
-                            "Value":"LOCATION_MIAMI",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MIAMI_COTTONMOUTH_TITLE",
-                            "Value":"LOCATION_MIAMI_COTTONMOUTH",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COLOMBIA_TITLE",
-                            "Value":"LOCATION_COLOMBIA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_COLOMBIA_ANACONDA_TITLE",
-                            "Value":"LOCATION_COLOMBIA_ANACONDA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MUMBAI_TITLE",
-                            "Value":"LOCATION_MUMBAI",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_MUMBAI_KINGCOBRA_TITLE",
-                            "Value":"LOCATION_MUMBAI_KINGCOBRA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_NORTHAMERICA_TITLE",
-                            "Value":"LOCATION_NORTHAMERICA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_NORTHAMERICA_GARTERSNAKE_TITLE",
-                            "Value":"LOCATION_NORTHAMERICA_GARTERSNAKE",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_NORTHSEA_TITLE",
-                            "Value":"LOCATION_NORTHSEA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_GREEDY_RACCOON_TITLE",
-                            "Value":"LOCATION_GREEDY_RACCOON",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_OPULENT_STINGRAY_TITLE",
-                            "Value":"LOCATION_OPULENT_STINGRAY",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_GOLDEN_GECKO_TITLE",
-                            "Value":"LOCATION_GOLDEN_GECKO",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_ANCESTRAL_BULLDOG_TITLE",
-                            "Value":"LOCATION_ANCESTRAL_BULLDOG",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_EDGY_FOX_TITLE",
-                            "Value":"LOCATION_EDGY_FOX",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_WET_RAT_TITLE",
-                            "Value":"LOCATION_WET_RAT",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_ELEGANT_LLAMA_TITLE",
-                            "Value":"LOCATION_ELEGANT_LLAMA",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_TRAPPED_WOLVERINE_TITLE",
-                            "Value":"LOCATION_TRAPPED_WOLVERINE",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_LOCATION_ROCKY_DUGONG_TITLE",
-                            "Value":"LOCATION_ROCKY_DUGONG",
-                            "Key":"Location"
-                        }
-                    ]
-                },
-                {
-                    "Title":"UI_MENU_PAGE_HUB_SETTINGS",
-                    "Key":"RouletteFilter",
-                    "Values":[
-                        {
-                            "Title":"Require Specific Disguise",
-                            "Value":"specificDisguises",
-                            "Key":"RouletteFilter"
-                        },
-                        {
-                            "Title":"Include Specific Melee Weapons",
-                            "Value":"specificMelee",
-                            "Key":"RouletteFilter"
-                        },
-                        {
-                            "Title":"Include Specific Firearms",
-                            "Value":"specificFirearms",
-                            "Key":"RouletteFilter"
-                        },
-                        {
-                            "Title":"Include Specific Accidents / Poison Kills",
-                            "Value":"specificAccidents",
-                            "Key":"RouletteFilter"
-                        },
-                        {
-                            "Title":"Include Conditions Banned in Roulette Rivals",
-                            "Value":"rrBannedKills",
-                            "Key":"RouletteFilter"
-                        }
-                    ]
-                }
-            ]
-        }
+	controller.configManager.configs.FilterData = [
+		{
+			Title: "UI_SEARCH_PAGE_CATEGORY_MISSIONS_TITLE",
+			Key: "Location",
+			Values: [
+				{
+					Title: "UI_LOCATION_ICA_FACILITY_TITLE",
+					Value: "LOCATION_ICA_FACILITY",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_PARIS_TITLE",
+					Value: "LOCATION_PARIS",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_PARIS_NOEL_TITLE",
+					Value: "LOCATION_PARIS_NOEL",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COASTALTOWN_TITLE",
+					Value: "LOCATION_COASTALTOWN",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COASTALTOWN_MOVIESET_TITLE",
+					Value: "LOCATION_COASTALTOWN_MOVIESET",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COASTALTOWN_NIGHT_TITLE",
+					Value: "LOCATION_COASTALTOWN_NIGHT",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COASTALTOWN_EBOLA_TITLE",
+					Value: "LOCATION_COASTALTOWN_EBOLA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MARRAKECH_TITLE",
+					Value: "LOCATION_MARRAKECH",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MARRAKECH_NIGHT_TITLE",
+					Value: "LOCATION_MARRAKECH_NIGHT",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_BANGKOK_TITLE",
+					Value: "LOCATION_BANGKOK",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_BANGKOK_ZIKA_TITLE",
+					Value: "LOCATION_BANGKOK_ZIKA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COLORADO_TITLE",
+					Value: "LOCATION_COLORADO",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_HOKKAIDO_TITLE",
+					Value: "LOCATION_HOKKAIDO",
+					Key: "Location"
+				},
+				{
+					Title: "UI_CONTRACT_MAMUSHI_TITLE",
+					Value: "LOCATION_HOKKAIDO_MAMUSHI",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_HOKKAIDO_FLU_TITLE",
+					Value: "LOCATION_HOKKAIDO_FLU",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_NEWZEALAND_TITLE",
+					Value: "LOCATION_NEWZEALAND",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MIAMI_TITLE",
+					Value: "LOCATION_MIAMI",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MIAMI_COTTONMOUTH_TITLE",
+					Value: "LOCATION_MIAMI_COTTONMOUTH",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COLOMBIA_TITLE",
+					Value: "LOCATION_COLOMBIA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_COLOMBIA_ANACONDA_TITLE",
+					Value: "LOCATION_COLOMBIA_ANACONDA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MUMBAI_TITLE",
+					Value: "LOCATION_MUMBAI",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_MUMBAI_KINGCOBRA_TITLE",
+					Value: "LOCATION_MUMBAI_KINGCOBRA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_NORTHAMERICA_TITLE",
+					Value: "LOCATION_NORTHAMERICA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_NORTHAMERICA_GARTERSNAKE_TITLE",
+					Value: "LOCATION_NORTHAMERICA_GARTERSNAKE",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_NORTHSEA_TITLE",
+					Value: "LOCATION_NORTHSEA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_GREEDY_RACCOON_TITLE",
+					Value: "LOCATION_GREEDY_RACCOON",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_OPULENT_STINGRAY_TITLE",
+					Value: "LOCATION_OPULENT_STINGRAY",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_GOLDEN_GECKO_TITLE",
+					Value: "LOCATION_GOLDEN_GECKO",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_ANCESTRAL_BULLDOG_TITLE",
+					Value: "LOCATION_ANCESTRAL_BULLDOG",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_EDGY_FOX_TITLE",
+					Value: "LOCATION_EDGY_FOX",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_WET_RAT_TITLE",
+					Value: "LOCATION_WET_RAT",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_ELEGANT_LLAMA_TITLE",
+					Value: "LOCATION_ELEGANT_LLAMA",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_TRAPPED_WOLVERINE_TITLE",
+					Value: "LOCATION_TRAPPED_WOLVERINE",
+					Key: "Location"
+				},
+				{
+					Title: "UI_LOCATION_ROCKY_DUGONG_TITLE",
+					Value: "LOCATION_ROCKY_DUGONG",
+					Key: "Location"
+				}
+			]
+		},
+		{
+			Title: "UI_MENU_PAGE_HUB_SETTINGS",
+			Key: "RouletteFilter",
+			Values: [
+				{
+					Title: "Require Specific Disguise",
+					Value: "specificDisguises",
+					Key: "RouletteFilter"
+				},
+				{
+					Title: "Include Specific Melee Weapons",
+					Value: "specificMelee",
+					Key: "RouletteFilter"
+				},
+				{
+					Title: "Include Specific Firearms",
+					Value: "specificFirearms",
+					Key: "RouletteFilter"
+				},
+				{
+					Title: "Include Specific Accidents / Poison Kills",
+					Value: "specificAccidents",
+					Key: "RouletteFilter"
+				},
+				{
+					Title: "Include Conditions Banned in Roulette Rivals",
+					Value: "rrBannedKills",
+					Key: "RouletteFilter"
+				}
+			]
+		}
+	]
+}
