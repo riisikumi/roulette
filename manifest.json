@@ -1,9 +1,47 @@
 {
-	"$schema": "https://raw.githubusercontent.com/atampy25/simple-mod-framework/main/Mod%20Manager/src/lib/manifest-schema.json",
-	"version": "0.1.0",
-	"id": "YourPreferredAlias.AnIDForTheMod",
-	"name": "Test Mod",
-	"description": "A truly amazing mod",
-	"authors": ["Your Preferred Alias"],
-	"frameworkVersion": "2.25.1"
-}
+	"version": "0.0.1",
+	"id": "BurnthewitchRiisikumi.Roulette",
+	"name": "Roulette",
+	"description": "Adds HITMAPS Roulette support to peacock aswell as adding custom randomized contracts. TODO: Think of a better description. Yikes.",
+	"authors": [
+		"Riisikumi",
+		"Burn, the witch"
+	],
+	"localisation": {
+		"english": {
+			"RR_OG": "Random Roulette",
+			"RR_FREE": "Random Roulette: Freeplay Mode",
+			"RR_COMP": "Random Roulette: Complication Mode",
+			"RR_ENFORCED": "Random Roulette: Enforced Mode",
+			"RR_CLASSIC": "Random Roulette: Classic Mode",
+			"RR_EZ": "Random Roulette: Easy Difficulty",
+			"RR_MID": "Random Roulette: Medium Difficulty",
+			"RR_HARD": "Random Roulette: Hard Difficulty",
+			"UI_MENU_PAGE_HUB_ROULETTE": "Roulette"
+		},
+			
+		"french": {
+		},
+		"italian": {},
+		"german": {			
+		},
+		"spanish": {
+		},
+		"russian": {
+		},
+		"chineseSimplified": {
+
+			},
+		"japanese": {
+		}
+	},
+	"frameworkVersion": "2.0.0",
+	"peacockPlugins": ["peacock plugins/base/Contractsearch.plugin.js",
+					"peacock plugins/base/Contractresponse.plugin.js",
+					"peacock plugins/RR/facility/freeform training/RandomCompFreeform.plugin.js",
+					"peacock plugins/RR/facility/freeform training/RandomFreeplayFreeform.plugin.js"],
+"contentFolders": [
+  "mod content"
+],
+"blobsFolders": ["blobs"]
+	}

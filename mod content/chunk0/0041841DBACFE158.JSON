@@ -1,0 +1,79 @@
+{
+    "buttons":[
+        {
+            "actiontype":"accept",
+            "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+        },
+        {
+            "actiontype":"cancel",
+            "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+        }
+    ],
+    "body":{
+        "$setupcomponents":{
+            "favorites-removal":{
+                
+            }
+        },
+        "id":"root_list",
+        "controller":"list",
+        "data":{
+            "direction":"vertical"
+        },
+        "children":[
+            {
+                "$include":"common/data/general_headline.json"
+            },
+            {
+                "controller":"list",
+                "id":"category_container"
+            },
+            {
+                "id":"category_controller",
+                "controller":"category",
+                "container":"category_container",
+                "view":"menu3.containers.ScrollingTabsContainer",
+                "direction":"horizontal",
+                "ncols":10,
+                "data":{
+                    "direction":"horizontal",
+                    "overflowscrolling":"0.45",
+                    "buttonprompts":[
+                        {
+                            "actiontype":[
+                                "lb",
+                                "rb"
+                            ],
+                            "actionlabel":"$loc UI_BUTTON_PROMPTS_BROWSE_CATEGORIES"
+                        }
+                    ],
+                    "topnavigation":{
+                        "title":"HITMAPS™ Roulette",
+                        "icon":"contract"
+                    }
+                },
+                "children":[
+                    {
+                        "view":"menu3.basic.CategoryElement",
+                        "data":{
+                            "title":"Roulette Criteria",
+                            "icon":"search"
+                        },
+                        "actions":{
+                            "select":{
+                                "set-background":"$res images/backgrounds/menu_bg.jpg"
+                            }
+                        },
+                        "children":{
+                            "controller":"list",
+                            "row":0.75,
+                            "children":{
+                                "$include":"hub/contractsearchcomponents/contractsearch.json"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
