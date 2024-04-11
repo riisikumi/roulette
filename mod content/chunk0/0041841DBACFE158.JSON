@@ -1,79 +1,944 @@
 {
-    "buttons":[
-        {
-            "actiontype":"accept",
-            "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+    "$if": {
+        "$condition": {
+            "$include": "menusystem/data/ispeacock.json"
         },
-        {
-            "actiontype":"cancel",
-            "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_BACK"
-        }
-    ],
-    "body":{
-        "$setupcomponents":{
-            "favorites-removal":{
-                
-            }
-        },
-        "id":"root_list",
-        "controller":"list",
-        "data":{
-            "direction":"vertical"
-        },
-        "children":[
-            {
-                "$include":"common/data/general_headline.json"
-            },
-            {
-                "controller":"list",
-                "id":"category_container"
-            },
-            {
-                "id":"category_controller",
-                "controller":"category",
-                "container":"category_container",
-                "view":"menu3.containers.ScrollingTabsContainer",
-                "direction":"horizontal",
-                "ncols":10,
-                "data":{
-                    "direction":"horizontal",
-                    "overflowscrolling":"0.45",
-                    "buttonprompts":[
-                        {
-                            "actiontype":[
-                                "lb",
-                                "rb"
-                            ],
-                            "actionlabel":"$loc UI_BUTTON_PROMPTS_BROWSE_CATEGORIES"
-                        }
-                    ],
-                    "topnavigation":{
-                        "title":"HITMAPS™ Roulette",
-                        "icon":"contract"
+        "$then":   {
+            "buttons":[
+                {
+                    "actiontype":"accept",
+                    "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+                },
+                {
+                    "actiontype":"cancel",
+                    "actionlabel":"$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+                }
+            ],
+            "body":{
+                "$setupcomponents":{
+                    "favorites-removal":{
+                        
                     }
+                },
+                "id":"root_list",
+                "controller":"list",
+                "data":{
+                    "direction":"vertical"
                 },
                 "children":[
                     {
-                        "view":"menu3.basic.CategoryElement",
+                        "$include":"common/data/general_headline.json"
+                    },
+                    {
+                        "controller":"list",
+                        "id":"category_container"
+                    },
+                    {
+                        "id":"category_controller",
+                        "controller":"category",
+                        "container":"category_container",
+                        "view":"menu3.containers.ScrollingTabsContainer",
+                        "direction":"horizontal",
+                        "ncols":10,
                         "data":{
-                            "title":"Roulette Criteria",
-                            "icon":"search"
-                        },
-                        "actions":{
-                            "select":{
-                                "set-background":"$res images/backgrounds/menu_bg.jpg"
+                            "direction":"horizontal",
+                            "overflowscrolling":"0.45",
+                            "buttonprompts":[
+                                {
+                                    "actiontype":[
+                                        "lb",
+                                        "rb"
+                                    ],
+                                    "actionlabel":"$loc UI_BUTTON_PROMPTS_BROWSE_CATEGORIES"
+                                }
+                            ],
+                            "topnavigation":{
+                                "title":"Game Modes",
+                                "icon":"mission"
                             }
                         },
-                        "children":{
-                            "controller":"list",
-                            "row":0.75,
-                            "children":{
-                                "$include":"hub/contractsearchcomponents/contractsearch.json"
+                        "children":[
+                            {
+                                "view":"menu3.basic.CategoryElement",
+                                "data":{
+                                    "title":"Roulette",
+                                    "icon":"bulletdancer"
+                                },
+                                "actions":{
+                                    "select":{
+                                        "set-background":"$res images/Contracts/Roulette/roulettebranding.jpg"
+                                    }
+                                },
+                                "children":{
+                                    "controller":"list",
+                                    "row":0.75,
+                                    "children":{
+                                        "$include":"hub/contractsearchcomponents/contractsearch.json"
+                                    }
+                                }
+                            },
+                            {
+                                "view":"menu3.basic.CategoryElement",
+                                "id": "test",
+                                "data":{
+                                    "title":"Random Roulette",
+                                    "icon":"bulletdancer"
+                                },
+                                "actions":{
+                                    "select":{
+                                        "set-background":"$res images/Contracts/Roulette/roulettebranding.jpg"
+                                    }
+                                },
+                                "children":{
+                                    "controller": "list",
+                                    "view": "menu3.containers.ListContainer",
+                                    "id": "location_group",
+                                    "direction": "horizontal",
+                                    "row": 1.0,
+                                    "data": {
+                                        "direction": "horizontal"
+                                    },
+                                    "children": [
+                                        {
+                                            "controller": "category",
+                                            "id": "sub_category_container",
+                                            "view": "menu3.containers.ScrollingListContainer",
+                                            "ncols": 10,
+                                            "direction": "horizontal",
+                                            "submenunavigation": true,
+                                            "loopedselection": false,
+                                            "data": {
+                                                "direction": "horizontal",
+                                                "submenu": true
+                                            },
+                                            "children": [
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_PEACOCK_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/novikov_and_magolis/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_PEACOCK_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_PARISNOEL_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/parisnoel/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "499281d3-a697-4ae5-85ba-e533a17d5d53",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "499281d3-a697-4ae5-85ba-e533a17d5d53"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_PARISNOEL_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_OCTOPUS_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/surveillance_portofino/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t44",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_OCTOPUS_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_COPPERHEAD_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/copperhead/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "d37426cd-7907-4c5e-99ed-bbe95205a7d1",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "d37426cd-7907-4c5e-99ed-bbe95205a7d1"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_COPPERHEAD_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_MAMBA_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/mamba/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "4ebedf46-31b5-4d10-8a8d-2b3bbd55f85b",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "4ebedf46-31b5-4d10-8a8d-2b3bbd55f85b"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_MAMBA_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_EBOLA_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/whitespider/002_ebola/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "a2566b41-26b3-4f27-b76c-9f831aae6780",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "a2566b41-26b3-4f27-b76c-9f831aae6780"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_EBOLA_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_SPIDER_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/spider/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "68b5b045-6e05-4461-9155-3be4b63064c2",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "68b5b045-6e05-4461-9155-3be4b63064c2"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_SPIDER_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_PYTHON_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/python/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "3fd4ec10-7d6b-45de-b9cf-5b532d48bba2",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "3fd4ec10-7d6b-45de-b9cf-5b532d48bba2"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_PYTHON_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_TIGER_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/Contracts/Tiger/Tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "108aa785-6ca7-4a60-8ca7-b66e347026a4",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "108aa785-6ca7-4a60-8ca7-b66e347026a4"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_TIGER_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_ZIKA_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/whitespider/001_zika/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "c01c4061-6821-4e6a-8fdf-6e535401878e",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "c01c4061-6821-4e6a-8fdf-6e535401878e"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_ZIKA_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_BULL_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/Bull/Tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "095b7bdb-c95f-4112-9cfe-21e533c3a300",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "095b7bdb-c95f-4112-9cfe-21e533c3a300"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_BULL_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_RABIES_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/whitespider/003_rabies/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "3bf5da92-f387-4fae-a12c-e56cf9b93834",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "3bf5da92-f387-4fae-a12c-e56cf9b93834"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_RABIES_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_SNOW_CRANE_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/Contracts/SnowCrane/Tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "335984ac-5d96-4f81-a1af-4cb9975b4b34",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "335984ac-5d96-4f81-a1af-4cb9975b4b34"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_SNOW_CRANE_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_FLU_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/contracts/whitespider/004_flu/tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "910dc548-6845-47cb-a09f-c77edcdebfbe",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "910dc548-6845-47cb-a09f-c77edcdebfbe"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_FLU_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "view": "menu3.basic.MenuTileTall",
+                                                    "data": {
+                                                        "header": "$loc RR_OG",
+                                                        "title": "$loc UI_CONTRACT_MAMUSHI_TITLE",
+                                                        "icon": "bulletdancer",
+                                                        "image": "$res images/Contracts/Mamushi/Tile.jpg"
+                                                    },
+                                                    "actions": {
+                                                        "accept": [
+                                                            {
+                                                                "link": {
+                                                                    "page": "planning",
+                                                                    "args": {
+                                                                        "url": "planning",
+                                                                        "args": {
+                                                                            "contractid": "047e0364-4b26-4679-b637-cb939b9f415d",
+                                                                            "resetescalation": true
+                                                                        },
+                                                                        "contractid": "047e0364-4b26-4679-b637-cb939b9f415d"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ],
+                                                        "select": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": [
+                                                                    {
+                                                                        "view": "menu3.basic.HeadlineElement",
+                                                                        "selectable": false,
+                                                                        "pressable": false,
+                                                                        "data": {
+                                                                            "header": "$loc RR_OG",
+                                                                            "title": "$loc UI_CONTRACT_MAMUSHI_TITLE",
+                                                                            "typeicon": "bulletdancer"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "deselect": {
+                                                            "replace-children": {
+                                                                "target": "headline_container",
+                                                                "children": []
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                                
                             }
-                        }
+                        ]
                     }
                 ]
             }
-        ]
+        }
+        ,
+        "$else": {
+            "buttons": [
+                {
+                    "actiontype": "accept",
+                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+                },
+                {
+                    "actiontype": "cancel",
+                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+                }
+            ],
+            "body": {
+                "$setupcomponents": {
+                    "favorites-removal": {}
+                },
+                "id": "root_list",
+                "controller": "list",
+                "data": {
+                    "direction": "vertical"
+                },
+                "children": [
+                    {
+                        "$include": "common/data/general_headline.json"
+                    },
+                    {
+                        "controller": "list",
+                        "id": "category_container"
+                    },
+                    {
+                        "id": "category_controller",
+                        "controller": "category",
+                        "container": "category_container",
+                        "view": "menu3.containers.ScrollingTabsContainer",
+                        "direction": "horizontal",
+                        "ncols": 10,
+                        "data": {
+                            "direction": "horizontal",
+                            "overflowscrolling": "0.45",
+                            "buttonprompts": [
+                                {
+                                    "actiontype": [
+                                        "lb",
+                                        "rb"
+                                    ],
+                                    "actionlabel": "$loc UI_BUTTON_PROMPTS_BROWSE_CATEGORIES"
+                                }
+                            ],
+                            "topnavigation": {
+                                "title": "$loc UI_MENU_PAGE_HUB_CONTRACTS",
+                                "icon": "contract"
+                            }
+                        },
+                        "children": [
+                            {
+                                "view": "menu3.basic.CategoryElement",
+                                "data": {
+                                    "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                                    "icon": "search"
+                                },
+                                "actions": {
+                                    "select": {
+                                        "set-background": "$res images/backgrounds/menu_bg.jpg"
+                                    }
+                                },
+                                "children": {
+                                    "controller": "list",
+                                    "row": 0.75,
+                                    "children": {
+                                        "$include": "hub/contractsearchcomponents/contractsearch.json"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        
+        
+        
+        
     }
 }

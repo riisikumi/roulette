@@ -1,0 +1,407 @@
+{
+    "$if": {
+        "$condition": {
+            "$include": "menusystem/data/ispeacock.json"
+        },
+        "$then":   {
+            "id": "search_results",
+            "controller": "group",
+            "children": [
+                {
+                    "id": "result_search_button",
+                    "view": "menu3.search.SearchButton",
+                    "row": 0,
+                    "col": -0.1,
+                    "nrows": 1,
+                    "ncols": 2,
+                    "selectable": true,
+                    "pressable": true,
+                    "data": {
+                        "header": "$.Data.TotalCount",
+                        "title": "$loc UI_SEARCH_PAGE_CONTRACTS_FOUND",
+                        "icon": "search",
+                        "highcontrastmode": true
+                    },
+                    "buttons": [
+                        {
+                            "actiontype": "accept",
+                            "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+                        },
+                        {
+                            "actiontype": "cancel",
+                            "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+                        }
+                    ],
+                    "actions": {
+                        "accept": {
+                            "hide-node": [
+                                "search_results_container"
+                            ],
+                            "set-pressable": {
+                                "result_search_button": true
+                            },
+                            "sm:submit-search-request": {
+                                "load-async": {
+                                    "from": {
+                                        "url": "contractsearch",
+                                        "args": {
+                                            "sorting": ""
+                                        }
+                                    },
+                                    "post-load-action": {
+                                        "show-node": "search_results_container",
+                                        "set-selected": {
+                                            "target": "search_results_container"
+                                        }
+                                    },
+                                    "target": "search_results",
+                                    "showloadingindicator": true,
+                                    "blocksinput": true
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "returned_filter_container",
+                    "controller": "list",
+                    "view": "menu3.search.SearchSelectedTagScrollingListContainer",
+                    "direction": "vertical",
+                    "data": {
+                        "direction": "vertical",
+                        "overflowscrolling": "1.15",
+                        "scrollbarspaceoffset": -18,
+                        "offsetCol": 0.056,
+                        "emptycount": 0,
+                        "emptyelementfillcount": 0,
+                        "elementnrows": 0.32,
+                        "icon": "tag",
+                        "title": "$loc UI_SEARCH_PAGE_CATEGORY_SELECTEDTAGS"
+                    },
+                    "row": 1.071,
+                    "col": -0.071,
+                    "ncols": 1.94,
+                    "nrows": 1.92,
+                    "hidedefaultnocontent": true,
+                    "actions": {
+                        "last-child-removed": {
+                            "alter-actions": {},
+                            "set-data-property": {},
+                            "set-selected": {}
+                        }
+                    },
+                    "children": {
+                        "$each": {
+                            "in": {
+                                "$sm:getselectedfilters": ""
+                            },
+                            "do": {
+                                "view": "menu3.search.SearchSelectedTagElement",
+                                "_comment": "needs to be the same key as on the original selected filters!",
+                                "id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
+                                "selectable": true,
+                                "pressable": true,
+                                "data": {
+                                    "title": "$.Title",
+                                    "key": "$.Key",
+                                    "value": "$.Value"
+                                },
+                                "actions": {
+                                    "accept": [
+                                        {
+                                            "$switch $.Key": [
+                                                {
+                                                    "case": "Text",
+                                                    "return": {
+                                                        "sm:remove-text-filter": ""
+                                                    }
+                                                },
+                                                {
+                                                    "default": {
+                                                        "sm:remove-filter": ""
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "set-pressable": {
+                                                "result_search_button": true
+                                            },
+                                            "set-selectable": {
+                                                "result_search_button": true
+                                            },
+                                            "set-data-property": {
+                                                "target": "result_search_button",
+                                                "reload-node": false,
+                                                "property": {
+                                                    "name": "title",
+                                                    "value": "$loc UI_SEARCH_PAGE_GO_BUTTON"
+                                                }
+                                            },
+                                            "remove-children": {
+                                                "target": "returned_filter_container",
+                                                "children": [
+                                                    "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "$include": "hub/contractsearchcomponents/resultspaginate.json"
+                }
+            ],
+            "actions": {
+                "select": {
+                    "hide-node": [
+                        "search_input",
+                        "search_matrix"
+                    ]
+                },
+                "cancel": {
+                    "hide-node": [
+                        "search_results"
+                    ],
+                    "show-node": [
+                        "search_input"
+                    ],
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": []
+                    },
+                    "remove-children": [
+                        "search_results"
+                    ],
+                    "set-selected": {
+                        "target": "search_input"
+                    },
+                    "set-busystate": {
+                        "set-active": true,
+                        "blocksinput": true,
+                        "indicator": "loading"
+                    },
+                    "call": {
+                        "target": "search_input",
+                        "method": "startAnimation",
+                        "args": false
+                    }
+                }
+            }
+        },
+        "$else": {
+            "id": "search_results",
+            "controller": "group",
+            "children": [
+                {
+                    "id": "result_search_button",
+                    "view": "menu3.search.SearchButton",
+                    "row": 0,
+                    "col": -0.1,
+                    "nrows": 1,
+                    "ncols": 2,
+                    "selectable": false,
+                    "pressable": false,
+                    "data": {
+                        "header": "$.Data.TotalCount",
+                        "title": "$loc UI_SEARCH_PAGE_CONTRACTS_FOUND",
+                        "icon": "search",
+                        "highcontrastmode": true
+                    },
+                    "buttons": [
+                        {
+                            "actiontype": "accept",
+                            "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+                        },
+                        {
+                            "actiontype": "cancel",
+                            "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+                        }
+                    ],
+                    "actions": {
+                        "accept": {
+                            "hide-node": [
+                                "search_results_container"
+                            ],
+                            "set-pressable": {
+                                "result_search_button": false
+                            },
+                            "sm:submit-search-request": {
+                                "load-async": {
+                                    "from": {
+                                        "url": "contractsearch",
+                                        "args": {
+                                            "sorting": ""
+                                        }
+                                    },
+                                    "post-load-action": {
+                                        "show-node": "search_results_container",
+                                        "set-selected": {
+                                            "target": "search_results_container"
+                                        }
+                                    },
+                                    "target": "search_results",
+                                    "showloadingindicator": true,
+                                    "blocksinput": true
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "returned_filter_container",
+                    "controller": "list",
+                    "view": "menu3.search.SearchSelectedTagScrollingListContainer",
+                    "direction": "vertical",
+                    "data": {
+                        "direction": "vertical",
+                        "overflowscrolling": "1.15",
+                        "scrollbarspaceoffset": -18,
+                        "offsetCol": 0.056,
+                        "emptycount": 0,
+                        "emptyelementfillcount": 0,
+                        "elementnrows": 0.32,
+                        "icon": "tag",
+                        "title": "$loc UI_SEARCH_PAGE_CATEGORY_SELECTEDTAGS"
+                    },
+                    "row": 1.071,
+                    "col": -0.071,
+                    "ncols": 1.94,
+                    "nrows": 1.92,
+                    "hidedefaultnocontent": true,
+                    "actions": {
+                        "last-child-removed": {
+                            "alter-actions": {
+                                "target": "result_search_button",
+                                "path": "accept",
+                                "value": {
+                                    "trigger-input": {
+                                        "action": "cancel"
+                                    }
+                                }
+                            },
+                            "set-data-property": {
+                                "target": "result_search_button",
+                                "property": {
+                                    "name": "title",
+                                    "value": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+                                }
+                            },
+                            "set-selected": {
+                                "target": "result_search_button"
+                            }
+                        }
+                    },
+                    "children": {
+                        "$each": {
+                            "in": {
+                                "$sm:getselectedfilters": ""
+                            },
+                            "do": {
+                                "view": "menu3.search.SearchSelectedTagElement",
+                                "_comment": "needs to be the same key as on the original selected filters!",
+                                "id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
+                                "selectable": true,
+                                "pressable": true,
+                                "data": {
+                                    "title": "$.Title",
+                                    "key": "$.Key",
+                                    "value": "$.Value"
+                                },
+                                "actions": {
+                                    "accept": [
+                                        {
+                                            "$switch $.Key": [
+                                                {
+                                                    "case": "Text",
+                                                    "return": {
+                                                        "sm:remove-text-filter": ""
+                                                    }
+                                                },
+                                                {
+                                                    "default": {
+                                                        "sm:remove-filter": ""
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "set-pressable": {
+                                                "result_search_button": true
+                                            },
+                                            "set-selectable": {
+                                                "result_search_button": true
+                                            },
+                                            "set-data-property": {
+                                                "target": "result_search_button",
+                                                "reload-node": false,
+                                                "property": {
+                                                    "name": "title",
+                                                    "value": "$loc UI_SEARCH_PAGE_GO_BUTTON"
+                                                }
+                                            },
+                                            "remove-children": {
+                                                "target": "returned_filter_container",
+                                                "children": [
+                                                    "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "$include": "hub/contractsearchcomponents/resultspaginate.json"
+                }
+            ],
+            "actions": {
+                "select": {
+                    "hide-node": [
+                        "search_input",
+                        "search_matrix"
+                    ]
+                },
+                "cancel": {
+                    "hide-node": [
+                        "search_results"
+                    ],
+                    "show-node": [
+                        "search_input"
+                    ],
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": []
+                    },
+                    "remove-children": [
+                        "search_results"
+                    ],
+                    "set-selected": {
+                        "target": "search_input"
+                    },
+                    "set-busystate": {
+                        "set-active": true,
+                        "blocksinput": true,
+                        "indicator": "loading"
+                    },
+                    "call": {
+                        "target": "search_input",
+                        "method": "startAnimation",
+                        "args": false
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+}

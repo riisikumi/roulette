@@ -1,14 +1,72 @@
 {
-    "$if $stringcontains ($.Key,Location)":{
-        "$then":{
+    "$if": {
+        "$condition": {
+            "$include": "menusystem/data/ispeacock.json"
+        },
+        "$then":   {
+            "$if $stringcontains ($.Key,Location)":{
+                "$then":{
+                    "view": {
+                        "$switch $.Key": [
+                            {
+                                "case": "Location",
+                                "return": "menu3.search.SearchTagElementBig"
+                            },
+                            {
+                                "case": "RouletteFilter",
+                                "return": "menu3.search.SearchTagElementBig"
+                            },
+                            {
+                                "default": "menu3.search.SearchTagElement"
+                            }
+                        ]
+                    },
+                    "ncols": {
+                        "$switch $.Key": [
+                            {
+                                "case": "Location",
+                                "return": 3.2
+                            },
+                            {
+                                "default": 3.2
+                            }
+                        ]
+                    },
+                    "nrows": 0.32,
+                    "selectable": "true",
+                    "pressable": "true",
+                    "id": "$formatstring FILTER_ANY_{$.Key}",
+                    "data": {
+                        "title": {
+                            "$if $stringcontains ($.Key,RouletteFilter)": {
+                                "$then": "Use default filters",
+                                "$else": "$loc $formatstring UI_SEARCH_PAGE_ANY_{$.Key}"
+                            }
+                        },
+                        "active": true
+                    },
+                    "actions": {
+                        "accept": {
+                            "sm:remove-all-filters": {
+                                "filter-group-id": "$.Key",
+                                "reselect-on-last-filter-removed": false
+                            }
+                        },
+                        "on-add-child": {
+                            "sm:register-any-button": {
+                                "filter-group-id": "$.Key"
+                            }
+                        }
+                    }
+                },
+                "$else":null
+            }
+        },
+        "$else": {
             "view": {
                 "$switch $.Key": [
                     {
                         "case": "Location",
-                        "return": "menu3.search.SearchTagElementBig"
-                    },
-                    {
-                        "case": "RouletteFilter",
                         "return": "menu3.search.SearchTagElementBig"
                     },
                     {
@@ -23,7 +81,7 @@
                         "return": 3.2
                     },
                     {
-                        "default": 3.2
+                        "default": 1.6
                     }
                 ]
             },
@@ -32,12 +90,7 @@
             "pressable": "true",
             "id": "$formatstring FILTER_ANY_{$.Key}",
             "data": {
-                "title": {
-                    "$if $stringcontains ($.Key,RouletteFilter)": {
-                        "$then": "Use default filters",
-                        "$else": "$loc $formatstring UI_SEARCH_PAGE_ANY_{$.Key}"
-                    }
-                },
+                "title": "$loc $formatstring UI_SEARCH_PAGE_ANY_{$.Key}",
                 "active": true
             },
             "actions": {
@@ -53,7 +106,7 @@
                     }
                 }
             }
-        },
-        "$else":null
+        }
+        
     }
 }
