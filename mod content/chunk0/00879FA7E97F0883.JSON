@@ -1,105 +1,48 @@
 {
-    "$if": {
-        "$condition": {
-            "$include": "menusystem/data/ispeacock.json"
-        },
-        "$then":   {
-            "$if $eq($.Content.Name,roulette)":{
-                "$then":{
-                    "id":"element",
-                    "view":"menu3.basic.MenuTileLarge",
-                    "pressable":true,
-                    "selectable":true,
-                    "data":{
-                        "header":"$formatstring {$loc UI_MENU_PAGE_HUB_GAMEMODES} {$loc UI_DIALOG_SLASH} Roulette",
-                        "title":"HITMAPS™ Roulette",
-                        "image":"$res images/livetile/tile_roulette.jpg",
-                        "icon":"arrowright"
-                    },
-                    "actions":{
-                        "select":{
-                            "replace-children":{
-                                "target":"headline_container",
-                                "children":[
-                                    {
-                                        "view":"menu3.basic.HeadlineElement",
-                                        "selectable":false,
-                                        "pressable":false,
-                                        "data":{
-                                            "title":"HITMAPS™ Roulette",
-                                            "header":"$formatstring {$loc UI_MENU_PAGE_HUB_GAMEMODES} {$loc UI_DIALOG_SLASH} Roulette",
-                                            "icon":"arrowright"
-                                        }
-                                    }
-                                ]
+    "$if $eq($.Content.Name,roulette)":{
+        "$then":{
+            "id":"element",
+            "view":"menu3.basic.MenuTileLarge",
+            "pressable":true,
+            "selectable":true,
+            "data":{
+                "header":"$formatstring {$loc UI_MENU_PAGE_HUB_GAMEMODES} {$loc UI_DIALOG_SLASH} Roulette",
+                "title":"HITMAPS™ Roulette",
+                "image":"$res images/livetile/tile_roulette.jpg",
+                "icon":"arrowright"
+            },
+            "actions":{
+                "select":{
+                    "replace-children":{
+                        "target":"headline_container",
+                        "children":[
+                            {
+                                "view":"menu3.basic.HeadlineElement",
+                                "selectable":false,
+                                "pressable":false,
+                                "data":{
+                                    "title":"HITMAPS™ Roulette",
+                                    "header":"$formatstring {$loc UI_MENU_PAGE_HUB_GAMEMODES} {$loc UI_DIALOG_SLASH} Roulette",
+                                    "icon":"arrowright"
+                                }
                             }
-                        },
-                        "deselect":{
-                            "replace-children":{
-                                "target":"headline_container",
-                                "children":[
-                                    
-                                ]
-                            }
-                        },
-                        "accept":{
-                            "$include":{
-                                "$path":"menusystem/pages/playnext/content/goto_menupage_sniper.json"
-                            }
-                        }
+                        ]
                     }
-                }
-            }
-        },
-        "$else": {
-            "$if $eq($.Content.Name,sniper)": {
-                "$then": {
-                    "id": "element",
-                    "view": "menu3.basic.MenuTileLarge",
-                    "pressable": true,
-                    "selectable": true,
-                    "data": {
-                        "header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
-                        "title": "$loc UI_SNIPER_CHALLENGE_TITLE",
-                        "image": "$res images/livetile/tile_gamemode_sniper.jpg",
-                        "icon": "arrowright"
-                    },
-                    "actions": {
-                        "select": {
-                            "replace-children": {
-                                "target": "headline_container",
-                                "children": [
-                                    {
-                                        "view": "menu3.basic.HeadlineElement",
-                                        "selectable": false,
-                                        "pressable": false,
-                                        "data": {
-                                            "title": "$loc UI_SNIPER_CHALLENGE_TITLE",
-                                            "header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
-                                            "icon": "arrowright"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        "deselect": {
-                            "replace-children": {
-                                "target": "headline_container",
-                                "children": []
-                            }
-                        },
-                        "accept": {
-                            "$include": {
-                                "$path": "menusystem/pages/playnext/content/goto_menupage_sniper.json"
-                            }
-                        }
+                },
+                "deselect":{
+                    "replace-children":{
+                        "target":"headline_container",
+                        "children":[
+                            
+                        ]
+                    }
+                },
+                "accept":{
+                    "$include":{
+                        "$path":"menusystem/pages/playnext/content/goto_menupage_sniper.json"
                     }
                 }
             }
         }
-        
-        
-        
-        
     }
 }

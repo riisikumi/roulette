@@ -1,23 +1,6 @@
-
 {
-    "$if": {
-        "$condition": {
-            "$include": "menusystem/data/ispeacock.json"
-        },
-        "$then":   {
-            "$if $eqs ($.Key,Location)": {
-                "$then": 3.2,
-                "$else": 3.2
-            }
-        },
-        "$else": {
-            "$if $eqs ($.Key,Location)": {
-                "$then": 3.2,
-                "$else": 1.6
-            }
-        }
-        
-        
-        
+    "$if $eqs ($.Key,Location)": {
+        "$then": 3.2,
+        "$else": 3.2
     }
 }

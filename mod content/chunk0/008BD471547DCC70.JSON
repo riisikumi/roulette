@@ -1,87 +1,39 @@
-
 {
-    "$if": {
-        "$condition": {
-            "$include": "menusystem/data/ispeacock.json"
-        },
-        "$then":   {
-            "set-persistent-context":{
-                "target":"hub",
-                "actions":[
-                    {
-                        "call":{
-                            "onmenuframe":true,
-                            "method":"showBackground",
-                            "args":false
-                        }
-                    },
-                    {
-                        "set-selected":{
-                            "target":"category_featured"
-                        }
-                    },
-                    {
-                        "set-selected":{
-                            "target":"roulette_element"
-                        }
-                    },
-                    {
-                        "trigger-input":{
-                            "action":"accept"
-                        }
-                    },
-                    {
-                        "call":{
-                            "onmenuframe":true,
-                            "method":"showBackground",
-                            "args":true
-                        }
-                    }
-                ]
+    "set-persistent-context":{
+        "target":"hub",
+        "actions":[
+            {
+                "call":{
+                    "onmenuframe":true,
+                    "method":"showBackground",
+                    "args":false
+                }
             },
-            "exit-to-main-menu":{
-                
+            {
+                "set-selected":{
+                    "target":"category_featured"
+                }
+            },
+            {
+                "set-selected":{
+                    "target":"roulette_element"
+                }
+            },
+            {
+                "trigger-input":{
+                    "action":"accept"
+                }
+            },
+            {
+                "call":{
+                    "onmenuframe":true,
+                    "method":"showBackground",
+                    "args":true
+                }
             }
-        },
-        "$else": {
-            "set-persistent-context": {
-                "target": "hub",
-                "actions": [
-                    {
-                        "call": {
-                            "onmenuframe": true,
-                            "method": "showBackground",
-                            "args": false
-                        }
-                    },
-                    {
-                        "set-selected": {
-                            "target": "category_gamemodes"
-                        }
-                    },
-                    {
-                        "set-selected": {
-                            "target": "gamemodes_category_sniper"
-                        }
-                    },
-                    {
-                        "trigger-input": {
-                            "action": "accept"
-                        }
-                    },
-                    {
-                        "call": {
-                            "onmenuframe": true,
-                            "method": "showBackground",
-                            "args": true
-                        }
-                    }
-                ]
-            },
-            "exit-to-main-menu": {}
-        }
-        
-        
+        ]
+    },
+    "exit-to-main-menu":{
         
     }
 }
