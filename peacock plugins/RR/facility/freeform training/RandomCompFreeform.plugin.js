@@ -40977,6 +40977,7 @@ module.exports = function EscPlugin(controller) {
     seedtitle = "RR_UNLOCKED_CONTRACT";
     seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1;
     plaintextseedfordisplay = "Current Seed: " + seed.toString();
+    plaintextseed = seed.toString();
     log(LogLevel.INFO, "Seed set to: " + plaintextseed);
     RandomizeContracts(contracts);
   }
