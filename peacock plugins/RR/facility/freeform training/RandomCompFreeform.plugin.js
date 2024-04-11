@@ -2,7 +2,7 @@ const { log, LogLevel } = require("@peacockproject/core/loggingInterop");
 
 module.exports = function EscPlugin(controller) {
 //seed stuff, needs to be declared early
-  let seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1;
+  let seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
   let plaintextseed = seed;
   let plaintextseedfordisplay = "Current Seed: " + seed.toString();
   let seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
@@ -40975,7 +40975,7 @@ module.exports = function EscPlugin(controller) {
   function RegenerateContracts(controller) {
     seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
     seedtitle = "RR_UNLOCKED_CONTRACT";
-    seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1;
+    seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     plaintextseedfordisplay = "Current Seed: " + seed.toString();
     plaintextseed = seed.toString();
     log(LogLevel.INFO, "Seed set to: " + plaintextseed);
