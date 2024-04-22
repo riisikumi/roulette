@@ -1,0 +1,6 @@
+{
+    "$if $eqs ($.Key,Location)": {
+        "$then": 3.2,
+        "$else": 3.2
+    }
+}

@@ -1,6 +1,6 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
-(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] HITMAPS Contract Filters now active.")
-module.exports = function HUI_PEACOCK_MENU_DASHBOARD(controller) {
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette]Contract Filters now active.")
+module.exports = function test(controller) {
     controller.configManager.configs.FilterData = [
                 {
                     "Title":"UI_SEARCH_PAGE_CATEGORY_MISSIONS_TITLE",

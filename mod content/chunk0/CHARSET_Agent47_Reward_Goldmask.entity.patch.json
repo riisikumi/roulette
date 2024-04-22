@@ -1,0 +1,1 @@
+{"tempHash":"00FDEE96771A88FC","tbluHash":"00F00E2861FEE360","patch":[{"SubEntityOperation":["2dc241085a5f81aa",{"AddProperty":["m_Outfit",{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/_pro/characters/templates/hero/agent47/agent47_outfits.template?/outfit_agent47_reward_goldmask_heroa_v0.entitytemplate].pc_entitytemplate","flag":"9F"}}]}]}],"patchVersion":6}
