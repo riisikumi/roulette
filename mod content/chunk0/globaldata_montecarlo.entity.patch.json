@@ -1,0 +1,129 @@
+{
+	"tempHash": "00097AA87B144150",
+	"tbluHash": "00E738E7CF7A35E1",
+	"patch": [{
+		"AddEntity": ["feedb21b99d6a3d9", {
+			"parent": "0ba8ea9278df2079",
+			"name": "CHAR_Global_Hero_Monte_Carlo_M",
+			"factory": "[modules:/zglobaloutfitkit.class].pc_entitytype",
+			"blueprint": "[modules:/zglobaloutfitkit.class].pc_entityblueprint",
+			"properties": {
+				"m_eActorType": {
+					"type": "EActorType",
+					"value": "eAT_Hitman"
+				},
+				"m_eSoundFootwearType": {
+					"type": "EHM5SoundFootwearType",
+					"value": "EFWT_LEATHER"
+				},
+				"m_sId": {
+					"type": "ZGuid",
+					"value": "0c90c861-48b2-4058-9785-9e577006f3b4"
+				},
+				"m_bCanCallForHelp": {
+					"type": "bool",
+					"value": true
+				},
+				"m_sCommonName": {
+					"type": "ZString",
+					"value": "CHAR_Global_Hero_Monte_Carlo_M"
+				},
+				"m_sTitle": {
+					"type": "ZString",
+					"value": "Monte Carlo"
+				},
+				"m_eOutfitAICategory": {
+					"type": "EOutfitAICategory",
+					"value": "OAC_47Suit"
+				},
+				"m_rNameTextResource": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00C7A06EE16C4BF6",
+						"flag": "5F"
+					}
+				},
+				"m_rDescriptionTextResource": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "007A7E0FDD0D55B9",
+						"flag": "5F"
+					}
+				},
+				"m_bHeroDisguiseAvailable": {
+					"type": "bool",
+					"value": true
+				},
+				"m_bIsHitmanSuit": {
+					"type": "bool",
+					"value": true
+				},
+				"m_aCharSets": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["feedaf55da8c3d16"],
+					"postInit": true
+				}
+			}
+		}]
+	}, {
+		"AddEntity": ["feede96bbecf13cc", {
+			"parent": "feedb21b99d6a3d9",
+			"name": "Keyword_FOLEY_VR_OUTFIT_LEATHERGLOVES",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keyword_foley_vr_outfit_leathergloves.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keyword_foley_vr_outfit_leathergloves.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rHolder": {
+					"type": "SEntityTemplateReference",
+					"value": "feedb21b99d6a3d9"
+				}
+			}
+		}]
+	}, {
+		"AddEntity": ["feedef1cd87877f5", {
+			"parent": "feedb21b99d6a3d9",
+			"name": "KeywordEntity_FOLEY_SUIT47",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keywordentity_foley_outfit_suit47.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keywordentity_foley_outfit_suit47.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rHolder": {
+					"type": "SEntityTemplateReference",
+					"value": "feedb21b99d6a3d9"
+				}
+			}
+		}]
+	}, {
+		"AddEntity": ["feedb0cc30067c1f", {
+			"parent": "feedb21b99d6a3d9",
+			"name": "Prof_Agent47",
+			"factory": "[assembly:/_pro/design/actor/profession.template?/prof_agent47.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/actor/profession.template?/prof_agent47.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["feedb21b99d6a3d9"]
+				}
+			}
+		}]
+	}, {
+		"AddEntity": ["feed9824aaecb3d5", {
+			"parent": "feedb21b99d6a3d9",
+			"name": "Keyword_Prof_Class_Default",
+			"factory": "007A51A2AFEC0D1A",
+			"blueprint": "00B0282A41C1CF2E",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["feedb21b99d6a3d9"]
+				}
+			}
+		}]
+	}, {
+		"AddEntity": ["feedaf55da8c3d16", {
+			"parent": "feedb21b99d6a3d9",
+			"name": "charset_agent47_monte_carlo",
+			"factory": "0030252B5C6098B3",
+			"blueprint": "00772D2A4F94DDF1"
+		}]
+	}],
+	"patchVersion": 6
+}

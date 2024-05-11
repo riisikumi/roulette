@@ -1,0 +1,26 @@
+{
+	"STARTING_LOCATION_TRAPPED_WOLVERINE_TRAIN_LAB":{
+		"Properties": {
+			"Equip": [
+			],
+			"LoadoutSettings": {
+			"GearSlotsEnabledCount": 3,
+			"GearSlotsAllowContainers": true,
+			"ConcealedWeaponSlotEnabled": true
+			}
+	
+	} 
+	},
+	"STARTING_LOCATION_TRAPPED_WOLVERINE_TRAIN_FLATBED":{
+		"Properties": {
+			"Equip": [
+			],
+			"LoadoutSettings": {
+			"GearSlotsEnabledCount": 3,
+			"GearSlotsAllowContainers": true,
+			"ConcealedWeaponSlotEnabled": true
+			}
+	
+	} 
+	}
+}

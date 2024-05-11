@@ -1,0 +1,20 @@
+{
+    "scene": "assembly:/_pro/scenes/missions/thefacility/_scene_polarbear_005.entity",
+    "actors": [],
+    "entrances": [
+        {
+            "id": "2a48ddc7-859a-445c-8f53-fb3b1e642f42",
+            "isDefaultSpawn": true,
+            "isPreferredSpawn": false,
+            "WorldTransform": "-0.965063, 0.262017, 0, -0.262017, -0.965063, 0, 0, 0, 1, -4.101856, -55.65813, -1.44527"
+        }
+    ],
+    "Exits": [],
+    "AgencyPickups": [{
+        "id": "172bde2d-2f0e-47b6-8bd4-8b9df1aeba33",
+        "WorldTransform": "-1, 0, 0, 0, -1, 0, 0, 0, 1, 0.150785, 258.2455, 0.994496",
+        "AllowOutfits": true,
+        "AllowLargerItems": true,
+        "UnlockedByDefault": true
+    }]
+}

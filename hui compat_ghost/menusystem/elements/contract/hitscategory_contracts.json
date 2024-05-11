@@ -1,0 +1,106 @@
+{
+    "$each $.Data.Hits": {
+        "$datacontext": {
+            "in": "$.",
+            "datavalues": {
+                "TileSize": {
+                    "$switch $.UserCentricContract.Contract.Metadata.Type": [
+                        {
+                            "case": "sniper",
+                            "return": "large"
+                        },
+                        {
+                            "case": "elusive",
+                            "return": "tall"
+                        },
+                        {
+                            "case": "arcade",
+                            "return": "tall"
+                        },
+                        {
+                            "default": "small"
+                        }
+                    ]
+                }
+            },
+            "do": {
+                "$if $eq($arraysize $.UserCentricContract.Contract.Metadata.Enginemodes,2)": {
+                    "$then": {
+                        "controller": "group",
+                        "view": "menu3.containers.ListContainer",
+                        "layoutchildren": true,
+                        "nrows": 3,
+                        "ncols": {
+                            "$switch $.UserCentricContract.Contract.Metadata.Type": [
+                                {
+                                    "case": "sniper",
+                                    "return": 8
+                                },
+                                {
+                                    "case": "elusive",
+                                    "return": 4
+                                },
+                                {
+                                    "case": "arcade",
+                                    "return": 4
+                                },
+                                {
+                                    "case": "escalation",
+                                    "return": 4
+                                },
+                                {
+                                    "default": 2
+                                }
+                            ]
+                        },
+                        "navigationmode": "forward-to-parent",
+                        "direction": "horizontal",
+                        "data": {
+                            "direction": "horizontal"
+                        },
+                        "children": [
+                            {
+                                "$datacontext": {
+                                    "in": "$.",
+                                    "datavalues": {
+                                        "EngineMode": "$.UserCentricContract.Contract.Metadata.Enginemodes[0]",
+                                        "TileSize": "$.TileSize"
+                                    },
+                                    "do": {
+                                        "$include": {
+                                            "$path": "menusystem/elements/contract/hit.json"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "$if $isonline": {
+                                    "$then": {
+                                        "$datacontext": {
+                                            "in": "$.",
+                                            "datavalues": {
+                                                "EngineMode": "$.UserCentricContract.Contract.Metadata.Enginemodes[1]",
+                                                "TileSize": "$.TileSize"
+                                            },
+                                            "do": {
+                                                "$include": {
+                                                    "$path": "menusystem/elements/contract/hit.json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "$else": null
+                                }
+                            }
+                        ]
+                    },
+                    "$else": {
+                        "$include": {
+                            "$path": "menusystem/elements/contract/hit.json"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

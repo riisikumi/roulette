@@ -1,0 +1,14 @@
+{
+	"0c90c861-48b2-4058-9785-9e577006f3b4": {
+		"ID_": "0c90c861-48b2-4058-9785-9e577006f3b4",
+		"CommonName": "CHAR_Global_Hero_Monte_Carlo_M",
+		"Description": "UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC",
+		"HeroDisguiseAvailable": true,
+		"Image": "images/unlockables_override/47_Outfits_monte_carlo.jpg",
+		"IsHitmanSuit": true,
+		"Name": "UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME",
+		"Category": "",
+		"ImageTransparent": "",
+		"TokenID": "TOKEN_OUTFIT_HERO_MONTE_CARLO"
+	}
+}

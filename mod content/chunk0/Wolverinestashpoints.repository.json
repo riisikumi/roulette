@@ -1,0 +1,26 @@
+{
+    "8afa969a-58fc-484c-9f00-a649efae55a3": {
+        "Description": "storage_desc",
+        "Image": "images/trapped/Storage.png",
+        "Name": "Abandoned Shed Starting Location",
+        "Name_LOC": "ui_stash_storage_wolverine"
+    },
+    "b98b9f85-ca9f-4ced-b171-bf244007d152": {
+        "Description": "workbench_desc",
+        "Image": "images/trapped/Workbench.png",
+        "Name": "Abandoned Shed Starting Location",
+        "Name_LOC": "ui_stash_workbench_wolverine"
+    },
+    "78218d25-32c3-4fa2-84d5-790cddffdf36": {
+        "Description": "office_desc",
+        "Image": "images/trapped/OfficeCloset.png",
+        "Name": "Abandoned Shed Starting Location",
+        "Name_LOC": "ui_stash_office_wolverine"
+    },
+    "55c7edba-4507-4c6d-be7c-185d2c90a42b": {
+        "Description": "APC_desc",
+        "Image": "images/trapped/APCStart.png",
+        "Name": "Unknown",
+        "Name_LOC": "ui_starting_location_APC"
+    }
+}
