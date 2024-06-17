@@ -1784,12 +1784,12 @@
     "UI_KILL_METHOD_LOUD_EXPLOSIVE": "Loud Explosive Device",
     "UI_KILL_METHOD_REMOTE_EXPLOSIVE": "Remote Explosive Device",
     "UI_KILL_METHOD_IMPACT_EXPLOSIVE": "Impact Explosive Device",
-    "UI_LOCATION_THEDIRECTOR": "Paris",
-    "UI_LOCATION_THEENFORCER": "Sapienza",
-    "UI_LOCATION_THEEXTRACTOR": "Marrakesh",
-    "UI_LOCATION_THEVETERAN": "Bangkok",
-    "UI_LOCATION_THEMERCENARY": "Colorado",
-    "UI_LOCATION_THECONTROLLER": "Hokkaido"
+    "UI_LOCATION_THEDIRECTOR_CITY": "Paris",
+    "UI_LOCATION_THEENFORCER_CITY": "Sapienza",
+    "UI_LOCATION_THEEXTRACTOR_CITY": "Marrakesh",
+    "UI_LOCATION_THEVETERAN_CITY": "Bangkok",
+    "UI_LOCATION_THEMERCENARY_CITY": "Colorado",
+    "UI_LOCATION_THECONTROLLER_CITY": "Hokkaido"
 	
 		},
 		"french": {
