@@ -1,72 +1,147 @@
 {
-    "controller": "contextitem",
-    "view": "menu3.basic.ItemTileSmall",
-    "id": "search_contract_tile",
-    "nrows": 1.5,
-    "ncols": 2,
-    "pressable": {
-        "$if $isugcrestricted": {
-            "$then": false,
-            "$else": false
-        }
-    },
-    "data": {
-        "$if $isugcrestricted": {
-            "$then": {
-                "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
-                "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
-                "icon": "locked",
-                "locked": true,
-                "lockedreason": "$loc UI_CONTRACT_NO_ACCESS_UGC_DESCRIPTION",
-                "availability": {
-                    "available": true,
-                    "_comment": "hack to get locked reason to show"
+    "$if": {
+        "$condition": {
+            "$include": "menusystem/data/ispeacock.json"
+        },
+        "$then":   {
+            "controller": "contextitem",
+            "view": "menu3.basic.ItemTileSmall",
+            "id": "search_contract_tile",
+            "nrows": 1.5,
+            "ncols": 2,
+            "pressable": {
+                "$if $isugcrestricted": {
+                    "$then": false,
+                    "$else": false
                 }
             },
-            "$else": {
-                "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
-                "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
-                "icon": "locked",
-                "locked": true,
-                "lockedreason": "$loc UI_CONTRACT_NO_ACCESS_UGC_DESCRIPTION",
-                "availability": {
-                    "available": true,
-                    "_comment": "hack to get locked reason to show"
-                }
-            }
-        }
-    },
-    "actions": {
-        "select": {
-            "replace-children": {
-                "target": "headline_container",
-                "children": [
-                    {
-                        "view": "menu3.basic.HeadlineElement",
-                        "selectable": false,
-                        "pressable": false,
-                        "data": {
-                            "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
-                            "typeicon": "search"
+            "data": {
+                "$if $isugcrestricted": {
+                    "$then": {
+                        "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                        "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
+                        "icon": "locked",
+                        "locked": true,
+                        "lockedreason": "$loc UI_CONTRACT_NO_ACCESS_UGC_DESCRIPTION",
+                        "availability": {
+                            "available": true,
+                            "_comment": "hack to get locked reason to show"
+                        }
+                    },
+                    "$else": {
+                        "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                        "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
+                        "icon": "locked",
+                        "locked": true,
+                        "lockedreason": "$loc UI_CONTRACT_NO_ACCESS_UGC_DESCRIPTION",
+                        "availability": {
+                            "available": true,
+                            "_comment": "hack to get locked reason to show"
                         }
                     }
-                ]
+                }
+            },
+            "actions": {
+                "select": {
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": [
+                            {
+                                "view": "menu3.basic.HeadlineElement",
+                                "selectable": false,
+                                "pressable": false,
+                                "data": {
+                                    "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                                    "typeicon": "search"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "deselect": {
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": []
+                    }
+                },
+                "accept": {
+                    "link": {
+                        "page": "contractsearchpage",
+                        "args": {
+                            "url": "contractsearchpage",
+                            "args": {}
+                        }
+                    }
+                }
             }
         },
-        "deselect": {
-            "replace-children": {
-                "target": "headline_container",
-                "children": []
-            }
-        },
-        "accept": {
-            "link": {
-                "page": "contractsearchpage",
-                "args": {
-                    "url": "contractsearchpage",
-                    "args": {}
+        "$else": {
+            "controller": "contextitem",
+            "view": "menu3.basic.ItemTileSmall",
+            "id": "search_contract_tile",
+            "nrows": 1.5,
+            "ncols": 2,
+            "pressable": {
+                "$if $isugcrestricted": {
+                    "$then": false,
+                    "$else": true
+                }
+            },
+            "data": {
+                "$if $isugcrestricted": {
+                    "$then": {
+                        "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                        "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
+                        "icon": "locked",
+                        "locked": true,
+                        "lockedreason": "$loc UI_CONTRACT_NO_ACCESS_UGC_DESCRIPTION",
+                        "availability": {
+                            "available": true,
+                            "_comment": "hack to get locked reason to show"
+                        }
+                    },
+                    "$else": {
+                        "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                        "image": "$res images/contracts/categories/contracts/smalltile02_top.jpg",
+                        "icon": "search"
+                    }
+                }
+            },
+            "actions": {
+                "select": {
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": [
+                            {
+                                "view": "menu3.basic.HeadlineElement",
+                                "selectable": false,
+                                "pressable": false,
+                                "data": {
+                                    "title": "$loc UI_MENU_PAGE_HITS_ELEMENT_CATEGORY_SEARCH",
+                                    "typeicon": "search"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "deselect": {
+                    "replace-children": {
+                        "target": "headline_container",
+                        "children": []
+                    }
+                },
+                "accept": {
+                    "link": {
+                        "page": "contractsearchpage",
+                        "args": {
+                            "url": "contractsearchpage",
+                            "args": {}
+                        }
+                    }
                 }
             }
         }
+        
+        
     }
 }

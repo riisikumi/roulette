@@ -1,0 +1,28 @@
+{
+	"ROULETTE_DART_RIFLE": {
+		"Id": "ROULETTE_DART_RIFLE",
+		"Guid": "6eee733b-b831-4666-b794-fe0147cb45a7",
+		"Type": "weapon",
+	"Subtype": "assaultrifle",
+	"ImageId": "",
+	"RMTPrice": 99,
+	"GamePrice": 99,
+	"IsPurchasable": false,
+	"IsPublished": true,
+	"IsDroppable": false,
+	"Capabilities": [],
+	"Qualities": {},
+		"Properties": {
+			"Gameplay": {
+			},
+			"Name": "UI_ROULETTE_DART_RIFLE",
+			"Description": "UI_ROULETTE_DART_RIFLE_DESC",
+			"Quality": 4,
+			"Rarity": "common",
+			"LoadoutSlot": "carriedweapon",
+			"RepositoryId": "8d714b18-f837-4d82-896b-b13e208f0a31",
+			"UnlockOrder": 20
+		},
+		"Rarity": "common"
+	}
+}

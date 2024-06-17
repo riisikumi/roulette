@@ -1,0 +1,25 @@
+{
+	"TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT": {
+		"Id": "TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT",
+		"Guid": "6eee733b-b831-4666-b794-fe0147ce35a7",
+		"Type": "disguise",
+		"Subtype": "casual",
+		"ImageId": "",
+		"RMTPrice": -1,
+		"GamePrice": -1,
+		"IsPurchasable": false,
+		"IsPublished": true,
+		"IsDroppable": false,
+		"Capabilities": [],
+		"Qualities": {},
+		"Properties": {
+			"Quality": 2,
+			"Rarity": "common",
+			"LoadoutSlot": "disguise",
+			"IsConsumable": false,
+			"RepositoryId": "7b3144c2-cbe4-45ef-b58d-0343669c52a6",
+			"OrderIndex": 21
+		},
+		"Rarity": "common"
+	}
+}

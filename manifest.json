@@ -1,5 +1,5 @@
 {
-	"version": "0.4.0",
+	"version": "0.4.3",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
@@ -14,6 +14,10 @@
 	},
 	"localisation": {
 		"english": {
+            "UI_ROULETTE_DART_RIFLE": "Kalmer 2H",
+            "UI_ROULETTE_DART_RIFLE_DESC": "Silent and nonlethal, this rifle is capable of storing and firing 4 sedative darts.",
+            "UI_TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT_NAME": "Mastermind Suit",
+			"UI_TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT_DESC": "Show them true effeciency with this traditional yet modern Japanese get-up. Featuring a classic black, red and white color scheme with safety glasses, gloves and communicator to show them how serious you really are.",
             "ui_starting_location_scaffolding_name": "Scaffolding",
             "ui_starting_location_scaffolding_desc": "I'm pretty sure this causes a time paradox.",
             "ui_starting_location_polar_abandoned_shed_name": " Tool Shed",
@@ -124,7 +128,7 @@
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_ELIMINATION_TITLE": "Exterminate all Targets",
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_SLAUGHTER_TITLE": "Slaughter 20 Innocents",
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_HEAT_TITLE": "Make them Fear you",
-            "UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TEXT": "The Set Seed field can be used to set the seed, numerical values only.<br> If you wish to save a contract, you must use this command:<br>/save seedhere missionidhere<br>This is case sensitive. The following are valid missionIds:<br>Showstopper<br>WoT<br>Icon<br>Landslide<br>Author<br>Gilded<br>Sand<br>Club27<br>Source<br>FreedomFighters<br>SitusInversus<br>PZ<br>Festival<br>Noel<br>Vector<br>Nightcall<br>Finishline<br>SilverTongue<br>EmbraceofTheSerpent<br>ChasingaGhost<br>Illusions<br>AnotherLife<br>BitterPill<br>ArkSociety<br>GoldenHandshake<br>LastResort<br>TopoftheWorld<br>DeathintheFamily<br>DartmoorGardenShow<br>ApexPredator<br>EndofanEra<br>TheFarewell<br>ShadowsintheWater ",
+            "UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TEXT": "The Set Seed field can be used to set the seed for both Roulette modes.",
             "UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP": "Show Roulette Help",
             "UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TITLE": "Roulette Help",
             "UI_GAMECHANGERS_GLOBAL_OSP": "OSP",
@@ -229,6 +233,12 @@
 			"RR_KILLCONDITION_BURN": "Eliminate Target with Burning Accident",
 			"RR_KILLCONDITION_BURN_DESC": "Eliminate a Target with Burning Accident.",
 			"RR_KILLCONDITION_BURN_TILE": "Burning Accident",
+            "RR_KILLCONDITION_EP": "Eliminate Target with Explosive Pen",
+			"RR_KILLCONDITION_EP_DESC": "Eliminate a Target with a Explosive Pen.",
+			"RR_KILLCONDITION_EP_TILE": "Explosive Pen",
+            "RR_KILLCONDITION_STRIKER": "Eliminate Target with High Caliber Pistol",
+			"RR_KILLCONDITION_STRIKER_DESC": "Eliminate a Target with a Striker Variant.",
+			"RR_KILLCONDITION_STRIKER_TILE": "High Caliber Pistol",
 			"RR_KILLCONDITION_SHOCK": "Eliminate Target with Electrocution Accident",
 			"RR_KILLCONDITION_SHOCK_DESC": "Eliminate a Target with a Electrocution Accident.",
 			"RR_KILLCONDITION_SHOCK_TILE": "Electrocution Accident",
@@ -1711,7 +1721,7 @@
     "RR_KILLCONDITION_SHIP_TERRY_OBJ": "Eliminate a Target while Disguised as Terry Norfolk",
     "RR_KILLCONDITION_SHIP_MECH_TILE": "Mechanic",
     "RR_KILLCONDITION_SHIP_MECH_DESC": "Eliminate a Target while Disguised as Mechanic.",
-    "RR_KILLCONDITION_SHIP_MECHANIC_OBJ": "Eliminate a Target while Disguised as Mechanic",
+    "RR_KILLCONDITION_SHIP_MECH_OBJ": "Eliminate a Target while Disguised as Mechanic",
     "RR_KILLCONDITION_SHIP_BG_TILE": "Bodyguard",
     "RR_KILLCONDITION_SHIP_BG_DESC": "Eliminate a Target while Disguised as Bodyguard.",
     "RR_KILLCONDITION_SHIP_BG_OBJ": "Eliminate a Target while Disguised as Bodyguard",
@@ -1767,6 +1777,13 @@
     ],
     "dependencies": [
         {
+            "runtimeID": "0043398AF1AE5CAC",
+            "portFromChunk1": true
+        },{
+            "runtimeID": "00C0ADC6A6B63B1C",
+            "portFromChunk1": true
+        },
+        {
             "runtimeID": "008D7BCBC350FBDF",
             "portFromChunk1": true,
             "toChunk": 0
@@ -1811,11 +1828,5 @@
 		"blobs"
 	],
     "options": [        
-        {
-        "type": "conditional",
-        "name": "Heritage UI Compat",
-        "condition": "\"BurnTheWitch.HeritageUI\" in config.loadOrder",
-        "blobsFolders": ["hui compat"]
-    }
 ]
 }

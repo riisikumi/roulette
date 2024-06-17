@@ -1,0 +1,14 @@
+{
+	"7b3144c2-cbe4-45ef-b58d-0343669c52a6": {
+		"ID_": "7b3144c2-cbe4-45ef-b58d-0343669c52a6",
+		"CommonName": "CHAR_Global_Hero_Daily_Roulette_Suit_M",
+		"Description": "UI_TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT_DESC",
+		"HeroDisguiseAvailable": true,
+		"Image": "images/unlockables_override/47_Outfits_daily_roulette_suit.jpg",
+		"IsHitmanSuit": true,
+		"Name": "UI_TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT_NAME",
+		"Category": "",
+		"ImageTransparent": "",
+		"TokenID": "TOKEN_OUTFIT_HERO_DAILY_ROULETTE_SUIT"
+	}
+}
