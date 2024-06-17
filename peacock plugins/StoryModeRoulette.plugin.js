@@ -417,7 +417,7 @@ module.exports = function ContractSearch(controller) {
                 }
             } else {
                 if (selectedMission == "LOCATION_EDGY_FOX"){
-                    berlinVerificationObjectiveCondition = {"$not":{killMethodObjectiveCondition}}
+                    berlinVerificationObjectiveCondition = {"$not":killMethodObjectiveCondition}
                 }
             }
 
