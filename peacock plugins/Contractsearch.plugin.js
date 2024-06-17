@@ -1,5 +1,5 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
-(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette]Contract Filters now active.")
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Contract Filters now active.")
 module.exports = function test(controller) {
     controller.configManager.configs.FilterData = [
                 {
@@ -23,7 +23,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_BLUE_BLAZER_TITLE",
-                            "Value":"UI_CONTRACT_BLUE_BLAZER_TITLE",
+                            "Value":"LOCATION_THEDIRECTOR",
                             "Key":"Location"
                         },
                         {
@@ -38,7 +38,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_MIMOSA_TITLE",
-                            "Value":"UI_CONTRACT_MIMOSA_TITLE",
+                            "Value":"LOCATION_THEENFORCER",
                             "Key":"Location"
                         },
                         {
@@ -63,7 +63,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_GINFIZZ_TITLE",
-                            "Value":"UI_CONTRACT_GINFIZZ_TITLE",
+                            "Value":"LOCATION_THEEXTRACTOR",
                             "Key":"Location"
                         },
                         {
@@ -78,7 +78,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_GIMLET_TITLE",
-                            "Value":"UI_CONTRACT_GIMLET_TITLE",
+                            "Value":"LOCATION_THEVETERAN",
                             "Key":"Location"
                         },
                         {
@@ -93,7 +93,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_BLACKRUSSIAN_TITLE",
-                            "Value":"UI_CONTRACT_BLACKRUSSIAN_TITLE",
+                            "Value":"LOCATION_THEMERCENARY",
                             "Key":"Location"
                         },
                         {
@@ -103,7 +103,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_CONTRACT_SEABREEZE_TITLE",
-                            "Value":"UI_CONTRACT_SEABREEZE_TITLE",
+                            "Value":"LOCATION_THECONTROLLER",
                             "Key":"Location"
                         },
                         {
