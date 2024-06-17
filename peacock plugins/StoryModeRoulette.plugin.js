@@ -217,6 +217,7 @@ module.exports = function ContractSearch(controller) {
 
         const selectedKillMethodList = []
         const selectedDisguiseList = []
+        const pacificationNumber = [1, 2, 3, 4]
 
         if (rouletteFilters.includes("rrBannedKills")){
             for (let a = 0; a <= info.RouletteTargetNumber; a++){
@@ -428,6 +429,27 @@ module.exports = function ContractSearch(controller) {
             }
             else {
                 berlinVerificationObjective.Definition.States.Start.Kill[1].Condition.$and.push(berlinVerificationObjectiveCondition)
+            }
+
+            let pacificationBanned
+
+            if ((["5b54d9fb-fa85-4302-a8d5-c5c5e97344c4", "963c2774-cb9a-4b0c-ab69-210b2405383b", "076f23cc-09d8-423f-b890-74020f53b1d6", "78f98c70-b7be-4578-9b6a-1c96a3e1ff1a", "c7c9e213-16f9-4215-bf07-dd8f801ce3e0", "967abcf9-2672-4e81-8fef-211aaa366747"].includes(info.RouletteTargetIds[e])) && ((selectedKillMethodList[e] == ("loud_pistol" || "loud_smg")) || (loud.includes(selectedKillMethodList[e])))){
+                pacificationBanned = true
+            }
+            else {
+                pacificationBanned = false
+            }
+
+            if (!(rouletteFilters.includes("rrBannedKills")) && (pacificationBanned == true)){
+                // do fucking nothing
+            }
+            else {
+                const selectedPacificationNumber = pacificationNumber[getRandomIntWithSeed( 0, pacificationNumber.length-1, seed++)]
+                if (selectedPacificationNumber == "4"){
+                    const pacificationObjectiveId = randomUUID()
+                    const pacificationObjective = {"Type":"statemachine","Id":pacificationObjectiveId,"ObjectiveType":"setpiece","Image":"images/contracts/gamechangers/gamechanger_global_nopacifications.jpg","BriefingName":"balls","BriefingText":"balls","LongBriefingText":"balls","Category":"primary","HUDTemplate":{"display":"balls","iconType":7},"Definition":{"display":{"iconType":7},"Scope":"session","States":{"Start":{"Pacify":{"Condition":{"$eq":["$Value.RepositoryId",info.RouletteTargetIds[e]]},"Transition":"Failure"},"Kill":{"Condition":{"$eq":["$Value.RepositoryId",info.RouletteTargetIds[e]]},"Transition":"Success"}}}}}
+                    baseContract.Data.Objectives.push(pacificationObjective)
+                }
             }
         }
 
