@@ -53542,24 +53542,8 @@ let MissionPool = ["ShadowsintheWater","Untouchable","Ship","FinalTest","TheFare
       for (const param of parameters) {
         const [key, value] = param.split(";");
         switch (true) {
-          case value.includes("/save "):
-            saving = true;
-            trimmedvalue = value.substring("/save ".length);
-            let [splitvalueseed, splitvaluemissionid] = trimmedvalue.split(" ");
-            seed = parseInt(splitvalueseed);
-            controller.transferseed = seed
-            locationid = splitvaluemissionid;
-            plaintextseedfordisplay = "Current Seed: " + seed.toString();
-            plaintextseed = seed.toString();
-            log(LogLevel.INFO, "[Roulette] Seed set to: " + plaintextseed);
-            seedimagepath =
-              "images/Contracts/RandomRoulette/locked_contract.png";
-            seedtitle = "RR_LOCKED_CONTRACT";
-            RandomizeContracts(contracts);
-            saving = false;
-            break;
             case key.trim() === "Text":
-              let containsAlphabetical = /[a-zA-Z\s\S]/.test(value.trim());
+              let containsAlphabetical = /^[a-zA-Z\s\W_]+$/.test(value.trim());
               if (containsAlphabetical) {
                 log(LogLevel.INFO, "Contains Alphabetical");
                 seed = crc32(value.trim())
@@ -53578,6 +53562,7 @@ let MissionPool = ["ShadowsintheWater","Untouchable","Ship","FinalTest","TheFare
                 log(LogLevel.ERROR, "Entered seed is not a valid number.");
                 return;
               }
+              copyToClipboard(value.trim())
             } else {
               log(LogLevel.INFO, "NO Alphabetical");
               seed = parseInt(value.trim());
@@ -53596,6 +53581,7 @@ let MissionPool = ["ShadowsintheWater","Untouchable","Ship","FinalTest","TheFare
                 log(LogLevel.ERROR, "Entered seed is not a valid number.");
                 return;
               }
+              copyToClipboard(seed)
             }
             break;
             default:
@@ -53619,8 +53605,8 @@ let MissionPool = ["ShadowsintheWater","Untouchable","Ship","FinalTest","TheFare
                 Counter = 1;
             }
             
-            break;
-        }
+            break;       
+          }
       }
     }
   );
