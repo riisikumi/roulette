@@ -219,59 +219,91 @@ module.exports = function ContractSearch(controller) {
         const selectedDisguiseList = []
         const pacificationNumber = [1, 2, 3, 4]
 
-        if (rouletteFilters.includes("rrBannedKills")){
+        let bannedConditions = true
+
+        function notMultipleLargeFirearms(array){
+            const largeFirearms = ["loud_smg", "assaultrifle", "loud_assaultrifle", "silenced_assaultrifle", "shotgun", "loud_shotgun", "silenced_shotgun", "sniperrifle", "loud_sniperrifle", "silenced_sniperrifle"]
+            let largeFirearmCount = 0
+
+            for (let i = 0; i < array.length; i++){
+                const testedForLargeFirearm = array[i]
+                if (largeFirearms.includes(testedForLargeFirearm)){
+                    largeFirearmCount++
+                    if (largeFirearmCount > 1){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+
+        function notMultiplePistols(array){
+            const pistols = ["pistol", "silenced_pistol", "loud_pistol", "pistol_elimination", "weapon_elimination"]
+            let pistolCount = 0
+
+            for (let o = 0; o < array.length; o++){
+                const testedForPistol = array[o]
+                if (pistols.includes(testedForPistol)){
+                    pistolCount++
+                    if (pistolCount > 1){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+
+        function notMultipleSmgs(array){
+            const smgs = ["smg", "silenced_smg", "loud_smg", "smg_elimination", "weapon_elimination"]
+            let smgCount = 0
+
+            for (let u = 0; u < array.length; u++){
+                const testedForSmg = array[u]
+                if (smgs.includes(testedForSmg)){
+                    smgCount++
+                    if (smgCount > 1){
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+
+        function noOtherDuplicates(array){
+            const uniqueKillMethods = new Set(array)
+            if (uniqueKillMethods.size != array.length){
+                uniqueKillMethods.clear()
+                return false
+            }
+            return true
+        }
+
+        while (bannedConditions){
+            selectedKillMethodList.length = 0
+            selectedDisguiseList.length = 0
+
             for (let a = 0; a <= info.RouletteTargetNumber; a++){
                 const selectedKillMethod = killMethodPool[getRandomIntWithSeed( 0, killMethodPool.length-1, seed++)]
                 const selectedDisguise = disguisePool[getRandomIntWithSeed( 0, disguisePool.length-1, seed++)]
                 selectedKillMethodList.push(selectedKillMethod)
                 selectedDisguiseList.push(selectedDisguise)
             }
-        } else {
-            let bannedConditions = true
-            while (bannedConditions){
-                selectedKillMethodList.length = 0
-                selectedDisguiseList.length = 0
 
-                for (let a = 0; a <= info.RouletteTargetNumber; a++){
-                    const selectedKillMethod = killMethodPool[getRandomIntWithSeed( 0, killMethodPool.length-1, seed++)]
-                    const selectedDisguise = disguisePool[getRandomIntWithSeed( 0, disguisePool.length-1, seed++)]
-                    selectedKillMethodList.push(selectedKillMethod)
-                    selectedDisguiseList.push(selectedDisguise)
-                }
+            let otherBannedConditions = false
 
-                function notMultipleLargeFirearms(array){
-                    const largeFirearms = ["loud_smg", "assaultrifle", "loud_assaultrifle", "silenced_assaultrifle", "shotgun", "loud_shotgun", "silenced_shotgun", "sniperrifle", "loud_sniperrifle", "silenced_sniperrifle"]
-                    let largeFirearmCount = 0
+            if (!rouletteFilters.includes("rrBannedKills") & (["LOCATION_PARIS", "LOCATION_COASTALTOWN", "LOCATION_BANGKOK", "LOCATION_HOKKAIDO", "LOCATION_MUMBAI", "LOCATION_NORTHAMERICA", "LOCATION_GREEDY_RACCOON", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_ANCESTRAL_BULLDOG", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[0] == "accident_burn")) || (["LOCATION_PARIS", "LOCATION_COASTALTOWN", "LOCATION_BANGKOK", "LOCATION_COLORADO", "LOCATION_MIAMI", "LOCATION_NORTHAMERICA", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "accident_burn")) || (["LOCATION_MUMBAI", "LOCATION_OPULENT_STINGRAY"].includes(selectedMission) && (selectedKillMethodList[2] == "accident_burn")) || (["LOCATION_COASTALTOWN", "LOCATION_COLORADO", "LOCATION_COLOMBIA", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA",].includes(selectedMission) && (selectedKillMethodList[0] == "consumed_poison")) || (["LOCATION_MUMBAI", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "consumed_poison")) || (["LOCATION_COLORADO", "LOCATION_MUMBAI"].includes(selectedMission) && (selectedKillMethodList[2] == "consumed_poison")) || (["LOCATION_COLORADO", "LOCATION_MUMBAI"].includes(selectedMission) && selectedKillMethodList.includes("accident_drown") || ((selectedMission == "LOCATION_MARRAKECH") && (selectedKillMethodList[1] == "accident_drown")) || ((selectedDisguiseList[1] == "c4146f27-81a9-42ef-b3c7-87a9d60b87fe") && (selectedKillMethodList[1] == "accident_drown")) || (["LOCATION_MARRAKECH", "LOCATION_NORTHAMERICA"].includes(selectedMission) && (selectedKillMethodList[0] == "accident_suspended_object")) || (["LOCATION_COLOMBIA", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "accident_suspended_object")) || ((selectedMission == "LOCATION_OPULENT_STINGRAY") && (selectedKillMethodList[2] == "accident_suspended_object")) || (["LOCATION_COLOMBIA", "LOCATION_NORTHSEA"].includes(selectedMission) && selectedKillMethodList.includes("b2321154-4520-4911-9d94-9256b85e0983")) || ((selectedMission == "LOCATION_NORTHAMERICA") && (["58dceb1c-d7db-41dc-9750-55e3ab87fdf0", "b153112f-9cd1-4a49-a9c6-ba1a34f443ab"].includes(selectedKillMethodList[0]) || (["58dceb1c-d7db-41dc-9750-55e3ab87fdf0", "b153112f-9cd1-4a49-a9c6-ba1a34f443ab"].includes(selectedKillMethodList[1]))) || ((selectedMission == "LOCATION_MARRAKECH") && (selectedKillMethodList[1] == "accident_electric")) || ((selectedMission == "LOCATION_COLORADO") && (selectedKillMethodList[2] == "accident_electric"))))){
+                    otherBannedConditions = true
+            }
 
-                    for (let i = 0; i < array.length; i++){
-                        const testedKillMethod = array[i]
-                        if (largeFirearms.includes(testedKillMethod)){
-                            largeFirearmCount++
-                            if (largeFirearmCount > 1){
-                                return false
-                            }
-                        }
-                    }
-                    return true
-                }
+            log(LogLevel.INFO, "Selected Kill Methods: ", selectedKillMethodList)
+            log(LogLevel.INFO, "notMultipleLargeFirearms: ", notMultipleLargeFirearms(selectedKillMethodList))
+            log(LogLevel.INFO, "notMultiplePistols: ", notMultiplePistols(selectedKillMethodList))
+            log(LogLevel.INFO, "notMultipleSmgs: ", notMultipleSmgs(selectedKillMethodList))
+            log(LogLevel.INFO, "noOtherDuplicates: ", noOtherDuplicates(selectedKillMethodList))
+            log(LogLevel.INFO, "[Story Mode Roulette] Other banned conditions: " + otherBannedConditions)
 
-                let otherBannedConditions
-
-                    if ((["LOCATION_PARIS", "LOCATION_COASTALTOWN", "LOCATION_BANGKOK", "LOCATION_HOKKAIDO", "LOCATION_MUMBAI", "LOCATION_NORTHAMERICA", "LOCATION_GREEDY_RACCOON", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_ANCESTRAL_BULLDOG", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[0] == "accident_burn")) || (["LOCATION_PARIS", "LOCATION_COASTALTOWN", "LOCATION_BANGKOK", "LOCATION_COLORADO", "LOCATION_MIAMI", "LOCATION_NORTHAMERICA", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "accident_burn")) || (["LOCATION_MUMBAI", "LOCATION_OPULENT_STINGRAY"].includes(selectedMission) && (selectedKillMethodList[2] == "accident_burn")) || (["LOCATION_COASTALTOWN", "LOCATION_COLORADO", "LOCATION_COLOMBIA", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA",].includes(selectedMission) && (selectedKillMethodList[0] == "consumed_poison")) || (["LOCATION_MUMBAI", "LOCATION_NORTHSEA", "LOCATION_OPULENT_STINGRAY", "LOCATION_GOLDEN_GECKO", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "consumed_poison")) || (["LOCATION_COLORADO", "LOCATION_MUMBAI"].includes(selectedMission) && (selectedKillMethodList[2] == "consumed_poison")) || (["LOCATION_COLORADO", "LOCATION_MUMBAI"].includes(selectedMission) && selectedKillMethodList.includes("accident_drown") || ((selectedMission == "LOCATION_MARRAKECH") && (selectedKillMethodList[1] == "accident_drown")) || ((selectedDisguiseList[1] == "c4146f27-81a9-42ef-b3c7-87a9d60b87fe") && (selectedKillMethodList[1] == "accident_drown")) || (["LOCATION_MARRAKECH", "LOCATION_NORTHAMERICA"].includes(selectedMission) && (selectedKillMethodList[0] == "accident_suspended_object")) || (["LOCATION_COLOMBIA", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"].includes(selectedMission) && (selectedKillMethodList[1] == "accident_suspended_object")) || ((selectedMission == "LOCATION_OPULENT_STINGRAY") && (selectedKillMethodList[2] == "accident_suspended_object")) || (["LOCATION_COLOMBIA", "LOCATION_NORTHSEA"].includes(selectedMission) && selectedKillMethodList.includes("b2321154-4520-4911-9d94-9256b85e0983")) || ((selectedMission == "LOCATION_NORTHAMERICA") && (["58dceb1c-d7db-41dc-9750-55e3ab87fdf0", "b153112f-9cd1-4a49-a9c6-ba1a34f443ab"].includes(selectedKillMethodList[0]) || (["58dceb1c-d7db-41dc-9750-55e3ab87fdf0", "b153112f-9cd1-4a49-a9c6-ba1a34f443ab"].includes(selectedKillMethodList[1]))) || ((selectedMission == "LOCATION_MARRAKECH") && (selectedKillMethodList[1] == "accident_electric")) || ((selectedMission == "LOCATION_COLORADO") && (selectedKillMethodList[2] == "accident_electric")))))
-                    {
-                        otherBannedConditions = true
-                    }
-                    else {
-                        otherBannedConditions = false
-                    }
-
-                    log(LogLevel.INFO, "[Story Mode Roulette] Other banned conditions: " + otherBannedConditions)
-
-
-                if (notMultipleLargeFirearms(selectedKillMethodList) && (otherBannedConditions == false)){
-                    bannedConditions = false
-                }
-
+            if (notMultipleLargeFirearms(selectedKillMethodList) && notMultiplePistols(selectedKillMethodList) && notMultipleSmgs(selectedKillMethodList) && noOtherDuplicates(selectedKillMethodList) && (otherBannedConditions == false)){
+                bannedConditions = false
             }
         }
 
