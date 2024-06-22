@@ -1,16 +1,11 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
-(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Contract Filters now active.")
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette]Contract Filters now active.")
 module.exports = function test(controller) {
     controller.configManager.configs.FilterData = [
                 {
                     "Title":"UI_SEARCH_PAGE_CATEGORY_MISSIONS_TITLE",
                     "Key":"Location",
                     "Values":[
-                        {
-                            "Title":"UI_LOCATION_ICA_FACILITY_SHIP_TITLE",
-                            "Value":"LOCATION_ICA_FACILITY_SHIP",
-                            "Key":"Location"
-                        },
                         {
                             "Title":"UI_LOCATION_ICA_FACILITY_TITLE",
                             "Value":"LOCATION_ICA_FACILITY",
@@ -22,11 +17,6 @@ module.exports = function test(controller) {
                             "Key":"Location"
                         },
                         {
-                            "Title":"UI_CONTRACT_BLUE_BLAZER_TITLE",
-                            "Value":"LOCATION_THEDIRECTOR",
-                            "Key":"Location"
-                        },
-                        {
                             "Title":"UI_LOCATION_PARIS_NOEL_TITLE",
                             "Value":"LOCATION_PARIS_NOEL",
                             "Key":"Location"
@@ -34,11 +24,6 @@ module.exports = function test(controller) {
                         {
                             "Title":"UI_LOCATION_COASTALTOWN_TITLE",
                             "Value":"LOCATION_COASTALTOWN",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_CONTRACT_MIMOSA_TITLE",
-                            "Value":"LOCATION_THEENFORCER",
                             "Key":"Location"
                         },
                         {
@@ -62,11 +47,6 @@ module.exports = function test(controller) {
                             "Key":"Location"
                         },
                         {
-                            "Title":"UI_CONTRACT_GINFIZZ_TITLE",
-                            "Value":"LOCATION_THEEXTRACTOR",
-                            "Key":"Location"
-                        },
-                        {
                             "Title":"UI_LOCATION_MARRAKECH_NIGHT_TITLE",
                             "Value":"LOCATION_MARRAKECH_NIGHT",
                             "Key":"Location"
@@ -74,11 +54,6 @@ module.exports = function test(controller) {
                         {
                             "Title":"UI_LOCATION_BANGKOK_TITLE",
                             "Value":"LOCATION_BANGKOK",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_CONTRACT_GIMLET_TITLE",
-                            "Value":"LOCATION_THEVETERAN",
                             "Key":"Location"
                         },
                         {
@@ -92,18 +67,8 @@ module.exports = function test(controller) {
                             "Key":"Location"
                         },
                         {
-                            "Title":"UI_CONTRACT_BLACKRUSSIAN_TITLE",
-                            "Value":"LOCATION_THEMERCENARY",
-                            "Key":"Location"
-                        },
-                        {
                             "Title":"UI_LOCATION_HOKKAIDO_TITLE",
                             "Value":"LOCATION_HOKKAIDO",
-                            "Key":"Location"
-                        },
-                        {
-                            "Title":"UI_CONTRACT_SEABREEZE_TITLE",
-                            "Value":"LOCATION_THECONTROLLER",
                             "Key":"Location"
                         },
                         {

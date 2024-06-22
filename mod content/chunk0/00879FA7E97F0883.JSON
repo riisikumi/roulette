@@ -1,0 +1,122 @@
+{
+	"$switch $.Content.Name": [
+		{
+			"case": "sniper",
+			"return": {
+				"id": "element",
+				"view": "menu3.basic.MenuTileLarge",
+				"pressable": true,
+				"selectable": true,
+				"data": {
+					"header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
+					"title": "$loc UI_SNIPER_CHALLENGE_TITLE",
+					"image": "$res images/livetile/tile_gamemode_sniper.jpg",
+					"icon": "arrowright"
+				},
+				"actions": {
+					"select": {
+						"replace-children": {
+							"target": "headline_container",
+							"children": [
+								{
+									"view": "menu3.basic.HeadlineElement",
+									"selectable": false,
+									"pressable": false,
+									"data": {
+										"title": "$loc UI_SNIPER_CHALLENGE_TITLE",
+										"header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
+										"icon": "arrowright"
+									}
+								}
+							]
+						}
+					},
+					"deselect": {
+						"replace-children": {
+							"target": "headline_container",
+							"children": []
+						}
+					},
+					"accept": {
+						"$include": {
+							"$path": "menusystem/pages/playnext/content/goto_menupage_sniper.json"
+						}
+					}
+				}
+			}
+		},
+		{
+			"case": "bulletdancer",
+			"return": {
+				"id": "element",
+				"view": "menu3.basic.MenuTileLarge",
+				"pressable": true,
+				"selectable": true,
+				"data": {
+					"header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
+					"title": "$loc UI_MENU_PAGE_HUB_ROULETTE",
+					"image": "$res images/Contracts/Roulette/roulettebranding.jpg",
+					"icon": "bulletdancer"
+				},
+				"actions": {
+					"select": {
+						"replace-children": {
+							"target": "headline_container",
+							"children": [
+								{
+									"view": "menu3.basic.HeadlineElement",
+									"selectable": false,
+									"pressable": false,
+									"data": {
+										"header": "$loc UI_MENU_PAGE_HUB_GAMEMODES",
+					"title": "$loc UI_MENU_PAGE_HUB_ROULETTE",
+										"icon": "bulletdancer"
+									}
+								}
+							]
+						}
+					},
+					"deselect": {
+						"replace-children": {
+							"target": "headline_container",
+							"children": []
+						}
+					},
+					"accept": {
+						"set-persistent-context": {
+							"target": "hub",
+							"actions": [
+								{
+									"call": {
+										"onmenuframe": true,
+										"method": "showBackground",
+										"args": false
+									}
+								},
+								{
+									"set-selected": {
+										"target": "category_gamemodes"
+									}
+								},
+								{
+									"set-selected": {
+										"target": "gamemodes_category_roulette"
+									}
+								},
+								{
+									"trigger-input": {
+										"action": "accept"
+									}
+								}
+							]
+						},
+						"exit-to-main-menu": {}
+					}
+				}
+			}
+		},
+		{
+			"default": null
+		}
+	]
+}

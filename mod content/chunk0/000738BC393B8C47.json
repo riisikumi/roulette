@@ -1,0 +1,299 @@
+{
+    "$datacontext": {
+        "in": "$.",
+        "datavalues": {
+            "MenuConfiguration": "$menuconfiguration",
+            "CurrentContractContext": "$currentcontractcontext",
+            "Contract": "{$currentcontractcontext}.Contract",
+            "OpportunityIds": "$intelids opportunity",
+            "IntelIds": "$intelids data",
+            "InventoryData": "$heroinventory",
+            "EvergreenCampaignInfo": "$evergreen.campaigninfo"
+        },
+        "do": {
+            "id": "logbook_main_container",
+            "controller": "container",
+            "actions": {
+                "activated": [
+                    {
+                        "call": {
+                            "onmenuframe": true,
+                            "method": "showMenuRedBackdrop",
+                            "args": true
+                        }
+                    },
+                    {
+                        "call": {
+                            "onmenuframe": true,
+                            "method": "showMenuTabsUnderlay",
+                            "args": true
+                        }
+                    }
+                ]
+            },
+            "children": [
+                {
+                    "$include": {
+                        "$path": "menusystem/elements/general/general_headline.json"
+                    }
+                },
+                {
+                    "id": "logbook_category_container",
+                    "controller": "category",
+                    "view": "menu3.containers.ScrollingTabsContainer",
+                    "direction": "horizontal",
+                    "data": {
+                        "direction": "horizontal",
+                        "buttonprompts": [
+                            {
+                                "actiontype": [
+                                    "lb",
+                                    "rb"
+                                ],
+                                "actionlabel": "$loc UI_BUTTON_PROMPTS_BROWSE_CATEGORIES"
+                            }
+                        ],
+                        "topnavigation": {
+                            "header": "$loc $formatstring UI_{$.Contract.Metadata.Location}_CITY",
+                            "title": {
+                                "$include": {
+                                    "$path": "menusystem/elements/contract/data/contract_title.json"
+                                }
+                            },
+                            "icon": {
+                                "$include": {
+                                    "$path": "menusystem/elements/contract/data/contract_icon.json"
+                                }
+                            }
+                        }
+                    },
+                    "ncols": 10,
+                    "children": [
+                        {
+                            "view": "menu3.basic.CategoryElement",
+                            "controller": "categoryitem",
+                            "id": "category_background",
+                            "data": {
+                                "title": "$loc UI_AID_OBJECTIVES",
+                                "icon": "objective"
+                            },
+                            "children": [
+                                {
+                                    "$if $.EvergreenCampaignInfo.bHardcore": {
+                                        "$then": {
+                                            "selectable": false,
+                                            "row": 4.8,
+                                            "nrows": 1,
+                                            "ncols": 10,
+                                            "view": "menu3.TextLineElement",
+                                            "data": {
+                                                "title": "$formatstring $loc UI_MENU_EVERGREEN_HARDCORE_MODE_ENABLED",
+                                                "maxtextwidth": 1000,
+                                                "fontsize": 36
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "controller": "list",
+                                    "id": "logbook_objectives_container",
+                                    "view": "menu3.containers.ScrollingListContainer",
+                                    "row": 1,
+                                    "nrows": 3,
+                                    "ncols": 10,
+                                    "direction": "horizontal",
+                                    "data": {
+                                        "direction": "horizontal"
+                                    },
+                                    "children": {
+                                        "$switch $.CurrentContractContext.ContractType": [
+                                            {
+                                                "case": "escalation",
+                                                "return": {
+                                                    "$each {$currentcontractobjectives}.Objectives": {
+                                                        "$include": {
+                                                            "$path": "menusystem/elements/objectives/objective.json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "case": "bulletdancer",
+                                                "return": {
+                                                    "$each {$currentcontractobjectives}.Objectives": {
+                                                        "$include": {
+                                                            "$path": "menusystem/elements/objectives/objective.json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "case": "evergreen",
+                                                "return": {
+                                                    "$each {$currentcontractobjectives}.Objectives": {
+                                                        "$include": {
+                                                            "$path": "menusystem/elements/objectives/objective.json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "default": {
+                                                    "$mergearrays": [
+                                                        {
+                                                            "$datacontext": {
+                                                                "in": "$.",
+                                                                "datavalues": {
+                                                                    "HideState": true,
+                                                                    "Contract": "$.Contract"
+                                                                },
+                                                                "do": {
+                                                                    "$include": {
+                                                                        "$path": "menusystem/elements/briefing/briefingtile.json"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "$each {$currentcontractobjectives}.Objectives": {
+                                                                "$include": {
+                                                                    "$path": "menusystem/elements/objectives/objective.json"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "$if": {
+                                "$condition": {
+                                    "$and": [
+                                        "$not $isnullorempty $.Contract",
+                                        "$.MenuConfiguration.IsNotebookMapEnabled"
+                                    ]
+                                },
+                                "$then": {
+                                    "$include": {
+                                        "$path": "menusystem/pages/logbook/content/maptab.json"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "$include": {
+                                "$path": "menusystem/elements/opportunities/opportunitiestab.json"
+                            }
+                        },
+                        {
+                            "$if $.MenuConfiguration.IsNotebookIntelEnabled": {
+                                "$then": {
+                                    "_comment": "This is a category, the children form the contents of the category",
+                                    "view": "menu3.basic.CategoryElement",
+                                    "controller": "categoryitem",
+                                    "id": "category_intel",
+                                    "pressable": false,
+                                    "data": {
+                                        "title": "$loc UI_MENU_PAGE_PAUSE_INTEL",
+                                        "icon": "intel"
+                                    },
+                                    "children": [
+                                        {
+                                            "row": 0.875,
+                                            "pressable": false,
+                                            "selectable": false,
+                                            "controller": "group",
+                                            "id": "intel_detail_group",
+                                            "children": [
+                                                {
+                                                    "controller": "group",
+                                                    "id": "intel_detail_group_node",
+                                                    "col": 3,
+                                                    "row": 2,
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "$switch $arraysize $.IntelIds": [
+                                                {
+                                                    "case": 0,
+                                                    "return": {
+                                                        "$datacontext": {
+                                                            "in": "$.",
+                                                            "datavalues": {
+                                                                "Header": "$loc UI_MENU_PAGE_LOGBOOK_NO_QUEST_ITEMS_DESC",
+                                                                "Title": "$loc UI_MENU_PAGE_LOGBOOK_NO_QUEST_ITEMS_TITLE"
+                                                            },
+                                                            "do": {
+                                                                "$include": {
+                                                                    "$path": "menusystem/elements/general/general_notavailable.json"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "default": {
+                                                        "$include": {
+                                                            "$path": "menusystem/pages/logbook/content/inteltab.json"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "$if": {
+                                "$condition": {
+                                    "$and": [
+                                        "$not $isnull $.InventoryData",
+                                        "$.MenuConfiguration.IsNotebookInventoryEnabled"
+                                    ]
+                                },
+                                "$then": {
+                                    "$include": {
+                                        "$path": "menusystem/pages/logbook/content/ingameinventorytab.json"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "$include": {
+                                "$path": "menusystem/pages/logbook/content/challengestab.json"
+                            }
+                        },
+                        {
+                            "$if $eq($.Contract.Metadata.Id,f8ec92c2-4fa2-471e-ae08-545480c746ee)": {
+                                "$then": {
+                                    "controller": "categoryitem",
+                                    "id": "mastery_tab",
+                                    "view": "menu3.basic.CategoryElement",
+                                    "pressable": false,
+                                    "data": {
+                                        "title": "$loc UI_MENU_PAGE_DESTINATION_TAB_MASTERY",
+                                        "icon": "unlocked"
+                                    },
+                                    "children": [
+                                        {
+                                            "$include": {
+                                                "$path": "menusystem/elements/mastery/masterylocationtabasync.json"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

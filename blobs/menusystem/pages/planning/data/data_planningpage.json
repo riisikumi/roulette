@@ -1,0 +1,160 @@
+{
+    "$databindingroot": {
+        "in": "$.data",
+        "datavalues": {
+            "ShowBriefingTile": {
+                "$switch $.Contract.Metadata.Type": [
+                    {
+                        "case": "escalation",
+                        "return": false
+                    },
+                    {
+                        "case": "bulletdancer",
+                        "return": false
+                    },
+                    {
+                        "default": true
+                    }
+                ]
+            },
+            "IsSniperPlanning": "$eq ($.Contract.Metadata.Type,sniper)",
+            "ShowContextButtons": {
+                "$switch $.Contract.Metadata.Type": [
+                    {
+                        "case": "elusive",
+                        "return": {
+                            "$and": [
+                                "$if $iscontractplayable $.Contract",
+                                "$eq ($.ElusiveContractState,not_completed)"
+                            ]
+                        }
+                    },
+                    {
+                        "default": true
+                    }
+                ]
+            },
+            "HasDifficulty": "$not $isnullorempty $.Contract.Data.GameDifficulties",
+            "Difficulties": {
+                "$if $not $isnullorempty $.Contract.Data.GameDifficulties": {
+                    "$then": {
+                        "$each $.Contract.Data.GameDifficulties": "$.Difficulty"
+                    }
+                }
+            },
+            "CurrentDifficulty": {
+                "$if $not $isnullorempty $.Contract.Data.GameDifficulties": {
+                    "$then": {
+                        "$datacontext": {
+                            "in": "$.",
+                            "datavalues": {
+                                "SortedGameDifficulties": {
+                                    "$arraysort": {
+                                        "source": "$.Contract.Data.GameDifficulties",
+                                        "property": "Difficulty",
+                                        "order": {
+                                            "$if $isvrdeviceactive": {
+                                                "$then": [
+                                                    "$persistentmenudata planning.difficulty-selection-vr",
+                                                    "easy"
+                                                ],
+                                                "$else": [
+                                                    "$persistentmenudata planning.difficulty-selection",
+                                                    "normal"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "do": "{$.SortedGameDifficulties[0]}.Difficulty"
+                        }
+                    }
+                }
+            },
+            "BriefingButtonView": {
+                "$if $not $isnull $.Contract.Data.MandatoryLoadout": {
+                    "$then": {
+                        "$switch $.Contract.Metadata.Type": [
+                            {
+                                "case": "tutorial",
+                                "return": "menu3.basic.ButtonTileLarge"
+                            },
+                            {
+                                "case": "sniper",
+                                "return": "menu3.basic.ButtonTileSmall"
+                            },
+                            {
+                                "case": "escalation",
+                                "return": {
+                                    "$if $isingame": {
+                                        "$then": "menu3.basic.ButtonTileSmall",
+                                        "$else": "menu3.basic.ButtonTileLarge"
+                                    }
+                                }
+                            },
+                            {
+                                "default": "menu3.basic.ButtonTileLarge"
+                            }
+                        ]
+                    },
+                    "$else": {
+                        "$switch $.Contract.Metadata.Type": [
+                            {
+                                "case": "tutorial",
+                                "return": "menu3.basic.ButtonTileLarge"
+                            },
+                            {
+                                "case": "sniper",
+                                "return": "menu3.basic.ButtonTileSmall"
+                            },
+                            {
+                                "case": "escalation",
+                                "return": {
+                                    "$if $isingame": {
+                                        "$then": "menu3.basic.ButtonTileXSmall",
+                                        "$else": "menu3.basic.ButtonTileSmall"
+                                    }
+                                }
+                            },
+                            {
+                                "default": "menu3.basic.ButtonTileSmall"
+                            }
+                        ]
+                    }
+                }
+            },
+            "IsLoadoutEnabled": {
+                "$and": [
+                    "$isnull $.Contract.Data.MandatoryLoadout",
+                    "$not $eq ($.Contract.Metadata.Type,tutorial)",
+                    "$not $eq ($.Contract.Metadata.Type,sniper)",
+                    {
+                        "$or": [
+                            "$not $eq ($.Contract.Metadata.Type,arcade)",
+                            "$not $.UserCentric.Data.EscalationCompleted"
+                        ]
+                    }
+                ]
+            },
+            "IsPlayEnabled": {
+                "$or": [
+                    "$not $eq ($.Contract.Metadata.Type,arcade)",
+                    "$not $.UserCentric.Data.EscalationCompleted"
+                ]
+            },
+            "IsResetEnabled": {
+                "$and": [
+                    "$eq ($.Contract.Metadata.Type,arcade)",
+                    "$.UserCentric.Data.EscalationCompleted"
+                ]
+            },
+            "IsExitToMenuEnabled": {
+                "$and": [
+                    "$eq ($.Contract.Metadata.Type,escalation)",
+                    "$isingame"
+                ]
+            }
+        }
+    }
+}

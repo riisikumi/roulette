@@ -1,0 +1,227 @@
+{
+	"$datacontext": {
+		"in": "$.",
+		"datavalues": {
+			"CurrentContractContext": "$currentcontractcontext"
+		},
+		"do": {
+			"id": "playnext_data_container",
+			"controller": "list",
+			"direction": "horizontal",
+			"view": "menu3.containers.ListContainer",
+			"data": {
+				"direction": "horizontal"
+			},
+			"children": {
+				"$if $eq($.CurrentContractContext.ContractType,bulletdancer)": {
+					"$then": {
+						"$datacontext": {
+							"in": "$.",
+							"datavalues": {
+								"data": {
+									"Categories": [
+										{
+											"CategoryType": "MenuPage",
+											"Items": [
+												{
+													"ContentType": "MenuPage",
+													"Content": {
+														"Name": "bulletdancer"
+													}
+												}
+											]
+										}
+									]
+								}
+							},
+							"do": {
+								"$each $.data.Categories": {
+									"$if $gt ($arraysize $.Items,0)": {
+										"$then": {
+											"$switch $.CategoryType": [
+												{
+													"case": "MenuPage",
+													"return": {
+														"id": "playnext_data_category_menupage",
+														"controller": "list",
+														"view": "menu3.containers.ListContainer",
+														"direction": "horizontal",
+														"pressable": false,
+														"selectable": true,
+														"data": {
+															"direction": "horizontal"
+														},
+														"children": {
+															"$each $.Items": {
+																"$if $eq ($.ContentType,MenuPage)": {
+																	"$then": {
+																		"$include": {
+																			"$path": "menusystem/pages/playnext/content/menupagetile.json"
+																		}
+																	},
+																	"$else": null
+																}
+															}
+														}
+													}
+												},
+												{
+													"default": null
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					},
+					"$else": {
+						"$each $.data.Categories": {
+							"$if $gt ($arraysize $.Items,0)": {
+								"$then": {
+									"$switch $.CategoryType": [
+										{
+											"case": "NextMission",
+											"return": {
+												"id": "playnext_data_categories",
+												"controller": "list",
+												"view": "menu3.containers.ListContainerWithHeader",
+												"direction": "horizontal",
+												"pressable": false,
+												"selectable": true,
+												"data": {
+													"direction": "horizontal",
+													"headlinetitle": "$loc $.CategoryName"
+												},
+												"children": {
+													"$each $.Items": {
+														"$if $eq ($.ContentType,Contract)": {
+															"$then": {
+																"$if $not $isnullorempty $.Content.CampaignInfo": {
+																	"$then": {
+																		"$include": {
+																			"$path": "menusystem/pages/playnext/content/campaigntile.json"
+																		}
+																	},
+																	"$else": {
+																		"$include": {
+																			"$path": "menusystem/pages/playnext/content/contracttile.json"
+																		}
+																	}
+																}
+															},
+															"$else": null
+														}
+													}
+												}
+											}
+										},
+										{
+											"case": "MainOpportunity",
+											"return": {
+												"id": "playnext_data_category_mainopportunity",
+												"controller": "list",
+												"view": "menu3.containers.ListContainerWithHeader",
+												"direction": "horizontal",
+												"pressable": false,
+												"selectable": true,
+												"data": {
+													"direction": "horizontal",
+													"headlinetitle": {
+														"$datacontext": {
+															"in": "$.",
+															"datavalues": {
+																"Contract": "{$currentcontractcontext}.Contract"
+															},
+															"do": {
+																"$datacontext": {
+																	"in": "$.",
+																	"datavalues": {
+																		"ContractTitle": {
+																			"$include": "menusystem/elements/contract/data/contract_title.json"
+																		}
+																	},
+																	"do": "$formatstring {$.ContractTitle}: {$loc UI_MAP_LEGEND_LABEL_OPPORTUNITIES}"
+																}
+															}
+														}
+													}
+												},
+												"children": {
+													"$each $.Items": {
+														"$if $eq ($.ContentType,Opportunity)": {
+															"$then": {
+																"$include": {
+																	"$path": "menusystem/pages/playnext/content/opportunitytile.json"
+																}
+															}
+														}
+													}
+												}
+											}
+										},
+										{
+											"case": "Matchmaking",
+											"return": {
+												"id": "playnext_data_category_matchmaking",
+												"controller": "list",
+												"view": "menu3.containers.ListContainer",
+												"direction": "horizontal",
+												"pressable": false,
+												"selectable": true,
+												"data": {
+													"direction": "horizontal"
+												},
+												"children": {
+													"$each $.Items": {
+														"$if $eq ($.ContentType,Matchmaking)": {
+															"$then": {
+																"$include": {
+																	"$path": "menusystem/pages/playnext/content/matchmakingtile.json"
+																}
+															},
+															"$else": null
+														}
+													}
+												}
+											}
+										},
+										{
+											"case": "MenuPage",
+											"return": {
+												"id": "playnext_data_category_menupage",
+												"controller": "list",
+												"view": "menu3.containers.ListContainer",
+												"direction": "horizontal",
+												"pressable": false,
+												"selectable": true,
+												"data": {
+													"direction": "horizontal"
+												},
+												"children": {
+													"$each $.Items": {
+														"$if $eq ($.ContentType,MenuPage)": {
+															"$then": {
+																"$include": {
+																	"$path": "menusystem/pages/playnext/content/menupagetile.json"
+																}
+															},
+															"$else": null
+														}
+													}
+												}
+											}
+										},
+										{
+											"default": null
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

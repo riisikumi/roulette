@@ -25,6 +25,29 @@
                 }
             },
             {
+                "case": "bulletdancer",
+                "return": {
+                    "$if": {
+                        "$condition": {
+                            "$and": [
+                            ]
+                        },
+                        "$then": {
+                            "$mergeobjects": [
+                                {
+                                    "prompt_label": "$loc UI_MENU_PAGE_REGEN_CONTRACTS"
+                                },
+                                {
+                                    "$include": {
+                                        "$path": "menusystem/pages/planning/actions/actions_resetescalation.json"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            {
                 "case": "evergreen",
                 "return": {
                     "$if $isdebug": {
