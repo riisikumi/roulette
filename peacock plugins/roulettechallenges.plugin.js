@@ -34,7 +34,7 @@ function initPlugin(controller) {
     {
       Id: "3042b6f5-5610-4439-9b1e-b56317918df9",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt1.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_DESC",
       Rewards: {
         MasteryXP: 0
@@ -99,7 +99,7 @@ function initPlugin(controller) {
     {
       Id: "e33c2de8-c9b5-4a7a-a8ff-86440ee1d84b",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt2.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2_DESC",
       Rewards: {
         MasteryXP: 0
@@ -164,7 +164,7 @@ function initPlugin(controller) {
     {
       Id: "d8989138-e05d-449b-8dfe-b51f746ab96c",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt3.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3_DESC",
       Rewards: {
         MasteryXP: 0
@@ -227,9 +227,9 @@ function initPlugin(controller) {
       }
     },
     {
-      Id: "16f5bbc9-94f2-427c-a807-6a8a8cdaa66f",
+      Id: "16f5bbb9-94f2-427c-a807-6a8a8cdaa66f",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_5_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt4.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_5_DESC",
       Rewards: {
         MasteryXP: 0
@@ -294,7 +294,7 @@ function initPlugin(controller) {
     {
       Id: "16f5bbc9-94f2-427c-a807-6a8a8cdaa66f",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_10_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt5.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_10_DESC",
       Rewards: {
         MasteryXP: 0
@@ -359,7 +359,7 @@ function initPlugin(controller) {
     {
       Id: "b91e9605-c7fc-4686-ade9-183f5bf2efba",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_15_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt6.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_15_DESC",
       Rewards: {
         MasteryXP: 0
@@ -424,7 +424,7 @@ function initPlugin(controller) {
     {
       Id: "f2f09ec3-5d03-4249-a233-b7693e10711e",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_20_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rt7.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_20_DESC",
       Rewards: {
         MasteryXP: 0
@@ -489,7 +489,7 @@ function initPlugin(controller) {
     {
       Id: "9463b80b-3b80-4d9a-b261-728c908fbb80",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1D_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rdt1.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1D_DESC",
       Rewards: {
         MasteryXP: 0
@@ -552,7 +552,7 @@ function initPlugin(controller) {
     {
       Id: "75651627-73b3-418f-ad87-8ae51dd04bd4",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2D_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rdt2.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2D_DESC",
       Rewards: {
         MasteryXP: 0
@@ -615,7 +615,7 @@ function initPlugin(controller) {
     {
       Id: "150cb41c-2a09-4140-8cb4-a10971ef6a6d",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3D_TITLE",
-      ImageName: "images/contracts/RandomRoulette/RR_DEBUG.png",
+      ImageName: "images/contracts/Roulette/rdt3.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3D_DESC",
       Rewards: {
         MasteryXP: 0
