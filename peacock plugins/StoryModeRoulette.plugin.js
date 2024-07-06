@@ -503,7 +503,7 @@ module.exports = function ContractSearch(controller) {
             if (!(rouletteFilters.includes("rrBannedKills")) && (pacificationBanned == true)){
                 // do fucking nothing
             }
-            else {
+            else if (!specificAccidents.includes(selectedKillMethodList[e])) {
                 const selectedPacificationNumber = pacificationNumber[getRandomIntWithSeed( 0, pacificationNumber.length-1, seed++)]
                 if (selectedPacificationNumber == "4"){
                     const pacificationObjectiveId = randomUUID()
