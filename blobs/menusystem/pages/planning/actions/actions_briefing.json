@@ -39,7 +39,7 @@
                                 },
                                 {
                                     "$include": {
-                                        "$path": "menusystem/pages/planning/actions/actions_resetescalation.json"
+                                        "$path": "menusystem/pages/planning/actions/actions_resetbulletdancer.json"
                                     }
                                 }
                             ]

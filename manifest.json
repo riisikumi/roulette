@@ -14,6 +14,12 @@
 	},
 	"localisation": {
 		"english": {
+            "UI_ITEM_SUBTYPE_S8": "Modded",
+			"UI_ITEM_SUBTYPE_IN_PLURAL_S8": "Modded",
+            "UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION": "This will regenerate Random Roulette Contracts with a random seed. This will not regenerate Trilogy Roulette Contracts. USING THIS IN A TRILOGY ROULETTE CONTRACT WILL CAUSE A ERROR.",
+            "UI_DIALOG_RESET_BULLETDANCER_TITLE": "Regenerate Random Roulette Contracts?",
+            "ui_firearms_hero_pistol_golden_gun": "Custom 5mm-WP Gold",
+            "ui_firearms_hero_pistol_ultralight_golden": "A golden variant of the Custom 5mm. Designed to pass through frisks, this weapon utilizes wall piercing caseless ammunition.",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_TITLE": "Roulette - Tier 1",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_DESC": "Complete 1 Roulette Contract.",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2_TITLE": "Roulette - Tier 2",

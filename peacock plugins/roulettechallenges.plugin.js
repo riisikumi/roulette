@@ -364,7 +364,7 @@ function initPlugin(controller) {
       Rewards: {
         MasteryXP: 0
       },
-      Drops: ["GOLDEN_GUN"],
+      Drops: ["FIREARMS_PISTOL_GOLDEN_GUN"],
       IsPlayable: false,
       IsLocked: false,
       HideProgression: false,

@@ -118,7 +118,7 @@ function generaterandomUUID(finalDate) {
       (r += (12 === t ? 4 : 16 === t ? (3 & e) | 8 : e).toString(16));
   return r;
 }
-let MissionPool = ["ShadowsintheWater","Untouchable","Ship","FinalTest","TheFarewell","EndofanEra","ApexPredator","DartmoorGardenShow","DeathintheFamily","TopoftheWorld","LastResort","GoldenHandshake","ArkSociety","BitterPill","AnotherLife","Illusions","EmbraceofTheSerpent","ThreeHeadedSerpent","SilverTongue","Finishline","Nightcall","Vector","Noel","Festival","PZ","SitusInversus","FreedomFighters","Source","Club27","Sand","Gilded","Author","Landslide","Icon","WoT","Showstopper"]
+let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","EndofanEra","ApexPredator","DartmoorGardenShow","DeathintheFamily","TopoftheWorld","LastResort","GoldenHandshake","ArkSociety","BitterPill","AnotherLife","Illusions","EmbraceofTheSerpent","ThreeHeadedSerpent","SilverTongue","Finishline","Nightcall","Vector","Noel","Festival","PZ","SitusInversus","FreedomFighters","Source","Club27","Sand","Gilded","Author","Landslide","Icon","WoT","Showstopper"]
   //Define Custom Gamechangers for Random Roulette
   const NewGamechangers = {
     "3c48b60a-579a-4d3c-bb28-0233a4a1876a": {
@@ -56043,13 +56043,13 @@ if (uindex3 !== -1) {
   seed = finalDate;
   let dailyrandomIndex = getRandomIntWithSeed(
   0,
-  MissionPool.length,
+  MissionPool.length - 1,
   seed
   );
   CurrentDailyMission = MissionPool[dailyrandomIndex];
   locationid = CurrentDailyMission
   RandomizeContracts(contracts);
-  log(LogLevel.INFO, "[Roulette] RR Daily Contract Challenge for " + month + "/" + day + "/" +year+".")
+  log(LogLevel.INFO, "[Roulette] RR Daily Contract Challenge for " + month + "/" + day + "/" +year+". Seed is: " + finalDate +"Current DAILY IS:" + CurrentDailyMission)
   daily = false
   seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
   controller.transferseed = seed

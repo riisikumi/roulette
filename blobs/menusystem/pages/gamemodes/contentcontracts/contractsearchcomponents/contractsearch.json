@@ -293,8 +293,8 @@
                                                                     "$include": "hub/contractsearchcomponents/filterelementlistwidth.json"
                                                                 },
                                                                 "nrows": 0.32,
-                                                                "selectable": false,
-                                                                "pressable": false,
+                                                                "selectable": true,
+                                                                "pressable": true,
                                                                 "data": {
                                                                     "title": "$loc $.Title",
                                                                     "icon": {
@@ -430,8 +430,8 @@
             "id": "locations_resourceavailability_check_container",
             "children": {
                 "$each $.LocationsData.Data.Locations": {
-                    "selectable": false,
-                    "pressable": false,
+                    "selectable": true,
+                    "pressable": true,
                     "stateproviders": [
                         {
                             "type": "contractavailability",
@@ -441,51 +441,38 @@
                         }
                     ],
                     "actions": {
-
-                        "activated": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
                         "on-content-available": {
                             "sm:enable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }
                         },
-                        "on-content-not-available": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
                         "on-content-not-owned": {
-                            "sm:enable-owned-location": {
+                            "sm:disable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }
                         },
                         "on-content-not-installed": {
-                            "sm:enable-owned-location": {
+                            "sm:disable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }
                         },
                         "on-content-downloading": {
-                            "sm:enable-owned-location": {
+                            "sm:disable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }
                         },
                         "on-content-update-required": {
-                            "sm:enable-owned-location": {
+                            "sm:disable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }
                         },
                         "on-content-installing": {
-                            "sm:enable-owned-location": {
+                            "sm:disable-owned-location": {
                                 "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
                                 "location-id": "$.SubLocation.Id"
                             }

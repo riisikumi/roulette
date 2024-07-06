@@ -3,7 +3,7 @@
 		"Id": "TOKEN_OUTFIT_HERO_MONTE_CARLO",
 		"Guid": "4031f376-6f36-4508-9cc9-ed0154040269",
 		"Type": "disguise",
-		"Subtype": "themed",
+		"Subtype": "S8",
 		"ImageId": "",
 		"RMTPrice": -1,
 		"GamePrice": -1,
@@ -18,7 +18,7 @@
 			"LoadoutSlot": "disguise",
 			"IsConsumable": false,
 			"RepositoryId": "0c90c861-48b2-4058-9785-9e577006f3b4",
-			"OrderIndex": 21
+			"OrderIndex": 1
 		},
 		"Rarity": "common"
 	}

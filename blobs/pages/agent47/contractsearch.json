@@ -81,21 +81,12 @@
                         },
                         "actions":{
                             "select":{
-                                "set-background":"$res images/Contracts/Roulette/roulettebranding.jpg"
+                                "set-background":"$res images/backgrounds/menu_bg.jpg"
                             }
                         },
                         "children":{
-                            "controller": "list",
-                            "view": "menu3.containers.ListContainer",
-                            "id": "location_group",
-                            "direction": "horizontal",
-                            "row": 1.0,
-                            "data": {
-                                "direction": "horizontal"
-                            },
-                            "children": [
-                                {
-                                    "controller": "category",
+                                    "controller": "list",
+                                    "row": 1,
                                     "id": "sub_category_container",
                                     "view": "menu3.containers.ScrollingListContainer",
                                     "ncols": 10,
@@ -157,7 +148,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_POLARBEAR_MODULE_002_B_TITLE",
@@ -206,7 +197,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 2,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_POLARBEAR_GRADUATION_TITLE",
@@ -255,7 +248,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_PEACOCK_TITLE",
@@ -304,7 +297,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 4,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_PARISNOEL_TITLE",
@@ -353,7 +348,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_OCTOPUS_TITLE",
@@ -402,7 +397,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 6,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_COPPERHEAD_TITLE",
@@ -451,7 +448,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_MAMBA_TITLE",
@@ -500,7 +497,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 8,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_EBOLA_TITLE",
@@ -549,7 +548,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_SPIDER_TITLE",
@@ -598,7 +597,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 10,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_PYTHON_TITLE",
@@ -647,7 +648,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_TIGER_TITLE",
@@ -696,7 +697,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 12,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_ZIKA_TITLE",
@@ -745,7 +748,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_BULL_TITLE",
@@ -794,7 +797,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 14,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_RABIES_TITLE",
@@ -843,7 +848,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_SNOW_CRANE_TITLE",
@@ -892,7 +897,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 16,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_FLU_TITLE",
@@ -941,7 +948,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_MAMUSHI_TITLE",
@@ -990,7 +997,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 18,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_SHEEP_TITLE",
@@ -1039,7 +1048,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_FLAMINGO_TITLE",
@@ -1088,7 +1097,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 20,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_COTTONMOUTH_TITLE",
@@ -1137,7 +1148,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_HIPPO_TITLE",
@@ -1186,7 +1197,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 22,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_ANACONDA_TITLE",
@@ -1235,7 +1248,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_MONGOOSE_TITLE",
@@ -1284,7 +1297,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 24,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_KINGCOBRA_TITLE",
@@ -1333,7 +1348,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_SKUNK_TITLE",
@@ -1382,7 +1397,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 26,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_GARTERSNAKE_TITLE",
@@ -1431,7 +1448,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_MAGPIE_TITLE",
@@ -1480,7 +1497,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 28,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_RACCOON_TITLE",
@@ -1529,7 +1548,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_STINGRAY_TITLE",
@@ -1578,7 +1597,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 30,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_GECKO_TITLE",
@@ -1627,7 +1648,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_BULLDOG_TITLE",
@@ -1676,7 +1697,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 32,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_SMOOTHSNAKE_GROUP_TITLE",
@@ -1725,7 +1748,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_FOX_MAIN_TITLE",
@@ -1774,7 +1797,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 34,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_RAT_TITLE",
@@ -1823,7 +1848,7 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_LLAMA_TITLE",
@@ -1872,56 +1897,9 @@
                                             }
                                         },
                                         {
-                                            "view": "menu3.basic.MenuTileTall",
-                                            "data": {
-                                                "header": "$loc RR_OG",
-                                                "title": "$loc UI_CONTRACT_WOLVERINE_TITLE",
-                                                "icon": "bulletdancer",
-                                                "image": "$res images/contracts/wolverine/wolverine_tile.jpg"
-                                            },
-                                            "actions": {
-                                                "accept": [
-                                                    {
-                                                        "link": {
-                                                            "page": "planning",
-                                                            "args": {
-                                                                "url": "planning",
-                                                                "args": {
-                                                                    "contractid": "3babe927-7c61-4e50-bff8-8e2cb41c17e1",
-                                                                    "resetescalation": true
-                                                                },
-                                                                "contractid": "3babe927-7c61-4e50-bff8-8e2cb41c17e1"
-                                                            }
-                                                        }
-                                                    }
-                                                ],
-                                                "select": {
-                                                    "replace-children": {
-                                                        "target": "headline_container",
-                                                        "children": [
-                                                            {
-                                                                "view": "menu3.basic.HeadlineElement",
-                                                                "selectable": false,
-                                                                "pressable": false,
-                                                                "data": {
-                                                                    "header": "$loc RR_OG",
-                                                                    "title": "$loc UI_CONTRACT_DUGONG_TITLE",
-                                                                    "typeicon": "bulletdancer"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                },
-                                                "deselect": {
-                                                    "replace-children": {
-                                                        "target": "headline_container",
-                                                        "children": []
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "view": "menu3.basic.MenuTileTall",
+                                            "view": "menu3.basic.MenuTileSmall",
+                                            "col": 36,
+                                            "row": 1.5,
                                             "data": {
                                                 "header": "$loc RR_OG",
                                                 "title": "$loc UI_CONTRACT_DUGONG_TITLE",
@@ -1971,10 +1949,7 @@
                                         }
                                     ]
                                 }
-                            ]
                         }
-                        
-                    }
                 ]
             }
         ]
