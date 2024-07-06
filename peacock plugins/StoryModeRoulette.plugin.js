@@ -374,8 +374,11 @@ module.exports = function ContractSearch(controller) {
             if (info.RouletteMeleeWeapons.includes(selectedKillMethodList[e], 0)){
                 killMethodObjectiveCondition = { "$eq": ["$Value.KillItemRepositoryId", selectedKillMethodList[e]]}
             }
-            else if ((selectedKillMethodList[e] == "fiberwire") || (selectedKillMethodList[e] == "unarmed") || specificAccidents.includes(selectedKillMethodList[e], 0) || basic.includes(selectedKillMethodList[e], 0)){
+            else if ((selectedKillMethodList[e] == "fiberwire") || (selectedKillMethodList[e] == "unarmed") || basic.includes(selectedKillMethodList[e], 0)){
                 killMethodObjectiveCondition = {"$eq":["$Value.KillMethodBroad",selectedKillMethodList[e]]}
+            }
+            else if (specificAccidents.includes(selectedKillMethodList[e], 0)){
+                killMethodObjectiveCondition = {"$eq":["$Value.KillMethodStrict",selectedKillMethodList[e]]}
             }
             else if (selectedKillMethodList[e] == "pistol"){
                 killMethodObjectiveCondition = {"$or":[{"$eq":["$Value.KillMethodBroad","pistol"]},{"$eq":["$Value.KillMethodBroad","close_combat_pistol_elimination"]}]}
