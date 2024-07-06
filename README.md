@@ -1,4 +1,4 @@
-# Roulette
+# Peacock Roulette
 
 Adds HITMAPS Roulette support to peacock aswell as adding custom randomized contracts. TODO: Think of a better description. Yikes.
 
