@@ -220,6 +220,13 @@ module.exports = function ContractSearch(controller) {
             killMethodPool.push("smg_elimination")
         }
 
+        if ((selectedMission == "LOCATION_COLORADO" || "LOCATION_EDGY_FOX") && (rouletteFilters.includes("specificFirearms") && (!rouletteFilters.includes("specificMelee" || "specificAccidents")))){
+            killMethodPool.push.apply(killMethodPool, specificAccidents)
+            killMethodPool.push.apply(killMethodPool, info.RouletteMeleeWeapons)
+            killMethodPool.push("fiberwire")
+            killMethodPool.push("unarmed")
+        }
+
         const disguisePool = info.RouletteDisguises
 
         // The following section randomizes kill methods and disguises
