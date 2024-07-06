@@ -384,8 +384,11 @@ module.exports = function ContractSearch(controller) {
             else if ((selectedKillMethodList[e] == "fiberwire") || (selectedKillMethodList[e] == "unarmed") || basic.includes(selectedKillMethodList[e], 0)){
                 killMethodObjectiveCondition = {"$eq":["$Value.KillMethodBroad",selectedKillMethodList[e]]}
             }
-            else if (specificAccidents.includes(selectedKillMethodList[e], 0) && (selectedKillMethodList[e] != ("impact_explosive" || "remote_explosive" || "loud_explosive"))){
+            else if ((specificAccidents.includes(selectedKillMethodList[e], 0) && (!["impact_explosive", "remote_explosive", "loud_explosive", "accident_burn"].includes(selectedKillMethodList[e]))) || ((selectedKillMethodList[e] == "accident_burn") && (!["LOCATION_COASTALTOWN", "LOCATION_COASTALTOWN_MOVIESET", "LOCATION_COASTALTOWN_NIGHT", "LOCATION_COASTALTOWN_EBOLA", "LOCATION_THEENFORCER", "LOCATION_HOKKAIDO", "LOCATION_THECONTROLLER", "LOCATION_HOKKAIDO_MAMUSHI", "LOCATION_HOKKAIDO_FLU", "LOCATION_NORTHAMERICA", "LOCATION_EDGY_FOX"].includes(selectedMission)))){
                 killMethodObjectiveCondition = {"$eq":["$Value.KillMethodStrict",selectedKillMethodList[e]]}
+            }
+            else if ((selectedKillMethodList[e] == "accident_burn") && (["LOCATION_COASTALTOWN", "LOCATION_COASTALTOWN_MOVIESET", "LOCATION_COASTALTOWN_NIGHT", "LOCATION_COASTALTOWN_EBOLA", "LOCATION_THEENFORCER", "LOCATION_HOKKAIDO", "LOCATION_THECONTROLLER", "LOCATION_HOKKAIDO_MAMUSHI", "LOCATION_HOKKAIDO_FLU", "LOCATION_NORTHAMERICA", "LOCATION_EDGY_FOX"].includes(selectedMission))){
+                killMethodObjectiveCondition = {"$or":[{"$eq":["$Value.KillMethodStrict","accident_burn"]},{"$and":[{"$eq":["$Value.KillClass","unknown"]},{"$inarray":{"in":"$Value.DamageEvents","?":{"$eq":["$.#","InCloset"]}}}]}]}
             }
             else if (selectedKillMethodList[e] == "pistol"){
                 killMethodObjectiveCondition = {"$or":[{"$eq":["$Value.KillMethodBroad","pistol"]},{"$eq":["$Value.KillMethodBroad","close_combat_pistol_elimination"]}]}
