@@ -14,6 +14,10 @@
 	},
 	"localisation": {
 		"english": {
+            "ui_melee_lethal_cards": "Playing Cards",
+            "ui_melee_lethal_cards_desc": "These bladed playing cards have a sharp edge. Lethal Throwable.",
+            "ui_explosive_chip": "Poker Chip",
+            "ui_explosive_chip_desc": "A poker chip with a hidden compartment of explosive compound. Manually triggered, sticky and strong enough to breach doors.",
             "UI_ITEM_SUBTYPE_S8": "Modded",
 			"UI_ITEM_SUBTYPE_IN_PLURAL_S8": "Modded",
             "UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION": "This will regenerate Random Roulette Contracts with a random seed. This will not regenerate Trilogy Roulette Contracts. USING THIS IN A TRILOGY ROULETTE CONTRACT WILL CAUSE A ERROR.",
@@ -102,7 +106,7 @@
             "UI_GAMECHANGERS_GLOBAL_BENDER": "Sloshed",
             "UI_GAMECHANGERS_GLOBAL_BENDER_DESC": "47 wakes up after drinking too much alcohol.",
             "UI_GAMECHANGERS_GLOBAL_BENDER_ELIMINATION_TITLE": "Eel Lemon Ate Hall Carpets",
-            "UI_GAMECHANGERS_GLOBAL_BENDER_PACIFY_TITLE": "Nockouut Twinn teeh EnPeeCEes",
+            "UI_GAMECHANGERS_GLOBAL_BENDER_PACIFY_TITLE": "Nockouut Fife EnPeeCEes",
             "UI_GAMECHANGERS_GLOBAL_VANISHER": "The Vanisher",
             "UI_GAMECHANGERS_GLOBAL_VANISHER_DESCRIPTION": "Hide all bodies within 90 seconds.",
             "UI_GAMECHANGERS_GLOBAL_OSPRB": "UNSC Freelancer Agent",
@@ -157,7 +161,7 @@
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_DESC": "47 starts visibly armed.     20 Non-targets must be Eliminated, NPCs must stay Alerted and all Targets must be Eliminated. Suit Only.",
             "UI_GAMECHANGERS_GLOBAL_IMMUTABLE_TERRORIST_TITLE": "Suit Only",
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_ELIMINATION_TITLE": "Exterminate all Targets",
-            "UI_GAMECHANGERS_GLOBAL_TERRORIST_SLAUGHTER_TITLE": "Slaughter 20 Innocents",
+            "UI_GAMECHANGERS_GLOBAL_TERRORIST_SLAUGHTER_TITLE": "Slaughter 10 Innocents",
             "UI_GAMECHANGERS_GLOBAL_TERRORIST_HEAT_TITLE": "Make them Fear you",
             "UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TEXT": "The Set Seed field can be used to set the seed for both Roulette modes.",
             "UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP": "Show Roulette Help",
