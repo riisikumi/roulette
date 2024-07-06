@@ -610,6 +610,13 @@ module.exports = function ContractSearch(controller) {
 
         baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, additionalObjectives(selectedMission))
 
+        if (selectedMission == "LOCATION_ICA_FACILITY_SHIP") {
+            baseContract.Data.MandatoryLoadout = [{"Id":"FIREARMS_HERO_PISTOL_TACTICAL_ICA_19","Properties":{"LoadoutSlot":"concealedweapon","RepositoryId":"73875794-5a86-410e-84a4-1b5b2f7e5a54"}},{"Id":"Melee_FiberWire_Descriptor","Properties":{"LoadoutSlot":"gear","RepositoryId":"1a11a060-358c-4054-98ec-d3491af1d7c6"}}]
+        }
+        else if (selectedMission == "LOCATION_ICA_FACILITY"){
+            baseContract.Data.MandatoryLoadout = [{"Id":"FIREARMS_HERO_PISTOL_TACTICAL_ICA_19","Properties":{"LoadoutSlot":"concealedweapon","RepositoryId":"73875794-5a86-410e-84a4-1b5b2f7e5a54"}},{"Id":"Melee_FiberWire_Descriptor","Properties":{"LoadoutSlot":"gear","RepositoryId":"1a11a060-358c-4054-98ec-d3491af1d7c6"}},{"Id":"Tool_Coin","Properties":{"LoadoutSlot":"gear","RepositoryId":"dda002e9-02b1-4208-82a5-cf059f3c79cf"}},{"Id":"Tool_Coin","Properties":{"LoadoutSlot":"gear","RepositoryId":"dda002e9-02b1-4208-82a5-cf059f3c79cf"}},{"Id":"Tool_Coin","Properties":{"LoadoutSlot":"gear","RepositoryId":"dda002e9-02b1-4208-82a5-cf059f3c79cf"}},{"Id":"Tool_Coin","Properties":{"LoadoutSlot":"gear","RepositoryId":"dda002e9-02b1-4208-82a5-cf059f3c79cf"}},{"Id":"Tool_Coin","Properties":{"LoadoutSlot":"gear","RepositoryId":"dda002e9-02b1-4208-82a5-cf059f3c79cf"}}]
+        }
+
         controller.addMission(baseContract)
 
         ids.push(contractId)
