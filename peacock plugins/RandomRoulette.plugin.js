@@ -5212,7 +5212,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           Type: "statemachine",
           Definition: {
             Scope: "Hit",
-            Context: { NonTargetsKilled: 0, NonTargetsCount: 20, Targets: [] },
+            Context: { NonTargetsKilled: 0, NonTargetsCount: 5, Targets: [] },
             States: {
               Start: {
                 Pacify: {
@@ -11426,7 +11426,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           Type: "statemachine",
           Definition: {
             Scope: "Hit",
-            Context: { NonTargetsKilled: 0, NonTargetsCount: 20, Targets: [] },
+            Context: { NonTargetsKilled: 0, NonTargetsCount: 10, Targets: [] },
             States: {
               Start: {
                 Kill: {
@@ -40612,8 +40612,33 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           },
         ],
         Bricks: [],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+              ]
+          }
+      ],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_graduation.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -40719,6 +40744,32 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: ["assembly:/_PRO/Scenes/Missions/TheFacility/createcontract_module_002_b.brick"],
         GameChangers: ["1"],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_base.brick",
+                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_ps4perf.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+              ]
+          }
+      ],
         Stashpoints: [],
         EnableSaving: !0,
       },
@@ -40825,11 +40876,49 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: [],
         GameChangers: ["1"],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
+                ]
+            }
+        ],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+                    "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+                    "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+                    "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick"
+                ]
+            }
+        ],
         Stashpoints: [],
         EnableSaving: !0,
       },
       Metadata: {
         Id: "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         IsPublished: !0,
         CreationTimestamp: "2015-07-02T13:18:30.1639035Z",
         CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
@@ -40934,6 +41023,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick",
+                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/coastaltown/difficulty_easy_sapienza_octopus.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/coastaltown/octopus_pro1.brick"
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4",
@@ -40943,6 +41067,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         InGroup: "f2712065-0e9d-41b8-b54b-13c7c44e4c62",
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         TileImage: "images/contracts/surveillance_portofino/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         ScenePath:
@@ -41043,6 +41168,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "Entrances": ["da717656-934e-4783-8c36-65bf486cfdfa"],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "d37426cd-7907-4c5e-99ed-bbe95205a7d1",
@@ -41054,6 +41213,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/copperhead/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         Location: "LOCATION_COASTALTOWN_MOVIESET",
         ScenePath:
           "assembly:/_pro/scenes/missions/coastaltown/_scene_copperhead.entity",
@@ -41150,7 +41310,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         "Entrances": ["594366fe-ccfd-4da5-8374-9501c3616e99"],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+              ]
+          }
+      ],
         Stashpoints: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
+              ]
+          }
+      ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -41161,6 +41355,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         InGroup: "fe8b7cc0-f625-4457-8a90-3de4329dd45c",
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         TileImage: "images/contracts/mamba/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_COASTALTOWN_NIGHT",
@@ -41260,6 +41455,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                ]
+            }
+        ],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick",
+                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick"
+              ]
+          }
+      ],
         "Entrances": ["a28dd5e3-1f1d-408d-9387-945641c32218"]
       },
       Metadata: {
@@ -41277,6 +41505,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Location: "LOCATION_COASTALTOWN_EBOLA",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         Release: "1.0.x",
         RequiredUnlockable: "",
         Drops: ["1"],
@@ -41369,6 +41598,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick",
+                    "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/marrakesh/difficulty_easy_marrakesh_spider.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_PRO/Scenes/Missions/marrakesh/difficulty_pro1_marrakesh_spider.brick"
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "68b5b045-6e05-4461-9155-3be4b63064c2",
@@ -41378,6 +41642,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         InGroup: "a07fb46e-2f92-4df4-bbb1-9b21fb1c82b6",
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         TileImage: "images/contracts/spider/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         ScenePath:
@@ -41476,7 +41741,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
+                  "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
+                  "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
+              ]
+          }
+      ],
         "Entrances": ["a20e45b9-172c-49e6-84a2-04da840bf90f"],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -41488,6 +41787,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/python/tile.jpg",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         CodeName_Hint: "Polarbear Module 002_B",
         ScenePath:
           "assembly:/_pro/scenes/missions/marrakesh/_scene_python.entity",
@@ -41586,6 +41886,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/bangkok/difficulty_easy_bangkok_tiger.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_PRO/Scenes/Missions/Bangkok/difficulty_pro1_bangkok_tiger.brick"
+              ]
+          }
+      ],
+      "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "108aa785-6ca7-4a60-8ca7-b66e347026a4",
@@ -41596,6 +41931,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/Contracts/Tiger/Tile.jpg",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         CodeName_Hint: "Polarbear Module 002_B",
         ScenePath: "assembly:/_PRO/Scenes/Missions/Bangkok/_scene_tiger.entity",
         Location: "LOCATION_BANGKOK",
@@ -41693,6 +42029,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         "Entrances": ["213d36c0-a6af-4533-90da-2c815f6ec927"],
         Stashpoints: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+              ]
+          }
+      ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -41703,6 +42072,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         InGroup: "53d473b4-5128-432b-b711-ebf721ebbdb4",
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         TileImage: "images/contracts/whitespider/001_zika/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         ScenePath: "assembly:/_pro/scenes/missions/Bangkok/scene_zika.entity",
@@ -41801,6 +42171,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/colorado_2/difficulty_easy_colorado_bull.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_PRO/Scenes/Missions/Colorado_2/difficulty_pro1_bull.brick"
+                ]
+            }
+        ],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick",
+                  "assembly:/_PRO/scenes/missions/colorado_2/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "095b7bdb-c95f-4112-9cfe-21e533c3a300",
@@ -41817,6 +42222,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Location: "LOCATION_COLORADO",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         Release: "1.0.x",
         RequiredUnlockable: "",
         Drops: ["1"],
@@ -41909,6 +42315,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
+                    "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "335984ac-5d96-4f81-a1af-4cb9975b4b34",
@@ -41924,6 +42365,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_snowcrane.entity",
         Location: "LOCATION_HOKKAIDO",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         Type: "bulletdancer",
         Release: "1.0.x",
         RequiredUnlockable: "",
@@ -42055,8 +42497,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         "Entrances": ["8faca318-7c93-4abd-9ee3-f3c0c1577d77"],
         GameChangers: ["1"],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick",
+                  "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick"
+              ]
+          }
+      ],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "910dc548-6845-47cb-a09f-c77edcdebfbe",
@@ -42069,6 +42544,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         TileImage: "images/contracts/whitespider/004_flu/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_HOKKAIDO_FLU",
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_flu.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
@@ -42163,7 +42639,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
+              ]
+          }
+      ],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
+                    "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
+                ]
+            }
+        ]
       },
       Metadata: {
         Id: "047e0364-4b26-4679-b637-cb939b9f415d",
@@ -42171,6 +42682,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         CreationTimestamp: "2015-07-02T13:18:30.1639035Z",
         CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
         InGroup: "586d00cb-70c6-4078-bbeb-7004af055d95",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/Contracts/Mamushi/Tile.jpg",
@@ -42273,6 +42785,45 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+                  "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
+              ]
+          }
+      ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -42284,6 +42835,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/parisnoel/tile.jpg",
+        "Entitlements": ["H1_LEGACY_STANDARD"],
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_PARIS_NOEL",
         ScenePath: "assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity",
@@ -42382,6 +42934,36 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              ]
+          }
+      ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                ]
+            }
+        ],
         MandatoryLoadout: [
           {
             Id: "TOKEN_OUTFIT_COLORADO_HERO_RABIESSUIT",
@@ -42402,6 +42984,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/whitespider/003_rabies/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         Location: "LOCATION_COLORADO_RABIES",
         ScenePath:
           "assembly:/_PRO/Scenes/Missions/Colorado_2/scene_rabies.entity",
@@ -42500,6 +43083,34 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         GameChangers: ["1"],
         Stashpoints: [],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/sheep/difficulty_easy_newzealand_sheep.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/sheep/difficulty_hard_newzealand_sheep.brick"
+                ]
+            }
+        ],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_2.brick",
+                    "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -42511,6 +43122,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/sheep/tile.jpg",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_NEWZEALAND",
         ScenePath: "assembly:/_pro/scenes/missions/sheep/scene_sheep.entity",
@@ -42607,7 +43219,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
+                    "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_flamingo.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_flamingo.brick"
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "b22d78ec-f12b-46f8-89f9-93cb82dc6d71",
@@ -42616,6 +43263,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
         InGroup: "9a80d7cd-b2bb-47a5-8210-7b14d1772877",
         Title: "RR_EZ",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/flamingo/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
@@ -42714,6 +43362,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_cottonmouth.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_cottonmouth.brick"
+                ]
+            }
+        ],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
+                    "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -42725,6 +43408,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "Images/Contracts/Cottonmouth/Tile.jpg",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_MIAMI_COTTONMOUTH",
         ScenePath:
@@ -42823,6 +43507,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
+                    "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_hippo.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_hippo.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "c5a88b3b-d3af-4691-9ec7-72128c921b55",
@@ -42833,6 +43552,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/hippo/tile.jpg",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_COLOMBIA",
         ScenePath: "assembly:/_pro/scenes/missions/colombia/scene_hippo.entity",
@@ -42930,6 +43650,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
+                    "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_anaconda.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_anaconda.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "d64f2431-6e43-4b14-a42f-ffb82de870a8",
@@ -42941,6 +43696,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "Images/Contracts/Anaconda/Tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         Location: "LOCATION_COLOMBIA_ANACONDA",
         ScenePath:
           "assembly:/_pro/scenes/missions/colombia/scene_anaconda.entity",
@@ -43038,6 +43794,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
+              ]
+          }
+      ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_mongoose.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_mongoose.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "2a9266f3-2d58-4e68-a9bb-07d8bb7f4e1f",
@@ -43047,6 +43838,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         InGroup: "8d4547c3-0817-46d1-8727-761f75032e7d",
         Title: "RR_EZ",
         Description: "Paris: Freeplay Mode (Easy)",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         TileImage: "images/contracts/mongoose/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_MUMBAI",
@@ -43143,8 +43935,43 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           },
         ],
         Bricks: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
+              ]
+          }
+      ],
         GameChangers: ["1"],
         Stashpoints: [],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_kingcobra.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_kingcobra.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
         "Entrances": [
           "37dda555-cdf2-4444-8de2-4659d371be4c",
@@ -43169,6 +43996,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "Images/Contracts/KingCobra/Tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         Location: "LOCATION_MUMBAI",
         ScenePath:
           "assembly:/_pro/scenes/missions/mumbai/scene_kingcobra.entity",
@@ -43265,7 +44093,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
+                    "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_skunk.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_skunk.brick"
+                ]
+            }
+        ]
       },
       Metadata: {
         Id: "e880d5d4-84b4-4a91-8925-1b9f61c21d8a",
@@ -43277,6 +44140,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/skunk/tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         Location: "LOCATION_NORTHAMERICA",
         ScenePath: "assembly:/_pro/scenes/missions/skunk/scene_skunk.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
@@ -43372,7 +44236,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
+                  "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
+              ]
+          }
+      ],
         EnableSaving: !0,
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_gartersnake.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_gartersnake.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "b539a067-1763-4b97-b9c4-1ed69b8d6b02",
@@ -43385,6 +44284,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         TileImage: "Images/Contracts/GarterSnake/Tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_NORTHAMERICA_GARTERSNAKE",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         ScenePath:
           "assembly:/_pro/scenes/missions/skunk/scene_gartersnake.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
@@ -43479,8 +44379,43 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: [],
         GameChangers: ["1"],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick",
+                    "assembly:/_pro/scenes/missions/theark/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick"
+                ]
+            }
+        ],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/theark/difficulty_easy_northsea_magpie.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/theark/difficulty_hard_northsea_magpie.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "ee7b2b1a-0d9d-437e-b42e-1b527799a91b",
@@ -43497,6 +44432,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
         Release: "1.0.x",
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         RequiredUnlockable: "",
         Drops: ["1"],
         PublicId: "099348042247",
@@ -43588,6 +44524,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick",
+                    "assembly:/_pro/scenes/missions/greedy/mission_raccoon/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick"
+                ]
+            }
+        ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_easy_raccoon.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_hard_raccoon.brick"
+                ]
+            }
+        ]
       },
       Metadata: {
         Id: "d1aa7ad3-1b9e-4e36-8d48-9c5bc7e3e618",
@@ -43604,6 +44575,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/scene_raccoon_basic.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         Release: "1.0.x",
         RequiredUnlockable: "",
         Drops: ["1"],
@@ -43694,7 +44666,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: [],
         GameChangers: ["1"],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick",
+                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick"
+              ]
+          }
+      ],
         Stashpoints: [],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_easy_stingray.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_hard_stingray.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -43712,6 +44719,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           "assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_stingray_basic.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         Release: "1.0.x",
         RequiredUnlockable: "",
         Drops: ["1"],
@@ -43801,6 +44809,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           },
         ],
         Bricks: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick",
+                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick"
+              ]
+          }
+      ],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_easy_gecko.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_hard_gecko.brick"
+                ]
+            }
+        ],
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
@@ -43821,6 +44864,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
         Release: "1.0.x",
+        "Entitlements": ["LOCATION_GOLDEN"],
         RequiredUnlockable: "",
         Drops: ["1"],
         PublicId: "099348042247",
@@ -43909,7 +44953,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           },
         ],
         Bricks: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick"
+                ]
+            }
+        ],
         GameChangers: ["1"],
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/ancestral/difficulty_easy_bulldog.brick"
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                    "assembly:/_pro/scenes/missions/ancestral/difficulty_hard_bulldog.brick"
+                ]
+            }
+        ],
         Stashpoints: [],
         EnableSaving: !0,
       },
@@ -43923,6 +45002,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
+        "Entitlements": ["LOCATION_ANCESTRAL"],
         Location: "LOCATION_ANCESTRAL_BULLDOG",
         ScenePath:
           "assembly:/_PRO/Scenes/Missions/Ancestral/scene_bulldog.entity",
@@ -44019,7 +45099,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
+                ]
+            }
+        ],
         EnableSaving: !0,
+        "GameDifficulties": [
+            {
+                "Difficulty": "easy",
+                "Bricks": [
+                ]
+            },
+            {
+                "Difficulty": "normal",
+                "Bricks": []
+            },
+            {
+                "Difficulty": "hard",
+                "Bricks": [
+                ]
+            }
+        ],
       },
       Metadata: {
         Id: "1f23ff13-f1f4-49c8-936f-d405d7af0252",
@@ -44033,6 +45148,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           "images/contracts/escalation/ContractEscalation_Ancestral_SmoothSnake.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_ANCESTRAL_SMOOTHSNAKE",
+        "Entitlements": ["LOCATION_ANCESTRAL"],
         ScenePath:
           "assembly:/_PRO/Scenes/Missions/Ancestral/scene_smoothsnake.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
@@ -44127,6 +45243,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: [],
         GameChangers: ["1"],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_easy_fox.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_hard_fox.brick"
+              ]
+          }
+      ],
+        "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick",
+                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick"
+                ]
+            }
+        ],
         Stashpoints: [],
         EnableSaving: !0,
       },
@@ -44141,6 +45292,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         TileImage: "images/contracts/fox/fox_tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_EDGY_FOX",
+        "Entitlements": ["LOCATION_EDGY"],
         ScenePath:
           "assembly:/_pro/scenes/missions/edgy/mission_fox/scene_fox_basic.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
@@ -44236,6 +45388,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         Stashpoints: [],
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick",
+                  "assembly:/_pro/scenes/missions/Wet/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick"
+              ]
+          }
+      ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/wet/difficulty_easy_rat.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/wet/difficulty_hard_rat.brick"
+              ]
+          }
+      ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -44249,6 +45436,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         TileImage: "images/contracts/rat/rat_tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_WET_RAT",
+        "Entitlements": ["LOCATION_WET"],
         ScenePath: "assembly:/_pro/scenes/missions/wet/scene_rat_basic.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
@@ -44344,6 +45532,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/elegant/difficulty_easy_llama.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/elegant/difficulty_hard_llama.brick"
+              ]
+          }
+      ],
+      "VR": [
+            {
+                "Quality": "base",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick",
+                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_ps4perf.brick"
+                ]
+            },
+            {
+                "Quality": "better",
+                "Bricks": [
+                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick"
+                ]
+            }
+        ]
       },
       Metadata: {
         Id: "d8e15667-ec5b-4f12-bb5d-8a726a0e78d2",
@@ -44356,6 +45579,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         TileImage: "images/contracts/llama/llama_tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
         Location: "LOCATION_ELEGANT_LLAMA",
+        "Entitlements": ["LOCATION_ELEGANT"],
         ScenePath: "assembly:/_pro/scenes/missions/elegant/scene_llama.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
@@ -44558,6 +45782,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         EnableSaving: !0,
+        "VR": [
+          {
+              "Quality": "base",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick",
+                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_ps4perf.brick"
+              ]
+          },
+          {
+              "Quality": "better",
+              "Bricks": [
+                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick"
+              ]
+          }
+      ],
+        "GameDifficulties": [
+          {
+              "Difficulty": "easy",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/rocky/difficulty_easy_dugong.brick"
+              ]
+          },
+          {
+              "Difficulty": "normal",
+              "Bricks": []
+          },
+          {
+              "Difficulty": "hard",
+              "Bricks": [
+                  "assembly:/_pro/scenes/missions/rocky/difficulty_hard_dugong.brick"
+              ]
+          }
+      ],
       },
       Metadata: {
         Id: "8bde3c9a-09cb-4f45-b21b-8b0a02f9ac26",
@@ -44566,6 +45825,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
         InGroup: "92eb28bf-480b-4ad8-8404-7800128f3994",
         Title: "RR_EZ",
+        "Entitlements": ["LOCATION_ROCKY"],
         Description: "Paris: Freeplay Mode (Easy)",
         TileImage: "images/contracts/Dugong/Dugong_tile.jpg",
         CodeName_Hint: "Polarbear Module 002_B",
@@ -44793,7 +46053,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+       "Entitlements": ["H1_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -44899,7 +46159,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -44979,7 +46239,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45059,7 +46319,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45085,7 +46345,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45111,7 +46371,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45138,7 +46398,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45164,7 +46424,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+      "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45191,7 +46451,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45218,7 +46478,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45245,7 +46505,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45271,7 +46531,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45298,7 +46558,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45324,7 +46584,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -45351,7 +46611,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45378,7 +46638,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -45405,7 +46665,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["LOCATION_GOLDEN"],
         season: -1,
       },
       UserData: {},
@@ -45432,7 +46692,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+      "Entitlements": ["LOCATION_ANCESTRAL"],
         season: -1,
       },
       UserData: {},
@@ -45459,7 +46719,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+      "Entitlements": ["LOCATION_ANCESTRAL"],
         season: -1,
       },
       UserData: {},
@@ -45486,7 +46746,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["LOCATION_EDGY"],
         season: -1,
       },
       UserData: {},
@@ -45512,7 +46772,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["LOCATION_WET"],
         season: -1,
       },
       UserData: {},
@@ -45538,7 +46798,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["LOCATION_ELEGANT"],
         season: -1,
       },
       UserData: {},
@@ -45564,7 +46824,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-        Entitlements: ["H1_LEGACY_STANDARD"],
+        "Entitlements": ["LOCATION_ROCKY"],
         season: -1,
       },
       UserData: {},
@@ -53582,55 +54842,54 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     async (parameters, ids) => {
       let Counter = 0
       controller.transferseed = seed
-      for (const param of parameters) {
-        const [key, value] = param.split(";");
-        switch (true) {
-            case key.trim() === "Text":
-              let containsAlphabetical = /^[a-zA-Z\s\W_]+$/.test(value.trim());
-              if (containsAlphabetical) {
+      let seedSet = false; // flag to indicate if the seed has been set
+
+for (const param of parameters) {
+    const [key, value] = param.split(";", 2); // limit the split to 2 parts
+    switch (true) {
+        case key.trim() === "Text":
+            let containsAlphabetical = /[a-zA-Z]/.test(value.trim());
+            if (containsAlphabetical) {
                 log(LogLevel.INFO, "Contains Alphabetical");
-                seed = crc32(value.trim())
-              controller.transferseed = seed
-              plaintextseedfordisplay = "Current Seed: " + value.trim();
-              controller.transferdisplayseed = plaintextseedfordisplay
-              plaintextseed = seed.toString();
-              log(LogLevel.INFO, "Seed set to: " + value.trim());
-              seedimagepath =
-                "images/Contracts/RandomRoulette/locked_contract.png";
-              controller.transferseedimagepath = seedimagepath
-              seedtitle = "RR_LOCKED_CONTRACT";
-              controller.transferseedtitle = seedtitle
-              RandomizeContracts(contracts);
-              if (isNaN(seed)) {
-                log(LogLevel.ERROR, "Entered seed is not a valid number.");
-                return;
-              }
-              copyToClipboard(value.trim())
+                seed = crc32(value.trim());
+                seedSet = true;
+                controller.transferseed = seed;
+                plaintextseedfordisplay = "Current Seed: " + value.trim();
+                controller.transferdisplayseed = plaintextseedfordisplay;
+                plaintextseed = seed.toString();
+                log(LogLevel.INFO, "Seed set to: " + value.trim());
+                seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+                controller.transferseedimagepath = seedimagepath;
+                seedtitle = "RR_LOCKED_CONTRACT";
+                controller.transferseedtitle = seedtitle;
+                RandomizeContracts(contracts);
+                copyToClipboard(value.trim());
             } else {
-              log(LogLevel.INFO, "NO Alphabetical");
-              seed = parseInt(value.trim());
-              controller.transferseed = seed
-              plaintextseedfordisplay = "Current Seed: " + seed.toString();
-              controller.transferdisplayseed = plaintextseedfordisplay
-              plaintextseed = seed.toString();
-              log(LogLevel.INFO, "Seed set to: " + plaintextseed);
-              seedimagepath =
-                "images/Contracts/RandomRoulette/locked_contract.png";
-              controller.transferseedimagepath = seedimagepath
-              seedtitle = "RR_LOCKED_CONTRACT";
-              controller.transferseedtitle = seedtitle
-              RandomizeContracts(contracts);
-              if (isNaN(seed)) {
-                log(LogLevel.ERROR, "Entered seed is not a valid number.");
-                return;
-              }
-              copyToClipboard(seed)
+                log(LogLevel.INFO, "NO Alphabetical");
+                seed = parseInt(value.trim());
+                if (isNaN(seed)) {
+                    log(LogLevel.ERROR, "Entered seed is not a valid number.");
+                    return;
+                }
+                seedSet = true;
+                controller.transferseed = seed;
+                plaintextseedfordisplay = "Current Seed: " + seed.toString();
+                controller.transferdisplayseed = plaintextseedfordisplay;
+                plaintextseed = seed.toString();
+                log(LogLevel.INFO, "Seed set to: " + plaintextseed);
+                seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+                controller.transferseedimagepath = seedimagepath;
+                seedtitle = "RR_LOCKED_CONTRACT";
+                controller.transferseedtitle = seedtitle;
+                RandomizeContracts(contracts);
+                copyToClipboard(seed.toString());
             }
             break;
-            default:
-              if (Counter === 0) {
+        default:
+            if (!seedSet && Counter === 0) {
                 log(LogLevel.INFO, "DEFAULT");
                 seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+                copyToClipboard(seed.toString());
                 controller.transferseed = seed;
                 plaintextseedfordisplay = "Current Seed: " + seed.toString();
                 controller.transferdisplayseed = plaintextseedfordisplay;
@@ -53641,16 +54900,13 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 seedtitle = "RR_UNLOCKED_CONTRACT";
                 controller.transferseedtitle = seedtitle;
                 RandomizeContracts(contracts);
-                if (isNaN(seed)) {
-                    log(LogLevel.ERROR, "Entered seed is not a valid number.");
-                    return;
-                }
                 Counter = 1;
             }
-            
-            break;       
-          }
-      }
+            break;
+    }
+}
+
+    
     }
   );
 
@@ -55265,7 +56521,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       );
       let flattenedSideObjectiveGameChangers =
         shuffledSideObjectiveGameChangers.flat(2);
-      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1];
+      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1-1];
       clearCaches();
       controller.configManager.configs.GameChangerProperties = Object.assign(
         {},
