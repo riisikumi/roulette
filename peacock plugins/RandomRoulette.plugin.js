@@ -5,29 +5,27 @@ let saving = false;
 let daily = false
 module.exports = function EscPlugin(controller) {
   var baseglobal = controller.configManager.configs.GlobalChallenges
-    baseglobal.forEach(challenge => {
-        if (challenge.InclusionData.ContractTypes.includes("escalation"))
-            challenge.InclusionData.ContractTypes.push("bulletdancer")
-    })
-    controller.configManager.configs.GlobalChallenges = baseglobal
+  baseglobal.forEach(challenge => {
+    if (challenge.InclusionData.ContractTypes.includes("escalation"))
+      challenge.InclusionData.ContractTypes.push("bulletdancer")
+  })
+  controller.configManager.configs.GlobalChallenges = baseglobal
   log(LogLevel.INFO, "[Roulette] Alpha Indev");
   const { execSync } = require('child_process');
 
   function copyToClipboard(text) {
-          if (process.platform === 'darwin') {
-              execSync(`echo "${text}" | pbcopy`);
-          } else if (process.platform === 'win32') {
-              execSync(`echo ${text} | clip`);
-          } else {
-              execSync(`echo "${text}" | xclip -selection clipboard`);
-          }
+    if (process.platform === 'darwin') {
+      execSync(`echo "${text}" | pbcopy`);
+    } else if (process.platform === 'win32') {
+      execSync(`echo ${text} | clip`);
+    } else {
+      execSync(`echo "${text}" | xclip -selection clipboard`);
+    }
   }
-  
-  // Usage
-  //seed stuff, needs to be set early
+
   let seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
   controller.transferseed = seed
-    plaintextseed = seed,
+  plaintextseed = seed,
     plaintextseedfordisplay = "Current Seed: " + seed.toString(),
     seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png",
     seedtitle = "RR_UNLOCKED_CONTRACT";
@@ -52,14 +50,11 @@ module.exports = function EscPlugin(controller) {
     }
     return (-1 ^ r) >>> 0;
   }
-  function deterministicHash(t, e, r) {
-    return (1664525 * t + 1013904223 * e + r) >>> 0;
-  }
   const getRandomIntWithSeed = (t, e, r) => {
-      const n = xorshift(r),
-        s = new MersenneTwister(n).random() / 4294967295;
-      return Math.floor(s * (e - t + 1)) + t;
-    },
+    const n = xorshift(r),
+      s = new MersenneTwister(n).random() / 4294967295;
+    return Math.floor(s * (e - t + 1)) + t;
+  },
     xorshift = (t) => {
       let e = t;
       return (e ^= e << 13), (e ^= e >> 17), (e ^= e << 5), e >>> 0;
@@ -101,24 +96,24 @@ module.exports = function EscPlugin(controller) {
   }
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-const month = currentDate.getMonth() + 1; 
-const day = currentDate.getDate();
-const finalDate = crc32(month.toString() + day.toString() + year.toString());
-function generaterandomUUID(finalDate) {
-  var t,
-    e,
-    r = "";
-  var random = function() {
+  const month = currentDate.getMonth() + 1;
+  const day = currentDate.getDate();
+  const finalDate = crc32(month.toString() + day.toString() + year.toString());
+  function generaterandomUUID(finalDate) {
+    var t,
+      e,
+      r = "";
+    var random = function () {
       var x = Math.sin(finalDate++) * 10000;
       return x - Math.floor(x);
-  };
-  for (t = 0; t < 32; t++)
-    (e = (16 * random()) | 0),
-      (8 !== t && 12 !== t && 16 !== t && 20 !== t) || (r += "-"),
-      (r += (12 === t ? 4 : 16 === t ? (3 & e) | 8 : e).toString(16));
-  return r;
-}
-let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","EndofanEra","ApexPredator","DartmoorGardenShow","DeathintheFamily","TopoftheWorld","LastResort","GoldenHandshake","ArkSociety","BitterPill","AnotherLife","Illusions","EmbraceofTheSerpent","ThreeHeadedSerpent","SilverTongue","Finishline","Nightcall","Vector","Noel","Festival","PZ","SitusInversus","FreedomFighters","Source","Club27","Sand","Gilded","Author","Landslide","Icon","WoT","Showstopper"]
+    };
+    for (t = 0; t < 32; t++)
+      (e = (16 * random()) | 0),
+        (8 !== t && 12 !== t && 16 !== t && 20 !== t) || (r += "-"),
+        (r += (12 === t ? 4 : 16 === t ? (3 & e) | 8 : e).toString(16));
+    return r;
+  }
+  let MissionPool = ["ShadowsintheWater", "Ship", "FinalTest", "TheFarewell", "EndofanEra", "ApexPredator", "DartmoorGardenShow", "DeathintheFamily", "TopoftheWorld", "LastResort", "GoldenHandshake", "ArkSociety", "BitterPill", "AnotherLife", "Illusions", "EmbraceofTheSerpent", "ThreeHeadedSerpent", "SilverTongue", "Finishline", "Nightcall", "Vector", "Noel", "Festival", "PZ", "SitusInversus", "FreedomFighters", "Source", "Club27", "Sand", "Gilded", "Author", "Landslide", "Icon", "WoT", "Showstopper"]
   //Define Custom Gamechangers for Random Roulette
   const NewGamechangers = {
     "3c48b60a-579a-4d3c-bb28-0233a4a1876a": {
@@ -132,7 +127,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         {
           Type: "statemachine",
           Primary: !0,
-          Id: "c0c6d232-919e-454f-9dbb-7146911475aa",          HUDTemplate: { display: "$loc RR_KILLCONDITION_EP", iconType: 34 },
+          Id: "c0c6d232-919e-454f-9dbb-7146911475aa", HUDTemplate: { display: "$loc RR_KILLCONDITION_EP", iconType: 34 },
           Category: "primary",
           OnActive: { IfCompleted: { Visible: !1 } },
           Definition: {
@@ -140,7 +135,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
             Context: {
               Targets: [],
               SwordKillItems: [
-                "d64f77a8-6271-484a-9450-ad75740ce461","89957566-316c-4014-88c2-6a8bdfc31108","00d1f430-1192-4562-be0f-5538b6d0c575"]
+                "d64f77a8-6271-484a-9450-ad75740ce461", "89957566-316c-4014-88c2-6a8bdfc31108", "00d1f430-1192-4562-be0f-5538b6d0c575"]
             },
             States: {
               Start: {
@@ -182,7 +177,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           Type: "statemachine",
           Primary: !0,
           Id: "c7f93aae-af17-4d47-8332-159b7f3afb3c",
-          HUDTemplate: { display: "$loc RR_KILLCONDITION_STRIKER", iconType: 41},
+          HUDTemplate: { display: "$loc RR_KILLCONDITION_STRIKER", iconType: 41 },
           Category: "primary",
           OnActive: { IfCompleted: { Visible: !1 } },
           Definition: {
@@ -190,7 +185,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
             Context: {
               Targets: [],
               SwordKillItems: [
-                "77ecaad6-652f-480d-b365-cdf90820a5ec","6576f6aa-8d77-48f1-a4c7-f57fb5ddcc51","15291f69-88d0-4a8f-b31b-71605ba5ff38"],
+                "77ecaad6-652f-480d-b365-cdf90820a5ec", "6576f6aa-8d77-48f1-a4c7-f57fb5ddcc51", "15291f69-88d0-4a8f-b31b-71605ba5ff38"],
             },
             States: {
               Start: {
@@ -631,7 +626,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -649,7 +644,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -754,14 +749,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "931401ac-3969-478d-9c02-25499a791527",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
@@ -975,8 +970,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -1206,7 +1201,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -1224,7 +1219,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -1327,14 +1322,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "f2e51539-f416-4ad9-8764-06383481ac28",
                 "b93d9265-5165-4f76-a724-7288da395433",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "931401ac-3969-478d-9c02-25499a791527",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
@@ -1550,8 +1545,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -1781,7 +1776,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -1799,7 +1794,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -1895,14 +1890,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
                 "e6d16ae2-f426-44d6-b532-577db7cead1a",
@@ -2125,8 +2120,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -2356,7 +2351,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -2374,7 +2369,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -2469,14 +2464,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
@@ -2700,8 +2695,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -2931,7 +2926,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -2949,7 +2944,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -3041,14 +3036,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "1207bd2c-9d35-4b8d-9e39-cb2ce874fd83",
                 "af184652-3e74-4e5b-b74d-69e0d2bcf987",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "7fcda930-d7a8-4e4c-8436-3a73f7b37238",
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
@@ -3275,8 +3270,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -3508,7 +3503,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -3526,7 +3521,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -3843,8 +3838,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -3898,40 +3893,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b94452a2-fc1d-4fc2-bbcf-02c84f9c4399",
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  BeingFrisked: {
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
-                }
               },
+              StartState: {
+                BeingFrisked: {
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              }
+            },
           },
         },
       ],
@@ -3977,26 +3972,26 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               "Count": 0,
               PacifiedIds: [],
               "GameChangers": ["e3368651-38e4-4e0c-91a0-95d76078b09f"]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  "Kill": {
-                    "Condition": {
-                        "$and": [
-                            {
-                                "$eq": ["$Value.IsTarget", true]
-                            },
-                            {
-                                "$eq": ["$Value.IsHeadshot", false]
-                            },
-                        ]
-                    },
-                    "Transition": "Failure"
+              },
+              StartState: {
+                "Kill": {
+                  "Condition": {
+                    "$and": [
+                      {
+                        "$eq": ["$Value.IsTarget", true]
+                      },
+                      {
+                        "$eq": ["$Value.IsHeadshot", false]
+                      },
+                    ]
+                  },
+                  "Transition": "Failure"
                 },
                 ObjectiveCompleted: [
                   {
@@ -4013,148 +4008,148 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                     Transition: "Success",
                   },
                 ],
-                }
-              },
+              }
+            },
           },
         },
         {
           Id: "88778b57-2a4e-434f-874e-219c3eeb4069",
           OnActive: {
-              IfInProgress: {
-                  Visible: true,
-              },
-              IfCompleted: {
-                  Visible: true,
-              },
-              IfFailed: {
-                  Visible: false,
-              },
+            IfInProgress: {
+              Visible: true,
+            },
+            IfCompleted: {
+              Visible: true,
+            },
+            IfFailed: {
+              Visible: false,
+            },
           },
           Category: "primary",
           ExcludeFromScoring: !0,
           AllowEtRestartOnSuccess: !0,
           BriefingText: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_WICK_TITLE",
           HUDTemplate: {
-              display: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_WICK_TITLE",
-              iconType: 58,
+            display: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_WICK_TITLE",
+            iconType: 58,
           },
           Type: "statemachine",
           Definition: {
-              Scope: "session",
-              Context: {
-                  Targets: [],
-                  TargetsKilled: [],
-              },
-              States: {
-                  Start: { "-": { Transition: "Success" } },
-                  Success: {
-                      Witnesses: {
-                          Condition: {
-                              $any: {
-                                  in: "$Value",
-                                  "?": {
-                                      $pushunique: ["Targets", "$.#"],
-                                  },
-                              },
-                          },
-                          Transition: "EliminationTime",
-                      },
-                      Spotted: {
-                          Condition: {
-                              $any: {
-                                  in: "$Value",
-                                  "?": {
-                                      $pushunique: ["Targets", "$.#"],
-                                  },
-                              },
-                          },
-                          Transition: "EliminationTime",
-                      },
-                  },
-                  EliminationTime: {
-                      Kill: [
-{
-  "Condition": {
-    "$any": {
-      "in": "$.Targets",
-      "?": {
-        "$eq": [
-          "$.#",
-          "$Value.RepositoryId"
-        ]
-      }
-    }
-  },
-  "Actions": {
-    "$pushunique": ["TargetsKilled", "$Value.RepositoryId"]
-  }
-},
-{
-  "Condition": {
-    "$eq": ["($.TargetsKilled).Count", "($.Targets).Count"]
-  },
-  "Transition": "Success"
-}
-                      ],
-                      Witnesses: {
-                          Condition: {
-                              $any: {
-                                  in: "$Value",
-                                  "?": {
-                                      $pushunique: ["Targets", "$.#"],
-                                  },
-                              },
-                          }
-                      },
-                      Spotted: {
-                          Condition: {
-                              $any: {
-                                  in: "$Value",
-                                  "?": {
-                                      $pushunique: ["Targets", "$.#"],
-                                  },
-                              },
-                          }
-                      },
-                  },
-              },
-          },
-      },
-      {
-        Id: "5330c5b3-ed0c-40d9-ad12-d5590f127312",
-        Category: "primary",
-        OnActive: {},
-        AllowEtRestartOnSuccess: !0,
-        ExcludeFromScoring: !0,
-        BriefingText: "$loc UI_GAMECHANGERS_GLOBAL_IMMUTABLE_TERRORIST_TITLE",
-        HUDTemplate: {
-          display: "$loc UI_GAMECHANGERS_GLOBAL_IMMUTABLE_TERRORIST_TITLE",
-          iconType: 58,
-        },
-        Type: "statemachine",
-        Definition: {
-          Scope: "session",
-          Context: { NumberOfDisguiseChanges: 1 },
-          States: {
-            Start: { "-": { Transition: "Success" } },
-            Success: {
-              Disguise: {
-                Actions: { $dec: "NumberOfDisguiseChanges" },
-                Transition: "CheckCount",
-              },
+            Scope: "session",
+            Context: {
+              Targets: [],
+              TargetsKilled: [],
             },
-            CheckCount: {
-              "-": [
-                {
-                  Condition: { $eq: ["$.NumberOfDisguiseChanges", 0] },
-                  Transition: "Failure",
+            States: {
+              Start: { "-": { Transition: "Success" } },
+              Success: {
+                Witnesses: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  },
+                  Transition: "EliminationTime",
                 },
-                { Transition: "Start" },
-              ],
+                Spotted: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  },
+                  Transition: "EliminationTime",
+                },
+              },
+              EliminationTime: {
+                Kill: [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "in": "$.Targets",
+                        "?": {
+                          "$eq": [
+                            "$.#",
+                            "$Value.RepositoryId"
+                          ]
+                        }
+                      }
+                    },
+                    "Actions": {
+                      "$pushunique": ["TargetsKilled", "$Value.RepositoryId"]
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["($.TargetsKilled).Count", "($.Targets).Count"]
+                    },
+                    "Transition": "Success"
+                  }
+                ],
+                Witnesses: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  }
+                },
+                Spotted: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  }
+                },
+              },
             },
           },
         },
-      },
+        {
+          Id: "5330c5b3-ed0c-40d9-ad12-d5590f127312",
+          Category: "primary",
+          OnActive: {},
+          AllowEtRestartOnSuccess: !0,
+          ExcludeFromScoring: !0,
+          BriefingText: "$loc UI_GAMECHANGERS_GLOBAL_IMMUTABLE_TERRORIST_TITLE",
+          HUDTemplate: {
+            display: "$loc UI_GAMECHANGERS_GLOBAL_IMMUTABLE_TERRORIST_TITLE",
+            iconType: 58,
+          },
+          Type: "statemachine",
+          Definition: {
+            Scope: "session",
+            Context: { NumberOfDisguiseChanges: 1 },
+            States: {
+              Start: { "-": { Transition: "Success" } },
+              Success: {
+                Disguise: {
+                  Actions: { $dec: "NumberOfDisguiseChanges" },
+                  Transition: "CheckCount",
+                },
+              },
+              CheckCount: {
+                "-": [
+                  {
+                    Condition: { $eq: ["$.NumberOfDisguiseChanges", 0] },
+                    Transition: "Failure",
+                  },
+                  { Transition: "Start" },
+                ],
+              },
+            },
+          },
+        },
       ],
       ShowBasedOnObjectives: null,
       IsPrestigeObjective: null,
@@ -4198,32 +4193,32 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               "Count": 0,
               PacifiedIds: [],
               "GameChangers": [],
-              "Items": ["a477b580-bd58-48bd-b91a-04517da2c949","2953e9ac-e25b-41ae-afbf-4a47f86c4f54","1cae7d71-55c8-401a-9dfb-cd0909c4f6ee","1e11fbea-cd51-48bf-8316-a050772d6135","461470ad-fab9-42bb-96a0-9a2dd9b45e65", "35efd6dc-0387-4b56-83f0-4e6609bac93f", "21be7cfc-5a6e-43a7-b36b-539957483a9e","261fdcc3-8982-4cdc-808d-569b43a1d43c" ]
-          },
+              "Items": ["a477b580-bd58-48bd-b91a-04517da2c949", "2953e9ac-e25b-41ae-afbf-4a47f86c4f54", "1cae7d71-55c8-401a-9dfb-cd0909c4f6ee", "1e11fbea-cd51-48bf-8316-a050772d6135", "461470ad-fab9-42bb-96a0-9a2dd9b45e65", "35efd6dc-0387-4b56-83f0-4e6609bac93f", "21be7cfc-5a6e-43a7-b36b-539957483a9e", "261fdcc3-8982-4cdc-808d-569b43a1d43c"]
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  ItemPickedUp: [
-                    {
-                      Condition: {
-                        $and: [
-                          {
-                            $inarray: {
-                              in: "$.Items",
-                              "?": { $eq: ["$.#", "$Value.RepositoryId"] },
-                            },
-                          },
-                        ],
-                      },
-                      Transition: "Success",
-                    },
-                  ],
-                }
               },
+              StartState: {
+                ItemPickedUp: [
+                  {
+                    Condition: {
+                      $and: [
+                        {
+                          $inarray: {
+                            in: "$.Items",
+                            "?": { $eq: ["$.#", "$Value.RepositoryId"] },
+                          },
+                        },
+                      ],
+                    },
+                    Transition: "Success",
+                  },
+                ],
+              }
+            },
           },
         },
       ],
@@ -4318,7 +4313,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "38efe99b-db11-436e-9698-2fa5dc065f06",
                 "393b9b8f-b2b9-41ec-aab4-65972792b1da",
                 "39fafc6d-bc11-4087-91ec-6ae251ac7a93",
-                "3daa1e8a-5d5a-4f08-b9d5-982b6fd678aa",                "3e176a59-7be7-4b10-a62b-41b4206d0b19",
+                "3daa1e8a-5d5a-4f08-b9d5-982b6fd678aa", "3e176a59-7be7-4b10-a62b-41b4206d0b19",
                 "3f6688ca-c7c5-4436-9f1c-a561fee90bea",
                 "40cf81f3-ea06-40b3-bcc9-335a1eb42944",
                 "431b420b-28ca-468b-b4b9-e0774bbeeea0",
@@ -4469,32 +4464,32 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "fdf6f3b0-cd1e-43f2-841d-d4e3a8028e19",
                 "ff0a22a1-59f2-4eb8-8441-545e2bf39889",
                 "fffd40c3-2a64-45f7-a2a3-750c0c285b92"
-            ]
-          },
+              ]
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  ItemPickedUp: [
-                    {
-                      Condition: {
-                        $and: [
-                          {
-                            $inarray: {
-                              in: "$.Items",
-                              "?": { $eq: ["$.#", "$Value.RepositoryId"] },
-                            },
-                          },
-                        ],
-                      },
-                      Transition: "Success",
-                    },
-                  ],
-                }
               },
+              StartState: {
+                ItemPickedUp: [
+                  {
+                    Condition: {
+                      $and: [
+                        {
+                          $inarray: {
+                            in: "$.Items",
+                            "?": { $eq: ["$.#", "$Value.RepositoryId"] },
+                          },
+                        },
+                      ],
+                    },
+                    Transition: "Success",
+                  },
+                ],
+              }
+            },
           },
         },
       ],
@@ -4669,7 +4664,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -4687,7 +4682,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -4783,14 +4778,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
                 "e6d16ae2-f426-44d6-b532-577db7cead1a",
@@ -5013,8 +5008,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -5068,69 +5063,69 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b94452a2-fc1d-4fc2-bbcf-02c84f9c4399",
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
-                },
-                StartState: {
-                  AccidentBodyFound: {
-                    Transition: "PleaseDoFail",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
-                },
-                PleaseDoFail: {
-                  $timer: {
-                    Condition: {
-                      $after: 240,
-                    },
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
               },
+              StartState: {
+                AccidentBodyFound: {
+                  Transition: "PleaseDoFail",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+              PleaseDoFail: {
+                $timer: {
+                  Condition: {
+                    $after: 240,
+                  },
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+            },
           },
         },
       ],
@@ -5325,8 +5320,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               Success: {
                 "Red": { Actions: [{ $dec: "IsBlue" }] },
                 "Blue": { Actions: [{ $inc: "IsBlue" }] },
-                "Kill": [{"Condition": { "$eq": ["$.IsBlue", 1] },"Transition": "Failure"}],
-                "Pacify": [{"Condition": { "$eq": ["$.IsBlue", 0] },"Transition": "Failure"}],
+                "Kill": [{ "Condition": { "$eq": ["$.IsBlue", 1] }, "Transition": "Failure" }],
+                "Pacify": [{ "Condition": { "$eq": ["$.IsBlue", 0] }, "Transition": "Failure" }],
               }
             },
           },
@@ -5422,7 +5417,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       ],
       ShowBasedOnObjectives: null,
       IsPrestigeObjective: null,
-    },  
+    },
     "41035746-43f0-4ec5-a283-7f96a3cf9018": {
       Name: "UI_GAMECHANGERS_GLOBAL_VANISHER",
       Description:
@@ -5433,58 +5428,58 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       Resource: [],
       Objectives: [
         {
-            "Id": "11b29687-f13b-4c3c-9a18-6a4ee065108a",
-            "Category": "primary",
-            "OnActive": {
-                "IfCompleted": {
-                    "Visible": false
-                }
-            },
-            "AllowEtRestartOnSuccess": true,
-            "BriefingText": "$loc UI_GAMECHANGERS_GLOBAL_HIDE_DEAD_BODY_WITHIN_90_SECONDS_DESC",
-            "HUDTemplate": {
-                "display": "$loc UI_GAMECHANGERS_GLOBAL_HIDE_DEAD_BODY_WITHIN_90_SECONDS_OBJ_1",
-                iconType: 58
-            },
-            "Type": "statemachine",
-            "Definition": {
-                "Context": {
-                    "IsExiting": 0
-                },
-                "States": {
-                    "Start": {
-                        "-": {
-                            "Transition": "Success"
-                        }
-                    },
-                    "Success": {
-                        "Kill": {
-                            "Condition": {
-                                "$eq": ["$.IsExiting", 0]
-                            },
-                            "Transition": "PostKill"
-                        },
-                        "exit_gate": {
-                            "Actions": {
-                                "$inc": "IsExiting"
-                            }
-                        }
-                    },
-                    "PostKill": {
-                        "$timer": {
-                            "Condition": {
-                                "$after": 90
-                            },
-                            "Transition": "Failure"
-                        },
-                        "AllBodiesHidden": {
-                            "Transition": "Success"
-                        }
-                    }
-                }
+          "Id": "11b29687-f13b-4c3c-9a18-6a4ee065108a",
+          "Category": "primary",
+          "OnActive": {
+            "IfCompleted": {
+              "Visible": false
             }
+          },
+          "AllowEtRestartOnSuccess": true,
+          "BriefingText": "$loc UI_GAMECHANGERS_GLOBAL_HIDE_DEAD_BODY_WITHIN_90_SECONDS_DESC",
+          "HUDTemplate": {
+            "display": "$loc UI_GAMECHANGERS_GLOBAL_HIDE_DEAD_BODY_WITHIN_90_SECONDS_OBJ_1",
+            iconType: 58
+          },
+          "Type": "statemachine",
+          "Definition": {
+            "Context": {
+              "IsExiting": 0
+            },
+            "States": {
+              "Start": {
+                "-": {
+                  "Transition": "Success"
+                }
+              },
+              "Success": {
+                "Kill": {
+                  "Condition": {
+                    "$eq": ["$.IsExiting", 0]
+                  },
+                  "Transition": "PostKill"
+                },
+                "exit_gate": {
+                  "Actions": {
+                    "$inc": "IsExiting"
+                  }
+                }
+              },
+              "PostKill": {
+                "$timer": {
+                  "Condition": {
+                    "$after": 90
+                  },
+                  "Transition": "Failure"
+                },
+                "AllBodiesHidden": {
+                  "Transition": "Success"
+                }
+              }
+            }
+          }
         }
-    ],
+      ],
       ShowBasedOnObjectives: null,
       IsPrestigeObjective: null,
     },
@@ -5656,7 +5651,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -5674,7 +5669,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -5774,14 +5769,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "e6d16ae2-f426-44d6-b532-577db7cead1a",
                 "4ac64aa6-f4fb-4182-8d59-2315758f7b85",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "b0e9fd22-5661-443d-b777-fccb00999394",
                 "f2e51539-f416-4ad9-8764-06383481ac28",
                 "b93d9265-5165-4f76-a724-7288da395433",
@@ -6000,8 +5995,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -6055,43 +6050,43 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b94452a2-fc1d-4fc2-bbcf-02c84f9c4399",
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  FirstMissedShot: {
-                    Transition: "Failure",
-                  },
-                  FirstNonHeadshot: {
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
-                }
               },
+              StartState: {
+                FirstMissedShot: {
+                  Transition: "Failure",
+                },
+                FirstNonHeadshot: {
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              }
+            },
           },
         },
         {
@@ -6252,7 +6247,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -6270,7 +6265,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -6377,14 +6372,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
                 "f2307c73-e7a0-4784-8133-74363bef8987",
                 "90df5eb3-d4b5-43f3-9d69-173111015e91",
@@ -6596,8 +6591,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -6832,7 +6827,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -6850,7 +6845,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -6952,14 +6947,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b0e9fd22-5661-443d-b777-fccb00999394",
                 "f2e51539-f416-4ad9-8764-06383481ac28",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "b93d9265-5165-4f76-a724-7288da395433",
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "931401ac-3969-478d-9c02-25499a791527",
@@ -7176,8 +7171,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -7231,69 +7226,69 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b94452a2-fc1d-4fc2-bbcf-02c84f9c4399",
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
-                },
-                StartState: {
-                  FirstMissedShot: {
-                    Transition: "PleaseDoFail",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
-                },
-                PleaseDoFail: {
-                  $timer: {
-                    Condition: {
-                      $after: 240,
-                    },
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
               },
+              StartState: {
+                FirstMissedShot: {
+                  Transition: "PleaseDoFail",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+              PleaseDoFail: {
+                $timer: {
+                  Condition: {
+                    $after: 240,
+                  },
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+            },
           },
         },
       ],
@@ -7468,7 +7463,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -7486,7 +7481,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -7581,14 +7576,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
@@ -7812,8 +7807,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -7867,69 +7862,69 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b94452a2-fc1d-4fc2-bbcf-02c84f9c4399",
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ]
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
-                },
-                StartState: {
-                  FirstNonHeadshot: {
-                    Transition: "PleaseDoFail",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
-                },
-                PleaseDoFail: {
-                  $timer: {
-                    Condition: {
-                      $after: 240,
-                    },
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Transition": "Success"
-                    }
-                ]
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
               },
+              StartState: {
+                FirstNonHeadshot: {
+                  Transition: "PleaseDoFail",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+              PleaseDoFail: {
+                $timer: {
+                  Condition: {
+                    $after: 240,
+                  },
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+            },
           },
         },
       ],
@@ -7976,8 +7971,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               Success: {
                 "Red": { Actions: [{ $dec: "IsBlue" }] },
                 "Blue": { Actions: [{ $inc: "IsBlue" }] },
-                "Kill": [{"Condition": { "$eq": ["$.IsBlue", 1] },"Transition": "Failure"}],
-                "Pacify": [{"Condition": { "$eq": ["$.IsBlue", 0] },"Transition": "Failure"}],
+                "Kill": [{ "Condition": { "$eq": ["$.IsBlue", 1] }, "Transition": "Failure" }],
+                "Pacify": [{ "Condition": { "$eq": ["$.IsBlue", 0] }, "Transition": "Failure" }],
               }
             },
           },
@@ -8152,7 +8147,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -8170,7 +8165,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -8261,14 +8256,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "ea0c8934-63ca-4efe-8db0-586473e86a6f",
                 "1207bd2c-9d35-4b8d-9e39-cb2ce874fd83",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "af184652-3e74-4e5b-b74d-69e0d2bcf987",
                 "7fcda930-d7a8-4e4c-8436-3a73f7b37238",
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
@@ -8496,8 +8491,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -8566,119 +8561,119 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     },
     "77f49dd3-941b-4a36-9eec-eb82255d04cb": {
       Name: "UI_GAMECHANGERS_GLOBAL_SEENOEVIL",
-          Description: "UI_GAMECHANGERS_GLOBAL_SEENOEVIL_DESCRIPTION",
-              Icon: "images/Contracts/RandomRoulette/RR_COMPLICATION.jpg",
-                  IsHidden: null,
-                      TileImage: "images/Contracts/RandomRoulette/RR_COMPLICATION.jpg",
-                          Resource: [],
-                              Objectives: [
-                                  {
-                                      Id: "88778b57-2a4e-434f-874e-219d4eeb4089",
-                                      OnActive: {
-                                          IfInProgress: {
-                                              Visible: true,
-                                          },
-                                          IfCompleted: {
-                                              Visible: true,
-                                          },
-                                          IfFailed: {
-                                              Visible: false,
-                                          },
-                                      },
-                                      Category: "primary",
-                                      ExcludeFromScoring: !0,
-                                      AllowEtRestartOnSuccess: !0,
-                                      BriefingText: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_TITLE",
-                                      HUDTemplate: {
-                                          display: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_TITLE",
-                                          iconType: 58,
-                                      },
-                                      Type: "statemachine",
-                                      Definition: {
-                                          Scope: "session",
-                                          Context: {
-                                              Targets: [],
-                                              TargetsKilled: [],
-                                          },
-                                          States: {
-                                              Start: { "-": { Transition: "Success" } },
-                                              Success: {
-                                                  Witnesses: {
-                                                      Condition: {
-                                                          $any: {
-                                                              in: "$Value",
-                                                              "?": {
-                                                                  $pushunique: ["Targets", "$.#"],
-                                                              },
-                                                          },
-                                                      },
-                                                      Transition: "EliminationTime",
-                                                  },
-                                                  Spotted: {
-                                                      Condition: {
-                                                          $any: {
-                                                              in: "$Value",
-                                                              "?": {
-                                                                  $pushunique: ["Targets", "$.#"],
-                                                              },
-                                                          },
-                                                      },
-                                                      Transition: "EliminationTime",
-                                                  },
-                                              },
-                                              EliminationTime: {
-                                                  Kill: [
-                            {
-                              "Condition": {
-                                "$any": {
-                                  "in": "$.Targets",
-                                  "?": {
-                                    "$eq": [
-                                      "$.#",
-                                      "$Value.RepositoryId"
-                                    ]
-                                  }
-                                }
-                              },
-                              "Actions": {
-                                "$pushunique": ["TargetsKilled", "$Value.RepositoryId"]
-                              }
-                            },
-                            {
-                              "Condition": {
-                                "$eq": ["($.TargetsKilled).Count", "($.Targets).Count"]
-                              },
-                              "Transition": "Success"
-                            }
-                                                  ],
-                                                  Witnesses: {
-                                                      Condition: {
-                                                          $any: {
-                                                              in: "$Value",
-                                                              "?": {
-                                                                  $pushunique: ["Targets", "$.#"],
-                                                              },
-                                                          },
-                                                      }
-                                                  },
-                                                  Spotted: {
-                                                      Condition: {
-                                                          $any: {
-                                                              in: "$Value",
-                                                              "?": {
-                                                                  $pushunique: ["Targets", "$.#"],
-                                                              },
-                                                          },
-                                                      }
-                                                  },
-                                              },
-                                          },
-                                      },
-                                  },
-                              ],
-                                  ShowBasedOnObjectives: null,
-                                      IsPrestigeObjective: null,
-      },
+      Description: "UI_GAMECHANGERS_GLOBAL_SEENOEVIL_DESCRIPTION",
+      Icon: "images/Contracts/RandomRoulette/RR_COMPLICATION.jpg",
+      IsHidden: null,
+      TileImage: "images/Contracts/RandomRoulette/RR_COMPLICATION.jpg",
+      Resource: [],
+      Objectives: [
+        {
+          Id: "88778b57-2a4e-434f-874e-219d4eeb4089",
+          OnActive: {
+            IfInProgress: {
+              Visible: true,
+            },
+            IfCompleted: {
+              Visible: true,
+            },
+            IfFailed: {
+              Visible: false,
+            },
+          },
+          Category: "primary",
+          ExcludeFromScoring: !0,
+          AllowEtRestartOnSuccess: !0,
+          BriefingText: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_TITLE",
+          HUDTemplate: {
+            display: "$loc UI_GAMECHANGERS_GLOBAL_SEENOEVIL_TITLE",
+            iconType: 58,
+          },
+          Type: "statemachine",
+          Definition: {
+            Scope: "session",
+            Context: {
+              Targets: [],
+              TargetsKilled: [],
+            },
+            States: {
+              Start: { "-": { Transition: "Success" } },
+              Success: {
+                Witnesses: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  },
+                  Transition: "EliminationTime",
+                },
+                Spotted: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  },
+                  Transition: "EliminationTime",
+                },
+              },
+              EliminationTime: {
+                Kill: [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "in": "$.Targets",
+                        "?": {
+                          "$eq": [
+                            "$.#",
+                            "$Value.RepositoryId"
+                          ]
+                        }
+                      }
+                    },
+                    "Actions": {
+                      "$pushunique": ["TargetsKilled", "$Value.RepositoryId"]
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["($.TargetsKilled).Count", "($.Targets).Count"]
+                    },
+                    "Transition": "Success"
+                  }
+                ],
+                Witnesses: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  }
+                },
+                Spotted: {
+                  Condition: {
+                    $any: {
+                      in: "$Value",
+                      "?": {
+                        $pushunique: ["Targets", "$.#"],
+                      },
+                    },
+                  }
+                },
+              },
+            },
+          },
+        },
+      ],
+      ShowBasedOnObjectives: null,
+      IsPrestigeObjective: null,
+    },
     "0910c139-e029-4533-a84c-5e2cba3454db": {
       Name: "UI_GAMECHANGERS_GLOBAL_STALKER_MINUTE",
       Description: "UI_GAMECHANGERS_STALKER_MINUTE_DESC",
@@ -8933,7 +8928,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -8951,7 +8946,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -9050,14 +9045,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
                 "e6d16ae2-f426-44d6-b532-577db7cead1a",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "4ac64aa6-f4fb-4182-8d59-2315758f7b85",
                 "b0e9fd22-5661-443d-b777-fccb00999394",
                 "f2e51539-f416-4ad9-8764-06383481ac28",
@@ -9277,8 +9272,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -9530,7 +9525,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -9548,7 +9543,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -9643,14 +9638,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
@@ -9874,8 +9869,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -10141,7 +10136,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -10159,7 +10154,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -10254,14 +10249,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
                 "c209ca91-22e9-4d58-8c2c-8b93030c9c76",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "bce0c5b2-fa2e-4f47-9104-ea56325589db",
                 "412bb478-297a-4836-bea8-38a2a17bb345",
                 "53c50a6b-8af4-475b-a4d5-6a9f1ebc5a86",
@@ -10485,8 +10480,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -10752,7 +10747,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -10770,7 +10765,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -10874,14 +10869,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b93d9265-5165-4f76-a724-7288da395433",
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "931401ac-3969-478d-9c02-25499a791527",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
@@ -11096,8 +11091,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -11608,7 +11603,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -11626,7 +11621,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -11732,14 +11727,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "931401ac-3969-478d-9c02-25499a791527",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
                 "f2307c73-e7a0-4784-8133-74363bef8987",
@@ -11952,8 +11947,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -12569,7 +12564,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -12587,7 +12582,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -12693,14 +12688,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "931401ac-3969-478d-9c02-25499a791527",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
                 "f2307c73-e7a0-4784-8133-74363bef8987",
@@ -12913,8 +12908,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -13336,7 +13331,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -13354,7 +13349,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -13459,14 +13454,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "931401ac-3969-478d-9c02-25499a791527",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
@@ -13680,8 +13675,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -14744,7 +14739,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "6c6adf56-1027-471c-adb4-64dbb8b81232",
                 "9488fa1e-10e1-49c9-bb24-6635d2e5bd49",
                 "ac2b7cf1-523a-4aee-a73b-5b2ccfd6079f",
-                "9e728dc1-3344-4615-be7a-1bcbdd7ad4aa",                "5c211971-235a-4856-9eea-fe890940f63a",
+                "9e728dc1-3344-4615-be7a-1bcbdd7ad4aa", "5c211971-235a-4856-9eea-fe890940f63a",
               ],
             },
             States: {
@@ -14966,8 +14961,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "c03498c1-db54-402a-9923-63ada447a4b8",
                 "fecf585b-4bdb-4a9b-9ab0-2bc44c6bd84a",
                 "d938aa5c-72cf-4907-8bf5-522a67a11ae5",
-		"af2b1a36-a7f0-4003-aae4-a6076402542d",
-"d439fb64-8713-4c54-a3f3-90730dbdf370",
+                "af2b1a36-a7f0-4003-aae4-a6076402542d",
+                "d439fb64-8713-4c54-a3f3-90730dbdf370",
                 "5631dace-7f4a-4df8-8e97-b47373b815ff",
               ],
             },
@@ -15070,9 +15065,9 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               Targets: [],
               SwordKillItems: [
                 "b4d4ed1a-0687-48a9-a731-0e3b99494eb6",
-"94f52181-b9ec-4363-baef-d53b4e424b74",
-"fba6e133-78d1-4af1-8450-1ff30466c553",
-"5b28437f-e440-40e0-ba77-426c1ee9fe0c"],
+                "94f52181-b9ec-4363-baef-d53b4e424b74",
+                "fba6e133-78d1-4af1-8450-1ff30466c553",
+                "5b28437f-e440-40e0-ba77-426c1ee9fe0c"],
             },
             States: {
               Start: {
@@ -15898,7 +15893,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -15916,7 +15911,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -16023,14 +16018,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "11b077c3-dab2-4bf6-ab45-7795e90117d6",
                 "ad63a11d-0307-44c9-8e91-39b6d67705b6",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "62c478f9-b45b-442e-925f-9ba7639a65cf",
                 "f2307c73-e7a0-4784-8133-74363bef8987",
                 "90df5eb3-d4b5-43f3-9d69-173111015e91",
@@ -16242,8 +16237,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -16298,75 +16293,75 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "6dd6a784-293b-4f3a-a962-83b589feaf21",
               ],
               "ObjectivesComplete": 0
-          },
+            },
             States: {
-                Start: {
-                  "-": {
-                    Transition: "StartState",
-                  },
+              Start: {
+                "-": {
+                  Transition: "StartState",
                 },
-                StartState: {
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
+              },
+              StartState: {
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
                         },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
+                        "in": "$.GameChangers"
+                      }
                     },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Actions": {
-                          "$inc": "ObjectiveCompleted"
-                      },
-                      "Transition": "Success"
+                    "Actions": {
+                      "$inc": "Count"
                     }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Actions": {
+                      "$inc": "ObjectiveCompleted"
+                    },
+                    "Transition": "Success"
+                  }
                 ],
                 Spotted: {
                   Transition: "PleaseDoFail",
                 },
-                },
-                PleaseDoFail: {
-                  $timer: {
-                    Condition: {
-                      $after: 240,
-                    },
-                    Transition: "Failure",
-                  },
-                  "ObjectiveCompleted": [
-                    {
-                        "Condition": {
-                            "$any": {
-                                "?": {
-                                    "$eq": ["$.#", "$Value.Id"]
-                                },
-                                "in": "$.GameChangers"
-                            }
-                        },
-                        "Actions": {
-                            "$inc": "Count"
-                        }
-                    },
-                    {
-                        "Condition": {
-                            "$eq": ["$.Count", "$.Goal"]
-                        },
-                        "Actions": {
-                          "$inc": "ObjectiveCompleted"
-                      },
-                        "Transition": "Success"
-                    }
-                ]
-                },
               },
+              PleaseDoFail: {
+                $timer: {
+                  Condition: {
+                    $after: 240,
+                  },
+                  Transition: "Failure",
+                },
+                "ObjectiveCompleted": [
+                  {
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
+                      }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
+                  },
+                  {
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Actions": {
+                      "$inc": "ObjectiveCompleted"
+                    },
+                    "Transition": "Success"
+                  }
+                ]
+              },
+            },
           },
         },
       ],
@@ -16535,7 +16530,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "a16c54b0-c32f-4caa-b795-45b3b367f26a",
                 "63f95785-d09d-4909-accf-e311f4f2407e",
                 "2bb9fc85-91d9-44b3-ad23-84105f9d5a89",
-                "a9f2e626-0eef-4dc6-af01-5495df909eaa",                "36d0d860-3e2e-4149-9d11-da47f188ea4c",
+                "a9f2e626-0eef-4dc6-af01-5495df909eaa", "36d0d860-3e2e-4149-9d11-da47f188ea4c",
                 "404f609b-e4e6-491f-8a61-be13824977c9",
                 "3b01911e-3c40-47cc-aba3-4f3442c845f2",
                 "e12ccc20-4e9b-410e-8f44-ee74185b2527",
@@ -16553,7 +16548,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "2e68758a-4091-4b8d-8a9b-6997f27d46da",
                 "09891325-d3b1-4364-ab8b-4af901750a9a",
                 "7a7ffec3-e64b-49de-8664-c1709e4960a8",
-                "841e68d6-c663-41eb-a247-cf396d426daa",                "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
+                "841e68d6-c663-41eb-a247-cf396d426daa", "717c9f49-4c48-47dc-9029-9a0fd6079f0e",
                 "8265ef4a-aad3-4398-81aa-1296a9b9e8b7",
                 "5a3dd3ba-b072-45a7-9078-df651bd06530",
                 "58ac9b31-fdd3-48ee-a25f-a0383ac82eef",
@@ -16655,14 +16650,14 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "b0e9fd22-5661-443d-b777-fccb00999394",
                 "f2e51539-f416-4ad9-8764-06383481ac28",
                 "300ed301-f260-4dc3-ab28-9c52a55ead17",
-"c7f93aae-af17-4d37-8332-359b7f3afb3c",
-"82c727f1-23c3-4015-92c2-f06b2f079b21",
-"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
-"48323fb0-b232-4389-8f6d-f9cea21fdd61",
-"b866ab09-11d4-4c43-8c16-4b7476a5b120",
-"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
-"7f512446-f616-4f89-acfe-79ff6a54ced8",
-"7a307113-b390-4c7a-a676-4b70eae2c099",
+                "c7f93aae-af17-4d37-8332-359b7f3afb3c",
+                "82c727f1-23c3-4015-92c2-f06b2f079b21",
+                "0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+                "48323fb0-b232-4389-8f6d-f9cea21fdd61",
+                "b866ab09-11d4-4c43-8c16-4b7476a5b120",
+                "a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+                "7f512446-f616-4f89-acfe-79ff6a54ced8",
+                "7a307113-b390-4c7a-a676-4b70eae2c099",
                 "b93d9265-5165-4f76-a724-7288da395433",
                 "95d3aa1a-c976-4758-9840-6f3f7271b075",
                 "931401ac-3969-478d-9c02-25499a791527",
@@ -16879,8 +16874,8 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                 "7c384ce8-b6bd-433c-b2ee-f174e947e69e",
                 "7e6c406d-e6ae-4d99-b405-654a01cdf289",
                 "396f7f12-6555-49a8-b326-fd99c43845cc",
-"c7f93aae-af17-4d47-8332-159b7f3afb3c",
-"c0c6d232-919e-454f-9dbb-7146911475aa",
+                "c7f93aae-af17-4d47-8332-159b7f3afb3c",
+                "c0c6d232-919e-454f-9dbb-7146911475aa",
                 "e95ace24-844d-43ec-80be-73d404db6b72",
                 "51fcfe16-49ed-4718-a595-149c7397ccc2",
                 "7a09ea35-3276-4c8b-a4e5-b913cc822211",
@@ -16941,29 +16936,29 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
               StartState: {
                 "ObjectiveCompleted": [
                   {
-                      "Condition": {
-                          "$any": {
-                              "?": {
-                                  "$eq": ["$.#", "$Value.Id"]
-                              },
-                              "in": "$.GameChangers"
-                          }
-                      },
-                      "Actions": {
-                          "$inc": "Count"
+                    "Condition": {
+                      "$any": {
+                        "?": {
+                          "$eq": ["$.#", "$Value.Id"]
+                        },
+                        "in": "$.GameChangers"
                       }
+                    },
+                    "Actions": {
+                      "$inc": "Count"
+                    }
                   },
                   {
-                      "Condition": {
-                          "$eq": ["$.Count", "$.Goal"]
-                      },
-                      "Actions": {
-                        "$inc": "ObjectiveCompleted"
+                    "Condition": {
+                      "$eq": ["$.Count", "$.Goal"]
+                    },
+                    "Actions": {
+                      "$inc": "ObjectiveCompleted"
                     },
                     "Transition": "Success"
                   }
-              ],
-              Agility_Start: { Transition: "PleaseDoFail" }
+                ],
+                Agility_Start: { Transition: "PleaseDoFail" }
               },
               PleaseDoFail: {
                 $timer: { Condition: { $after: 240 }, Transition: "Failure" },
@@ -17712,7 +17707,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                       {
                         $eq: [
                           "$Value.OutfitRepositoryId",
-                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",                        ],
+                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",],
                       },
                     ],
                   },
@@ -22089,7 +22084,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       Resource: [],
       Objectives: [
         {
-          Id: "a9f2e626-0eef-4dc6-af01-5495df909eaa",          Type: "statemachine",
+          Id: "a9f2e626-0eef-4dc6-af01-5495df909eaa", Type: "statemachine",
           Primary: !0,
           HUDTemplate: {
             display: "$loc RR_KILLCONDITION_FINISH-LINE_MASCOT_NAME",
@@ -23024,7 +23019,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       Resource: [],
       Objectives: [
         {
-          Id: "841e68d6-c663-41eb-a247-cf396d426daa",          Type: "statemachine",
+          Id: "841e68d6-c663-41eb-a247-cf396d426daa", Type: "statemachine",
           Primary: !0,
           HUDTemplate: {
             display:
@@ -31440,7 +31435,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                       {
                         $eq: [
                           "$Value.OutfitRepositoryId",
-                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",                        ],
+                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",],
                       },
                     ],
                   },
@@ -32223,7 +32218,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
                       {
                         $eq: [
                           "$Value.OutfitRepositoryId",
-                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",                        ],
+                          "37352A6B-EB58-4458-A5D6-522DD0508Baa",],
                       },
                     ],
                   },
@@ -39179,357 +39174,6 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       ShowBasedOnObjectives: null,
       IsPrestigeObjective: null,
     },
-    "9e048a6a-d49e-49fc-81d2-c7f17590a4d3": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_DOCTOR_TILE",
-      Description: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_DOCTOR_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "7a09ea35-3276-4c8b-a4e5-b913cc822211",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display: "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_DOCTOR_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "ABE4B536-1F09-421E-916B-20AF142C6ADB",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "3bc68141-df95-4ed0-8dd3-3cf303560d8c": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(MILITIA_ZONE)_TILE",
-      Description:
-        "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(MILITIA_ZONE)_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "de8666ff-bbbf-4342-8055-4f72fe53aefc",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display:
-              "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(MILITIA_ZONE)_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "C3239200-0F56-4B45-9BE5-E514BDF59D26",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "0acb76df-2b7c-4be8-9844-ad6431a16cdf": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_ELITE_GUARD_TILE",
-      Description: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_ELITE_GUARD_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "c63ac032-be0c-4eec-aea6-6da8fb5aff0d",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display:
-              "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_ELITE_GUARD_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "68225457-66B3-457C-A6EC-065B001F5151",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "ed0d840b-91c9-40ab-b4c2-34947a9c0d55": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_TILE",
-      Description: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "6fdacdce-7765-455e-af9d-4eddda5cec71",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display:
-              "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "E77B5340-41D3-448A-84D3-A4F7F6426634",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "b94445ab-2ca7-4990-ac87-78bef47833db": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_LEADER_TILE",
-      Description:
-        "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_LEADER_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "b6256643-fc57-4c2b-a021-dcb40621c178",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display:
-              "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_COMMANDO_LEADER_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "36402728-1197-4A3C-A8AC-1FED399A2344",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "32504723-5f5e-422a-8350-154cd2b0006c": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_OFFICE_STAFF_TILE",
-      Description: "RR_KILLCONDITION_UNTOUCHABLE_OFFICE_STAFF_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "01e8bfe8-7c0f-4f08-b431-ca9367d3eded",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display: "$loc RR_KILLCONDITION_UNTOUCHABLE_OFFICE_STAFF_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "81FC37CA-E20B-495F-961F-D5BE311A6E6D",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
-    "9a1da8b1-e7bf-415f-a932-ba36884cdcde": {
-      Name: "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(OFFICE)_TILE",
-      Description:
-        "RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(OFFICE)_DESC",
-      Icon: "images/challenges/default_challenge_icon.png",
-      IsHidden: null,
-      TileImage: "images/Contracts/RandomRoulette/RR_DISGUISES.png",
-      Resource: [],
-      Objectives: [
-        {
-          Id: "d4873a39-2054-4bdd-9348-6ef14ddb8adf",
-          Type: "statemachine",
-          Primary: !0,
-          HUDTemplate: {
-            display:
-              "$loc RR_KILLCONDITION_UNTOUCHABLE_PROVIDENCE_SECURITY_GUARD_(OFFICE)_NAME",
-            iconType: 22,
-          },
-          Category: "primary",
-          OnActive: { IfCompleted: { Visible: !1 } },
-          Definition: {
-            Scope: "Hit",
-            Context: { Targets: [] },
-            States: {
-              Start: {
-                Kill: {
-                  Condition: {
-                    $and: [
-                      { $eq: ["$Value.IsTarget", !0] },
-                      {
-                        $eq: [
-                          "$Value.OutfitRepositoryId",
-                          "653AD7D6-7D5D-4554-9551-7573BE7205BE",
-                        ],
-                      },
-                    ],
-                  },
-                  Transition: "Success",
-                },
-                NoTargetsLeft: { Transition: "Failure" },
-                MainTargetsDead: { Transition: "Failure" },
-                MissionFailed_Event: { Transition: "Failure" },
-                PrestigeObjFailedHC_Event: { Transition: "Failure" },
-              },
-            },
-          },
-        },
-      ],
-      ShowBasedOnObjectives: null,
-      IsPrestigeObjective: null,
-    },
     "2b9ef5fd-b33a-4225-89b5-6678db99146e": {
       Name: "RR_KILLCONDITION_HOKKAIDO-SNOW-FESTIVAL_PATIENT_TILE",
       Description: "RR_KILLCONDITION_HOKKAIDO-SNOW-FESTIVAL_PATIENT_DESC",
@@ -40614,30 +40258,30 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
           }
-      ],
+        ],
         GameChangers: ["1"],
         Stashpoints: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_graduation.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_graduation.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -40745,31 +40389,31 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: ["assembly:/_PRO/Scenes/Missions/TheFacility/createcontract_module_002_b.brick"],
         GameChangers: ["1"],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_base.brick",
-                    "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_ps4perf.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_base.brick",
+              "assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_ps4perf.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
           }
-      ],
+        ],
         Stashpoints: [],
         EnableSaving: !0,
       },
@@ -40877,41 +40521,41 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
+            ]
+          }
         ],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
-                    "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
-                    "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
-                    "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick"
+            ]
+          }
         ],
         Stashpoints: [],
         EnableSaving: !0,
@@ -41024,39 +40668,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick",
-                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/coastaltown/difficulty_easy_sapienza_octopus.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/coastaltown/octopus_pro1.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/coastaltown/difficulty_easy_sapienza_octopus.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/coastaltown/octopus_pro1.brick"
+            ]
+          }
         ],
       },
       Metadata: {
@@ -41169,38 +40813,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         "Entrances": ["da717656-934e-4783-8c36-65bf486cfdfa"],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
-                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
-                    "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_overrides_copperhead.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
+          }
         ],
       },
       Metadata: {
@@ -41312,39 +40956,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         "Entrances": ["594366fe-ccfd-4da5-8374-9501c3616e99"],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
           }
-      ],
+        ],
         Stashpoints: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
-                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
-                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick"
+            ]
           }
-      ],
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -41456,38 +41100,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
+          }
         ],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick",
-                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick"
+            ]
           }
-      ],
+        ],
         "Entrances": ["a28dd5e3-1f1d-408d-9387-945641c32218"]
       },
       Metadata: {
@@ -41599,39 +41243,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick",
-                    "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick",
+              "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/marrakesh/difficulty_easy_marrakesh_spider.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_PRO/Scenes/Missions/marrakesh/difficulty_pro1_marrakesh_spider.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/marrakesh/difficulty_easy_marrakesh_spider.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_PRO/Scenes/Missions/marrakesh/difficulty_pro1_marrakesh_spider.brick"
+            ]
+          }
         ],
       },
       Metadata: {
@@ -41743,38 +41387,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
-                  "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
+              "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
-                  "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick",
+              "assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick"
+            ]
           }
-      ],
+        ],
         "Entrances": ["a20e45b9-172c-49e6-84a2-04da840bf90f"],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -41888,38 +41532,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         EnableSaving: !0,
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/bangkok/difficulty_easy_bangkok_tiger.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/bangkok/difficulty_easy_bangkok_tiger.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_PRO/Scenes/Missions/Bangkok/difficulty_pro1_bangkok_tiger.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_PRO/Scenes/Missions/Bangkok/difficulty_pro1_bangkok_tiger.brick"
+            ]
           }
-      ],
-      "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
-                ]
-            }
+        ],
+        "VR": [
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
+            ]
+          }
         ],
       },
       Metadata: {
@@ -42030,38 +41674,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         "Entrances": ["213d36c0-a6af-4533-90da-2c815f6ec927"],
         Stashpoints: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
           }
-      ],
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -42172,40 +41816,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/colorado_2/difficulty_easy_colorado_bull.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_PRO/Scenes/Missions/Colorado_2/difficulty_pro1_bull.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/colorado_2/difficulty_easy_colorado_bull.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_PRO/Scenes/Missions/Colorado_2/difficulty_pro1_bull.brick"
+            ]
+          }
         ],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick",
-                  "assembly:/_PRO/scenes/missions/colorado_2/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick",
+              "assembly:/_PRO/scenes/missions/colorado_2/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "095b7bdb-c95f-4112-9cfe-21e533c3a300",
@@ -42316,40 +41960,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
-                    "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
+              "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "335984ac-5d96-4f81-a1af-4cb9975b4b34",
@@ -42499,39 +42143,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick",
-                  "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick",
+              "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_flu.brick"
+            ]
           }
-      ],
+        ],
         Stashpoints: [],
         EnableSaving: !0,
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "910dc548-6845-47cb-a09f-c77edcdebfbe",
@@ -42641,39 +42285,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick"
+            ]
           }
-      ],
+        ],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
-                    "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick",
+              "assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick"
+            ]
+          }
         ]
       },
       Metadata: {
@@ -42787,42 +42431,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_ps4perf.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
-                  "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick",
+              "assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick"
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/paris/difficulty_pro1_paris_fashionshow.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -42936,33 +42580,33 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         EnableSaving: !0,
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
+          }
         ],
         MandatoryLoadout: [
           {
@@ -43084,32 +42728,32 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/sheep/difficulty_easy_newzealand_sheep.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/sheep/difficulty_hard_newzealand_sheep.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/sheep/difficulty_easy_newzealand_sheep.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/sheep/difficulty_hard_newzealand_sheep.brick"
+            ]
+          }
         ],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_2.brick",
-                    "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_2.brick",
+              "assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -43220,40 +42864,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
-                    "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
+              "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_flamingo.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_flamingo.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_flamingo.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_flamingo.brick"
+            ]
+          }
         ],
       },
       Metadata: {
@@ -43363,39 +43007,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_cottonmouth.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_cottonmouth.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_cottonmouth.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_cottonmouth.brick"
+            ]
+          }
         ],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
-                    "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick",
+              "assembly:/_PRO/scenes/missions/miami/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -43508,40 +43152,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
-                    "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
+              "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_hippo.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_hippo.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_hippo.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_hippo.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "c5a88b3b-d3af-4691-9ec7-72128c921b55",
@@ -43651,40 +43295,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
-                    "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick",
+              "assembly:/_PRO/scenes/missions/colombia/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_anaconda.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_anaconda.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_anaconda.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_anaconda.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "d64f2431-6e43-4b14-a42f-ffb82de870a8",
@@ -43796,39 +43440,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         EnableSaving: !0,
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_mongoose.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_mongoose.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_mongoose.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_mongoose.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "2a9266f3-2d58-4e68-a9bb-07d8bb7f4e1f",
@@ -43937,40 +43581,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick"
+            ]
           }
-      ],
+        ],
         GameChangers: ["1"],
         Stashpoints: [],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_kingcobra.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_kingcobra.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_kingcobra.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_kingcobra.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
         "Entrances": [
@@ -43984,7 +43628,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
           "0e33bbeb-2c77-419a-be0c-ce9c3627d543",
           "51145d77-882e-4be0-a471-73704497aa8b",
           "8b1c3ba0-9c91-4b3e-96f9-7d3c8632b7c2"
-      ],
+        ],
       },
       Metadata: {
         Id: "29c5e92d-b650-4c1a-8809-55fa8e511562",
@@ -44094,40 +43738,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
-                    "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
+              "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_skunk.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_skunk.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_skunk.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_skunk.brick"
+            ]
+          }
         ]
       },
       Metadata: {
@@ -44238,40 +43882,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
-                  "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick",
+              "assembly:/_pro/scenes/missions/skunk/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick"
+            ]
           }
-      ],
+        ],
         EnableSaving: !0,
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_gartersnake.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_gartersnake.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_gartersnake.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_gartersnake.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "b539a067-1763-4b97-b9c4-1ed69b8d6b02",
@@ -44380,42 +44024,42 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         GameChangers: ["1"],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick",
-                    "assembly:/_pro/scenes/missions/theark/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick",
+              "assembly:/_pro/scenes/missions/theark/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick"
+            ]
+          }
         ],
         Stashpoints: [],
         EnableSaving: !0,
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/theark/difficulty_easy_northsea_magpie.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/theark/difficulty_easy_northsea_magpie.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/theark/difficulty_hard_northsea_magpie.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/theark/difficulty_hard_northsea_magpie.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "ee7b2b1a-0d9d-437e-b42e-1b527799a91b",
@@ -44525,39 +44169,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         EnableSaving: !0,
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick",
-                    "assembly:/_pro/scenes/missions/greedy/mission_raccoon/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick",
+              "assembly:/_pro/scenes/missions/greedy/mission_raccoon/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/vr_overrides_raccoon.brick"
+            ]
+          }
         ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_easy_raccoon.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_hard_raccoon.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_easy_raccoon.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/difficulty_hard_raccoon.brick"
+            ]
+          }
         ]
       },
       Metadata: {
@@ -44668,39 +44312,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick",
-                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick",
+              "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick"
+            ]
           }
-      ],
+        ],
         Stashpoints: [],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_easy_stingray.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_hard_stingray.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_easy_stingray.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_hard_stingray.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
       },
@@ -44811,38 +44455,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Bricks: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick",
-                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick",
+              "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick"
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_easy_gecko.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_hard_gecko.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_easy_gecko.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/golden/mission_gecko/difficulty_hard_gecko.brick"
+            ]
+          }
         ],
         GameChangers: ["1"],
         Stashpoints: [],
@@ -44954,40 +44598,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         ],
         Bricks: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick"
+            ]
+          }
         ],
         GameChangers: ["1"],
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/ancestral/difficulty_easy_bulldog.brick"
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                    "assembly:/_pro/scenes/missions/ancestral/difficulty_hard_bulldog.brick"
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/ancestral/difficulty_easy_bulldog.brick"
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/ancestral/difficulty_hard_bulldog.brick"
+            ]
+          }
         ],
         Stashpoints: [],
         EnableSaving: !0,
@@ -45100,40 +44744,40 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         Stashpoints: [],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
-                    "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ps4perf.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick",
+              "assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick"
+            ]
+          }
         ],
         EnableSaving: !0,
         "GameDifficulties": [
-            {
-                "Difficulty": "easy",
-                "Bricks": [
-                ]
-            },
-            {
-                "Difficulty": "normal",
-                "Bricks": []
-            },
-            {
-                "Difficulty": "hard",
-                "Bricks": [
-                ]
-            }
+          {
+            "Difficulty": "easy",
+            "Bricks": [
+            ]
+          },
+          {
+            "Difficulty": "normal",
+            "Bricks": []
+          },
+          {
+            "Difficulty": "hard",
+            "Bricks": [
+            ]
+          }
         ],
       },
       Metadata: {
@@ -45245,38 +44889,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         GameChangers: ["1"],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_easy_fox.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_easy_fox.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_hard_fox.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/edgy/mission_fox/difficulty_hard_fox.brick"
+            ]
           }
-      ],
+        ],
         "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick",
-                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick"
-                ]
-            }
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick",
+              "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick"
+            ]
+          }
         ],
         Stashpoints: [],
         EnableSaving: !0,
@@ -45390,39 +45034,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Stashpoints: [],
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick",
-                  "assembly:/_pro/scenes/missions/Wet/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick",
+              "assembly:/_pro/scenes/missions/Wet/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick"
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/wet/difficulty_easy_rat.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/wet/difficulty_easy_rat.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/wet/difficulty_hard_rat.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/wet/difficulty_hard_rat.brick"
+            ]
           }
-      ],
+        ],
         EnableSaving: !0,
       },
       Metadata: {
@@ -45534,38 +45178,38 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         EnableSaving: !0,
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/elegant/difficulty_easy_llama.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/elegant/difficulty_easy_llama.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/elegant/difficulty_hard_llama.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/elegant/difficulty_hard_llama.brick"
+            ]
           }
-      ],
-      "VR": [
-            {
-                "Quality": "base",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick",
-                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_ps4perf.brick"
-                ]
-            },
-            {
-                "Quality": "better",
-                "Bricks": [
-                    "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                    "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick"
-                ]
-            }
+        ],
+        "VR": [
+          {
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick",
+              "assembly:/_pro/scenes/missions/elegant/vr_overrides_ps4perf.brick"
+            ]
+          },
+          {
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick"
+            ]
+          }
         ]
       },
       Metadata: {
@@ -45581,113 +45225,6 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Location: "LOCATION_ELEGANT_LLAMA",
         "Entitlements": ["LOCATION_ELEGANT"],
         ScenePath: "assembly:/_pro/scenes/missions/elegant/scene_llama.entity",
-        LastUpdate: "2021-03-16T13:07:47.7883561Z",
-        Type: "bulletdancer",
-        Release: "1.0.x",
-        RequiredUnlockable: "",
-        Drops: ["1"],
-        PublicId: "099348042247",
-      },
-    },
-    {
-      RouletteType: "Untouchable",
-      Data: {
-        Objectives: [
-          {
-            Type: "statemachine",
-            Visible: !1,
-            BriefingName: "$loc RR_TARGETS",
-            BriefingText: "$loc RR_TUTORIAL",
-            Id: "e3368651-38e4-4e0c-91a0-95d76078b09f",
-            ExcludeFromScoring: !0,
-            Icon: "images/Contracts/RandomRoulette/RR_COMPLICATION.jpg",
-            Image: "images/Contracts/RandomRoulette/RR_LOGO.jpg",
-            ObjectiveType: "custom",
-            Category: "secondary",
-            Definition: {
-              Scope: "Hit",
-              Constants: {},
-              Context: {
-                ForceUpdateCounters: 0,
-                TargetsKilled: 0,
-                TargetsPending: 8,
-                TargetsCount: 6,
-                Targets: [
-                  "bd67c6e5-236c-4be6-a874-cca6e5d5ce95",
-                  "6742f51d-2d6e-49c4-be2c-313625976540",
-                  "023d0cd6-349c-498f-a291-d44c3edb4fe7",
-                  "bd67c6e5-236c-4be6-a874-cca6e5d5ce95",
-                  "6742f51d-2d6e-49c4-be2c-313625976540",
-                  "023d0cd6-349c-498f-a291-d44c3edb4fe7",
-                  "6742f51d-2d6e-49c4-be2c-313625976540",
-                  "023d0cd6-349c-498f-a291-d44c3edb4fe7",
-                ],
-              },
-              ContextListeners: {
-                ForceUpdateCounters: {
-                  type: "force-update",
-                  target: "TargetsPending",
-                },
-              },
-              States: {
-                Start: {
-                  "-": {
-                    Condition: { $eq: ["$.ForceUpdateCounters", 0] },
-                    Actions: { $inc: "ForceUpdateCounters" },
-                  },
-                  Kill: [
-                    {
-                      Condition: {
-                        $and: [
-                          {
-                            $inarray: {
-                              in: "$.Targets",
-                              "?": { $eq: ["$.#", "$Value.RepositoryId"] },
-                            },
-                          },
-                        ],
-                      },
-                      Actions: {
-                        $inc: "TargetsKilled",
-                        $dec: "TargetsPending",
-                        $remove: ["$.Targets", "$Value.RepositoryId"],
-                      },
-                      Transition: "CheckCount",
-                    },
-                  ],
-                  ExitDisabled: { Transition: "Failure" },
-                },
-                CheckCount: {
-                  "-": [
-                    {
-                      Condition: { $eq: ["$.TargetsKilled", "$.TargetsCount"] },
-                      Actions: { $set: ["TargetsPending", 0] },
-                      Transition: "Success",
-                    },
-                    { Transition: "Start" },
-                  ],
-                },
-              },
-            },
-          },
-        ],
-        Bricks: [],
-        GameChangers: ["1"],
-        Stashpoints: [],
-        EnableSaving: !0,
-      },
-      Metadata: {
-        Id: "3babe927-7c61-4e50-bff8-8e2cb41c17e1",
-        IsPublished: !0,
-        CreationTimestamp: "2015-07-02T13:18:30.1639035Z",
-        CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-        InGroup: "5a66a5ac-425b-45da-b2b9-7437f055ea39",
-        Title: "RR_EZ",
-        Description: "Paris: Freeplay Mode (Easy)",
-        TileImage: "images/contracts/wolverine/wolverine_tile.jpg",
-        CodeName_Hint: "Polarbear Module 002_B",
-        Location: "LOCATION_TRAPPED_WOLVERINE",
-        ScenePath: "assembly:/_PRO/Scenes/Missions/trapped/scene_wolverine.entity",
         LastUpdate: "2021-03-16T13:07:47.7883561Z",
         Type: "bulletdancer",
         Release: "1.0.x",
@@ -45784,39 +45321,39 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         EnableSaving: !0,
         "VR": [
           {
-              "Quality": "base",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick",
-                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_ps4perf.brick"
-              ]
+            "Quality": "base",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick",
+              "assembly:/_PRO/scenes/missions/rocky/vr_overrides_ps4perf.brick"
+            ]
           },
           {
-              "Quality": "better",
-              "Bricks": [
-                  "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
-                  "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick"
-              ]
+            "Quality": "better",
+            "Bricks": [
+              "assembly:/_pro/Scenes/Bricks/vr_setup.brick",
+              "assembly:/_PRO/scenes/missions/rocky/vr_overrides_dugong.brick"
+            ]
           }
-      ],
+        ],
         "GameDifficulties": [
           {
-              "Difficulty": "easy",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/rocky/difficulty_easy_dugong.brick"
-              ]
+            "Difficulty": "easy",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/rocky/difficulty_easy_dugong.brick"
+            ]
           },
           {
-              "Difficulty": "normal",
-              "Bricks": []
+            "Difficulty": "normal",
+            "Bricks": []
           },
           {
-              "Difficulty": "hard",
-              "Bricks": [
-                  "assembly:/_pro/scenes/missions/rocky/difficulty_hard_dugong.brick"
-              ]
+            "Difficulty": "hard",
+            "Bricks": [
+              "assembly:/_pro/scenes/missions/rocky/difficulty_hard_dugong.brick"
+            ]
           }
-      ],
+        ],
       },
       Metadata: {
         Id: "8bde3c9a-09cb-4f45-b21b-8b0a02f9ac26",
@@ -45925,33 +45462,6 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     {
       Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
       Metadata: {
-        Id: "5a66a5ac-425b-45da-b2b9-7437f055ea39",
-        IsPublished: !0,
-        CreationTimestamp: "2015-11-26T15:00:06.36Z",
-        CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-        Title: "RR_TEST",
-        Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-        CodeName_Hint: "Snowdrop Group",
-        TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-        Location: "LOCATION_TRAPPED_WOLVERINE",
-        RequiredUnlockable: "",
-        ScenePath: "assembly:/_PRO/Scenes/Missions/trapped/scene_wolverine.entity",
-        GroupDefinition: {
-          Type: "escalation",
-          Order: ["3babe927-7c61-4e50-bff8-8e2cb41c17e1"],
-        },
-        Type: "escalation",
-        Release: "1.0.x Escalation",
-        LastUpdate: "2020-11-09T13:35:25.5078466Z",
-        PublicId: "001479819747",
-        Entitlements: ["LOCATION_TRAPPED"],
-        season: -1,
-      },
-      UserData: {},
-    },
-    {
-      Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-      Metadata: {
         Id: "f2712065-0e9d-41b8-b54b-13c7c44e4c62",
         IsPublished: !0,
         CreationTimestamp: "2015-11-26T15:00:06.36Z",
@@ -46053,7 +45563,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-       "Entitlements": ["H1_LEGACY_EXPANSION"],
+        "Entitlements": ["H1_LEGACY_EXPANSION"],
         season: -1,
       },
       UserData: {},
@@ -46424,7 +45934,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-      "Entitlements": ["H2_LEGACY_STANDARD"],
+        "Entitlements": ["H2_LEGACY_STANDARD"],
         season: -1,
       },
       UserData: {},
@@ -46692,7 +46202,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-      "Entitlements": ["LOCATION_ANCESTRAL"],
+        "Entitlements": ["LOCATION_ANCESTRAL"],
         season: -1,
       },
       UserData: {},
@@ -46719,7 +46229,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
         Release: "1.0.x Escalation",
         LastUpdate: "2020-11-09T13:35:25.5078466Z",
         PublicId: "001479819747",
-      "Entitlements": ["LOCATION_ANCESTRAL"],
+        "Entitlements": ["LOCATION_ANCESTRAL"],
         season: -1,
       },
       UserData: {},
@@ -46836,9 +46346,9 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     "3c48b60a-579a-4d3c-bb28-0233a4a1876a",
     "4b30182f-6423-42b8-af53-820ca07cde02",
     "dcc421da-5ab1-4ca2-a654-568ab38fd684",
-"b6118e4d-b731-497d-9d0d-adfbbfeffbb3",
-"3761b481-90bd-4bb0-a7c8-3f6b925ca117",
-"6db9bbcd-42e9-41fa-b89e-cc0f4fbcccd7",
+    "b6118e4d-b731-497d-9d0d-adfbbfeffbb3",
+    "3761b481-90bd-4bb0-a7c8-3f6b925ca117",
+    "6db9bbcd-42e9-41fa-b89e-cc0f4fbcccd7",
     "592badfb-3a37-44be-b599-2c76759f05e1",
     "7635d4db-68e3-47fc-b6b7-47dc93e5f488",
     "628de117-6529-4aec-9064-5911c708443f",
@@ -46865,20 +46375,20 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     "c9308d1d-b862-4a3c-97b2-ed9850e666ff",
   ];
   //Disguise Gamechangers, mission dependent
-  const Shipdisguisegcs = ["878fa103-e13f-4c3f-bfec-154f58344f1a","87066392-ab1b-458a-87de-f5acf065e335","33e81bd9-a691-42cb-aebb-3ea3c0e10bd8a","646a86f4-ed69-4b63-8e41-7f2ef9db425f","abca1fa0-a6bb-49a1-96d2-52df9383910f","a51d06a2-2c9f-45ea-aaac-48cba16d1b5c"]
+  const Shipdisguisegcs = ["878fa103-e13f-4c3f-bfec-154f58344f1a", "87066392-ab1b-458a-87de-f5acf065e335", "33e81bd9-a691-42cb-aebb-3ea3c0e10bd8a", "646a86f4-ed69-4b63-8e41-7f2ef9db425f", "abca1fa0-a6bb-49a1-96d2-52df9383910f", "a51d06a2-2c9f-45ea-aaac-48cba16d1b5c"]
   const ParisDisguiseGameChangers = [
-      "1a72c505-675a-4ced-8603-1da4d0142470",
-      "87066392-ab1b-458a-87de-f5acf065e335",
-      "cf06e63e-934f-47f6-addd-b1eb2d58c37c",
-      "ea76d6d9-9996-436e-8ccc-88782a91eef0",
-      "37e6b2f2-0060-4a0a-bc80-71687619505f",
-      "ffc30d95-e49d-41d4-aabf-bc1c071edd78",
-      "91822167-001a-4d94-9da3-988563b0fbf3",
-      "e10b442d-a1f9-482c-93d9-883ae92cd409",
-      "49515a55-c507-4629-8532-30d0433827b9",
-      "8205ee72-8c43-4d2b-905c-0e34724f36ee",
-      "c27ce0b3-42b2-488b-9f61-a3d5cb62c9ed",
-    ],
+    "1a72c505-675a-4ced-8603-1da4d0142470",
+    "87066392-ab1b-458a-87de-f5acf065e335",
+    "cf06e63e-934f-47f6-addd-b1eb2d58c37c",
+    "ea76d6d9-9996-436e-8ccc-88782a91eef0",
+    "37e6b2f2-0060-4a0a-bc80-71687619505f",
+    "ffc30d95-e49d-41d4-aabf-bc1c071edd78",
+    "91822167-001a-4d94-9da3-988563b0fbf3",
+    "e10b442d-a1f9-482c-93d9-883ae92cd409",
+    "49515a55-c507-4629-8532-30d0433827b9",
+    "8205ee72-8c43-4d2b-905c-0e34724f36ee",
+    "c27ce0b3-42b2-488b-9f61-a3d5cb62c9ed",
+  ],
     WOTDisguiseGameChangers = [
       "b51cc556-21b2-4462-95bf-4af919381373",
       "61504526-77d2-42c3-a57e-7124ac7fec7b",
@@ -47059,7 +46569,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "77f49dd3-941b-4a36-9eec-eb82255d04cb",
       //"0910c139-e029-4533-a84c-5e2cba3454db",
       "fdf3e646-8792-41f1-83ab-ff3f4bd41db4",
-      //"592370b5-a1c7-48a5-a6c5-15f381fbaa69",
+      "592370b5-a1c7-48a5-a6c5-15f381fbaa69",
       "95bbee87-2b0e-37d5-bb4c-c4f2dec88f6b",
       "9f409781-0a06-4748-b08d-784e78c6d412",
       "113ba9e8-4fa5-4ab0-b613-05b97e39e612",
@@ -47384,7 +46894,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "e31da445-b94e-4cc5-9ba9-68681e158838",
       "6d60e95c-5a09-4f4d-b03e-657062776f3d",
       "dc65bc84-6ab2-4aff-93d9-54e59554dce9",
-      "992aa688-6fc4-482c-948a-028a626e69aa",      "c939aadd-4279-46ed-ba38-cda46b5988a9",
+      "992aa688-6fc4-482c-948a-028a626e69aa", "c939aadd-4279-46ed-ba38-cda46b5988a9",
       "c1d02d0d-2478-440e-b207-5b07fd5578b0",
       "1e03db46-fec2-44d3-bf79-3b5814ad2d3c",
       "97df3753-ff4c-42f8-8031-7a83d696a8c7",
@@ -47476,14 +46986,6 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "8f21e6a6-b5c5-4db9-8c27-0f4ab7f66c47",
       "b203e952-eb7f-492a-8b90-48e3b6b5294f",
     ];
-    const untouchablesdisguisegamechangers = ["9e048a6a-d49e-49fc-81d2-c7f17590a4d3",
-    "3bc68141-df95-4ed0-8dd3-3cf303560d8c",
-    "0acb76df-2b7c-4be8-9844-ad6431a16cdf",
-    "ed0d840b-91c9-40ab-b4c2-34947a9c0d55",
-    "87066392-ab1b-458a-87de-f5acf065e335",
-    "b94445ab-2ca7-4990-ac87-78bef47833db",
-    "32504723-5f5e-422a-8350-154cd2b0006c",
-    "9a1da8b1-e7bf-415f-a932-ba36884cdcde"]
   //Final Gamechangers pool
   const possibleGameChangers = [];
   ///Gen tutorial Gamechanger
@@ -47510,89 +47012,89 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
   const usedGameChangers = [];
   //Target Pools
   const ICAShipTargets = [
-      "a8b161ef-276d-4744-826f-347d5df89b24",
-      "3d25ee6c-61fa-4ba5-8f19-fedd905fd8fb",
-      "8c168ba3-f29b-48b9-b607-dfd88db5651e",
-      "01773a02-28e0-45d5-b50b-942120f7d3ae",
-      "23d044d5-b33c-4e19-bf2b-29d07401f337",
-      "2024d46c-0a52-4094-be84-5e62e10c46c3",
-      "73e4699d-32e0-4764-9a2a-8eb31336e71f",
-      "a021cdb5-96c9-4775-a4cb-9116169ef9cb",
-      "367dde2a-2c3c-4466-becb-b0bfc2abdfb7",
-      "3845f48e-20f4-407f-8550-30a5ff32f6e5",
-      "b32b4190-ef17-471c-ad8b-65d03f94e221",
-      "9a8f69a1-e8ea-439e-be38-7384233db669",
-      "22eca6ba-5392-4fdc-b941-d00ca02e4fce",
-      "a0d9369f-a0d4-4853-8742-c425e41a66a0",
-      "a2de016f-44ae-4758-94e9-d2d0c0e97be1",
-      "271755c3-3278-4fde-9cdd-6a8a28bfc079",
-      "cbd10956-7c7c-4309-8637-3d4852d0a9cf",
-      "05fa1c73-1f74-4620-8d85-b0aab8455c30",
-      "5f6b56d0-20e0-48b6-a1c1-d27717266073",
-      "ab981df4-efd9-4939-8895-7e7952b3aebb",
-      "623e57ae-a8d1-45d3-b3de-956afed62113",
-      "5b76fedc-2e78-4ca9-afd7-668e1c27cfd0",
-      "3a16632f-59ef-48e0-86fa-e92ec0835c78",
-      "0a854b70-49cd-4ad7-91af-f32bdd95f83d",
-      "b363911a-0085-465e-9b16-aebbf11c2e5f",
-      "73de0748-7563-462e-ac5f-6505611799f3",
-      "d3ca1238-2a8b-4862-bff0-106cf11870f2",
-      "5a2dc322-003f-4229-b434-783e888c1c54",
-      "dbeb50b5-b08e-4af0-be0c-10bc34055d0d",
-      "4b4ec8c3-3af3-4d64-92fe-0a746899251b",
-      "52dd051b-5bff-434a-a661-b0cfbea3fcaf",
-      "3437be7a-d97f-43cb-bc36-38e9598ee2cb",
-      "89f4bdd0-8428-4acc-ac6b-0a3e4103dc85",
-      "e4d51194-618a-4836-a73b-de54481eae8c",
-      "65b2c378-c1e7-4630-8826-7e3fadf2c023",
-      "1003bc25-c862-4916-9d33-4283e560a54f",
-      "ee0d100c-fca4-4e13-8306-2b86b7f4e81f",
-      "5c9a59eb-7dc4-4785-983f-7e411a755bab",
-      "f7e92f5b-02a7-4010-bb46-25d0a751b691",
-      "8f2aae24-9900-412f-a0c7-80a21503067d",
-      "787738e2-1877-43c4-8768-f4e4e5547c9b",
-      "790c0046-d76b-4a34-b329-a62d86146065",
-      "060484ff-e6d6-4d6a-a103-6af06b3ce045",
-      "aa9a8690-d572-4223-8a39-5cff56347d6d",
-      "364264e9-87c6-4d62-aa77-4fba9baf8d45",
-      "81c949ff-c1d0-4c84-97ab-e1658d4da2b0",
-      "1afae070-bcd2-438f-87b8-629aa46c5ffe",
-      "d3959196-6be0-43ea-b6e7-aafa70822045",
-      "89e0510c-5015-46db-af52-8e6a5cf569b4",
-      "f5c5eafb-f998-4175-b131-13636cb11591",
-      "e4ef62da-e28b-4567-a0cb-73f6ba9a12f2",
-      "ea622707-f837-4fdf-9431-76c761c3998c",
-      "587460b8-1d91-4158-8329-e421123ee48a",
-      "ee1e5897-eba1-4b50-af0b-1ecc5b2b7d55",
-      "d10fc7ce-2f5a-433e-8e9b-d2e6b27a180e",
-      "17f9c5ba-6180-4e05-9922-7b6e32ac886a",
-      "6c1866f5-9fc1-4c4f-954d-9a9b94282e70",
-      "db57d083-aa6c-4b16-b2d4-32580e95d2b5",
-      "dd1e144b-7d3e-4782-a3fe-3509ea6b240d",
-      "e8509e7b-569f-4aad-9b32-b783602de4d3",
-      "1c2af709-a524-4078-b1b0-d2157d5184e5",
-      "3dcd9901-276a-4e75-a739-7aa1f5e5487a",
-      "fc3dee19-c692-482d-90bc-b7900537927f",
-      "3401bd42-acbf-4d95-aa28-4fb0a4dfbf1a",
-      "7f82134e-cb65-46eb-bd45-fd7954300108",
-      "50018fc8-ede3-49d3-ad0a-9fb8e5aa034f",
-      "afd86181-f647-424f-8a1c-18164e562cc0",
-      "fd70484c-b79a-4601-9481-49accef03cf6",
-      "be49f7b2-2acc-41aa-9292-52221ca3dc4e",
-      "390807a3-7f83-4bf9-a454-7e55e0559090",
-      "b0ce8df3-72d9-4008-b376-c1e08e29af20",
-      "6a81e622-4b59-4a60-996e-84ab401d193e",
-      "18b64f95-f633-417f-a020-a75f5cd634e5",
-      "619d619c-4c3c-49d1-815d-ea9ae4ba4824",
-      "cd46af3d-e2a5-479b-a471-d0205b7679f7",
-      "307fd2a9-7db2-4908-8654-2648e41186c1",
-      "08492373-df79-4a9b-9a5f-5e14f18ebf87",
-      "95899fb2-a6fc-46c1-b5f8-776e5b0ee47f",
-      "bb57d8c5-612c-4ead-9bc4-024e2995641e",
-      "af589e83-295e-48f0-92a2-0065ff201f07",
-      "26e09916-460d-47b7-ad88-952973e8adaa",      "487dfc9e-20e1-4d6f-bfd0-0feda771f561",
-      "d73b1f2b-27cb-4fde-8f5b-b0dea100e18d",
-    ],
+    "a8b161ef-276d-4744-826f-347d5df89b24",
+    "3d25ee6c-61fa-4ba5-8f19-fedd905fd8fb",
+    "8c168ba3-f29b-48b9-b607-dfd88db5651e",
+    "01773a02-28e0-45d5-b50b-942120f7d3ae",
+    "23d044d5-b33c-4e19-bf2b-29d07401f337",
+    "2024d46c-0a52-4094-be84-5e62e10c46c3",
+    "73e4699d-32e0-4764-9a2a-8eb31336e71f",
+    "a021cdb5-96c9-4775-a4cb-9116169ef9cb",
+    "367dde2a-2c3c-4466-becb-b0bfc2abdfb7",
+    "3845f48e-20f4-407f-8550-30a5ff32f6e5",
+    "b32b4190-ef17-471c-ad8b-65d03f94e221",
+    "9a8f69a1-e8ea-439e-be38-7384233db669",
+    "22eca6ba-5392-4fdc-b941-d00ca02e4fce",
+    "a0d9369f-a0d4-4853-8742-c425e41a66a0",
+    "a2de016f-44ae-4758-94e9-d2d0c0e97be1",
+    "271755c3-3278-4fde-9cdd-6a8a28bfc079",
+    "cbd10956-7c7c-4309-8637-3d4852d0a9cf",
+    "05fa1c73-1f74-4620-8d85-b0aab8455c30",
+    "5f6b56d0-20e0-48b6-a1c1-d27717266073",
+    "ab981df4-efd9-4939-8895-7e7952b3aebb",
+    "623e57ae-a8d1-45d3-b3de-956afed62113",
+    "5b76fedc-2e78-4ca9-afd7-668e1c27cfd0",
+    "3a16632f-59ef-48e0-86fa-e92ec0835c78",
+    "0a854b70-49cd-4ad7-91af-f32bdd95f83d",
+    "b363911a-0085-465e-9b16-aebbf11c2e5f",
+    "73de0748-7563-462e-ac5f-6505611799f3",
+    "d3ca1238-2a8b-4862-bff0-106cf11870f2",
+    "5a2dc322-003f-4229-b434-783e888c1c54",
+    "dbeb50b5-b08e-4af0-be0c-10bc34055d0d",
+    "4b4ec8c3-3af3-4d64-92fe-0a746899251b",
+    "52dd051b-5bff-434a-a661-b0cfbea3fcaf",
+    "3437be7a-d97f-43cb-bc36-38e9598ee2cb",
+    "89f4bdd0-8428-4acc-ac6b-0a3e4103dc85",
+    "e4d51194-618a-4836-a73b-de54481eae8c",
+    "65b2c378-c1e7-4630-8826-7e3fadf2c023",
+    "1003bc25-c862-4916-9d33-4283e560a54f",
+    "ee0d100c-fca4-4e13-8306-2b86b7f4e81f",
+    "5c9a59eb-7dc4-4785-983f-7e411a755bab",
+    "f7e92f5b-02a7-4010-bb46-25d0a751b691",
+    "8f2aae24-9900-412f-a0c7-80a21503067d",
+    "787738e2-1877-43c4-8768-f4e4e5547c9b",
+    "790c0046-d76b-4a34-b329-a62d86146065",
+    "060484ff-e6d6-4d6a-a103-6af06b3ce045",
+    "aa9a8690-d572-4223-8a39-5cff56347d6d",
+    "364264e9-87c6-4d62-aa77-4fba9baf8d45",
+    "81c949ff-c1d0-4c84-97ab-e1658d4da2b0",
+    "1afae070-bcd2-438f-87b8-629aa46c5ffe",
+    "d3959196-6be0-43ea-b6e7-aafa70822045",
+    "89e0510c-5015-46db-af52-8e6a5cf569b4",
+    "f5c5eafb-f998-4175-b131-13636cb11591",
+    "e4ef62da-e28b-4567-a0cb-73f6ba9a12f2",
+    "ea622707-f837-4fdf-9431-76c761c3998c",
+    "587460b8-1d91-4158-8329-e421123ee48a",
+    "ee1e5897-eba1-4b50-af0b-1ecc5b2b7d55",
+    "d10fc7ce-2f5a-433e-8e9b-d2e6b27a180e",
+    "17f9c5ba-6180-4e05-9922-7b6e32ac886a",
+    "6c1866f5-9fc1-4c4f-954d-9a9b94282e70",
+    "db57d083-aa6c-4b16-b2d4-32580e95d2b5",
+    "dd1e144b-7d3e-4782-a3fe-3509ea6b240d",
+    "e8509e7b-569f-4aad-9b32-b783602de4d3",
+    "1c2af709-a524-4078-b1b0-d2157d5184e5",
+    "3dcd9901-276a-4e75-a739-7aa1f5e5487a",
+    "fc3dee19-c692-482d-90bc-b7900537927f",
+    "3401bd42-acbf-4d95-aa28-4fb0a4dfbf1a",
+    "7f82134e-cb65-46eb-bd45-fd7954300108",
+    "50018fc8-ede3-49d3-ad0a-9fb8e5aa034f",
+    "afd86181-f647-424f-8a1c-18164e562cc0",
+    "fd70484c-b79a-4601-9481-49accef03cf6",
+    "be49f7b2-2acc-41aa-9292-52221ca3dc4e",
+    "390807a3-7f83-4bf9-a454-7e55e0559090",
+    "b0ce8df3-72d9-4008-b376-c1e08e29af20",
+    "6a81e622-4b59-4a60-996e-84ab401d193e",
+    "18b64f95-f633-417f-a020-a75f5cd634e5",
+    "619d619c-4c3c-49d1-815d-ea9ae4ba4824",
+    "cd46af3d-e2a5-479b-a471-d0205b7679f7",
+    "307fd2a9-7db2-4908-8654-2648e41186c1",
+    "08492373-df79-4a9b-9a5f-5e14f18ebf87",
+    "95899fb2-a6fc-46c1-b5f8-776e5b0ee47f",
+    "bb57d8c5-612c-4ead-9bc4-024e2995641e",
+    "af589e83-295e-48f0-92a2-0065ff201f07",
+    "26e09916-460d-47b7-ad88-952973e8adaa", "487dfc9e-20e1-4d6f-bfd0-0feda771f561",
+    "d73b1f2b-27cb-4fde-8f5b-b0dea100e18d",
+  ],
     ICAFacilityTargets = [
       "591d9d6e-bb96-42ff-b3bb-77dfcfe06fed",
       "0e4c615e-e05d-492f-9e8a-08233aae000a",
@@ -47842,7 +47344,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "9f7cd379-8321-440c-b166-7b6746695e91",
       "7d819fc9-3782-4943-868d-3548743abfbb",
       "c89bbde5-f2b8-4efb-9db8-9f8025ecfb01",
-      "0c58bacd-79fa-428f-b1a3-d13390c087aa",      "ab22f88d-f567-43a2-b20f-0ecc17257ffe",
+      "0c58bacd-79fa-428f-b1a3-d13390c087aa", "ab22f88d-f567-43a2-b20f-0ecc17257ffe",
       "5a3a3205-75d6-4cd9-b397-fee70e878601",
       "df617e32-609c-4aea-bf56-b2a98e4c6c4c",
       "dea09b62-294d-40e9-b98d-cf6a1c3e4510",
@@ -48069,7 +47571,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "259159e0-297a-4a82-98b7-99c65c9b56a4",
       "739b0044-c2c1-4487-8222-675bf8eaf9cd",
       "86b4c6c0-c225-4040-87d6-97819e1baa5e",
-      "d3e75ec0-08e5-4f01-a4a6-2fe1d72882aa",      "3eb328a7-3d46-4349-b44a-2282619ed622",
+      "d3e75ec0-08e5-4f01-a4a6-2fe1d72882aa", "3eb328a7-3d46-4349-b44a-2282619ed622",
       "bc6ee1e7-e07e-4883-8c78-eddf6e337b15",
       "95e93ad0-d671-41bb-905e-9e6d074ab6e9",
       "d53fceae-db17-427d-ba45-5c2dc0faa31f",
@@ -48115,7 +47617,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "10052571-1792-4246-adf2-65a6ef79e4f3",
       "d24cd656-3632-478a-9133-7f703574f090",
       "441795b6-6d49-405a-9577-dfac9a23eede",
-      "28450743-2507-48bf-9b30-e3a47e942faa",      "aa93bf2b-558d-4418-b54c-2d1858e301ad",
+      "28450743-2507-48bf-9b30-e3a47e942faa", "aa93bf2b-558d-4418-b54c-2d1858e301ad",
       "6e8d9322-3f82-41ca-92db-ede215925a50",
       "e246cb7f-783d-484a-8865-1aba8920ccd9",
       "1132f96d-fc0e-48ce-bc8f-17baf112b6f8",
@@ -48720,7 +48222,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "4b882572-607e-42f8-9bd2-956d9826ea8e",
       "830496e8-d1e8-4f63-856e-d258785c9fcc",
       "0db6c6a4-01ce-4108-b91c-5144759087a3",
-      "09325b9d-b7eb-45fd-be68-46c4ac8118aa",      "15ad68eb-989b-4ecf-8953-d1378701b626",
+      "09325b9d-b7eb-45fd-be68-46c4ac8118aa", "15ad68eb-989b-4ecf-8953-d1378701b626",
       "96b7412e-3109-4508-98dc-7f10a049eed2",
       "1ef4fcd5-a721-4fc0-8fd0-2892c86ea707",
       "5994c8f9-a690-4e9b-9567-c2856164ac84",
@@ -49195,7 +48697,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "03a0fe82-bf5a-41b3-8af2-25efed5b2a53",
       "5235f9c4-7895-4c30-a2a4-fbb9c822f60c",
       "d8eed9b8-9a5e-4930-85a0-e148656cd155",
-      "8a6891a0-af7a-4bf5-9ca7-47b1a43483aa",      "67c23b51-9966-44bd-a52d-d8c0a8732493",
+      "8a6891a0-af7a-4bf5-9ca7-47b1a43483aa", "67c23b51-9966-44bd-a52d-d8c0a8732493",
       "3cb84249-6a4c-4cdd-b8fa-851bc44e1388",
       "c2cc44b6-e857-44bd-ad85-bd5702ae9e8c",
       "c87de1d6-ef5c-44de-8c97-421b609b1633",
@@ -49444,7 +48946,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "328f6d60-329c-4349-8379-90fa864bcf6b",
       "654805a3-9e28-4fd5-998b-ec46ac4e9368",
       "c1fa7789-69da-4f88-80fd-250d57f0ebae",
-      "c8d6bf49-0f18-4a3d-8ba3-1ef6ecb2c7aa",      "37ce4ce8-77fd-461a-a727-895ebb47beac",
+      "c8d6bf49-0f18-4a3d-8ba3-1ef6ecb2c7aa", "37ce4ce8-77fd-461a-a727-895ebb47beac",
       "df152624-1678-4688-ae63-4ddbfe21823d",
       "7158d985-5f7f-41cf-8dd8-9e205b8c36e4",
       "31eaae62-cfd4-43c2-bdcf-629a212733c1",
@@ -49502,7 +49004,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "8c3416df-d1b9-419d-9476-0617355ba4cc",
       "256e1340-eb79-444f-9b59-563544136bfc",
       "a2cc1fad-6ce3-4386-a488-4ccc2080db75",
-      "8a6891a0-af7a-4bf5-9ca7-47b1a43483aa",      "990b3447-068f-492c-9261-730a04b3b170",
+      "8a6891a0-af7a-4bf5-9ca7-47b1a43483aa", "990b3447-068f-492c-9261-730a04b3b170",
       "8f5d0794-b2d5-4b1e-8878-acefc1b88a1b",
       "b120f9c4-0543-4458-b8e7-0b944098e066",
       "aea627fe-c096-4bcf-9552-ed25f31dd973",
@@ -50434,7 +49936,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "d4e449f5-8c58-4210-b2ac-c85e19a9afdd",
       "118b962d-963f-4ecc-8916-eda81c9e5ec5",
       "51cfc04c-3fd1-41f9-b3f2-d9bf2e6b72d7",
-      "0c58bacd-79fa-428f-b1a3-d13390c087aa",      "b8118e66-47ee-4119-b893-ebbbda88bf80",
+      "0c58bacd-79fa-428f-b1a3-d13390c087aa", "b8118e66-47ee-4119-b893-ebbbda88bf80",
       "ea6513f6-58de-4cde-b004-f4b151d4fa8b",
       "c72e112c-7073-4e7b-9f9f-93dc17e9c5a0",
       "af1980b2-88f1-4d7d-bfb1-1aa1017245e7",
@@ -50785,7 +50287,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "a5c4a3e8-40d6-497b-a688-c65611161cba",
       "662ed3e4-139b-418d-978d-df7956755f5e",
       "b61a86d3-b811-4d25-8d12-b6e06fee64c4",
-      "9e518d13-2941-4573-b044-9285b3aff5aa",      "85c109f4-9b10-4abf-b1bc-ffeacf72b23d",
+      "9e518d13-2941-4573-b044-9285b3aff5aa", "85c109f4-9b10-4abf-b1bc-ffeacf72b23d",
       "404090e5-6fbe-4c74-9831-ce64a6cd6d01",
       "825a0653-d5a3-468f-b07e-c1eebe9d8f68",
       "fabd5230-4afe-44a4-86e7-245ad342d7c6",
@@ -50985,7 +50487,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "20dc3721-4baf-4dc9-9491-b963e9696da4",
       "4f6798b4-d857-4c81-a76e-828a26a85aa3",
       "d99d1919-be4f-49d4-a8f5-af81f98c2ea3",
-      "9e518d13-2941-4573-b044-9285b3aff5aa",      "54497c8e-b6c4-4902-a41c-1b5ee8012d0b",
+      "9e518d13-2941-4573-b044-9285b3aff5aa", "54497c8e-b6c4-4902-a41c-1b5ee8012d0b",
       "662ed3e4-139b-418d-978d-df7956755f5e",
       "01cce827-b192-455b-a430-be2fc6c581ee",
       "58a138d5-af25-42b8-b8b8-884b4e54e404",
@@ -51963,7 +51465,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "a034163c-f1c9-4c18-8583-207504a5058b",
       "953aef51-63ed-4a3f-a311-c55a69c20bde",
       "f6020213-2114-4842-a2ad-d62fdf182400",
-      "f7b1b5c0-4231-4d16-b93e-a7128d41e9aa",      "d232a351-dffe-427a-9f0f-d7fba8736a56",
+      "f7b1b5c0-4231-4d16-b93e-a7128d41e9aa", "d232a351-dffe-427a-9f0f-d7fba8736a56",
       "1f5e40b5-775f-4a4b-8c91-0f9fe59b2001",
       "5f86e15d-341c-4e21-ab8f-781c517dbe43",
       "22a19308-5b21-4e80-a915-467ebc43a1de",
@@ -52433,7 +51935,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "e6b3d44e-f2aa-4234-b79e-6cfe438deef6",
       "a352b5a8-a74b-46bc-b879-46ffba6614a2",
       "55d381d5-deff-4423-93bf-9c2e0a2946a0",
-      "79359280-26f8-4dc3-8dc5-f3ff918fbeaa",      "fa8dba2d-400b-4ef4-bf25-2b7a94b1a876",
+      "79359280-26f8-4dc3-8dc5-f3ff918fbeaa", "fa8dba2d-400b-4ef4-bf25-2b7a94b1a876",
       "f4185a13-7929-4311-861e-a8b760fbb3c1",
       "68c0eb1c-46c3-4b85-b000-205eb3839330",
       "f56172a2-69c1-40d1-8885-8843655ea35e",
@@ -52453,7 +51955,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "732e1679-daaf-4f0e-8eab-e3b87108488a",
       "3d3ab3c8-687b-4e42-8527-14e1bbb9b881",
       "54207b47-c289-49a0-944f-b52201baa429",
-      "90505cde-9b68-488f-827b-ff81498264aa",      "22c1f3b9-6008-40d3-8003-9fc0a148ad97",
+      "90505cde-9b68-488f-827b-ff81498264aa", "22c1f3b9-6008-40d3-8003-9fc0a148ad97",
       "0b6fef16-3641-414e-9bb4-26b7beeda602",
       "3880a7bb-7b59-4a0c-87f2-590e87ccb1ce",
       "b78acbe0-1666-4098-8b13-ce445f37e9b3",
@@ -52513,7 +52015,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "27f42632-7c82-45b3-adbd-070db4289de3",
       "92d10c94-9f65-4e84-8280-f79d07e120cf",
       "56b016aa-c8e6-4301-9c12-aa4a1121225d",
-      "53406e7a-83d4-4dfd-a5f9-839d6f5e3baa",      "384b9a37-d2ed-4f5d-a94a-79fa8793cd54",
+      "53406e7a-83d4-4dfd-a5f9-839d6f5e3baa", "384b9a37-d2ed-4f5d-a94a-79fa8793cd54",
       "f8dc2a26-342e-471f-a683-f36b43485f23",
       "04099e27-3441-4488-b005-94e651dd4878",
       "ff44c8ce-c100-4c37-b3dc-271b41634724",
@@ -52595,7 +52097,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "87ab7e2c-cdae-4566-b32e-75bc9cea84fd",
       "cafb2bda-485c-4c11-9df0-c1e6971dbbbb",
       "390e6975-5299-49c8-9ff6-f98212585ae5",
-      "79359280-26f8-4dc3-8dc5-f3ff918fbeaa",      "ce496422-f567-4a62-b2b0-d803ee249de4",
+      "79359280-26f8-4dc3-8dc5-f3ff918fbeaa", "ce496422-f567-4a62-b2b0-d803ee249de4",
       "7edbb420-0ea6-4b42-a110-2f65b356dc0d",
       "a29b0ead-5a35-48cd-bef2-76bf1ba3a344",
       "5f307b57-55e8-4f56-97f3-397df9e3dd96",
@@ -52613,7 +52115,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "233503c3-d3bd-4900-b501-90d4c95b03d4",
       "a6aa8b8f-24d3-44b7-ba89-063c251d4881",
       "ea6f6e8e-e9ef-4046-9204-5f5c0b27543e",
-      "90505cde-9b68-488f-827b-ff81498264aa",      "4694ae61-e3aa-4e00-988f-be878ad29490",
+      "90505cde-9b68-488f-827b-ff81498264aa", "4694ae61-e3aa-4e00-988f-be878ad29490",
       "1ad1f2bf-825a-4d61-9a49-cb5db334d380",
       "7271eae1-6bdd-4936-b763-b2390fb07fe7",
       "38749daf-9da9-469b-bdcc-5e7a5e711263",
@@ -53073,7 +52575,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "c155e1d4-0624-4061-9504-1620773a048d",
       "f03a4c5a-767f-4315-a160-baef4bd1def0",
       "3a309afd-b673-49ff-b58c-9ec3ef77447a",
-      "409d928e-b706-4032-9e7e-024af200a6aa",      "d0aabdd4-0e19-4939-b01a-b38bb8bc2d40",
+      "409d928e-b706-4032-9e7e-024af200a6aa", "d0aabdd4-0e19-4939-b01a-b38bb8bc2d40",
       "1802d240-d439-4ae0-be63-ce7f3c59a925",
       "2e7bc87c-d1c8-4739-a228-c6632eb73d93",
       "5b76b821-b4d5-42e7-a3ce-52bb5775614a",
@@ -53153,7 +52655,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "bdad0de6-659f-4bcf-8e33-9773dc668a39",
       "fb448fcd-cb6c-46de-a844-96aaebf9e027",
       "25c0503a-0c5c-4f5b-b899-aeb44a4e08eb",
-      "5e8c9cee-f9c1-4a12-80e3-a911d8df5baa",      "4e17ee20-26ab-41b3-9b72-5331e226b3d4",
+      "5e8c9cee-f9c1-4a12-80e3-a911d8df5baa", "4e17ee20-26ab-41b3-9b72-5331e226b3d4",
       "46289843-9c67-445d-afa5-956ad7f2bb0f",
       "d8ab897b-8477-4994-ac30-a60077d6348f",
       "cd0ec516-c7ff-475d-b6f8-6f7aad7dbd47",
@@ -53362,220 +52864,220 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "835e5e59-423d-4996-a788-9d2666697b91",
       "6a7f8950-f9d4-4150-8c6c-1051869a506a",
     ],
-    finaltestdisguisegamechangers = ["0d49b9cf-b592-420f-8718-faf7fbfec120", "87066392-ab1b-458a-87de-f5acf065e335", "2ed01cf7-5517-4d9a-8479-2a5f479fea01","d7234d65-af3a-4d0e-8005-9d055139184c","385ac6a3-2719-45a8-bc0c-59d685a7851c"]
-    topofthewordtargets = [
-      "522ab164-70e8-4559-b023-fcb6cbef658d",
-      "8fc78c91-7cfe-465e-984c-68483ec33aa5",
-      "04429865-872e-4ca8-8796-171a3328f5e5",
-      "52aea773-939c-40e8-b03e-2d86f8e848c6",
-      "aa1505af-a9c4-4586-9152-d67bca6fe63e",
-      "19b41ff9-6c9e-47ef-b6dd-a3d64d1a3307",
-      "316c8d20-f75b-45ee-8631-ec1d9042d809",
-      "57a98097-c8c1-4fd7-b656-97ea353e6139",
-      "5711a570-eefa-44ac-a8a3-d72ef2880f1e",
-      "2fa9698f-eb9b-4991-8aaf-3bddcf23e247",
-      "e1495b43-bc41-40e6-8318-72c26005541e",
-      "6eb89c11-249a-4de9-ac8d-7babbb4dbc89",
-      "1b74a34b-eea0-46a5-8d73-26c642c0c4b7",
-      "b3918226-12d2-4f31-9886-536c40ca5784",
-      "d5d8725f-dfd6-47ae-8bc7-d744bae0678a",
-      "fbc7002a-77f5-4aea-b903-35f6074752f4",
-      "f3edb2e7-6842-4f36-9a39-194d6d1d79ea",
-      "7f85a0c8-51d5-4cd7-8f26-26cdc169146e",
-      "2e17afc9-d812-4071-873a-97d8c9155a35",
-      "3533aed7-0403-4d49-83eb-19610029bf24",
-      "70ab4b17-bf5a-4233-a8e0-d6802022c10b",
-      "34ce29a6-7819-4b62-aed2-3115623d4c4a",
-      "027535fc-8160-4098-a28c-875e97c3d46e",
-      "1679e35a-1f1e-4416-aa69-985bf51ca911",
-      "1e0f5eed-8cfd-4b85-9593-38df4c7ce490",
-      "22d36967-af1e-4329-9921-03b851e4018c",
-      "f7ae337c-15ff-4ab9-aa53-1fe34155faec",
-      "fac7d7ae-42b3-40ff-b9ef-c01f6ddf5db8",
-      "b5ecba16-3351-43b7-9503-cbfff71e88d6",
-      "e591c642-79f2-4aff-8c51-184889b76594",
-      "44bd3e9f-76ce-4bb7-aaa9-8127f2e86667",
-      "13194b64-e176-4f48-b746-11623c8b3295",
-      "ddf117ad-bf1c-4aff-87a4-cb95fce52f3b",
-      "7ab82bab-c5eb-4d89-a3bd-5e9456233fc0",
-      "e428328d-027c-4600-8d86-6c55b54ceb3f",
-      "99217f25-11ba-4f3d-a12d-88a8cbac8fda",
-      "cb82426a-de8b-4ca4-beee-e3753f0f0bea",
-      "4218dd14-8024-4fef-86fb-65e97cd65f59",
-      "e9f6dbe2-ae53-4181-a82c-dd52f20ba319",
-      "513a8f82-fb9a-4b97-bd08-ef1814c422e8",
-      "b5bae954-39de-4d21-82ad-94efb7df39a5",
-      "075d413c-3a6c-448d-8fb5-d18e716e6632",
-      "2993f306-f331-4c91-89e8-6abf61ed5ddb",
-      "c30821fb-04e3-4979-a804-c6fe3b1a94cf",
-      "3bff42ff-25b5-4616-a8b5-4446a62a9ea8",
-      "aa60e851-753b-4554-80ba-9880f0346dc4",
-      "b9112e5a-762b-470f-b0ea-c494da9762c3",
-      "ca37de76-1600-4e57-bcba-accf7aebb216",
-      "40e26dc7-bab2-4842-84d0-0283aaae8cd6",
-      "25241527-024c-4110-9830-baacf41d0426",
-      "83f2c6de-67b7-49a6-b267-b00f87ead0dc",
-      "398d155e-213e-416a-8deb-4547073fc412",
-      "ecb53b77-2f8f-4b94-ab72-68c3478f598f",
-      "7bab34e1-6184-459c-9542-43eb392a3368",
-      "51764712-bc78-4ca3-9847-60339afe834b",
-      "111150b4-af86-430e-af75-d164f160187b",
-      "a04ab524-d849-4b64-bb76-830de6e89665",
-      "5fbe7e73-323f-498b-9bfb-4d4470a1cb7d",
-      "a5f0d2b0-2982-4e80-a07c-fd832574caf8",
-      "76093a1e-fc60-4207-ae0c-91a2b6c4f226",
-      "d047c15a-d423-4a49-b736-7457163548cd",
-      "7389810e-8efd-40e7-a24c-9640fdc4db5b",
-      "361eada4-b32e-4181-9fe4-ed7bcdad3377",
-      "339ab553-4865-4d9d-85b1-03fd8f452520",
-      "5760aa76-1163-4212-8b17-2d2795cd8cee",
-      "979b9acf-9507-45d3-870f-a1ecbc97d27c",
-      "2b305eb4-a0f9-4b30-a1f4-0e398cb6b95c",
-      "b6104000-49a7-40e8-a6a3-30326731ba33",
-      "3e3e3752-37db-4b0f-8ff3-827d4c565e55",
-      "93810f8c-0d0b-4fad-9c0c-09870a744232",
-      "7a0875a7-756e-47f1-b09d-8c6d1ae11066",
-      "9e3620c1-5289-403d-bd81-6a414ba2b030",
-      "1d757c45-065c-4535-8a03-845e1f1699cd",
-      "b37840f5-a58d-4e97-8162-71e1b4de32ca",
-      "bd021da1-3156-47f6-b68c-53d9a8d75b59",
-      "0cc0e22e-679b-464b-a549-f805cf2c5751",
-      "d6129960-dbcc-4f67-b5e9-80e853709a22",
-      "ee8a030d-02e2-43bb-b86d-b23e74ef0dc7",
-      "83273ba2-2d92-461f-a098-f82017995e57",
-      "a27e6558-7805-48af-8ef9-42836798938c",
-      "e5f20981-a935-4bb5-a598-0951d052a6e9",
-      "f7164cc2-71b8-45d2-9c8e-a0bfefdb1403",
-      "f8d07a60-2630-4324-9c16-b4665f58b312",
-      "d05509d7-6d02-47a0-a422-e5343bc16639",
-      "fa0d8f9f-86a4-4977-9106-c8fd7a62bbf6",
-      "40ee3be7-c498-442d-9cb1-dae0703cddbf",
-      "48709ded-defe-4916-954d-ac5cd79ad92f",
-      "6227b532-15cc-458e-8773-8dc09fbf22ef",
-      "9c9f4654-1f0c-41e2-aedc-24a6c74486b9",
-      "f7637fa3-3389-4409-964c-2d94f5e19728",
-      "f376a584-42b2-4266-b780-7c90c529467d",
-      "25c0d00d-698d-4c1d-82a6-41610d42e4f7",
-      "eb3fafa6-9e4a-4ebe-a87a-3287c3bf98f1",
-      "8b7ef54b-6ed5-46fe-ae42-ff0c07758f90",
-      "15102357-a96f-422c-a882-1d93749237f4",
-      "cd54a9c8-cc38-4548-a9b3-77f73c4f0e11",
-      "04c7d0c6-f1c3-42f1-a1f5-77462a1e5213",
-      "c5964a9b-73a1-4c39-b7d6-6cab1e13d388",
-      "3423fb70-0ea5-4c03-b4ab-546784411642",
-      "b7c5b8d7-9bc9-4b2f-8853-e2953dfcc672",
-      "4ae1d783-a5b3-42fe-876f-6b694c420f2b",
-      "872223e7-4592-4c5a-8d32-487ea1dd06f5",
-      "5d079dd5-88bc-482a-be89-715131ffbcfb",
-      "e275cc45-68d1-4a0f-a9a6-8eb876807efc",
-      "1b0b3e35-b542-4fdb-bad6-1687471eca5c",
-      "05b6454c-d2f6-44b8-a510-456e9ff6b915",
-      "aa3e14cd-5fa1-4248-a64f-210c3b86c579",
-      "2a7f7cc6-9cd1-4144-bbcb-3e18d5d3f9bc",
-      "45a2ffd6-9f7d-4615-a8ab-6609eb09100b",
-      "0f9099a1-0cae-4910-a976-001cf60833ae",
-      "e9c8638b-be42-4c1c-a523-6761eeeff7a0",
-      "9571d196-8d67-4d94-8dad-6e2d970d7a91",
-      "6c00d6f0-1167-4092-8772-53eb850f9f49",
-      "276bb5b4-9939-4581-8f6c-aee923c217d9",
-      "45019cf2-515d-43a5-9f67-3289b055c1d9",
-      "9d60dd96-6eb8-420c-a53f-bf7126b26874",
-      "89fcda5e-b91c-41e2-977e-ed13e538b3d4",
-      "1239b252-a06f-49d6-a4b3-2ca2fc68aca0",
-      "f3f48e7d-f5e1-45c7-a1cd-cd0ffa7cd9c8",
-      "66f29584-24a6-424f-a2e6-620f31776232",
-      "27e57101-f24b-4895-ae68-cd760be6ed78",
-      "c3112f2d-ea75-476d-b249-1f0a6d0585fb",
-      "6b29cca5-7fb1-42f6-85ec-047e1ecdcd4e",
-      "fb2670e1-e16d-4e66-bb04-12e5d6e5bcb0",
-      "c5b7c6f6-2ece-4e38-90c3-ee7a1af258ed",
-      "db2c6865-6d78-47d6-973a-3afc15375f04",
-      "ed2ad63b-6a2b-4fde-bbb5-b0bf64b6fc07",
-      "938c46db-742b-40e1-b4b5-9b6c08ad951e",
-      "1f0eed0d-78d4-4ead-a6ff-190b30656419",
-      "b51c6e3d-cade-48b8-839e-b9dd7e0b4be3",
-      "e6a3a314-5e07-4930-b4b0-579ee1f6be4a",
-      "7f1b07a9-c640-4c1a-bd1b-a944093c5646",
-      "03cda887-3966-475c-b010-6d94d1e9774e",
-      "d083f522-ed98-471a-9d73-595a61e375c2",
-      "6190ff79-0cfb-4e0f-8a96-1ba45bf16ffb",
-      "1f6ce142-5929-4e8a-822c-579027244773",
-      "eb2f3ee0-01d3-4cad-a386-433f88281875",
-      "9af0780c-29a8-47a3-9d36-669ab2028113",
-      "7d28ed81-2b13-4a8f-8276-0216c5e8058d",
-      "062c496a-910f-414b-88ce-52279a8c7768",
-      "0a6c5432-1aa3-41e3-b89b-01e54efb83d1",
-      "9c612c1d-1001-4bc3-b0c9-0d05b7ff6a92",
-      "e30af4d1-c1b2-4a9a-a1f3-8ad78f67771f",
-      "f78849b5-5ffc-4c61-a834-6cc28dafd827",
-      "0477c1e3-329e-4d7b-b312-61100b4c44f9",
-      "730f1208-42bf-4450-ab18-52e7631725f4",
-      "28e69f5d-dbf5-47a1-8d5d-bf4200136e63",
-      "44d00ab7-7d51-4cd4-b78f-f4e2ec0d312c",
-      "27aebd1b-8420-4ff9-8cf4-02c65e21bd0d",
-      "e9798afc-1399-4ff3-b4bd-58337402f31e",
-      "cb1aa4f5-b6be-4508-a333-f6a678e2d995",
-      "4a1a20fc-7e52-42f0-b2bd-bfbd18b38a4b",
-      "3ddffe43-5e65-4fdb-a27d-7ff9dc4587e6",
-      "df54ae08-53c9-4b8b-b7ff-14d037f9c5c3",
-      "da7e139e-b821-46af-9fb9-1fb54b5629fc",
-      "b74aa702-d3e5-47fd-9f8a-da58a9588249",
-      "e2a03ad4-74d5-491e-a288-06e35610a0d5",
-      "4fd70fbe-615f-4527-9f6d-8897bbab76ef",
-      "50e2331a-43ba-4c4c-9f97-2663c8551d16",
-      "36844fbc-e06a-478e-a5ae-5d245775f9a8",
-      "bacd6c59-5e07-48f0-8f8f-89a5dcfb194c",
-      "f7aa1122-215b-4a4c-8492-662bf32e0064",
-      "f204fec9-3c17-499f-bb0e-1e41cd4a7d9e",
-      "f25ced88-e077-47f1-a84f-700e21509494",
-      "2486a862-49f0-43cc-b0d3-58b845c4736e",
-      "f661f518-0fe8-419c-8353-25a5ce35b62c",
-      "b6b984ea-f77f-4e4e-aebc-e64c596cdc76",
-      "ec17e969-b5e0-45c7-a9c1-5c6be2e1dee3",
-      "4a9f2103-5114-4ce3-a02f-6f12c181e864",
-      "9baa468b-c0c9-466b-b08e-f364a1828bd3",
-      "4c75a3a0-80f1-42a2-9e97-9d3f4a47c4bc",
-      "5d836ce3-d23a-4c49-9649-d74c7f9e0501",
-      "f5ba687a-b8f4-4a67-9083-b5b4b0f3fbf0",
-      "02e16db3-1f42-4749-8b83-9fa0fa5c376f",
-      "dcb16db7-c06c-4182-a1f3-4b460c316602",
-      "e8c47afb-8d83-495d-89ff-144adf9e245a",
-      "b0e675d5-c6a7-4766-8a0c-f747b293058f",
-      "c917d35e-b61a-4683-b12b-1ad450fbafe0",
-      "859addff-9450-468a-8939-1be471077573",
-      "9d55860b-fe98-466f-bff4-cc03fc75ece2",
-      "90aaf463-cf27-4e46-8088-b91650e9e861",
-      "64102a8d-0f3c-40cb-8ad1-3b2943be98bd",
-      "bd0689d6-07b4-4757-b8ee-cac19f1c9e16",
-      "405a95c6-c3fe-4bdb-854c-b87ed116a585",
-      "5d2934c1-46b3-4a62-8422-e3fea96c1580",
-      "16c1020a-98dc-46d6-a992-3212b6e8a5de",
-      "be246e93-5ecf-4214-a493-aea9c331fc24",
-      "b457e183-3496-42ca-bed1-138bdfb098d7",
-      "325f89aa-d4ab-48ff-b54e-8d5e19746cfb",
-      "6484c8aa-bbce-477f-b68d-c906f91f0f85",
-      "ae6c62e3-131b-42e3-acdc-85d245a1d814",
-      "69c68366-f735-40ff-921e-b1286e21b58b",
-      "0c499082-5e93-46a8-95a6-81c57d0afd13",
-      "ee908b64-b0de-4966-97ce-1d76d963e144",
-      "a5d6633b-2c76-4811-80ad-1f345aa55ec8",
-      "35afbd33-67f2-464f-8d37-dce05549f646",
-      "e1c8c0a5-a506-45b6-9567-7b6df50b8877",
-      "5354710c-36c9-4f06-8af8-543758ad6861",
-      "266279f6-052b-4654-84b6-244091c08f9d",
-      "731da6de-0f6c-48ab-b0db-4d76e1f87d5b",
-      "727c2c45-1666-4c35-85f0-48f5ab4f9802",
-      "1e6d10fb-fdf7-4013-bf57-db2290b911b5",
-      "73bbf5dd-58b8-46c3-aa3b-399f1eb80df2",
-      "59d6713d-4a86-4af9-8154-4cff7e37ce86",
-      "07f65e34-12d7-4c83-bbae-0283b1168b12",
-      "5dc33477-0e35-49cf-b877-097e354eb96e",
-      "70ceeb18-62a7-40b1-aa72-693ced2143d0",
-      "0b79754b-4c6b-4011-a0d0-ea3171af2734",
-      "c015d90d-1135-4fd8-b251-d5e800477a8f",
-      "d86d7324-ef66-415d-8198-4990a7249f61",
-      "5ff29a68-61b5-4dd2-86d5-ae0e1f0a724d",
-    ],
+    finaltestdisguisegamechangers = ["0d49b9cf-b592-420f-8718-faf7fbfec120", "87066392-ab1b-458a-87de-f5acf065e335", "2ed01cf7-5517-4d9a-8479-2a5f479fea01", "d7234d65-af3a-4d0e-8005-9d055139184c", "385ac6a3-2719-45a8-bc0c-59d685a7851c"]
+  topofthewordtargets = [
+    "522ab164-70e8-4559-b023-fcb6cbef658d",
+    "8fc78c91-7cfe-465e-984c-68483ec33aa5",
+    "04429865-872e-4ca8-8796-171a3328f5e5",
+    "52aea773-939c-40e8-b03e-2d86f8e848c6",
+    "aa1505af-a9c4-4586-9152-d67bca6fe63e",
+    "19b41ff9-6c9e-47ef-b6dd-a3d64d1a3307",
+    "316c8d20-f75b-45ee-8631-ec1d9042d809",
+    "57a98097-c8c1-4fd7-b656-97ea353e6139",
+    "5711a570-eefa-44ac-a8a3-d72ef2880f1e",
+    "2fa9698f-eb9b-4991-8aaf-3bddcf23e247",
+    "e1495b43-bc41-40e6-8318-72c26005541e",
+    "6eb89c11-249a-4de9-ac8d-7babbb4dbc89",
+    "1b74a34b-eea0-46a5-8d73-26c642c0c4b7",
+    "b3918226-12d2-4f31-9886-536c40ca5784",
+    "d5d8725f-dfd6-47ae-8bc7-d744bae0678a",
+    "fbc7002a-77f5-4aea-b903-35f6074752f4",
+    "f3edb2e7-6842-4f36-9a39-194d6d1d79ea",
+    "7f85a0c8-51d5-4cd7-8f26-26cdc169146e",
+    "2e17afc9-d812-4071-873a-97d8c9155a35",
+    "3533aed7-0403-4d49-83eb-19610029bf24",
+    "70ab4b17-bf5a-4233-a8e0-d6802022c10b",
+    "34ce29a6-7819-4b62-aed2-3115623d4c4a",
+    "027535fc-8160-4098-a28c-875e97c3d46e",
+    "1679e35a-1f1e-4416-aa69-985bf51ca911",
+    "1e0f5eed-8cfd-4b85-9593-38df4c7ce490",
+    "22d36967-af1e-4329-9921-03b851e4018c",
+    "f7ae337c-15ff-4ab9-aa53-1fe34155faec",
+    "fac7d7ae-42b3-40ff-b9ef-c01f6ddf5db8",
+    "b5ecba16-3351-43b7-9503-cbfff71e88d6",
+    "e591c642-79f2-4aff-8c51-184889b76594",
+    "44bd3e9f-76ce-4bb7-aaa9-8127f2e86667",
+    "13194b64-e176-4f48-b746-11623c8b3295",
+    "ddf117ad-bf1c-4aff-87a4-cb95fce52f3b",
+    "7ab82bab-c5eb-4d89-a3bd-5e9456233fc0",
+    "e428328d-027c-4600-8d86-6c55b54ceb3f",
+    "99217f25-11ba-4f3d-a12d-88a8cbac8fda",
+    "cb82426a-de8b-4ca4-beee-e3753f0f0bea",
+    "4218dd14-8024-4fef-86fb-65e97cd65f59",
+    "e9f6dbe2-ae53-4181-a82c-dd52f20ba319",
+    "513a8f82-fb9a-4b97-bd08-ef1814c422e8",
+    "b5bae954-39de-4d21-82ad-94efb7df39a5",
+    "075d413c-3a6c-448d-8fb5-d18e716e6632",
+    "2993f306-f331-4c91-89e8-6abf61ed5ddb",
+    "c30821fb-04e3-4979-a804-c6fe3b1a94cf",
+    "3bff42ff-25b5-4616-a8b5-4446a62a9ea8",
+    "aa60e851-753b-4554-80ba-9880f0346dc4",
+    "b9112e5a-762b-470f-b0ea-c494da9762c3",
+    "ca37de76-1600-4e57-bcba-accf7aebb216",
+    "40e26dc7-bab2-4842-84d0-0283aaae8cd6",
+    "25241527-024c-4110-9830-baacf41d0426",
+    "83f2c6de-67b7-49a6-b267-b00f87ead0dc",
+    "398d155e-213e-416a-8deb-4547073fc412",
+    "ecb53b77-2f8f-4b94-ab72-68c3478f598f",
+    "7bab34e1-6184-459c-9542-43eb392a3368",
+    "51764712-bc78-4ca3-9847-60339afe834b",
+    "111150b4-af86-430e-af75-d164f160187b",
+    "a04ab524-d849-4b64-bb76-830de6e89665",
+    "5fbe7e73-323f-498b-9bfb-4d4470a1cb7d",
+    "a5f0d2b0-2982-4e80-a07c-fd832574caf8",
+    "76093a1e-fc60-4207-ae0c-91a2b6c4f226",
+    "d047c15a-d423-4a49-b736-7457163548cd",
+    "7389810e-8efd-40e7-a24c-9640fdc4db5b",
+    "361eada4-b32e-4181-9fe4-ed7bcdad3377",
+    "339ab553-4865-4d9d-85b1-03fd8f452520",
+    "5760aa76-1163-4212-8b17-2d2795cd8cee",
+    "979b9acf-9507-45d3-870f-a1ecbc97d27c",
+    "2b305eb4-a0f9-4b30-a1f4-0e398cb6b95c",
+    "b6104000-49a7-40e8-a6a3-30326731ba33",
+    "3e3e3752-37db-4b0f-8ff3-827d4c565e55",
+    "93810f8c-0d0b-4fad-9c0c-09870a744232",
+    "7a0875a7-756e-47f1-b09d-8c6d1ae11066",
+    "9e3620c1-5289-403d-bd81-6a414ba2b030",
+    "1d757c45-065c-4535-8a03-845e1f1699cd",
+    "b37840f5-a58d-4e97-8162-71e1b4de32ca",
+    "bd021da1-3156-47f6-b68c-53d9a8d75b59",
+    "0cc0e22e-679b-464b-a549-f805cf2c5751",
+    "d6129960-dbcc-4f67-b5e9-80e853709a22",
+    "ee8a030d-02e2-43bb-b86d-b23e74ef0dc7",
+    "83273ba2-2d92-461f-a098-f82017995e57",
+    "a27e6558-7805-48af-8ef9-42836798938c",
+    "e5f20981-a935-4bb5-a598-0951d052a6e9",
+    "f7164cc2-71b8-45d2-9c8e-a0bfefdb1403",
+    "f8d07a60-2630-4324-9c16-b4665f58b312",
+    "d05509d7-6d02-47a0-a422-e5343bc16639",
+    "fa0d8f9f-86a4-4977-9106-c8fd7a62bbf6",
+    "40ee3be7-c498-442d-9cb1-dae0703cddbf",
+    "48709ded-defe-4916-954d-ac5cd79ad92f",
+    "6227b532-15cc-458e-8773-8dc09fbf22ef",
+    "9c9f4654-1f0c-41e2-aedc-24a6c74486b9",
+    "f7637fa3-3389-4409-964c-2d94f5e19728",
+    "f376a584-42b2-4266-b780-7c90c529467d",
+    "25c0d00d-698d-4c1d-82a6-41610d42e4f7",
+    "eb3fafa6-9e4a-4ebe-a87a-3287c3bf98f1",
+    "8b7ef54b-6ed5-46fe-ae42-ff0c07758f90",
+    "15102357-a96f-422c-a882-1d93749237f4",
+    "cd54a9c8-cc38-4548-a9b3-77f73c4f0e11",
+    "04c7d0c6-f1c3-42f1-a1f5-77462a1e5213",
+    "c5964a9b-73a1-4c39-b7d6-6cab1e13d388",
+    "3423fb70-0ea5-4c03-b4ab-546784411642",
+    "b7c5b8d7-9bc9-4b2f-8853-e2953dfcc672",
+    "4ae1d783-a5b3-42fe-876f-6b694c420f2b",
+    "872223e7-4592-4c5a-8d32-487ea1dd06f5",
+    "5d079dd5-88bc-482a-be89-715131ffbcfb",
+    "e275cc45-68d1-4a0f-a9a6-8eb876807efc",
+    "1b0b3e35-b542-4fdb-bad6-1687471eca5c",
+    "05b6454c-d2f6-44b8-a510-456e9ff6b915",
+    "aa3e14cd-5fa1-4248-a64f-210c3b86c579",
+    "2a7f7cc6-9cd1-4144-bbcb-3e18d5d3f9bc",
+    "45a2ffd6-9f7d-4615-a8ab-6609eb09100b",
+    "0f9099a1-0cae-4910-a976-001cf60833ae",
+    "e9c8638b-be42-4c1c-a523-6761eeeff7a0",
+    "9571d196-8d67-4d94-8dad-6e2d970d7a91",
+    "6c00d6f0-1167-4092-8772-53eb850f9f49",
+    "276bb5b4-9939-4581-8f6c-aee923c217d9",
+    "45019cf2-515d-43a5-9f67-3289b055c1d9",
+    "9d60dd96-6eb8-420c-a53f-bf7126b26874",
+    "89fcda5e-b91c-41e2-977e-ed13e538b3d4",
+    "1239b252-a06f-49d6-a4b3-2ca2fc68aca0",
+    "f3f48e7d-f5e1-45c7-a1cd-cd0ffa7cd9c8",
+    "66f29584-24a6-424f-a2e6-620f31776232",
+    "27e57101-f24b-4895-ae68-cd760be6ed78",
+    "c3112f2d-ea75-476d-b249-1f0a6d0585fb",
+    "6b29cca5-7fb1-42f6-85ec-047e1ecdcd4e",
+    "fb2670e1-e16d-4e66-bb04-12e5d6e5bcb0",
+    "c5b7c6f6-2ece-4e38-90c3-ee7a1af258ed",
+    "db2c6865-6d78-47d6-973a-3afc15375f04",
+    "ed2ad63b-6a2b-4fde-bbb5-b0bf64b6fc07",
+    "938c46db-742b-40e1-b4b5-9b6c08ad951e",
+    "1f0eed0d-78d4-4ead-a6ff-190b30656419",
+    "b51c6e3d-cade-48b8-839e-b9dd7e0b4be3",
+    "e6a3a314-5e07-4930-b4b0-579ee1f6be4a",
+    "7f1b07a9-c640-4c1a-bd1b-a944093c5646",
+    "03cda887-3966-475c-b010-6d94d1e9774e",
+    "d083f522-ed98-471a-9d73-595a61e375c2",
+    "6190ff79-0cfb-4e0f-8a96-1ba45bf16ffb",
+    "1f6ce142-5929-4e8a-822c-579027244773",
+    "eb2f3ee0-01d3-4cad-a386-433f88281875",
+    "9af0780c-29a8-47a3-9d36-669ab2028113",
+    "7d28ed81-2b13-4a8f-8276-0216c5e8058d",
+    "062c496a-910f-414b-88ce-52279a8c7768",
+    "0a6c5432-1aa3-41e3-b89b-01e54efb83d1",
+    "9c612c1d-1001-4bc3-b0c9-0d05b7ff6a92",
+    "e30af4d1-c1b2-4a9a-a1f3-8ad78f67771f",
+    "f78849b5-5ffc-4c61-a834-6cc28dafd827",
+    "0477c1e3-329e-4d7b-b312-61100b4c44f9",
+    "730f1208-42bf-4450-ab18-52e7631725f4",
+    "28e69f5d-dbf5-47a1-8d5d-bf4200136e63",
+    "44d00ab7-7d51-4cd4-b78f-f4e2ec0d312c",
+    "27aebd1b-8420-4ff9-8cf4-02c65e21bd0d",
+    "e9798afc-1399-4ff3-b4bd-58337402f31e",
+    "cb1aa4f5-b6be-4508-a333-f6a678e2d995",
+    "4a1a20fc-7e52-42f0-b2bd-bfbd18b38a4b",
+    "3ddffe43-5e65-4fdb-a27d-7ff9dc4587e6",
+    "df54ae08-53c9-4b8b-b7ff-14d037f9c5c3",
+    "da7e139e-b821-46af-9fb9-1fb54b5629fc",
+    "b74aa702-d3e5-47fd-9f8a-da58a9588249",
+    "e2a03ad4-74d5-491e-a288-06e35610a0d5",
+    "4fd70fbe-615f-4527-9f6d-8897bbab76ef",
+    "50e2331a-43ba-4c4c-9f97-2663c8551d16",
+    "36844fbc-e06a-478e-a5ae-5d245775f9a8",
+    "bacd6c59-5e07-48f0-8f8f-89a5dcfb194c",
+    "f7aa1122-215b-4a4c-8492-662bf32e0064",
+    "f204fec9-3c17-499f-bb0e-1e41cd4a7d9e",
+    "f25ced88-e077-47f1-a84f-700e21509494",
+    "2486a862-49f0-43cc-b0d3-58b845c4736e",
+    "f661f518-0fe8-419c-8353-25a5ce35b62c",
+    "b6b984ea-f77f-4e4e-aebc-e64c596cdc76",
+    "ec17e969-b5e0-45c7-a9c1-5c6be2e1dee3",
+    "4a9f2103-5114-4ce3-a02f-6f12c181e864",
+    "9baa468b-c0c9-466b-b08e-f364a1828bd3",
+    "4c75a3a0-80f1-42a2-9e97-9d3f4a47c4bc",
+    "5d836ce3-d23a-4c49-9649-d74c7f9e0501",
+    "f5ba687a-b8f4-4a67-9083-b5b4b0f3fbf0",
+    "02e16db3-1f42-4749-8b83-9fa0fa5c376f",
+    "dcb16db7-c06c-4182-a1f3-4b460c316602",
+    "e8c47afb-8d83-495d-89ff-144adf9e245a",
+    "b0e675d5-c6a7-4766-8a0c-f747b293058f",
+    "c917d35e-b61a-4683-b12b-1ad450fbafe0",
+    "859addff-9450-468a-8939-1be471077573",
+    "9d55860b-fe98-466f-bff4-cc03fc75ece2",
+    "90aaf463-cf27-4e46-8088-b91650e9e861",
+    "64102a8d-0f3c-40cb-8ad1-3b2943be98bd",
+    "bd0689d6-07b4-4757-b8ee-cac19f1c9e16",
+    "405a95c6-c3fe-4bdb-854c-b87ed116a585",
+    "5d2934c1-46b3-4a62-8422-e3fea96c1580",
+    "16c1020a-98dc-46d6-a992-3212b6e8a5de",
+    "be246e93-5ecf-4214-a493-aea9c331fc24",
+    "b457e183-3496-42ca-bed1-138bdfb098d7",
+    "325f89aa-d4ab-48ff-b54e-8d5e19746cfb",
+    "6484c8aa-bbce-477f-b68d-c906f91f0f85",
+    "ae6c62e3-131b-42e3-acdc-85d245a1d814",
+    "69c68366-f735-40ff-921e-b1286e21b58b",
+    "0c499082-5e93-46a8-95a6-81c57d0afd13",
+    "ee908b64-b0de-4966-97ce-1d76d963e144",
+    "a5d6633b-2c76-4811-80ad-1f345aa55ec8",
+    "35afbd33-67f2-464f-8d37-dce05549f646",
+    "e1c8c0a5-a506-45b6-9567-7b6df50b8877",
+    "5354710c-36c9-4f06-8af8-543758ad6861",
+    "266279f6-052b-4654-84b6-244091c08f9d",
+    "731da6de-0f6c-48ab-b0db-4d76e1f87d5b",
+    "727c2c45-1666-4c35-85f0-48f5ab4f9802",
+    "1e6d10fb-fdf7-4013-bf57-db2290b911b5",
+    "73bbf5dd-58b8-46c3-aa3b-399f1eb80df2",
+    "59d6713d-4a86-4af9-8154-4cff7e37ce86",
+    "07f65e34-12d7-4c83-bbae-0283b1168b12",
+    "5dc33477-0e35-49cf-b877-097e354eb96e",
+    "70ceeb18-62a7-40b1-aa72-693ced2143d0",
+    "0b79754b-4c6b-4011-a0d0-ea3171af2734",
+    "c015d90d-1135-4fd8-b251-d5e800477a8f",
+    "d86d7324-ef66-415d-8198-4990a7249f61",
+    "5ff29a68-61b5-4dd2-86d5-ae0e1f0a724d",
+  ],
     deathinthefamilytargets = [
       "fa0b9f07-d667-48d2-99c0-c5ee905fa973",
       "95d2ba53-b9d9-4f23-aa3c-92d9ad252dd4",
@@ -53642,7 +53144,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "f48f36f0-a210-45df-aa9a-f1d83cf19b31",
       "7b5219a9-4090-41f0-a8d9-45c24308d7c3",
       "04c7afbd-5909-4350-a296-04eab6eabb4a",
-      "f9e60cf8-4a02-4cbd-92b1-d9887352b2aa",      "1e6834c9-ed62-4f73-a5a2-864bc52eab2c",
+      "f9e60cf8-4a02-4cbd-92b1-d9887352b2aa", "1e6834c9-ed62-4f73-a5a2-864bc52eab2c",
       "65991a2b-5813-4a40-8aa9-0412a607717e",
       "bce38660-1554-425b-8a00-749b70b61015",
       "453f7e3d-5c85-4cdc-8fc0-af921679a5e2",
@@ -53655,7 +53157,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "0aeb6066-0412-46df-92a8-acfd5651d2d6",
       "51cb49bf-2a59-4444-81b7-96aeda12ba19",
       "bca845d7-81a3-4499-a821-298b5ad3fe47",
-      "8f910ab4-9e0a-410d-8ac3-f271b0e0a4aa",      "471170e7-64b9-461e-bd6e-049b8e338479",
+      "8f910ab4-9e0a-410d-8ac3-f271b0e0a4aa", "471170e7-64b9-461e-bd6e-049b8e338479",
       "5627a599-0e3a-4ea7-8d96-d42db5adf827",
       "23d92a46-f1fa-49e6-b111-1ddf9a6b3cc9",
       "445ef39d-ba5c-4e62-a9ca-02a2f5ade4ce",
@@ -53773,7 +53275,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "428233b2-b247-4fde-aed6-fd8af9b1b537",
       "40793678-0780-4039-bf27-bb89896e84a1",
       "fabb35ee-d44c-449a-8708-a19dcb5a1d7a",
-      "f9d5119c-e5e3-4832-a504-d28a7e0b9faa",      "1e66ddbe-f4db-4649-9b29-6ee63d923eba",
+      "f9d5119c-e5e3-4832-a504-d28a7e0b9faa", "1e66ddbe-f4db-4649-9b29-6ee63d923eba",
       "964cb997-1c66-42ff-99d1-6cb050812757",
       "2f4b77bc-f4cc-46fa-8e2c-0e4e81cb4a72",
       "b6128b58-e8c1-4bb8-8a86-dfa6a5c92cc6",
@@ -54345,7 +53847,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "352f9378-0bd5-47cf-8286-ee8e8de0221f",
       "cbab7323-5bb8-47d5-8029-5077aa7b8bb1",
       "e08ee063-cc5c-48d9-8627-3e82a2fce75f",
-      "db85e020-98d2-485e-ba21-ebfc53b91daa",      "4f57cf59-ccb7-4232-9f07-cc594192b044",
+      "db85e020-98d2-485e-ba21-ebfc53b91daa", "4f57cf59-ccb7-4232-9f07-cc594192b044",
       "c98ea7f1-0271-47d9-822f-97bf52657cda",
       "891fc1a1-c2b2-4bdf-8e9a-44614690932f",
       "2b573293-0146-4d78-816b-c196173d2847",
@@ -54620,7 +54122,7 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "06d88203-7124-465b-8ae9-97c40690535d",
       "a4c3ed5d-2b2f-48e0-b5a0-bee9a5711f0b",
       "f8874ac8-df1a-4b17-b334-ec17013e5b9e",
-      "d370c685-687c-4bbd-b1a1-33e8b6d7e5aa",      "4f80ca40-a8f3-4a5e-9add-4c74d3bb5bcc",
+      "d370c685-687c-4bbd-b1a1-33e8b6d7e5aa", "4f80ca40-a8f3-4a5e-9add-4c74d3bb5bcc",
       "448b9bc2-004a-4e86-98ea-bd68b31e97ff",
       "2b358619-cc9d-4a64-8e5e-9f66e8354dd7",
       "aa08ec28-bfd8-49ac-872f-c0cbe37e1c9d",
@@ -54728,7 +54230,6 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       "0920912a-e6ca-4f2a-8aaf-56bef6ece7ce",
       "d85e5b45-bc20-4bc7-8520-d3e4ddc652c5",
     ];
-    const untouchabletargets = ["10a90a52-1180-421d-925b-90a5498ffd5d","6c232a4d-cd64-42d8-a78f-e0570dae7cd2","759c67d0-18e2-49b2-a417-5daa9a450819","dca83dc1-c96e-4b75-b252-8abddd08617d","16bc3b56-63a5-48fd-beab-d4d2adf13b29","4c549646-3605-406a-8eb6-a56da52045a1","aaafb8c3-8697-4121-8c97-1ec2c3502742","cd6e9ee7-282c-49fa-a537-1802b4749e2c","796b0ee9-9261-4e55-ab6f-5a4c53f86e4e","a0766e5c-fadb-4900-8cb1-c776b56fabf5","3354e12a-3e7b-4693-bb63-a73d12a682e3","94018d55-069f-437a-bf19-35743c2c0bfd","8bcd3833-8958-4699-a5e2-de2824717578","6ecd7f77-bebc-4f7a-939d-7e16f4b678b1","8255c9aa-1a59-4750-89f1-46542207e00d","ced15cfa-21f7-4078-9ee7-f8b3ef1b1b59","29f7350c-f28d-4756-b03b-8158806c1a19","f423f166-ed6d-4c3b-8d55-cd1c8a8b84ac","2db48fc3-1f43-4681-82b4-26289c7373bc","d4fea004-6a7d-409f-bf4b-b229ca3cb355","0f8fd017-f30f-48aa-bb95-f0eed8f99eb0","bb3efb54-cb83-4c63-adda-12b7da545a77","49c4b42b-773d-416a-a48d-5cb7f6254290","71854eb2-8e6c-4d19-83d2-fbdc7879bf6f","c9e0a95c-48ba-4809-b443-cdc63a084484","6504cb26-c5d0-4c99-9aa2-7df9d18c5201","5a62d8d2-1208-4f11-b95d-8f6cb11cd02b","a9d48e85-3eb4-43cc-b8c3-5e56376e47e4","56ba1725-4d2b-4ba0-9842-79457af2eca3","606d9bbb-76b7-4e0f-a24f-e5b7a1257313","b3840fb0-e732-4f35-b858-fc4bed036e46","10a1344f-25b5-4d9b-99df-cc1a3e132701","7bba60be-4b86-4a3c-be67-3937ab982ef2","1e881cde-76e2-403b-b3ef-b67c11979733","c2dcbadf-4101-4172-b458-0f02b9145c0b","9830d3c6-93e3-49c8-b0c8-abdf3dc018ce","0ce09454-f422-49a2-945f-f9ff195e42b5","d47a96d9-91cb-42cf-8193-6bccc74a775e","006bff27-d8b9-480e-9308-fac9a447d038","17aa42ce-9de5-42c3-a0d7-42650aeb5ccb","28a8ac36-edba-4b02-81f9-4d8e85a6e37c","8d6aebab-d94a-4adf-8770-5985a3809ece","bdf572b3-7e6e-46f6-98b6-887ec99804de","bbfbf4da-e6e1-4f14-b2ee-9325f9615408","82615a87-f968-4be8-82d9-eb8089ad92ee","70579d76-d54b-43fb-9708-42488c480f02","423971e9-a6c2-42b1-84aa-009781c38a3f","1063ec04-ae7f-47ce-9f67-e3ed87b910fb","5b82b41f-f95e-4403-919c-6a67522fc94e","a6f7e9f3-e25c-48c6-8f0b-755a2e864123","bb7b6b31-adce-4a50-91fe-7447128b874b","cf3c9e6e-4e3c-43dd-a663-897ffaa165f2","ce95c773-3153-4909-a356-16f071297582","a3570e03-43f8-46ae-896a-e0a5803cfb6f","c7840085-c12a-4438-b032-f54bbe006030","17c40b70-506a-494e-89ef-31360cdead47"]
   //Final Pool of possible targets, detirmined by "Location" field inside contract
   const possibleTargets = [""];
   // Clears caches, as to not limit targets and gamechangers after finishing a contract.
@@ -54744,11 +54245,11 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       seedtitle = "RR_UNLOCKED_CONTRACT",
       seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
       controller.transferseed = seed
-      plaintextseedfordisplay = "Current Seed: " + seed.toString(),
+    plaintextseedfordisplay = "Current Seed: " + seed.toString(),
       (plaintextseed = seed.toString()),
       log(LogLevel.INFO, "[Roulette] Seed set to: " + seed),
       copyToClipboard(seed);
-      RandomizeContracts(contracts);
+    RandomizeContracts(contracts);
   }
   //Initial Contracts Tap
   controller.hooks.getContractManifest.tap("random-roulette", (t) => {
@@ -54792,28 +54293,28 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
     },
     Rarity: "common",
   }),
-  controller.configManager.configs.allunlockables.push({
-    Id: "PROP_PROPANE_FLASK",
-    Guid: "41d9297a-ab93-45e5-99c6-183f85b76a20",
-    Type: "gear",
-    Subtype: "explosive",
-    RMTPrice: -1,
-    GamePrice: -1,
-    IsPurchasable: !1,
-    IsPublished: !0,
-    IsDroppable: !1,
-    Capabilities: [],
-    Qualities: {},
-    Properties: {
-      Gameplay: {},
-      Quality: 4,
+    controller.configManager.configs.allunlockables.push({
+      Id: "PROP_PROPANE_FLASK",
+      Guid: "41d9297a-ab93-45e5-99c6-183f85b76a20",
+      Type: "gear",
+      Subtype: "explosive",
+      RMTPrice: -1,
+      GamePrice: -1,
+      IsPurchasable: !1,
+      IsPublished: !0,
+      IsDroppable: !1,
+      Capabilities: [],
+      Qualities: {},
+      Properties: {
+        Gameplay: {},
+        Quality: 4,
+        Rarity: "common",
+        IsContainer: !1,
+        LoadoutSlot: "gear",
+        RepositoryId: "a8a0c154-c36f-413e-8f29-b83a1b7a22f0",
+      },
       Rarity: "common",
-      IsContainer: !1,
-      LoadoutSlot: "gear",
-      RepositoryId: "a8a0c154-c36f-413e-8f29-b83a1b7a22f0",
-    },
-    Rarity: "common",
-  }),
+    }),
     controller.configManager.configs.allunlockables.push({
       Id: "PROP_WATER_CAN",
       Guid: "0ec4c8be-9a64-4bde-893d-819f85eaba94",
@@ -54844,69 +54345,69 @@ let MissionPool = ["ShadowsintheWater","Ship","FinalTest","TheFarewell","Endofan
       controller.transferseed = seed
       let seedSet = false; // flag to indicate if the seed has been set
 
-for (const param of parameters) {
-    const [key, value] = param.split(";", 2); // limit the split to 2 parts
-    switch (true) {
-        case key.trim() === "Text":
+      for (const param of parameters) {
+        const [key, value] = param.split(";", 2); // limit the split to 2 parts
+        switch (true) {
+          case key.trim() === "Text":
             let containsAlphabetical = /[a-zA-Z]/.test(value.trim());
             if (containsAlphabetical) {
-                log(LogLevel.INFO, "Contains Alphabetical");
-                seed = crc32(value.trim());
-                seedSet = true;
-                controller.transferseed = seed;
-                plaintextseedfordisplay = "Current Seed: " + value.trim();
-                controller.transferdisplayseed = plaintextseedfordisplay;
-                plaintextseed = seed.toString();
-                log(LogLevel.INFO, "Seed set to: " + value.trim());
-                seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
-                controller.transferseedimagepath = seedimagepath;
-                seedtitle = "RR_LOCKED_CONTRACT";
-                controller.transferseedtitle = seedtitle;
-                RandomizeContracts(contracts);
-                copyToClipboard(value.trim());
+              log(LogLevel.INFO, "Contains Alphabetical");
+              seed = crc32(value.trim());
+              seedSet = true;
+              controller.transferseed = seed;
+              plaintextseedfordisplay = "Current Seed: " + value.trim();
+              controller.transferdisplayseed = plaintextseedfordisplay;
+              plaintextseed = seed.toString();
+              log(LogLevel.INFO, "Seed set to: " + value.trim());
+              seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+              controller.transferseedimagepath = seedimagepath;
+              seedtitle = "RR_LOCKED_CONTRACT";
+              controller.transferseedtitle = seedtitle;
+              RandomizeContracts(contracts);
+              copyToClipboard(value.trim());
             } else {
-                log(LogLevel.INFO, "NO Alphabetical");
-                seed = parseInt(value.trim());
-                if (isNaN(seed)) {
-                    log(LogLevel.ERROR, "Entered seed is not a valid number.");
-                    return;
-                }
-                seedSet = true;
-                controller.transferseed = seed;
-                plaintextseedfordisplay = "Current Seed: " + seed.toString();
-                controller.transferdisplayseed = plaintextseedfordisplay;
-                plaintextseed = seed.toString();
-                log(LogLevel.INFO, "Seed set to: " + plaintextseed);
-                seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
-                controller.transferseedimagepath = seedimagepath;
-                seedtitle = "RR_LOCKED_CONTRACT";
-                controller.transferseedtitle = seedtitle;
-                RandomizeContracts(contracts);
-                copyToClipboard(seed.toString());
+              log(LogLevel.INFO, "NO Alphabetical");
+              seed = parseInt(value.trim());
+              if (isNaN(seed)) {
+                log(LogLevel.ERROR, "Entered seed is not a valid number.");
+                return;
+              }
+              seedSet = true;
+              controller.transferseed = seed;
+              plaintextseedfordisplay = "Current Seed: " + seed.toString();
+              controller.transferdisplayseed = plaintextseedfordisplay;
+              plaintextseed = seed.toString();
+              log(LogLevel.INFO, "Seed set to: " + plaintextseed);
+              seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+              controller.transferseedimagepath = seedimagepath;
+              seedtitle = "RR_LOCKED_CONTRACT";
+              controller.transferseedtitle = seedtitle;
+              RandomizeContracts(contracts);
+              copyToClipboard(seed.toString());
             }
             break;
-        default:
+          default:
             if (!seedSet && Counter === 0) {
-                log(LogLevel.INFO, "DEFAULT");
-                seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-                copyToClipboard(seed.toString());
-                controller.transferseed = seed;
-                plaintextseedfordisplay = "Current Seed: " + seed.toString();
-                controller.transferdisplayseed = plaintextseedfordisplay;
-                plaintextseed = seed.toString();
-                log(LogLevel.INFO, "Seed set to: " + plaintextseed);
-                seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
-                controller.transferseedimagepath = seedimagepath;
-                seedtitle = "RR_UNLOCKED_CONTRACT";
-                controller.transferseedtitle = seedtitle;
-                RandomizeContracts(contracts);
-                Counter = 1;
+              log(LogLevel.INFO, "DEFAULT");
+              seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+              copyToClipboard(seed.toString());
+              controller.transferseed = seed;
+              plaintextseedfordisplay = "Current Seed: " + seed.toString();
+              controller.transferdisplayseed = plaintextseedfordisplay;
+              plaintextseed = seed.toString();
+              log(LogLevel.INFO, "Seed set to: " + plaintextseed);
+              seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
+              controller.transferseedimagepath = seedimagepath;
+              seedtitle = "RR_UNLOCKED_CONTRACT";
+              controller.transferseedtitle = seedtitle;
+              RandomizeContracts(contracts);
+              Counter = 1;
             }
             break;
-    }
-}
+        }
+      }
 
-    
+
     }
   );
 
@@ -54915,13 +54416,13 @@ for (const param of parameters) {
     contracts.forEach((contract) => {
       function convertToDecimal(seed) {
         let numDigits = Math.floor(Math.log10(seed)) + 1;
-        
+
         let divisor = Math.pow(10, numDigits);
-        
+
         let result = seed / divisor;
-        
+
         return result;
-    }
+      }
       function biasedRandom(min, max, seed) {
         let decreasedseedformultiplaction = seed / 100
         const rand = getRandomIntWithSeed(
@@ -55276,15 +54777,6 @@ for (const param of parameters) {
               shuffledthefarewelltargets.flat(2);
             possibleTargets.push(...flattenedthefarewelltargets);
             break;
-            case "Untouchable":
-            let shuffleduntouchable = shuffleArrays(
-              seed,
-              5,
-              untouchabletargets
-            );
-            let flatteneduntouchable = shuffleduntouchable.flat(2);
-            possibleTargets.push(...flatteneduntouchable);
-            break;
           case "ShadowsintheWater":
             let shuffledshadowsinthewater = shuffleArrays(
               seed,
@@ -55301,7 +54793,7 @@ for (const param of parameters) {
       });
 
       // Add random Targets to each contractl
-      const TargetsAmount = getRandomIntWithSeed(2,4,seed+crc32(contract.Metadata.Id)+47);
+      const TargetsAmount = getRandomIntWithSeed(2, 4, seed + crc32(contract.Metadata.Id) + 47);
 
       contract.Data.Objectives[0].Definition.Context.Targets =
         createArrayWithRandomValues(TargetsAmount, 2, 4);
@@ -55401,7 +54893,7 @@ for (const param of parameters) {
             DisguiseGC3 = Shipdisguisegcs[randomIndexGC2];
           }
           break;
-          case "FinalTest":
+        case "FinalTest":
           {
             let randomIndexGC1 = getRandomIntWithSeed(
               0,
@@ -56427,36 +55919,6 @@ for (const param of parameters) {
             DisguiseGC3 = shadowsinthewaterdisguisegamechangers[randomIndexGC2];
           }
           break;
-          case "Untouchable":
-            {
-              let randomIndexGC1 = getRandomIntWithSeed(
-                0,
-                untouchablesdisguisegamechangers.length - 1,
-                seed + crc32(contract.Metadata.Id) + 47
-              );
-              let randomIndexGC2 = getRandomIntWithSeed(
-                0,
-                untouchablesdisguisegamechangers.length - 1,
-                seed + crc32(contract.Metadata.Id)
-              );
-  
-              while (randomIndexGC1 === randomIndexGC2) {
-                increaseValue++;
-                randomIndexGC2 = getRandomIntWithSeed(
-                  0,
-                  untouchablesdisguisegamechangers.length - 1,
-                  seed + crc32(contract.Metadata.Id) + increaseValue
-                );
-              }
-  
-              if (randomIndexGC1 !== randomIndexGC2) {
-                increaseValue = 0;
-              }
-  
-              DisguiseGC2 = untouchablesdisguisegamechangers[randomIndexGC1];
-              DisguiseGC3 = untouchablesdisguisegamechangers[randomIndexGC2];
-            }
-            break;
         default:
           break;
           break;
@@ -56521,7 +55983,7 @@ for (const param of parameters) {
       );
       let flattenedSideObjectiveGameChangers =
         shuffledSideObjectiveGameChangers.flat(2);
-      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1-1];
+      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1 - 1];
       clearCaches();
       controller.configManager.configs.GameChangerProperties = Object.assign(
         {},
@@ -56529,11 +55991,11 @@ for (const param of parameters) {
         SeedGameChanger
       );
       if (contract.RouletteType === 'Vector') {
-    } else {
-      if (contract.Data.hasOwnProperty("MandatoryLoadout")) {
-        delete contract.Data.MandatoryLoadout;
+      } else {
+        if (contract.Data.hasOwnProperty("MandatoryLoadout")) {
+          delete contract.Data.MandatoryLoadout;
+        }
       }
-    }
       ///DEBUG SideObjectiveGC1 = "e06e5d9c-36ac-4ba4-a91c-d439c906912"
       //log(LogLevel.INFO, "[Roulette] OSP Complication READ" + debugvalue)
       let ospistrue = osp === "true";
@@ -56559,24 +56021,24 @@ for (const param of parameters) {
           break;
         default:
           switch (SideObjectiveGC1) {
-          case "de28a18d-b3b4-4e4f-8b1a-ffb357eae963":
-                contract.Data.GameChangers.push(
-                  AssassinationGC2,
-                  DisguiseGC2,
-                  DisguiseGC3,
-                  SideObjectiveGC1,
-                  seedgamechangeuuid
-                );
-                break;
+            case "de28a18d-b3b4-4e4f-8b1a-ffb357eae963":
+              contract.Data.GameChangers.push(
+                AssassinationGC2,
+                DisguiseGC2,
+                DisguiseGC3,
+                SideObjectiveGC1,
+                seedgamechangeuuid
+              );
+              break;
             case "9322ea3f-ea76-40a4-98a7-d42ce169a502":
-                contract.Data.GameChangers.push(
-                  AssassinationGC2,
-                  AssassinationGC3,
-                  DisguiseGC2,
-                  SideObjectiveGC1,
-                  seedgamechangeuuid
-                );
-                break;
+              contract.Data.GameChangers.push(
+                AssassinationGC2,
+                AssassinationGC3,
+                DisguiseGC2,
+                SideObjectiveGC1,
+                seedgamechangeuuid
+              );
+              break;
             case "099556d5-78d4-4ed4-a4c2-605417c5e812":
               contract.Data.GameChangers.push(
                 SideObjectiveGC1,
@@ -56888,15 +56350,15 @@ for (const param of parameters) {
                 },
               ];
               break;
-              case "d3bbefe7-e323-4680-b1c9-6a38a928a4f8":
-                contract.Data.GameChangers.push(
-                  AssassinationGC2,
-                  DisguiseGC3,
-                  SideObjectiveGC1,
-                  seedgamechangeuuid
-                );
-                break;
-              case "a1bbdb3b-d0b3-4451-8b74-4ef851fffa5a":
+            case "d3bbefe7-e323-4680-b1c9-6a38a928a4f8":
+              contract.Data.GameChangers.push(
+                AssassinationGC2,
+                DisguiseGC3,
+                SideObjectiveGC1,
+                seedgamechangeuuid
+              );
+              break;
+            case "a1bbdb3b-d0b3-4451-8b74-4ef851fffa5a":
               contract.Data.GameChangers.push(
                 SideObjectiveGC1,
                 seedgamechangeuuid
@@ -57186,7 +56648,7 @@ for (const param of parameters) {
                 },
               ];
               break;
-              case "1f6478b6-0e7c-4454-9394-96ea05bd50a3":
+            case "1f6478b6-0e7c-4454-9394-96ea05bd50a3":
               contract.Data.GameChangers.push(
                 AssassinationGC2,
                 AssassinationGC3,
@@ -57194,7 +56656,7 @@ for (const param of parameters) {
                 seedgamechangeuuid
               );
               break;
-              case "044e2e8a-5a25-4d58-8a77-c0c2c8fe7889":
+            case "044e2e8a-5a25-4d58-8a77-c0c2c8fe7889":
               contract.Data.GameChangers.push(
                 DisguiseGC2,
                 DisguiseGC3,
@@ -57212,36 +56674,19 @@ for (const param of parameters) {
                 seedgamechangeuuid
               );
           }
-          if (contract.RouletteType === "Untouchable") {
-            let uindex = contract.Data.GameChangers.indexOf("a1a54ef2-9326-4318-b0eb-05aa05922353");
-            let uindex2 = contract.Data.GameChangers.indexOf("0910c139-e029-4533-a84c-5e2cba3454db");
-            let uindex3 = contract.Data.GameChangers.indexOf("e06e5d9c-36ac-4ba4-a91c-d439c906912");
-              if (uindex !== -1) {
-                contract.Data.GameChangers.splice(uindex, 1);
-                contract.Data.GameChangers[4] = "044e2e8a-5a25-4d58-8a77-c0c2c8fe7889"
-}
-if (uindex2 !== -1) {
-  contract.Data.GameChangers.splice(uindex2, 1);
-  contract.Data.GameChangers[5] = "d3bbefe7-e323-4680-b1c9-6a38a928a4f8"
-}
-if (uindex3 !== -1) {
-  contract.Data.GameChangers.splice(uindex3, 1);
-  contract.Data.GameChangers[5] = "d3bbefe7-e323-4680-b1c9-6a38a928a4f8"
-}
-          }
           if (contract.RouletteType === "Ship") {
             let uindex = contract.Data.GameChangers.indexOf("4199050b-c9e4-42db-90c7-072269135612");
-              if (uindex !== -1) {
-                contract.Data.GameChangers.splice(uindex, 1);
-                contract.Data.GameChangers[4] ="044e2e8a-5a25-4d58-8a77-c0c2c8fe7889"
-}
+            if (uindex !== -1) {
+              contract.Data.GameChangers.splice(uindex, 1);
+              contract.Data.GameChangers[4] = "044e2e8a-5a25-4d58-8a77-c0c2c8fe7889"
+            }
           }
           if (contract.RouletteType === "FinalTest") {
             let uindex = contract.Data.GameChangers.indexOf("4199050b-c9e4-42db-90c7-072269135612");
-              if (uindex !== -1) {
-                contract.Data.GameChangers.splice(uindex, 1);
-                contract.Data.GameChangers[4] ="044e2e8a-5a25-4d58-8a77-c0c2c8fe7889"
-}
+            if (uindex !== -1) {
+              contract.Data.GameChangers.splice(uindex, 1);
+              contract.Data.GameChangers[4] = "044e2e8a-5a25-4d58-8a77-c0c2c8fe7889"
+            }
           }
       }
       //log(LogLevel.INFO, "Id:" + locationid);
@@ -57259,7 +56704,7 @@ if (uindex3 !== -1) {
         modifiedcontract.Data.GameChangers;
         modifiedcontract.Data.GameChangers.pop();
         modifiedcontract.Metadata.Description =
-          "Archived Random Roulette Contract| Seed:" + seed 
+          "Archived Random Roulette Contract| Seed:" + seed
         require("node:fs").writeFileSync(
           Jsonfilename,
           JSON.stringify(modifiedcontract)
@@ -57270,7 +56715,7 @@ if (uindex3 !== -1) {
           contract
         );
         Jsonfilename =
-          "contracts/" + "Random_Roulette_Daily_" + month + "_" + day + "_" + year +".json";
+          "contracts/" + "Random_Roulette_Daily_" + month + "_" + day + "_" + year + ".json";
         //log(LogLevel.INFO, Jsonfilename);
         modifiedcontract.Metadata.Title = "RR Daily " + month + "|" + day + "|" + year;
         modifiedcontract.Metadata.Id = generaterandomUUID(finalDate)
@@ -57278,11 +56723,11 @@ if (uindex3 !== -1) {
         modifiedcontract.Data.GameChangers;
         modifiedcontract.Data.GameChangers.pop();
         modifiedcontract.Metadata.Description =
-          "Random Roulette Daily "  + month + "|" + day + "|" + year;
-       require("node:fs").writeFileSync(
-        Jsonfilename,
-       JSON.stringify(modifiedcontract) );
-       //log(LogLevel.INFO, "Archive: " + JSON.stringify(modifiedcontract) );
+          "Random Roulette Daily " + month + "|" + day + "|" + year + " Seed: " + finalDate;
+        require("node:fs").writeFileSync(
+          Jsonfilename,
+          JSON.stringify(modifiedcontract));
+        //log(LogLevel.INFO, "Archive: " + JSON.stringify(modifiedcontract) );
         modifiedcontract.Metadata.Type = "usercreated"
         modifiedcontract.Metadata.Id = "218313f3-2b5e-4a8b-b916-ab5862b7874f"
         let modifiedcontractincorrectformatting = [modifiedcontract]
@@ -57298,19 +56743,19 @@ if (uindex3 !== -1) {
   daily = true;
   seed = finalDate;
   let dailyrandomIndex = getRandomIntWithSeed(
-  0,
-  MissionPool.length - 1,
-  seed
+    0,
+    MissionPool.length - 1,
+    seed
   );
   CurrentDailyMission = MissionPool[dailyrandomIndex];
   locationid = CurrentDailyMission
   RandomizeContracts(contracts);
-  log(LogLevel.INFO, "[Roulette] RR Daily Contract Challenge for " + month + "/" + day + "/" +year+". Seed is: " + finalDate +"Current DAILY IS:" + CurrentDailyMission)
+  //log(LogLevel.INFO, "[Roulette] RR Daily Contract Challenge for " + month + "/" + day + "/" + year + ". Seed is: " + finalDate + "Current DAILY IS:" + CurrentDailyMission)
   daily = false
   seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
   controller.transferseed = seed
   log(LogLevel.INFO, "[Roulette] Seed set to: " + seed);
   copyToClipboard(seed);
   plaintextseedfordisplay = "Current Seed: " + seed.toString(),
-  RandomizeContracts(contracts);
+    RandomizeContracts(contracts);
 };

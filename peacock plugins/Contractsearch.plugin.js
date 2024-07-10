@@ -1,5 +1,5 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
-(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette]Contract Filters now active.")
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Contract Filters now active.")
 module.exports = function test(controller) {
     controller.configManager.configs.FilterData = [
                 {

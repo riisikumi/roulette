@@ -1,4 +1,5 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Contract Paginate Changed.")
 module.exports = function LOLLMAO(controller) {
     controller.configManager.configs.ContractSearchPaginateTemplate = {
         "$if $gt ($.Data.TotalCount,0)": {

@@ -1,4 +1,5 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop");
+(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Contract Response Modified.")
 module.exports = function okay(controller) {
     controller.configManager.configs.ContractSearchResponseTemplate = {
         "id":"search_results",

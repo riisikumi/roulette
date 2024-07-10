@@ -732,7 +732,7 @@ function initPlugin(controller) {
       version
     );
   }
-  (0, import_loggingInterop.log)(import_loggingInterop.LogLevel.INFO, "[Custom Challenge Sample v1.0.0] Initialized");
+  (0, import_loggingInterop.log)(import_loggingInterop.LogLevel.INFO, "[Roulette] Challenges added.");
   if (!controller.smf.modIsInstalled("Peacock.SamplePlugins_Challenges")) {
     return;
   }
