@@ -1,1 +1,559 @@
-{"tempHash":"0072BC2B790950B2","tbluHash":"00DDE321E5355684","patch":[{"SubEntityOperation":["9d65a44bef250771",{"SetPropertyValue":{"property_name":"m_blendGraphRoot","value":"cafe34ca539fe12b"}}]},{"AddEntity":["cafe0c06d06e3c03",{"parent":"cafe34ca539fe12b","name":"RedGreenYellowLightSource","factory":"[modules:/zpostfiltersourceentity.class].pc_entitytype","blueprint":"[modules:/zpostfiltersourceentity.class].pc_entityblueprint"}]},{"AddEntity":["cafe1cb64c349582",{"parent":"cafe34ca539fe12b","name":"RedGreenYellowLightBlendController","factory":"[modules:/zpostfilterlayerentity.class].pc_entitytype","blueprint":"[modules:/zpostfilterlayerentity.class].pc_entityblueprint","properties":{"m_postfilterGraphNode":{"type":"SEntityTemplateReference","value":"cafe0c06d06e3c03"},"m_fBlendInDuration":{"type":"float32","value":0.10000000149011612},"m_fBlendSustainDuration":{"type":"float32","value":0.0},"m_fBlendOutDuration":{"type":"float32","value":3.0},"m_blendNode":{"type":"SEntityTemplateReference","value":"cafe2ee743f28d7b","postInit":true},"m_parametersEntity":{"type":"SEntityTemplateReference","value":"cafed81f31db16e7","postInit":true}}}]},{"AddEntity":["cafefcf73c0659e4",{"parent":"cafe34ca539fe12b","name":"EventChannelReceiver_int32 PF_BlueRed","factory":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entityblueprint","properties":{"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafe2db22dfdf065","postInit":true}},"events":{"EventReceived":{"BlendIn":["cafe1cb64c349582"],"SetValue":["cafe0e1d74c5cd61"]}}}]},{"AddEntity":["cafed81f31db16e7",{"parent":"cafe34ca539fe12b","name":"PF_RedGreenYellowLight","factory":"[modules:/zrenderpostfilterparametersentity.class].pc_entitytype","blueprint":"[modules:/zrenderpostfilterparametersentity.class].pc_entityblueprint","properties":{"m_fVignetteMin":{"type":"float32","value":0.3},"m_fVignetteMax":{"type":"float32","value":1.1},"m_fVignetteStrength":{"type":"float32","value":1},"m_bVignetteEnabled":{"type":"bool","value":true},"m_bHDREnabled":{"type":"bool","value":false}}}]},{"AddEntity":["cafe2db22dfdf065",{"parent":"cafefcf73c0659e4","name":"TokenID_PF_BlueRed","factory":"[modules:/ztokenidentity.class].pc_entitytype","blueprint":"[modules:/ztokenidentity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"PF_BlueRed"}}}]},{"AddEntity":["cafe2ee743f28d7b",{"parent":"cafe34ca539fe12b","name":"RedGreenYellowLightBlend","factory":"[modules:/zpostfilterblendentity.class].pc_entitytype","blueprint":"[modules:/zpostfilterblendentity.class].pc_entityblueprint","properties":{"m_input1":{"type":"SEntityTemplateReference","value":"cafe0c06d06e3c03"},"m_bEnableBlendMask":{"type":"bool","value":true},"m_input0":{"type":"SEntityTemplateReference","value":"e59982e4ebf77914"}}}]},{"AddEntity":["cafe34ca539fe12b",{"parent":"78d19a084a9a8f8f","name":"RedGreenYellowLight","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint","properties":{"m_input0":{"type":"SEntityTemplateReference","value":"e59982e4ebf77914"}},"propertyAliases":{"m_input0":[{"originalProperty":"m_input0","originalEntity":"cafe2ee743f28d7b"}]},"exposedInterfaces":{"ZPostfilterBlendEntity":"cafe2ee743f28d7b","ZPostfilterGraphBaseNode":"cafe2ee743f28d7b"}}]},{"AddEntity":["cafed07899bbc77f",{"parent":"cafef21e67da5855","name":"ValueInt_Evaluation - Red","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint","properties":{"m_nCompareTo":{"type":"int32","value":2},"m_rValueInt":{"type":"SEntityTemplateReference","value":"cafe5ffd0ee750f2"}},"events":{"OnTrue":{"SetValue":[{"ref":"cafedb209fbc274a","value":{"type":"SColorRGB","value":{"r":1,"g":0,"b":0}}}]}}}]},{"AddEntity":["cafede95e2645db0",{"parent":"cafef21e67da5855","name":"ValueInt_Set RedGreenYellowLight Current colour","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafe5ffd0ee750f2"}}}]},{"AddEntity":["cafe5ffd0ee750f2",{"parent":"cafef21e67da5855","name":"ValueInt RedGreenYellowLight Current colour","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint","properties":{"m_nValue":{"type":"int32","value":-1}}}]},{"AddEntity":["cafe77a4e37c1888",{"parent":"cafef21e67da5855","name":"ValueInt_Evaluation - Yellow","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint","properties":{"m_nCompareTo":{"type":"int32","value":1},"m_rValueInt":{"type":"SEntityTemplateReference","value":"cafe5ffd0ee750f2"}},"events":{"OnTrue":{"SetValue":[{"ref":"cafedb209fbc274a","value":{"type":"SColorRGB","value":{"r":1,"g":1,"b":0}}}]}}}]},{"AddEntity":["cafefaf372f93544",{"parent":"cafef21e67da5855","name":"ValueInt_Evaluation - Green","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint","properties":{"m_nCompareTo":{"type":"int32","value":0},"m_rValueInt":{"type":"SEntityTemplateReference","value":"cafe5ffd0ee750f2"}},"events":{"OnTrue":{"SetValue":[{"ref":"cafedb209fbc274a","value":{"type":"SColorRGB","value":{"r":0,"g":1,"b":0}}}]}}}]},{"AddEntity":["cafedb209fbc274a",{"parent":"cafe34ca539fe12b","name":"ValueColorRGB_Set","factory":"[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_set.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_set.entitytemplate].pc_entityblueprint","properties":{"m_aValueEntities":{"type":"TArray<SEntityTemplateReference>","value":["cafee4293d87f101"]}}}]},{"AddEntity":["cafee4293d87f101",{"parent":"cafe34ca539fe12b","name":"ValueColorRGB_EntityProperty","factory":"[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_entityproperty.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_entityproperty.entitytemplate].pc_entityblueprint","properties":{"m_rEntity":{"type":"SEntityTemplateReference","value":"cafed81f31db16e7"},"m_sPropertyName":{"type":"ZString","value":"m_VignetteColor"}}}]},{"AddEntity":["cafe6bf7f81e0c54",{"parent":"cafe34ca539fe12b","name":"EventChannelReceiver_int32 PF_RedGreenYellowLight","factory":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entityblueprint","properties":{"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafe604a0c487abf","postInit":true}},"events":{"EventReceived":{"BlendIn":["cafe1cb64c349582"],"SetValue":["cafede95e2645db0"]}}}]},{"AddEntity":["cafe604a0c487abf",{"parent":"cafe6bf7f81e0c54","name":"TokenID_PF_RedGreenYellowLight","factory":"[modules:/ztokenidentity.class].pc_entitytype","blueprint":"[modules:/ztokenidentity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"PF_RedGreenYellowLight"}}}]},{"AddEntity":["cafef21e67da5855",{"parent":"cafe34ca539fe12b","name":"RedGreenYellowLight","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"}]},{"AddEntity":["cafe1cfc92908172",{"parent":"cafe20791682cb65","name":"ValueInt_Evaluation - Blue","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint","properties":{"m_nCompareTo":{"type":"int32","value":0},"m_rValueInt":{"type":"SEntityTemplateReference","value":"cafe8c405abd022b"}},"events":{"OnTrue":{"SetValue":[{"ref":"cafedb209fbc274a","value":{"type":"SColorRGB","value":{"r":0,"g":0,"b":1}}}]}}}]},{"AddEntity":["cafe0e1d74c5cd61",{"parent":"cafe20791682cb65","name":"ValueInt_Set BlueRed Current colour","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafe8c405abd022b"}}}]},{"AddEntity":["cafe8c405abd022b",{"parent":"cafe20791682cb65","name":"ValueInt BlueRed Current colour","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint","properties":{"m_nValue":{"type":"int32","value":-1}}}]},{"AddEntity":["cafed34ff92df417",{"parent":"cafe20791682cb65","name":"ValueInt_Evaluation - Red","factory":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint","properties":{"m_nCompareTo":{"type":"int32","value":1},"m_rValueInt":{"type":"SEntityTemplateReference","value":"cafe8c405abd022b"}},"events":{"OnTrue":{"SetValue":[{"ref":"cafedb209fbc274a","value":{"type":"SColorRGB","value":{"r":1,"g":0,"b":0}}}]}}}]},{"AddEntity":["cafe20791682cb65",{"parent":"cafe34ca539fe12b","name":"BlueRed","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"}]},{"AddEntity":["cafe6203d31bfb7c",{"parent":"3669bd133422e890","name":"EventChannelReceiver_void - 47Drunk","factory":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_void.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_void.entitytemplate].pc_entityblueprint","properties":{"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafed8671f3e288c","postInit":true}},"events":{"EventReceived":{"BlendIn":["5b236772543af2e6"]}}}]},{"AddEntity":["cafed8671f3e288c",{"parent":"cafe6203d31bfb7c","name":"TokenID_PF_47Drunk","factory":"[modules:/ztokenidentity.class].pc_entitytype","blueprint":"[modules:/ztokenidentity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"PF_47Drunk"}}}]}],"patchVersion":6}
+{
+	"tempHash": "0072BC2B790950B2",
+	"tbluHash": "00DDE321E5355684",
+	"patch": [
+		{
+			"SubEntityOperation": [
+				"9d65a44bef250771",
+				{
+					"SetPropertyValue": {
+						"property_name": "m_blendGraphRoot",
+						"value": "cafe34ca539fe12b"
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe0c06d06e3c03",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "RedGreenYellowLightSource",
+					"factory": "[modules:/zpostfiltersourceentity.class].pc_entitytype",
+					"blueprint": "[modules:/zpostfiltersourceentity.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe1cb64c349582",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "RedGreenYellowLightBlendController",
+					"factory": "[modules:/zpostfilterlayerentity.class].pc_entitytype",
+					"blueprint": "[modules:/zpostfilterlayerentity.class].pc_entityblueprint",
+					"properties": {
+						"m_postfilterGraphNode": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe0c06d06e3c03"
+						},
+						"m_fBlendInDuration": {
+							"type": "float32",
+							"value": 0.10000000149011612
+						},
+						"m_fBlendSustainDuration": {
+							"type": "float32",
+							"value": 0.0
+						},
+						"m_fBlendOutDuration": {
+							"type": "float32",
+							"value": 3.0
+						},
+						"m_blendNode": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe2ee743f28d7b",
+							"postInit": true
+						},
+						"m_parametersEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafed81f31db16e7",
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafefcf73c0659e4",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "EventChannelReceiver_int32 PF_BlueRed",
+					"factory": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rChannelToken": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe2db22dfdf065",
+							"postInit": true
+						}
+					},
+					"events": {
+						"EventReceived": {
+							"BlendIn": ["cafe1cb64c349582"],
+							"SetValue": ["cafe0e1d74c5cd61"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed81f31db16e7",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "PF_RedGreenYellowLight",
+					"factory": "[modules:/zrenderpostfilterparametersentity.class].pc_entitytype",
+					"blueprint": "[modules:/zrenderpostfilterparametersentity.class].pc_entityblueprint",
+					"properties": {
+						"m_fVignetteMin": {
+							"type": "float32",
+							"value": 0.3
+						},
+						"m_fVignetteMax": {
+							"type": "float32",
+							"value": 1.1
+						},
+						"m_fVignetteStrength": {
+							"type": "float32",
+							"value": 1
+						},
+						"m_bVignetteEnabled": {
+							"type": "bool",
+							"value": true
+						},
+						"m_bHDREnabled": { "type": "bool", "value": false }
+					},
+					"platformSpecificProperties": {
+						"VR_PC": {
+							"m_fVignetteStrength": {
+								"type": "float32",
+								"value": 20
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe2db22dfdf065",
+				{
+					"parent": "cafefcf73c0659e4",
+					"name": "TokenID_PF_BlueRed",
+					"factory": "[modules:/ztokenidentity.class].pc_entitytype",
+					"blueprint": "[modules:/ztokenidentity.class].pc_entityblueprint",
+					"properties": {
+						"m_sName": {
+							"type": "ZString",
+							"value": "PF_BlueRed"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe2ee743f28d7b",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "RedGreenYellowLightBlend",
+					"factory": "[modules:/zpostfilterblendentity.class].pc_entitytype",
+					"blueprint": "[modules:/zpostfilterblendentity.class].pc_entityblueprint",
+					"properties": {
+						"m_input1": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe0c06d06e3c03"
+						},
+						"m_bEnableBlendMask": {
+							"type": "bool",
+							"value": true
+						},
+						"m_input0": {
+							"type": "SEntityTemplateReference",
+							"value": "e59982e4ebf77914"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe34ca539fe12b",
+				{
+					"parent": "78d19a084a9a8f8f",
+					"name": "RedGreenYellowLight",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"properties": {
+						"m_input0": {
+							"type": "SEntityTemplateReference",
+							"value": "e59982e4ebf77914"
+						}
+					},
+					"propertyAliases": {
+						"m_input0": [
+							{
+								"originalProperty": "m_input0",
+								"originalEntity": "cafe2ee743f28d7b"
+							}
+						]
+					},
+					"exposedInterfaces": {
+						"ZPostfilterBlendEntity": "cafe2ee743f28d7b",
+						"ZPostfilterGraphBaseNode": "cafe2ee743f28d7b"
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed07899bbc77f",
+				{
+					"parent": "cafef21e67da5855",
+					"name": "ValueInt_Evaluation - Red",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nCompareTo": { "type": "int32", "value": 2 },
+						"m_rValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe5ffd0ee750f2"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"SetValue": [
+								{
+									"ref": "cafedb209fbc274a",
+									"value": {
+										"type": "SColorRGB",
+										"value": { "r": 1, "g": 0, "b": 0 }
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafede95e2645db0",
+				{
+					"parent": "cafef21e67da5855",
+					"name": "ValueInt_Set RedGreenYellowLight Current colour",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe5ffd0ee750f2"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe5ffd0ee750f2",
+				{
+					"parent": "cafef21e67da5855",
+					"name": "ValueInt RedGreenYellowLight Current colour",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nValue": { "type": "int32", "value": -1 }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe77a4e37c1888",
+				{
+					"parent": "cafef21e67da5855",
+					"name": "ValueInt_Evaluation - Yellow",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nCompareTo": { "type": "int32", "value": 1 },
+						"m_rValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe5ffd0ee750f2"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"SetValue": [
+								{
+									"ref": "cafedb209fbc274a",
+									"value": {
+										"type": "SColorRGB",
+										"value": { "r": 1, "g": 1, "b": 0 }
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafefaf372f93544",
+				{
+					"parent": "cafef21e67da5855",
+					"name": "ValueInt_Evaluation - Green",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nCompareTo": { "type": "int32", "value": 0 },
+						"m_rValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe5ffd0ee750f2"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"SetValue": [
+								{
+									"ref": "cafedb209fbc274a",
+									"value": {
+										"type": "SColorRGB",
+										"value": { "r": 0, "g": 1, "b": 0 }
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafedb209fbc274a",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "ValueColorRGB_Set",
+					"factory": "[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aValueEntities": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["cafee4293d87f101"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafee4293d87f101",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "ValueColorRGB_EntityProperty",
+					"factory": "[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_entityproperty.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuecolorrgb.template?/valuecolorrgb_entityproperty.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafed81f31db16e7"
+						},
+						"m_sPropertyName": {
+							"type": "ZString",
+							"value": "m_VignetteColor"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe6bf7f81e0c54",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "EventChannelReceiver_int32 PF_RedGreenYellowLight",
+					"factory": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_int32.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rChannelToken": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe604a0c487abf",
+							"postInit": true
+						}
+					},
+					"events": {
+						"EventReceived": {
+							"BlendIn": ["cafe1cb64c349582"],
+							"SetValue": ["cafede95e2645db0"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe604a0c487abf",
+				{
+					"parent": "cafe6bf7f81e0c54",
+					"name": "TokenID_PF_RedGreenYellowLight",
+					"factory": "[modules:/ztokenidentity.class].pc_entitytype",
+					"blueprint": "[modules:/ztokenidentity.class].pc_entityblueprint",
+					"properties": {
+						"m_sName": {
+							"type": "ZString",
+							"value": "PF_RedGreenYellowLight"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef21e67da5855",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "RedGreenYellowLight",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe1cfc92908172",
+				{
+					"parent": "cafe20791682cb65",
+					"name": "ValueInt_Evaluation - Blue",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nCompareTo": { "type": "int32", "value": 0 },
+						"m_rValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe8c405abd022b"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"SetValue": [
+								{
+									"ref": "cafedb209fbc274a",
+									"value": {
+										"type": "SColorRGB",
+										"value": { "r": 0, "g": 0, "b": 1 }
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe0e1d74c5cd61",
+				{
+					"parent": "cafe20791682cb65",
+					"name": "ValueInt_Set BlueRed Current colour",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe8c405abd022b"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe8c405abd022b",
+				{
+					"parent": "cafe20791682cb65",
+					"name": "ValueInt BlueRed Current colour",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nValue": { "type": "int32", "value": -1 }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed34ff92df417",
+				{
+					"parent": "cafe20791682cb65",
+					"name": "ValueInt_Evaluation - Red",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_evaluation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nCompareTo": { "type": "int32", "value": 1 },
+						"m_rValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe8c405abd022b"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"SetValue": [
+								{
+									"ref": "cafedb209fbc274a",
+									"value": {
+										"type": "SColorRGB",
+										"value": { "r": 1, "g": 0, "b": 0 }
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe20791682cb65",
+				{
+					"parent": "cafe34ca539fe12b",
+					"name": "BlueRed",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe6203d31bfb7c",
+				{
+					"parent": "3669bd133422e890",
+					"name": "EventChannelReceiver_void - 47Drunk",
+					"factory": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_void.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchannelreceiver_void.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rChannelToken": {
+							"type": "SEntityTemplateReference",
+							"value": "cafed8671f3e288c",
+							"postInit": true
+						}
+					},
+					"events": {
+						"EventReceived": {
+							"BlendIn": ["5b236772543af2e6"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed8671f3e288c",
+				{
+					"parent": "cafe6203d31bfb7c",
+					"name": "TokenID_PF_47Drunk",
+					"factory": "[modules:/ztokenidentity.class].pc_entitytype",
+					"blueprint": "[modules:/ztokenidentity.class].pc_entityblueprint",
+					"properties": {
+						"m_sName": {
+							"type": "ZString",
+							"value": "PF_47Drunk"
+						}
+					}
+				}
+			]
+		}
+	],
+	"patchVersion": 6
+}

@@ -12,14 +12,24 @@ module.exports = function EscPlugin(controller) {
   controller.configManager.configs.GlobalChallenges = baseglobal
   log(LogLevel.INFO, "[Roulette] Alpha Indev");
   const { execSync } = require('child_process');
-
+  
   function copyToClipboard(text) {
-    if (process.platform === 'darwin') {
-      execSync(`echo "${text}" | pbcopy`);
-    } else if (process.platform === 'win32') {
-      execSync(`echo ${text} | clip`);
+    // Ensure text is a string
+    let sanitizedText = String(text);
+  
+    // Properly escape special characters
+    if (process.platform === 'win32') {
+      sanitizedText = sanitizedText.replace(/([&<>^|])/g, '^$1');
     } else {
-      execSync(`echo "${text}" | xclip -selection clipboard`);
+      sanitizedText = sanitizedText.replace(/(["\\$`])/g, '\\$1');
+    }
+  
+    if (process.platform === 'darwin') {
+      execSync(`echo "${sanitizedText}" | pbcopy`);
+    } else if (process.platform === 'win32') {
+      execSync(`echo ${sanitizedText} | clip`);
+    } else {
+      execSync(`echo "${sanitizedText}" | xclip -selection clipboard`);
     }
   }
 
@@ -54341,37 +54351,23 @@ module.exports = function EscPlugin(controller) {
   controller.hooks.getSearchResults.tap(
     "ContractSearchResults",
     async (parameters, ids) => {
-      let Counter = 0
-      controller.transferseed = seed
-      let seedSet = false; // flag to indicate if the seed has been set
-
+      let Counter = 0;
+      let seed;
+      controller.transferseed = seed;
+      let seedSet = false;
+  
       for (const param of parameters) {
-        const [key, value] = param.split(";", 2); // limit the split to 2 parts
+        const [key, value] = param.split(";", 2);
         switch (true) {
           case key.trim() === "Text":
-            let containsAlphabetical = /[a-zA-Z]/.test(value.trim());
-            if (containsAlphabetical) {
-              log(LogLevel.INFO, "Contains Alphabetical");
-              seed = crc32(value.trim());
-              seedSet = true;
-              controller.transferseed = seed;
-              plaintextseedfordisplay = "Current Seed: " + value.trim();
-              controller.transferdisplayseed = plaintextseedfordisplay;
-              plaintextseed = seed.toString();
-              log(LogLevel.INFO, "Seed set to: " + value.trim());
-              seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
-              controller.transferseedimagepath = seedimagepath;
-              seedtitle = "RR_LOCKED_CONTRACT";
-              controller.transferseedtitle = seedtitle;
-              RandomizeContracts(contracts);
-              copyToClipboard(value.trim());
-            } else {
+            let trimmedValue = value.trim();
+  
+            // Check if the value can be parsed as a number
+            let parsedSeed = parseInt(trimmedValue);
+            if (!isNaN(parsedSeed)) {
+              // If it's a valid number, use it as the seed
               log(LogLevel.INFO, "NO Alphabetical");
-              seed = parseInt(value.trim());
-              if (isNaN(seed)) {
-                log(LogLevel.ERROR, "Entered seed is not a valid number.");
-                return;
-              }
+              seed = parsedSeed;
               seedSet = true;
               controller.transferseed = seed;
               plaintextseedfordisplay = "Current Seed: " + seed.toString();
@@ -54384,6 +54380,22 @@ module.exports = function EscPlugin(controller) {
               controller.transferseedtitle = seedtitle;
               RandomizeContracts(contracts);
               copyToClipboard(seed.toString());
+            } else {
+              // Otherwise, hash the value using crc32
+              log(LogLevel.INFO, "Contains Alphabetical");
+              seed = crc32(trimmedValue);
+              seedSet = true;
+              controller.transferseed = seed;
+              plaintextseedfordisplay = "Current Seed: " + trimmedValue;
+              controller.transferdisplayseed = plaintextseedfordisplay;
+              plaintextseed = seed.toString();
+              log(LogLevel.INFO, "Seed set to: " + trimmedValue);
+              seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+              controller.transferseedimagepath = seedimagepath;
+              seedtitle = "RR_LOCKED_CONTRACT";
+              controller.transferseedtitle = seedtitle;
+              RandomizeContracts(contracts);
+              copyToClipboard(trimmedValue);
             }
             break;
           default:
@@ -54406,10 +54418,9 @@ module.exports = function EscPlugin(controller) {
             break;
         }
       }
-
-
     }
   );
+  
 
   //Uses all of the previous code stuffs to randomize the contracts
   function RandomizeContracts(contracts) {

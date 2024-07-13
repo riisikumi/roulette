@@ -16,8 +16,10 @@
 		"english": {
             "ui_melee_lethal_cards": "Playing Cards",
             "ui_melee_lethal_cards_desc": "These bladed playing cards have a sharp edge. Lethal Throwable.",
-            "ui_explosive_chip": "Poker Chip",
-            "ui_explosive_chip_desc": "A poker chip with a hidden compartment of explosive compound. Manually triggered, sticky and strong enough to breach doors.",
+            "UI_ROULETTE_BREACHING_CHIP_NAME": "Explosive Poker Chip",
+			"UI_ROULETTE_BREACHING_CHIP_DESC": "For an explosive game of poker. Inconspicuous and manually triggered explosive, sticks to surfaces and is strong enough to breach doors.",
+			"UI_ROULETTE_BREACHING_CHIP_DETONATOR_NAME": "Poker Chip Detonator",
+			"UI_ROULETTE_BREACHING_CHIP_DETONATOR_DESC": "Labelled: \"Press when you have 7-2 offsuit\".",
             "UI_ITEM_SUBTYPE_S8": "Modded",
 			"UI_ITEM_SUBTYPE_IN_PLURAL_S8": "Modded",
             "UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION": "This will regenerate Random Roulette Contracts with a random seed. This will not regenerate Trilogy Roulette Contracts. USING THIS IN A TRILOGY ROULETTE CONTRACT WILL CAUSE A ERROR.",

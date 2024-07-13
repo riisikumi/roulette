@@ -299,7 +299,7 @@ function initPlugin(controller) {
       Rewards: {
         MasteryXP: 0
       },
-      Drops: ["POKER_CHIP"],
+      Drops: ["PROP_DEVICE_BREACHING_CHIP"],
       IsPlayable: false,
       IsLocked: false,
       HideProgression: false,

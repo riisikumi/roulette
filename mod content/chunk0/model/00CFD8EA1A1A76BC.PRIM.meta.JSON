@@ -1,0 +1,18 @@
+{
+    "hash_value": "00CFD8EA1A1A76BC",
+    "hash_path": "[assembly:/_pro/items/geometry/roulette/poker_chip.wl2?/poker_chip.prim].pc_prim",
+    "hash_offset": 2154720962,
+    "hash_size": 2147541360,
+    "hash_resource_type": "PRIM",
+    "hash_reference_table_size": 13,
+    "hash_reference_table_dummy": 0,
+    "hash_size_final": 86528,
+    "hash_size_in_memory": 4294967295,
+    "hash_size_in_video_memory": 4294967295,
+    "hash_reference_data": [
+        {
+            "hash": "[assembly:/_pro/items/materials/roulette/poker_chip.mi].pc_mi",
+            "flag": "5F"
+        }
+    ]
+}
