@@ -55994,7 +55994,8 @@ module.exports = function EscPlugin(controller) {
       );
       let flattenedSideObjectiveGameChangers =
         shuffledSideObjectiveGameChangers.flat(2);
-      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1 - 1];
+      SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1];
+      //log(LogLevel.INFO, SideObjectiveGC1 + " " + randomIndexGC1)
       clearCaches();
       controller.configManager.configs.GameChangerProperties = Object.assign(
         {},

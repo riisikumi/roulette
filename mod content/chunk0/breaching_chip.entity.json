@@ -155,7 +155,7 @@
 			"blueprint": "[modules:/zillegalactionentity.class].pc_entityblueprint",
 			"properties": {
 				"m_bIsIllegal": { "type": "bool", "value": true },
-				"m_bIsSevere": { "type": "bool", "value": true }
+				"m_bIsSevere": { "type": "bool", "value": false }
 			}
 		},
 		"cafed972e0e3c906": {
