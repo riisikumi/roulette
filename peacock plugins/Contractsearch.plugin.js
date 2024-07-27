@@ -203,7 +203,7 @@ module.exports = function test(controller) {
                         },
                         {
                             "Title":"UI_LOCATION_TRAPPED_WOLVERINE_TITLE",
-                            "Value":"LOCATION_TRAPPED_WOLVERINE",
+                            "Value":"LOCATION_UNTOUCHED",
                             "Key":"Location"
                         },
                         {

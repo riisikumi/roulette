@@ -14,18 +14,30 @@
 	},
 	"localisation": {
 		"english": {
+            "UI_LOCATION_THECONTROLLER_TITLE": "The Controller",
+            "UI_LOCATION_THECONTROLLER_COUNTRY": "Hokkaido",
+            "UI_LOCATION_THEDIRECTOR_TITLE": "The Director",
+            "UI_LOCATION_THEDIRECTOR_COUNTRY": "Paris",
+            "UI_LOCATION_THEENFORCER_TITLE": "The Enforcer",
+            "UI_LOCATION_THEENFORCER_COUNTRY": "Sapienza",
+            "UI_LOCATION_THEEXTRACTOR_TITLE": "The Extractor",
+            "UI_LOCATION_THEEXTRACTOR_COUNTRY": "Marrakech",
+            "UI_LOCATION_THEVETERAN_TITLE": "The Veteran",
+            "UI_LOCATION_THEVETERAN_COUNTRY": "Bangkok",
+            "UI_LOCATION_THEMERCENARY_TITLE": "The Mercenary",
+            "UI_LOCATION_THEMERCENARY_COUNTRY": "Colorado",
             "ui_melee_lethal_cards": "Playing Cards",
-            "ui_melee_lethal_cards_desc": "These bladed playing cards have a sharp edge. Lethal Throwable.",
+            "ui_melee_lethal_cards_desc": "These bladed playing cards have a sharp edge and a hidden RFID jamming chip. Used to unlock doors and as a melee weapon.",
             "UI_ROULETTE_BREACHING_CHIP_NAME": "Explosive Poker Chip",
 			"UI_ROULETTE_BREACHING_CHIP_DESC": "For an explosive game of poker. Inconspicuous and manually triggered explosive, sticks to surfaces and is strong enough to breach doors.",
 			"UI_ROULETTE_BREACHING_CHIP_DETONATOR_NAME": "Poker Chip Detonator",
 			"UI_ROULETTE_BREACHING_CHIP_DETONATOR_DESC": "Labelled: \"Press when you have 7-2 offsuit\".",
             "UI_ITEM_SUBTYPE_S8": "Modded",
 			"UI_ITEM_SUBTYPE_IN_PLURAL_S8": "Modded",
-            "UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION": "This will regenerate Random Roulette Contracts with a random seed. This will not regenerate Trilogy Roulette Contracts. USING THIS IN A TRILOGY ROULETTE CONTRACT WILL CAUSE A ERROR.",
+            "UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION": "This will regenerate Random Roulette Contracts with a random seed. This will not regenerate Trilogy Roulette Contracts. USING THIS IN A TRILOGY ROULETTE CONTRACT WILL CAUSE AN ERROR.",
             "UI_DIALOG_RESET_BULLETDANCER_TITLE": "Regenerate Random Roulette Contracts?",
             "ui_firearms_hero_pistol_golden_gun": "Custom 5mm-WP Gold",
-            "ui_firearms_hero_pistol_ultralight_golden": "A golden variant of the Custom 5mm. Designed to pass through frisks, this weapon utilizes wall piercing caseless ammunition.",
+            "ui_firearms_hero_pistol_ultralight_golden": "A golden variant of the Custom 5mm. Designed to pass through frisks, this weapon utilizes wall piercing ammunition.",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_TITLE": "Roulette - Tier 1",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_1_DESC": "Complete 1 Roulette Contract.",
             "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_2_TITLE": "Roulette - Tier 2",
@@ -1823,7 +1835,7 @@
     "UI_KILL_METHOD_IMPACT_EXPLOSIVE": "Impact Explosive Device",
     "UI_LOCATION_THEDIRECTOR_CITY": "Paris",
     "UI_LOCATION_THEENFORCER_CITY": "Sapienza",
-    "UI_LOCATION_THEEXTRACTOR_CITY": "Marrakesh",
+    "UI_LOCATION_THEEXTRACTOR_CITY": "Marrakech",
     "UI_LOCATION_THEVETERAN_CITY": "Bangkok",
     "UI_LOCATION_THEMERCENARY_CITY": "Colorado",
     "UI_LOCATION_THECONTROLLER_CITY": "Hokkaido"
@@ -1920,7 +1932,8 @@
         "peacock plugins/Contractspaginate.plugin.js",
 		"peacock plugins/RandomRoulette.plugin.js",
         "peacock plugins/StoryModeRoulette.plugin.js",
-        "peacock plugins/roulettechallenges.plugin.js"
+        "peacock plugins/roulettechallenges.plugin.js",
+        "peacock plugins/Locations.plugin.js"
 	],
 	"contentFolders": [
 		"mod content"
