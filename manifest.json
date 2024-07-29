@@ -14,6 +14,9 @@
 	},
 	"localisation": {
 		"english": {
+            "UI_LOCATION_UNTOUCHED_CITY": "Carpathian Mountains",
+            "UI_LOCATION_UNTOUCHED_TITLE": "Untouchable",
+            "UI_LOCATION_UNTOUCHED_COUNTRY": "Untouchable",
             "UI_LOCATION_THECONTROLLER_TITLE": "The Controller",
             "UI_LOCATION_THECONTROLLER_COUNTRY": "Hokkaido",
             "UI_LOCATION_THEDIRECTOR_TITLE": "The Director",

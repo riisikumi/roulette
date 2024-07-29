@@ -81,7 +81,7 @@
                         },
                         "actions":{
                             "select":{
-                                "set-background":"$res images/backgrounds/menu_bg.jpg"
+                                "set-background":"$res images/Contracts/Roulette/roulettebranding.jpg"
                             }
                         },
                         "children":{

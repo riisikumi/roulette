@@ -179,7 +179,7 @@ module.exports = function test(controller) {
             "CodeName_Hint": "Create contract Colorado Bull",
             "Type": "creation",
             "Release": "1.5.x",
-            "Entitlements": ["H1_LEGACY_STANDARD"],
+            "Entitlements": ["H3_SARAJEVO_SIX"],
             "LastUpdate": "2021-04-20T12:24:57.6642486Z",
             "PublicId": "009184496347"
         },
@@ -215,7 +215,7 @@ module.exports = function test(controller) {
             "CodeName_Hint": "Create contract Hokkaido Snowcrane",
             "Type": "creation",
             "Release": "1.6.x",
-            "Entitlements": ["H1_LEGACY_STANDARD"],
+            "Entitlements":["H3_SARAJEVO_SIX"],
             "LastUpdate": "2021-04-20T12:24:57.6836556Z",
             "PublicId": "010666556247"
         },
@@ -251,7 +251,7 @@ module.exports = function test(controller) {
             "CodeName_Hint": "Create contract Miami Flamingo",
             "Type": "creation",
             "Release": "2.0.x",
-            "Entitlements": ["H2_LEGACY_STANDARD"],
+            "Entitlements": ["H2_LEGACY_EXPANSION"],
             "LastUpdate": "2021-04-15T12:40:17.005166Z",
             "PublicId": "011861443447"
         },
@@ -323,7 +323,7 @@ module.exports = function test(controller) {
             "CodeName_Hint": "Create contract Mumbai Mongoose",
             "Type": "creation",
             "Release": "2.0.x",
-            "Entitlements": ["H2_LEGACY_STANDARD"],
+            "Entitlements": ["H2_LEGACY_EXPANSION"],
             "LastUpdate": "2021-06-01T12:15:38.4787513Z",
             "PublicId": "013090926647"
         },
@@ -359,7 +359,7 @@ module.exports = function test(controller) {
             "CodeName_Hint": "Create contract Suburbia Skunk",
             "Type": "creation",
             "Release": "2.0.x",
-            "Entitlements": ["H2_LEGACY_STANDARD"],
+            "Entitlements": ["H2_LEGACY_EXPANSION"],
             "LastUpdate": "2021-06-07T12:55:56.9119668Z",
             "PublicId": "022933650047"
         },
@@ -385,7 +385,7 @@ module.exports = function test(controller) {
             "IsLocked": false,
             "CreatorUserId": "fadb923c-e6bb-4283-a537-eb4d1150262e",
             "IsPublished": true,
-            "TileImage": "images/locations/Location_northamerica/Tile.jpg",
+            "TileImage": "images/locations/LOCATION_TRAPPED/trapped_background.jpg",
             "Location": "LOCATION_TRAPPED_WOLVERINE",
             "Title": "UI_CONTRACT_CREATE_CONTRACT_TITLE",
             "ScenePath": "assembly:/_PRO/Scenes/Missions/trapped/scene_wolverine.entity",
@@ -446,7 +446,7 @@ module.exports = function test(controller) {
             "RequiredResources": [
                 "[assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity].entitytemplate"
             ],
-            "Entitlements": ["H1_LEGACY_STANDARD"]
+            "Entitlements": ["H3_SARAJEVO_SIX"],
         },
         "Guid": "dd0c29f7-ae80-4c4e-ac85-4ec85c075fcc",
         "Rarity": null,
@@ -481,7 +481,7 @@ module.exports = function test(controller) {
             "RequiredResources": [
                 "[assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_octopus.entity].entitytemplate"
             ],
-            "Entitlements": ["H1_LEGACY_STANDARD"]
+            "Entitlements": ["H3_SARAJEVO_SIX"]
         },
         "Guid": "92262338-86fc-44b5-ae58-2bf87d7c6ce7",
         "Rarity": null,
@@ -515,7 +515,7 @@ module.exports = function test(controller) {
             "RequiredResources": [
                 "[assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Spider.entity].entitytemplate"
             ],
-            "Entitlements": ["H1_LEGACY_STANDARD"]
+            "Entitlements": ["H3_SARAJEVO_SIX"]
         },
         "Guid": "4ed896aa-31fc-457f-a1d6-f70814c5a354",
         "Rarity": null,
@@ -551,7 +551,7 @@ module.exports = function test(controller) {
             "RequiredResources": [
                 "[assembly:/_PRO/Scenes/Missions/Bangkok/_Scene_Mission_Tiger.entity].entitytemplate"
             ],
-            "Entitlements": ["H1_LEGACY_STANDARD"]
+            "Entitlements": ["H3_SARAJEVO_SIX"]
         },
         "Guid": "376fc88a-b65c-4285-b7db-4778f75902a6",
         "Rarity": null,
@@ -593,6 +593,7 @@ module.exports = function test(controller) {
             "Rarity": null,
             "DisplayNameLocKey": "UI_LOCATION_COLORADO_NAME"
         }
+        
         var untouchLocationData = {
             "Id": "LOCATION_UNTOUCHED",
             "Type": "location",
@@ -608,26 +609,25 @@ module.exports = function test(controller) {
             "Qualities": {},
             "Properties": {
                 "ParentLocation": "LOCATION_PARENT_TRAPPED",
-                "Icon": "images/contracts/sarajevosix/Orbis005_BlackRussian/Title.jpg",
+                "Icon": "images/locations/LOCATION_TRAPPED/trapped_background.jpg",
+                "Background": "images/locations/LOCATION_TRAPPED/trapped_background.jpg",
                 "DlcImage": "images/livetile/dlc/tile_hitman3.jpg",
                 "DlcName": "GAME_STORE_METADATA_S3_GAME_TITLE",
-                "LockedIcon": "images/locations/LOCATION_COLORADO/tile_unreleased.jpg",
+                "LockedIcon": "images/locations/LOCATION_TRAPPED/trapped_background.jpg",
                 "IsLocked": false,
                 "UpcomingContent": false,
                 "UpcomingKey": "UI_MENU_LIVETILE_CONTENT_UPCOMING_HEADLINE",
-                "Background": "images/locations/LOCATION_COLORADO/background.jpg",
                 "Order": 100,
                 "Season": 3,
                "ProgressionKey": "LOCATION_TRAPPED",
                 "CreateContractId": "545869f8-043e-412c-8c24-310f6f55f5be",
                 "RequiredResources": [
-                    "[assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_mission_bull.entity].entitytemplate"
+                    "[assembly:/_pro/scenes/missions/Trapped/scene_wolverine.entity].entitytemplate"
                 ],
-                "Entitlements": ["H1_LEGACY_STANDARD"]
+                "Entitlements": ["LOCATION_TRAPPED"]
             },
-            "Guid": "7dd2fa8c-6d83-48c8-9092-896b7c6ed888",
+            "Guid": "7dd2fa8c-6d83-48c8-9092-896b7c6ed688",
             "Rarity": null,
-            "DisplayNameLocKey": "UI_LOCATION_COLORADO_NAME"
         }
     var controllerlocationdata = {
         "Id": "LOCATION_THECONTROLLER",
@@ -661,19 +661,19 @@ module.exports = function test(controller) {
             "RequiredResources": [
                 "[assembly:/_PRO/Scenes/Missions/Hokkaido/_Scene_Mission_SnowCrane.entity].entitytemplate"
             ],
-            "Entitlements": ["H1_LEGACY_STANDARD"]
+            "Entitlements": ["H3_SARAJEVO_SIX"]
         },
         "Guid": "0519881b-7b32-4c3c-a915-68388f4035b8",
         "Rarity": null,
         "DisplayNameLocKey": "UI_LOCATION_HOKKAIDO_NAME"
     }
+    controller.configManager.configs.LocationsData.children["LOCATION_UNTOUCHED"] = untouchLocationData
     controller.configManager.configs.LocationsData.children[LOCATION_THEDIRECTOR] = newEntry;
     controller.configManager.configs.LocationsData.children[LOCATION_THEENFORCER] = EnforcerLocationData;
     controller.configManager.configs.LocationsData.children[LOCATION_THEEXTRACTOR] = ExtractorLocationData;
     controller.configManager.configs.LocationsData.children[LOCATION_THEVETERAN] = VeteranLocationData;
     controller.configManager.configs.LocationsData.children[LOCATION_THEMERCENARY] = MercLocationData;
     controller.configManager.configs.LocationsData.children[LOCATION_THECONTROLLER] = controllerlocationdata;
-    controller.configManager.configs.LocationsData.children["LOCATION_UNTOUCHED"] = untouchLocationData
     controller.configManager.configs.LocationsData.children["LOCATION_MIAMI_COTTONMOUTH"].Properties.CreateContractId = "18b9ae32-183a-408f-afd5-b7005b76240b"
     controller.configManager.configs.LocationsData.children["LOCATION_COLOMBIA_ANACONDA"].Properties.CreateContractId = "0a907930-8951-45ff-9161-5ba30353e26a"
     controller.configManager.configs.LocationsData.children["LOCATION_MUMBAI_KINGCOBRA"].Properties.CreateContractId = "5e78274e-d329-4f76-87dd-2fd060683f71"

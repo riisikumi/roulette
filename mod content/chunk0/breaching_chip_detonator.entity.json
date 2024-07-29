@@ -1,1 +1,294 @@
-{"tempHash":"002766E493C9908A","tbluHash":"0051976E0FD74E82","rootEntity":"cafe70224b669d8c","entities":{"cafe92ee05749dfb":{"parent":"cafe70224b669d8c","name":"Keyword_ITEM_REMOTE_DETONATOR","factory":"[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_remote_detonator.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_remote_detonator.entitytemplate].pc_entityblueprint","properties":{"m_aHolders":{"type":"TArray<SEntityTemplateReference>","value":["cafe41e5654d5511"],"postInit":true}}},"cafe41e5654d5511":{"parent":"cafe70224b669d8c","name":"ItemArt_Remote_Detonator_A","factory":"[assembly:/_pro/items/templates/ica/remote_detonator_a.template?/itemart_remote_detonator_a.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/items/templates/ica/remote_detonator_a.template?/itemart_remote_detonator_a.entitytemplate].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.7098199725151062,"y":0.289667010307312,"z":0.4848560094833374}}},"m_eidParent":{"type":"SEntityTemplateReference","value":null,"postInit":true}}},"cafed75ccf3e0ec0":{"parent":"cafe70224b669d8c","name":"ItemHelpers_GripPose_Remote_Detonator","factory":"[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_remote_detonator.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_remote_detonator.entitytemplate].pc_entityblueprint"},"cafe4a5f2aa5a446":{"parent":"cafe70224b669d8c","name":"SoundSetup_Item02","factory":"[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entityblueprint","properties":{"m_eidParent":{"type":"SEntityTemplateReference","value":"cafe41e5654d5511"},"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.0,"y":0.0,"z":0.0}}},"m_rHolder":{"type":"SEntityTemplateReference","value":"cafe41e5654d5511"},"Prop_Placed_Sound":{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_plasticdevice/play_foley_plasticdevice_placed.wwiseevent].pc_wwisebank","flag":"5F"}},"PropEquipped_Sound":{"type":"ZRuntimeResourceID","value":{"resource":"00F9ABADFE089CFD","flag":"5F"}},"PropUnEquipped_Sound":{"type":"ZRuntimeResourceID","value":{"resource":"00D8004EAC00BD1C","flag":"5F"}},"m_eidParent1":{"type":"SEntityTemplateReference","value":"cafe41e5654d5511","postInit":true}},"subsets":{"AudioEmitters":["cafe70224b669d8c"]}},"cafeddfc63e1a8e3":{"parent":"cafe70224b669d8c","name":"PropHelper_ICA_Detonator","factory":"00F19E3EFC56778A","blueprint":"0088037C247B6B3C","properties":{"m_sPromptText":{"type":"ZString","value":"Trigger Distraction"},"m_sPromptDescriptionText":{"type":"ZString","value":"Audio Device"},"m_rPromptDescriptionTextResource":{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/localization/hitman6/conversations/ui/pro/setpieces_names.sweetmenutext?/setpieces_localization_description_audiodevice.sweetline].pc_sweetline","flag":"5F"}},"m_bApplyPromptDescriptionText":{"type":"bool","value":true},"m_rPromptTextResource":{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/localization/hitman6/conversations/ui/pro/setpieces.sweetmenutext?/setpieces_localization_prompt_activate.sweetline].pc_sweetline","flag":"5F"}},"m_aItemInHand":{"type":"TArray<SEntityTemplateReference>","value":[{"ref":"cafe7bd7ecd619c1","externalScene":null,"exposedEntity":"IsEquipped"}],"postInit":true},"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafec8e2ccb9a699","postInit":true}}},"cafec8e2ccb9a699":{"parent":"cafe70224b669d8c","name":"RemoteChannel_Device_Breaching_Chip","factory":"[assembly:/_pro/design/gamecore/remotechannels/remotechannels.template?/remotechannel_device_breaching_chip.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/remotechannels/remotechannels.template?/remotechannel_device_breaching_chip.entitytemplate].pc_entityblueprint"},"cafe7bd7ecd619c1":{"parent":"cafe70224b669d8c","name":"ItemCoreNoPhys","factory":"[assembly:/_pro/design/gamecore/itemcore.template?/itemcorenophys.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/itemcore.template?/itemcorenophys.entitytemplate].pc_entityblueprint","properties":{"m_rGeomentity":{"type":"SEntityTemplateReference","value":"cafe41e5654d5511"},"m_aSubactions":{"type":"TArray<SEntityTemplateReference>","value":["cafeddfc63e1a8e3"]},"m_PosPlacementAttach":{"type":"SEntityTemplateReference","value":{"ref":"cafe41e5654d5511","externalScene":null,"exposedEntity":"PropHelper_Item_Placement"}},"m_PosHandAttach":{"type":"SEntityTemplateReference","value":{"ref":"cafe41e5654d5511","externalScene":null,"exposedEntity":"HandAttacherSpatial"}},"m_pVariationResource":{"type":"SEntityTemplateReference","value":"cafed75ccf3e0ec0"},"m_rVisibleInInventory":{"type":"SEntityTemplateReference","value":{"ref":"cafeddfc63e1a8e3","externalScene":null,"exposedEntity":"HasActiveRecievers"}},"m_PlacementVolume":{"type":"SEntityTemplateReference","value":{"ref":"cafe41e5654d5511","externalScene":null,"exposedEntity":"PlacementVolume"}}},"events":{"OnEquip":{"Item_Equipped":["cafe4a5f2aa5a446"]},"OnUnEquip":{"Item_UnEquipped":["cafe4a5f2aa5a446"]},"OnPlaced":{"ItemPlaced":["cafe4a5f2aa5a446"]},"OnDrop":{"OnDrop_MixingEvent":["cafe4a5f2aa5a446"]},"OnThrown":{"OnThrown_MixingEvent":["cafe4a5f2aa5a446"]}},"subsets":{"Replicable":["cafe70224b669d8c"]}},"cafe70224b669d8c":{"parent":null,"name":"Prop_Remote_Breaching_Chip","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.7098199725151062,"y":0.289667010307312,"z":0.4848560094833374}}}},"propertyAliases":{"Kinematic":[{"originalProperty":"Kinematic","originalEntity":"cafe7bd7ecd619c1"}],"m_bStartKinematic":[{"originalProperty":"m_bStartKinematic","originalEntity":"cafe7bd7ecd619c1"}],"m_bStartPhysical":[{"originalProperty":"m_bStartPhysical","originalEntity":"cafe7bd7ecd619c1"}],"m_bStartVisible":[{"originalProperty":"m_bStartVisible","originalEntity":"cafe7bd7ecd619c1"}],"m_eidParent":[{"originalProperty":"m_eidParent","originalEntity":"cafe41e5654d5511"}],"m_mTransform":[{"originalProperty":"m_mTransform","originalEntity":"cafe41e5654d5511"}]},"exposedInterfaces":{"ZHM5Item":"cafe7bd7ecd619c1","IDynamicPhysics":"cafe41e5654d5511","IItem":"cafe7bd7ecd619c1","ZGeomEntity":"cafe41e5654d5511","IPhysicsAccessor":"cafe41e5654d5511","ZSpatialEntity":"cafe41e5654d5511","IItemBase":"cafe7bd7ecd619c1"}}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":[],"subType":"template","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "002766E493C9908A",
+	"tbluHash": "0051976E0FD74E82",
+	"rootEntity": "cafe70224b669d8c",
+	"entities": {
+		"cafe92ee05749dfb": {
+			"parent": "cafe70224b669d8c",
+			"name": "Keyword_ITEM_REMOTE_DETONATOR",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_remote_detonator.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_remote_detonator.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafe41e5654d5511"],
+					"postInit": true
+				}
+			}
+		},
+		"cafe41e5654d5511": {
+			"parent": "cafe70224b669d8c",
+			"name": "ItemArt_Remote_Detonator_A",
+			"factory": "[assembly:/_pro/items/templates/ica/remote_detonator_a.template?/itemart_remote_detonator_a.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/items/templates/ica/remote_detonator_a.template?/itemart_remote_detonator_a.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": 0.7098199725151062,
+							"y": 0.289667010307312,
+							"z": 0.4848560094833374
+						}
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": null,
+					"postInit": true
+				}
+			}
+		},
+		"cafed75ccf3e0ec0": {
+			"parent": "cafe70224b669d8c",
+			"name": "ItemHelpers_GripPose_Remote_Detonator",
+			"factory": "[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_remote_detonator.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_remote_detonator.entitytemplate].pc_entityblueprint"
+		},
+		"cafe4a5f2aa5a446": {
+			"parent": "cafe70224b669d8c",
+			"name": "SoundSetup_Item02",
+			"factory": "[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "cafe41e5654d5511"
+				},
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+					}
+				},
+				"m_rHolder": {
+					"type": "SEntityTemplateReference",
+					"value": "cafe41e5654d5511"
+				},
+				"Prop_Placed_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_plasticdevice/play_foley_plasticdevice_placed.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"PropEquipped_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00F9ABADFE089CFD",
+						"flag": "5F"
+					}
+				},
+				"PropUnEquipped_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00D8004EAC00BD1C",
+						"flag": "5F"
+					}
+				},
+				"m_eidParent1": {
+					"type": "SEntityTemplateReference",
+					"value": "cafe41e5654d5511",
+					"postInit": true
+				}
+			},
+			"subsets": { "AudioEmitters": ["cafe70224b669d8c"] }
+		},
+		"cafeddfc63e1a8e3": {
+			"parent": "cafe70224b669d8c",
+			"name": "PropHelper_ICA_Detonator",
+			"factory": "00F19E3EFC56778A",
+			"blueprint": "0088037C247B6B3C",
+			"properties": {
+				"m_sPromptText": {
+					"type": "ZString",
+					"value": "Trigger Distraction"
+				},
+				"m_sPromptDescriptionText": {
+					"type": "ZString",
+					"value": "Audio Device"
+				},
+				"m_rPromptDescriptionTextResource": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/localization/hitman6/conversations/ui/pro/setpieces_names.sweetmenutext?/setpieces_localization_description_remoteexplosives.sweetline].pc_sweetline",
+						"flag": "5F"
+					}
+				},
+				"m_bApplyPromptDescriptionText": {
+					"type": "bool",
+					"value": true
+				},
+				"m_rPromptTextResource": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/localization/hitman6/conversations/ui/pro/setpieces.sweetmenutext?/setpieces_localization_prompt_detonate.sweetline].pc_sweetline",
+						"flag": "5F"
+					}
+				},
+				"m_aItemInHand": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": [
+						{
+							"ref": "cafe7bd7ecd619c1",
+							"externalScene": null,
+							"exposedEntity": "IsEquipped"
+						}
+					],
+					"postInit": true
+				},
+				"m_rChannelToken": {
+					"type": "SEntityTemplateReference",
+					"value": "cafec8e2ccb9a699",
+					"postInit": true
+				}
+			}
+		},
+		"cafec8e2ccb9a699": {
+			"parent": "cafe70224b669d8c",
+			"name": "RemoteChannel_Device_Breaching_Chip",
+			"factory": "[assembly:/_pro/design/gamecore/remotechannels/remotechannels.template?/remotechannel_device_breaching_chip.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/remotechannels/remotechannels.template?/remotechannel_device_breaching_chip.entitytemplate].pc_entityblueprint"
+		},
+		"cafe7bd7ecd619c1": {
+			"parent": "cafe70224b669d8c",
+			"name": "ItemCoreNoPhys",
+			"factory": "[assembly:/_pro/design/gamecore/itemcore.template?/itemcorenophys.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/itemcore.template?/itemcorenophys.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rGeomentity": {
+					"type": "SEntityTemplateReference",
+					"value": "cafe41e5654d5511"
+				},
+				"m_aSubactions": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafeddfc63e1a8e3"]
+				},
+				"m_PosPlacementAttach": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "cafe41e5654d5511",
+						"externalScene": null,
+						"exposedEntity": "PropHelper_Item_Placement"
+					}
+				},
+				"m_PosHandAttach": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "cafe41e5654d5511",
+						"externalScene": null,
+						"exposedEntity": "HandAttacherSpatial"
+					}
+				},
+				"m_pVariationResource": {
+					"type": "SEntityTemplateReference",
+					"value": "cafed75ccf3e0ec0"
+				},
+				"m_rVisibleInInventory": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "cafeddfc63e1a8e3",
+						"externalScene": null,
+						"exposedEntity": "HasActiveRecievers"
+					}
+				},
+				"m_PlacementVolume": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "cafe41e5654d5511",
+						"externalScene": null,
+						"exposedEntity": "PlacementVolume"
+					}
+				}
+			},
+			"events": {
+				"OnEquip": { "Item_Equipped": ["cafe4a5f2aa5a446"] },
+				"OnUnEquip": { "Item_UnEquipped": ["cafe4a5f2aa5a446"] },
+				"OnPlaced": { "ItemPlaced": ["cafe4a5f2aa5a446"] },
+				"OnDrop": { "OnDrop_MixingEvent": ["cafe4a5f2aa5a446"] },
+				"OnThrown": {
+					"OnThrown_MixingEvent": ["cafe4a5f2aa5a446"]
+				}
+			},
+			"subsets": { "Replicable": ["cafe70224b669d8c"] }
+		},
+		"cafe70224b669d8c": {
+			"parent": null,
+			"name": "Prop_Remote_Breaching_Chip",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": 0.7098199725151062,
+							"y": 0.289667010307312,
+							"z": 0.4848560094833374
+						}
+					}
+				}
+			},
+			"propertyAliases": {
+				"Kinematic": [
+					{
+						"originalProperty": "Kinematic",
+						"originalEntity": "cafe7bd7ecd619c1"
+					}
+				],
+				"m_bStartKinematic": [
+					{
+						"originalProperty": "m_bStartKinematic",
+						"originalEntity": "cafe7bd7ecd619c1"
+					}
+				],
+				"m_bStartPhysical": [
+					{
+						"originalProperty": "m_bStartPhysical",
+						"originalEntity": "cafe7bd7ecd619c1"
+					}
+				],
+				"m_bStartVisible": [
+					{
+						"originalProperty": "m_bStartVisible",
+						"originalEntity": "cafe7bd7ecd619c1"
+					}
+				],
+				"m_eidParent": [
+					{
+						"originalProperty": "m_eidParent",
+						"originalEntity": "cafe41e5654d5511"
+					}
+				],
+				"m_mTransform": [
+					{
+						"originalProperty": "m_mTransform",
+						"originalEntity": "cafe41e5654d5511"
+					}
+				]
+			},
+			"exposedInterfaces": {
+				"ZHM5Item": "cafe7bd7ecd619c1",
+				"IDynamicPhysics": "cafe41e5654d5511",
+				"IItem": "cafe7bd7ecd619c1",
+				"ZGeomEntity": "cafe41e5654d5511",
+				"IPhysicsAccessor": "cafe41e5654d5511",
+				"ZSpatialEntity": "cafe41e5654d5511",
+				"IItemBase": "cafe7bd7ecd619c1"
+			}
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}
