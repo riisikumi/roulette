@@ -216,11 +216,11 @@ module.exports = function ContractSearch(controller) {
             killMethodPool.push("weapon_elimination")
         }
 
-        if (rouletteFilters.includes("rrBannedKills") && rouletteFilters.includes("specificFirearms") && (selectedMission != ("LOCATION_ICA_FACILITY_SHIP" || "LOCATION_ICA_FACILITY"))){
+        if (rouletteFilters.includes("rrBannedKills") && rouletteFilters.includes("specificFirearms") && (selectedMission != "LOCATION_ICA_FACILITY_SHIP" && selectedMission !="LOCATION_ICA_FACILITY")){
             killMethodPool.push("smg_elimination")
         }
 
-        if ((selectedMission == "LOCATION_COLORADO" || "LOCATION_EDGY_FOX") && (rouletteFilters.includes("specificFirearms") && (!rouletteFilters.includes("specificMelee" || "specificAccidents")))){
+        if ((selectedMission == "LOCATION_COLORADO" || selectedMission == "LOCATION_EDGY_FOX") && rouletteFilters.includes("specificFirearms") && (!rouletteFilters.includes("specificMelee")) && (!rouletteFilters.includes("specificAccidents"))){
             killMethodPool.push.apply(killMethodPool, specificAccidents)
             killMethodPool.push.apply(killMethodPool, info.RouletteMeleeWeapons)
             killMethodPool.push("fiberwire")
