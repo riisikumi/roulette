@@ -15,6 +15,7 @@
             "Quality": 4,
             "LoadoutSlot": "gear",
             "Rarity": "common",
+            "OrderIndex": 182,
             "GameAssets": [
                 "PROP_DEVICE_BREACHING_CHIP"
             ],

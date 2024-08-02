@@ -13,6 +13,7 @@
         "Properties": {
             "Gameplay": {},
             "Quality": 4,
+            "OrderIndex": 302,
             "Rarity": "common",
             "LoadoutSlot": "concealedweapon",
             "RepositoryId": "1108fdb0-d2ec-48c9-81fc-88267aec8ba1"
