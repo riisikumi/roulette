@@ -148,16 +148,6 @@
 				}
 			}
 		},
-		"cafe3deabc7f5354": {
-			"parent": "cafe51d4426721cc",
-			"name": "IllegalActionEntity",
-			"factory": "[modules:/zillegalactionentity.class].pc_entitytype",
-			"blueprint": "[modules:/zillegalactionentity.class].pc_entityblueprint",
-			"properties": {
-				"m_bIsIllegal": { "type": "bool", "value": true },
-				"m_bIsSevere": { "type": "bool", "value": false }
-			}
-		},
 		"cafed972e0e3c906": {
 			"parent": "cafe51d4426721cc",
 			"name": "Triggered",
@@ -521,7 +511,7 @@
 				},
 				"OnDropByHero": { "In": ["cafe0995fa38dfb6"] },
 				"OnShot": { "Trigger": ["cafe291dcc13786e"] },
-				"OnThrown": { "Trigger": [], "In": ["cafe0995fa38dfb6"] },
+				"OnThrown": { "In": ["cafe0995fa38dfb6"] },
 				"OnPutInContainer": { "In": ["cafe0995fa38dfb6"] }
 			},
 			"subsets": { "Replicable": ["cafe51d4426721cc"] }
@@ -566,6 +556,18 @@
 				"IPhysicsAccessor": "cafe55fb91a777a6",
 				"ZGeomEntity": "cafe55fb91a777a6",
 				"ZSpatialEntity": "cafe55fb91a777a6"
+			}
+		},
+		"cafed208354c0517": {
+			"parent": "cafe51d4426721cc",
+			"name": "Keyword_ITEMRULE_LEGAL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_itemrule_legal.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_itemrule_legal.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafe55fb91a777a6"]
+				}
 			}
 		}
 	},
