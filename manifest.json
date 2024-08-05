@@ -1850,31 +1850,70 @@
     "UI_LOCATION_THEEXTRACTOR_CITY": "Marrakech",
     "UI_LOCATION_THEVETERAN_CITY": "Bangkok",
     "UI_LOCATION_THEMERCENARY_CITY": "Colorado",
-    "UI_LOCATION_THECONTROLLER_CITY": "Hokkaido"
-	
+    "UI_LOCATION_THECONTROLLER_CITY": "Hokkaido",
+	"UI_ROULETTE_KILL_DISGUISED": "Eliminate {0}: {1} / {2}",
+    "UI_ROULETTE_KILL_ANYDISGUISE": "Eliminate {0}: {1}",
+    "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+    "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
 		"french": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Montrez-leur à quel point vous êtes un flambeur grâce à ce gilet exclusif. Il comprend des gants de conduite, un pantalon, des chaussures et une chemise noirs, ainsi qu'un gilet rouge scintillant.",
-			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Gilet de Monte Carlo"
+			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Gilet de Monte Carlo",
+            "UI_ROULETTE_KILL_DISGUISED": "Éliminez {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "Éliminez {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
 		"italian": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Mostrate a tutti che razza di giocatore siete con questo esclusivo gilet. Presenta guanti da guida, pantaloni, scarpe e camicia neri, con un gilet rosso scintillante.",
-			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Gilet Monte Carlo"
+			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Gilet Monte Carlo",
+            "UI_ROULETTE_KILL_DISGUISED": "Elimina {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "Elimina {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
 		"german": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Zeigen Sie mit dieser exklusiven Weste allen, dass Sie ein High Roller sind. Mit Fahrerhandschuhen, schwarzer Hose, Schuhen und Hemd sowie einer glitzernden roten Weste.",
-			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Monte Carlo-Weste"
+			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Monte Carlo-Weste",
+            "UI_ROULETTE_KILL_DISGUISED": "Eliminieren Sie {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "Eliminieren Sie {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
 		"spanish": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Demuéstrales a todos lo gran jugador que eres con este exclusivo chaleco. Incluye guantes de conducir, pantalones, zapatos y camisa negros, con un reluciente chaleco rojo.",
-			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Chaleco Monte Carlo"
+			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Chaleco Monte Carlo",
+            "UI_ROULETTE_KILL_DISGUISED": "Elimina a {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "Elimina a {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
 		"russian": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Покажите всем, какой вы \"высокий роллер\", с помощью этого эксклюзивного жилета. В комплект входят водительские перчатки, черные брюки, туфли и рубашка, а также сверкающий красный жилет.",
-			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Жилет Монте-Карло"
+			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_NAME": "Жилет Монте-Карло",
+            "UI_ROULETTE_KILL_DISGUISED": "Устраните {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "Устраните {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
 		},
-		"chineseSimplified": {},
-		"japanese": {}
+		"chineseSimplified": {
+            "UI_ROULETTE_KILL_DISGUISED": "消灭 {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "消灭 {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
+        },
+        "chineseTraditional": {
+            "UI_ROULETTE_KILL_DISGUISED": "消滅 {0}: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "消滅 {0}: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
+        },
+		"japanese": {
+            "UI_ROULETTE_KILL_DISGUISED": "{0} を排除する: {1} / {2}",
+            "UI_ROULETTE_KILL_ANYDISGUISE": "{0} を排除する: {1}",
+            "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
+            "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
+        }
 	},
 	"frameworkVersion": "2.0.0",
     "packagedefinition": [
