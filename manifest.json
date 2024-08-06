@@ -1854,7 +1854,15 @@
     "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
     "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin.",
     "UI_ROULETTE_KILLMETHOD_FAIL": "You eliminated the target without using the {0} kill method.",
-    "UI_ROULETTE_DISGUISE_FAIL": "You eliminated the target without wearing the {0} disguise."
+    "UI_ROULETTE_DISGUISE_FAIL": "You eliminated the target without wearing the {0} disguise.",
+    "UI_ROULETTE_SODERS_BRIEFING": "Eliminate via {0} while wearing the {1} disguise.",
+    "UI_ROULETTE_SODERS_ANYDISGUISE": "Eliminate via {0}.",
+    "UI_KILL_METHOD_THROW_HEART": "Throwing the Heart into the Trash Can",
+    "UI_KILL_METHOD_SHOOT_HEART": "Shooting the Heart",
+    "UI_KILL_METHOD_SODERS_ELECTROCUTION": "Electrocution",
+    "UI_KILL_METHOD_SODERS_EXPLOSION": "Explosion",
+    "UI_KILL_METHOD_STEM_CELLS": "Poisoning the Stem Cells",
+    "UI_KILL_METHOD_ROBOT_ARMS": "Robot Arms"
 		},
 		"french": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Montrez-leur à quel point vous êtes un flambeur grâce à ce gilet exclusif. Il comprend des gants de conduite, un pantalon, des chaussures et une chemise noirs, ainsi qu'un gilet rouge scintillant.",

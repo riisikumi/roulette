@@ -164,7 +164,7 @@ module.exports = function ContractSearch(controller) {
             baseContract.Data.GameDifficulties = info.RouletteDifficulties
         }
 
-        const killLocKeys = decompress("G6IGICwKbBtZL624D4UV9rI4QpLZ0tlLEJE+W3PT7rRVfvUXAgeZbdiWm/Yf9+aD0n8OTEWTSoHFvl9bacRysRHit0U8JJPMUE/2YR6JRxRrVhqVoEDZJk0NIiJINlwpMO/gMxwk8A9Ixe+LLtZDkUo6cKFuMPxW9bClLYkT5pYP+gP8Lpa0CGoOiU3dMTmaw6fOYcDFMXAt5FzlUjg6nptQ4jju0snRvJrcYlZdftlxFbrc11WQwR6yClXkPfRyY7o7nE7MJn2Y5hxmzRWxCTDYpOXYfaPEB7Mw5LTJnbHH6RYjbIzY7MVu4LHFbcXmd7kTPKX8pmnqjwrwV5ICPRAHiqUxULmI85yp1fUZSkeoBiw2EsUYIgiN02p3O3rG+3zhtveaqhSQUCVoKATJ1UVTLyX7C2v/tDNfE12oIgMLA8cturOD7+lg/7jUoDF1UHBDMA+3tqfNTOMETr7sqwubGygIB3PiHDGi4ggYXfao9x/BlVrq/c1b62cQq76TO2IxZuPO+J/s8KpO3WL13gw=")
+        const killLocKeys = decompress("G9IHICwKbBtZL624D4UV9rJY6ewliEifzSlNe6fNKm0uBc6Avr9h22zaG/efhU+LA1PRpFJgsWhtJUGmJEIhNkJ62b9FPFSTSn2ZxTxZe6JoskaIQOgaxmXyaCY8uVIQxB8dnUEG/kGc/mzQh/qgWpsOnCkPhl+qETx+JXmFucmdfkP+U5mgBqMPicXwMdmb41udogYX62C3kFO1l8Le+lSHEutRTid780bnFrOG88uKK8DMfVyYwlFNVoAbeU1GTSKjWpxOzEbd6bmNxlyWHgLopG05Vvco+BMaGHKa9s44wuHqzayPco9gPcB9E0uDtb/L1cCj4TsFFZvChD+WUPEueshioAMmbMRRhpC8npCOKfEFMBbSAoQ0SAXTxtNt524rU/v4rHe7pQTJrWSaLcQkW+dNPRSo65r/7olcVLsoSYVZFsyxeBe29uwCVttrDWfGkSiOmKDozm2tNjNIK3DiYf/zSJv0EoVhT5w9WlSuQdUZHUb95dG0FsbGwi/5GoSS7cEtcRC9cantT3ZECt/ewmRYnvAn35SMsmtSDJ5y2NvZzbUTI3St4DpoCtjLZ9c3xhSI3GDflQbzH0A9f8W6cl7hIFZcYuXfOQPtAEvO9wgynSUPVQsrGA==")
 
         const killMethodPool = []
         const specificAccidents = ["accident_drown", "accident_explosion", "accident_push", "accident_suspended_object", "accident_electric", "accident_burn", "injected_poison", "consumed_poison", "remote_explosive", "impact_explosive", "loud_explosive"]
@@ -614,7 +614,31 @@ module.exports = function ContractSearch(controller) {
 
             const sodersCondition2 = {"Condition":{"$eq":["$Value.Event_metricvalue",pushedSodersKillMethod]},"Transition":"Failure"}
 
-            const sodersObjective = {"Category":"primary","ObjectiveType":"setpiece","Image":"images/actors/Snowcrane_erich_soders_briefing.jpg","DisplayAsKillObjective":false,"ForceShowOnLoadingScreen":true,"Type":"statemachine","Definition":{"Context":{"CurrentDisguise":"unknown","TrackDisguiseChanges":true,"Targets":["5651198f-9ef7-4f3c-908b-a570f1cd64e2"],"TargetOpportunities":["d2e5bf2d-b6cd-474f-88b1-6aa0c7e641c3","dd0ef769-afd7-4754-8058-0677b958d91a","b3a982f1-2773-4a97-8492-614b897a8f98","15af2544-833e-459e-9de9-39c109b6f732"]},"States":{"Start":{"StartingSuit":{"Actions":{"$set":["CurrentDisguise","$Value"]}},"OpportunityEvents":{"Condition":{"$and":[{"$eq":["$Value.Event","Disabled"]},{"$inarray":{"in":"$.TargetOpportunities","?":{"$eq":["$.#","$Value.RepositoryId"]}}}]},"Actions":{"$set":["TrackDisguiseChanges",false]}},"Disguise":{"Condition":{"$eq":["$.TrackDisguiseChanges",true]},"Actions":{"$set":["CurrentDisguise","$Value"]}},"Level_Setup_Events":[sodersCondition1,sodersCondition2,{"Condition":{"$any":{"?":{"$eq":["$.#","$Value.Event_metricvalue"]},"in":["Heart_Kill","Soder_Electrocuted","Poison_Kill","Spidermachine_kill","Body_Kill"]}},"Transition":"Failure"}]}}},"Id":sodersObjectiveId,"BriefingName":"","BriefingText":"balls","LongBriefingText":"balls","HUDTemplate":""}
+            let sodersBriefing
+            let sodersKillDisplay
+
+            killMethodString = "$loc " + killLocKeys[selectedSodersKillMethod]
+
+            if (rouletteFilters.includes("specificDisguises")){
+
+                let disguiseString
+                if (selectedSodersDisguise == "suit"){
+                    disguiseString = "$loc UI_BRIEFING_CONDITION_HITMANSUIT"
+                }
+                else {
+                    const disguisePartOne = "$loc $($repository "
+                    const disguisePartTwo = ").Name"
+                    disguiseString = disguisePartOne + selectedSodersDisguise + disguisePartTwo
+                }
+                sodersBriefing = {"$loc":{"key":"UI_ROULETTE_SODERS_BRIEFING","data":[killMethodString,disguiseString]}}
+                sodersKillDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED","data":["$($repository 5651198f-9ef7-4f3c-908b-a570f1cd64e2).Name",killMethodString,disguiseString]}}
+            }
+            else {
+                sodersBriefing = {"$loc":{"key":"UI_ROULETTE_SODERS_ANYDISGUISE","data":[killMethodString]}}
+                sodersKillDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE","data":["$($repository 5651198f-9ef7-4f3c-908b-a570f1cd64e2).Name",killMethodString]}}
+            }
+
+            const sodersObjective = {"Category":"primary","ObjectiveType":"setpiece","Image":"images/actors/Snowcrane_erich_soders_briefing.jpg","DisplayAsKillObjective":false,"ForceShowOnLoadingScreen":true,"Type":"statemachine","Definition":{"Context":{"CurrentDisguise":"unknown","TrackDisguiseChanges":true,"Targets":["5651198f-9ef7-4f3c-908b-a570f1cd64e2"],"TargetOpportunities":["d2e5bf2d-b6cd-474f-88b1-6aa0c7e641c3","dd0ef769-afd7-4754-8058-0677b958d91a","b3a982f1-2773-4a97-8492-614b897a8f98","15af2544-833e-459e-9de9-39c109b6f732"]},"States":{"Start":{"StartingSuit":{"Actions":{"$set":["CurrentDisguise","$Value"]}},"OpportunityEvents":{"Condition":{"$and":[{"$eq":["$Value.Event","Disabled"]},{"$inarray":{"in":"$.TargetOpportunities","?":{"$eq":["$.#","$Value.RepositoryId"]}}}]},"Actions":{"$set":["TrackDisguiseChanges",false]}},"Disguise":{"Condition":{"$eq":["$.TrackDisguiseChanges",true]},"Actions":{"$set":["CurrentDisguise","$Value"]}},"Level_Setup_Events":[sodersCondition1,sodersCondition2,{"Condition":{"$any":{"?":{"$eq":["$.#","$Value.Event_metricvalue"]},"in":["Heart_Kill","Soder_Electrocuted","Poison_Kill","Spidermachine_kill","Body_Kill"]}},"Transition":"Failure"}]}}},"Id":sodersObjectiveId,"BriefingName":"$loc $($repository 5651198f-9ef7-4f3c-908b-a570f1cd64e2).Name","BriefingText":sodersBriefing,"LongBriefingText":sodersBriefing,"HUDTemplate":{"display":sodersKillDisplay}}
 
             baseContract.Data.Objectives.splice(0, 0, sodersObjective)
         }
