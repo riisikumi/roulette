@@ -4,9 +4,7 @@
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
 	"authors": [
-		"Riisikumi",
-		"Burn, the witch",
-        "Notex"
+		"Roulette Collective"
 	],
     "localisedLines": {
 		"007A7E0FDD0D55B9": "UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC",
@@ -1854,7 +1852,9 @@
 	"UI_ROULETTE_KILL_DISGUISED": "Eliminate {0}: {1} / {2}",
     "UI_ROULETTE_KILL_ANYDISGUISE": "Eliminate {0}: {1}",
     "UI_ROULETTE_NOKO_TITLE": "Do not pacify {0}",
-    "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin."
+    "UI_ROULETTE_NOKO_DESC": "If you pacify {0}, you immediately fail the spin.",
+    "UI_ROULETTE_KILLMETHOD_FAIL": "You eliminated the target without using the {0} kill method.",
+    "UI_ROULETTE_DISGUISE_FAIL": "You eliminated the target without wearing the {0} disguise."
 		},
 		"french": {
 			"UI_TOKEN_OUTFIT_HERO_MONTE_CARLO_DESC": "Montrez-leur à quel point vous êtes un flambeur grâce à ce gilet exclusif. Il comprend des gants de conduite, un pantalon, des chaussures et une chemise noirs, ainsi qu'un gilet rouge scintillant.",
