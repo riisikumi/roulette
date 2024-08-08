@@ -1,3 +1,18 @@
+/*
++-------+
+| Config|
++-------+
+*/
+//
+//If set to true, objectives will be formatted like HITMAPS in game roulette, if false, objectives will look more like vanilla game objectives.
+let hitmapsobjectives = false
+//
+/*
++------+
+| CODR |
++------+
+*/
+//
 const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
 const zlib = require("zlib")
 const { Buffer } = require("buffer")
@@ -132,7 +147,6 @@ module.exports = function ContractSearch(controller) {
 
         log(LogLevel.INFO, "[Story Mode Roulette] Selected missions:" + selectedMissionPool)
         log(LogLevel.INFO, "[Story Mode Roulette] Selected filters:" + rouletteFilters)
-        log(LogLevel.INFO, "[Story Mode Roulette] Seed is:" + seed)
 
         const selectedMission = selectedMissionPool[getRandomIntWithSeed( 0, selectedMissionPool.length-1, seed++)]
 
@@ -164,7 +178,7 @@ module.exports = function ContractSearch(controller) {
             baseContract.Data.GameDifficulties = info.RouletteDifficulties
         }
 
-        const killLocKeys = decompress("G9IHICwKbBtZL624D4UV9rJY6ewliEifzSlNe6fNKm0uBc6Avr9h22zaG/efhU+LA1PRpFJgsWhtJUGmJEIhNkJ62b9FPFSTSn2ZxTxZe6JoskaIQOgaxmXyaCY8uVIQxB8dnUEG/kGc/mzQh/qgWpsOnCkPhl+qETx+JXmFucmdfkP+U5mgBqMPicXwMdmb41udogYX62C3kFO1l8Le+lSHEutRTid780bnFrOG88uKK8DMfVyYwlFNVoAbeU1GTSKjWpxOzEbd6bmNxlyWHgLopG05Vvco+BMaGHKa9s44wuHqzayPco9gPcB9E0uDtb/L1cCj4TsFFZvChD+WUPEueshioAMmbMRRhpC8npCOKfEFMBbSAoQ0SAXTxtNt524rU/v4rHe7pQTJrWSaLcQkW+dNPRSo65r/7olcVLsoSYVZFsyxeBe29uwCVttrDWfGkSiOmKDozm2tNjNIK3DiYf/zSJv0EoVhT5w9WlSuQdUZHUb95dG0FsbGwi/5GoSS7cEtcRC9cantT3ZECt/ewmRYnvAn35SMsmtSDJ5y2NvZzbUTI3St4DpoCtjLZ9c3xhSI3GDflQbzH0A9f8W6cl7hIFZcYuXfOQPtAEvO9wgynSUPVQsrGA==")
+        const killLocKeys = decompress("G/MHYCwKbBtZL624D4UV9rJY6ewliEifzRlOe6dNlf9cCpwBrd3QTb3+nf9uYTUtAatiKysFFr9+bSWROv1CIXVCuTv2/iJeiSaVam8xT2ZRtDGURkxETOcompehhjJz9UBANvqUBtH7QrTi94de1BeqteXAwfJf+Fc1g9cr4xPKS8z1HvC35b+UCZow25FYTD+TIZDfuF/qXWyEvUP215YKQ4OqaYkNKfeToQGzpYvBM/1EBUTprJ+HSgZP/UXhXO/LrEWkqvXqxGAnBz2PUU8MydCALtqsY/XaHH9CPUZ+06Yaax9v0QreUp4ZFM4a3A8WpwVr75fTgUfDZw4NPqACfi6h4kOsEF9gASZM4SRnouIL0rEkfgCKBNggAXggEGuOfAtX+xP188B+j/MkiJwjY5kf4zC32pinkueG5X54ITeVFSWpMJIFo1hqP2rqXuYn28uFs2JlDCnlx1qd11qJplVW58S9/39X2qKXKAzeNlifAI/qFh1m6etQkyvU3OSHmiKhVPagS1xEWxxr/wMeWrePtzCZQ4rlKL/v/2Ij1e948JY/35XtXL8wgOIE7oO+CkvF6AK7mWyRMxyn1DTSyYEUq6o4drFneBAU32Ll/jlnLyYVNR1AEPtg564WFjU=")
 
         const killMethodPool = []
         const specificAccidents = ["accident_drown", "accident_explosion", "accident_push", "accident_suspended_object", "accident_electric", "accident_burn", "injected_poison", "consumed_poison", "remote_explosive", "impact_explosive", "loud_explosive"]
@@ -378,13 +392,20 @@ module.exports = function ContractSearch(controller) {
                     const disguisePartTwo = ").Name"
                     disguiseString = disguisePartOne + selectedDisguiseList[e] + disguisePartTwo
                 }
-
                 disguiseFailDisplay = {"$loc":{"key":"UI_ROULETTE_DISGUISE_FAIL","data":[disguiseString]}}
+                if (hitmapsobjectives) {killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED","data":[npcString,killMethodString,disguiseString]}}}
 
-                killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED","data":[npcString,killMethodString,disguiseString]}}
+                else {
+                    if (selectedDisguiseList[e] == "suit") {
+                       killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE_SUIT","data":[npcString,killMethodString,disguiseString]}}}
+               else{
+                   killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE","data":[npcString,killMethodString,disguiseString]}}
+               }}
             }
             else {
-                killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE","data":[npcString,killMethodString]}}
+                if (hitmapsobjectives) {killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE","data":[npcString,killMethodString]}}}
+
+                else { killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE_VERBOSE","data":[npcString,killMethodString]}}}
             }
 
             let mainObjective
