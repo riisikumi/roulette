@@ -1,0 +1,601 @@
+{
+	"tempHash": "00DE5D92EEF52C35",
+	"tbluHash": "0057B098B29B4F4A",
+	"rootEntity": "ad6d4b599285d4a1",
+	"entities": {
+		"6c9d1a508a5d3f78": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "PlacementVolume",
+			"factory": "[modules:/zboxvolumeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zboxvolumeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+					}
+				},
+				"m_vGlobalSize": {
+					"type": "SVector3",
+					"value": {
+						"x": 0.12999999523162842,
+						"y": 0.009999999776482582,
+						"z": 0.14000000059604645
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd",
+					"postInit": true
+				}
+			}
+		},
+		"5cdd0112bc2b9c87": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "CCEffect_KnifePull",
+			"factory": "[modules:/zcceffectsetentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcceffectsetentity.class].pc_entityblueprint",
+			"properties": {
+				"m_nEvent": { "type": "uint32", "value": 731 },
+				"m_eDecalEffect": {
+					"type": "ECCDecalEffect",
+					"value": "eCCDecalEffect_None"
+				},
+				"m_eEmitterEffect": {
+					"type": "ECCEmitterEffect",
+					"value": "eCCEmitterEffect_Blood"
+				}
+			}
+		},
+		"2a5b594e67201ee8": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "CCEffect_SlitThroat",
+			"factory": "[modules:/zcceffectsetentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcceffectsetentity.class].pc_entityblueprint",
+			"properties": {
+				"m_nEvent": { "type": "uint32", "value": 732 },
+				"m_eDecalEffect": {
+					"type": "ECCDecalEffect",
+					"value": "eCCDecalEffect_SlitThroat"
+				},
+				"m_eEmitterEffect": {
+					"type": "ECCEmitterEffect",
+					"value": "eCCEmitterEffect_SlitThroat"
+				}
+			}
+		},
+		"0f068da37c5fedbd": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "ItemArt_Playing_Card_Hacker",
+			"factory": "[assembly:/_pro/items/templates/roulette/playing_card.template?/itemart_playing_card.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/items/templates/roulette/playing_card.template?/itemart_playing_card.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": -0.15266400575637817,
+							"y": 0.6083840131759644,
+							"z": 0.0
+						}
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": null,
+					"postInit": true
+				}
+			}
+		},
+		"58e4a889b6cc9d55": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "DebugBox",
+			"factory": "[modules:/zdebugboxentity.class].pc_entitytype",
+			"blueprint": "[modules:/zdebugboxentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+					}
+				},
+				"m_rBoxVolume": {
+					"type": "SEntityTemplateReference",
+					"value": "6c9d1a508a5d3f78"
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "6c9d1a508a5d3f78"
+				},
+				"m_Color": { "type": "SColorRGBA", "value": "#6cf56cff" },
+				"m_bForceVisible": { "type": "bool", "value": true },
+				"m_eDrawLayer": {
+					"type": "ZDebugSpatialEntity.EDrawLayer",
+					"value": "DL_ALIGNMENT"
+				},
+				"m_bSelectVisibleOnly": { "type": "bool", "value": false }
+			}
+		},
+		"404816fc01f53b12": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "ItemHelpers_GripPose_1h_Keycard_Scrambler",
+			"factory": "[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_1h_keycard_scrambler.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/itemhelpers_grippose.template?/itemhelpers_grippose_1h_keycard_scrambler.entitytemplate].pc_entityblueprint"
+		},
+		"d4574189000f47e4": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "Keyword_WEAPON_SMALL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_small.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_small.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["0f068da37c5fedbd"]
+				}
+			}
+		},
+		"979a24e59d84556a": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "SoundSetup_Item",
+			"factory": "[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/itemtemplates/item_soundsetup.template?/soundsetup_item.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd"
+				},
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": {
+							"x": -0.0,
+							"y": -1.3340170285192955e-8,
+							"z": -0.0
+						},
+						"position": {
+							"x": -5.792000767890215e-10,
+							"y": 0.0,
+							"z": 9.126730304842567e-8
+						}
+					}
+				},
+				"m_rHolder": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd"
+				},
+				"PropEquipped_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00A73A40844DD035",
+						"flag": "5F"
+					}
+				},
+				"CloseCombatImpact_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_knife_impact_custom.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"Prop_Placed_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_foley_knife_placed.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"PropUnEquipped_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00713DBEF65B04CF",
+						"flag": "5F"
+					}
+				},
+				"Prop_Equipped_Bloody_Sounds": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_item_knife_pullout_after_throw.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"Pull_Out_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_item_knife_pullout.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"ItemImpactLow": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_knife_impact_back.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"Close_Comba_Impact_Back_Soundt": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_knife_impact_back.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"ItemSlitThroath": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_fol_slitthroat_01.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"DeadlyThrowImpact_Sound": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/sound/wwise/exportedwwisedata/events/item_events/item_knife/play_impact_knife_deadly_throw.wwiseevent].pc_wwisebank",
+						"flag": "5F"
+					}
+				},
+				"Bloody_Equip_Toggle": { "type": "bool", "value": true },
+				"m_ObstructionShapeRoot": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd"
+				},
+				"m_eidParent1": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd",
+					"postInit": true
+				}
+			},
+			"subsets": { "AudioEmitters": ["ad6d4b599285d4a1"] }
+		},
+		"8d8b83c97b8f707b": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "VR_CloseCombat_SoundSetup",
+			"factory": "00242C0EDBB428C5",
+			"blueprint": "0053142B2E934BAB",
+			"properties": {
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd",
+					"postInit": true
+				}
+			},
+			"events": {
+				"ImpactFront": { "Impact": ["979a24e59d84556a"] },
+				"ImpactBack": { "Impact_Back": ["979a24e59d84556a"] },
+				"Unholster": { "Item_UnEquipped": ["979a24e59d84556a"] }
+			},
+			"subsets": { "AudioEmitters": ["ad6d4b599285d4a1"] }
+		},
+		"c1478cbb84dd741c": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "IdleNetwork01",
+			"factory": "[modules:/zchildnetworkentity.class].pc_entitytype",
+			"blueprint": "[modules:/zchildnetworkentity.class].pc_entityblueprint",
+			"properties": {
+				"m_RuntimeNetworkResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00942EC0A63F14DF",
+						"flag": "5F"
+					}
+				}
+			}
+		},
+		"c65f12ea01c3bfcb": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "Keyword_ITEM_SHURIKEN",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_shuriken.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_shuriken.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["0f068da37c5fedbd"]
+				}
+			}
+		},
+		"04d6ce29cad43216": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "VR_CloseCombat_Swoosh",
+			"factory": "00F4AF3B2208119C",
+			"blueprint": "006FCA37772BBA44",
+			"properties": {
+				"MinTimeBetweenSwoosh": {
+					"type": "float32",
+					"value": 0.30000001192092896
+				},
+				"MimimumSwooshForce": { "type": "float32", "value": 7.5 },
+				"Type_Metal_Light": { "type": "bool", "value": true },
+				"Type_Metal_Rod": { "type": "bool", "value": false },
+				"Type_Wood": { "type": "bool", "value": false },
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd",
+					"postInit": true
+				},
+				"Equipped": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": [
+						{
+							"ref": "f6760b7eda2ea4b8",
+							"externalScene": null,
+							"exposedEntity": "IsEquipped"
+						}
+					],
+					"postInit": true
+				}
+			},
+			"subsets": { "AudioEmitters": ["ad6d4b599285d4a1"] }
+		},
+		"f5f4ec2f98a82961": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "CCEffect_Stab",
+			"factory": "[modules:/zcceffectsetentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcceffectsetentity.class].pc_entityblueprint",
+			"properties": {
+				"m_eDecalEffect": {
+					"type": "ECCDecalEffect",
+					"value": "eCCDecalEffect_Stab"
+				},
+				"m_eEmitterEffect": {
+					"type": "ECCEmitterEffect",
+					"value": "eCCEmitterEffect_Stab"
+				}
+			}
+		},
+		"621dd76424dc4fe8": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "Keyword_WEAPON_MELEE",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_melee.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_melee.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["0f068da37c5fedbd"]
+				}
+			}
+		},
+		"1d9e7f08d09a1b41": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "HM5ItemInteractionEventConsumer",
+			"factory": "[modules:/zhm5iteminteractioneventconsumer.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5iteminteractioneventconsumer.class].pc_entityblueprint",
+			"events": {
+				"ItemImpactBack": { "Impact_Back": ["979a24e59d84556a"] },
+				"ItemImpactFront": { "Impact": ["979a24e59d84556a"] },
+				"ItemImpactLow": { "ItemImpactLow": ["979a24e59d84556a"] },
+				"ItemPullOut": { "Pull_Out": ["979a24e59d84556a"] },
+				"ItemOnDeadlyThrow": { "OnThrown": ["979a24e59d84556a"] },
+				"ItemSlitThroat": {
+					"ItemSlitThroath": ["979a24e59d84556a"]
+				}
+			}
+		},
+		"77fb4155c6571415": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "EventConsumerCollection",
+			"factory": "[modules:/zeventconsumercollection.class].pc_entitytype",
+			"blueprint": "[modules:/zeventconsumercollection.class].pc_entityblueprint",
+			"properties": {
+				"m_BaseEventConsumers": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["1d9e7f08d09a1b41"]
+				}
+			}
+		},
+		"f6760b7eda2ea4b8": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "CCWeaponCoreNoPhys",
+			"factory": "[assembly:/_pro/design/gamecore/itemcore.template?/ccweaponcorenophys.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/itemcore.template?/ccweaponcorenophys.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rGeomentity": {
+					"type": "SEntityTemplateReference",
+					"value": "0f068da37c5fedbd"
+				},
+				"m_eAnimSetFrontSide": {
+					"type": "ECCWeaponAnimSet",
+					"value": "AS_STAB_1H"
+				},
+				"m_eAnimSetBack": {
+					"type": "ECCWeaponAnimSet",
+					"value": "AS_SLIT_THROAT_1H"
+				},
+				"m_pVariationResource": {
+					"type": "SEntityTemplateReference",
+					"value": "404816fc01f53b12"
+				},
+				"m_aEffectSetsBack": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": [
+						"2a5b594e67201ee8",
+						"f5f4ec2f98a82961",
+						"5cdd0112bc2b9c87"
+					]
+				},
+				"m_aEffectSetsFrontSide": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["f5f4ec2f98a82961", "5cdd0112bc2b9c87"]
+				},
+				"m_eDeathSpeakBack": {
+					"type": "EActorSoundDefs",
+					"value": "Dth_SltThrt"
+				},
+				"m_eDeathTypeFront": {
+					"type": "EDeathType",
+					"value": "eDT_BLOODY_KILL"
+				},
+				"m_eDeathTypeBack": {
+					"type": "EDeathType",
+					"value": "eDT_BLOODY_KILL"
+				},
+				"m_eDeathSpeakFront": {
+					"type": "EActorSoundDefs",
+					"value": "Dth_GnSht"
+				},
+				"m_PosHandAttach": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "0f068da37c5fedbd",
+						"externalScene": null,
+						"exposedEntity": "HandAttacherSpatial"
+					}
+				},
+				"m_bRandomStartState": { "type": "bool", "value": true },
+				"m_PosPlacementAttach": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "0f068da37c5fedbd",
+						"externalScene": null,
+						"exposedEntity": "PropHelper_Item_Placement"
+					}
+				},
+				"m_EventConsumerCollection": {
+					"type": "SEntityTemplateReference",
+					"value": "77fb4155c6571415"
+				},
+				"m_bKinematic": { "type": "bool", "value": true },
+				"m_PlacementVolume": {
+					"type": "SEntityTemplateReference",
+					"value": "6c9d1a508a5d3f78"
+				},
+				"m_pIdleAnimNetworkEntity": {
+					"type": "SEntityTemplateReference",
+					"value": "c1478cbb84dd741c"
+				}
+			},
+			"events": {
+				"DeadlyThrowImpact": {
+					"DeadlyThrowImpact": ["979a24e59d84556a"]
+				},
+				"WeaponPlayerEquipped": {
+					"Item_Equipped": ["979a24e59d84556a"]
+				},
+				"WeaponPlayerUnEquipped": {
+					"Item_UnEquipped": ["979a24e59d84556a"]
+				},
+				"OnPutInContainer": { "ItemPlaced": ["979a24e59d84556a"] },
+				"OnPlaced": { "ItemPlaced": ["979a24e59d84556a"] },
+				"OnDrop": { "OnDrop_MixingEvent": ["979a24e59d84556a"] },
+				"OnThrown": {
+					"OnThrown_MixingEvent": ["979a24e59d84556a"],
+					"Throw": ["04d6ce29cad43216"]
+				},
+				"ImpactBack": { "ImpactBack": ["8d8b83c97b8f707b"] },
+				"ImpactFrontSide": { "ImpactFront": ["8d8b83c97b8f707b"] },
+				"OnStartPriming": {
+					"PrimeStartFloat": ["8d8b83c97b8f707b"],
+					"PrimeStart": ["04d6ce29cad43216"]
+				},
+				"OnItemPrimed": { "PrimeStart": ["8d8b83c97b8f707b"] },
+				"OnStopPriming": {
+					"PrimeStop": ["8d8b83c97b8f707b", "04d6ce29cad43216"]
+				}
+			},
+			"subsets": { "Replicable": ["ad6d4b599285d4a1"] }
+		},
+		"ad6d4b599285d4a1": {
+			"parent": null,
+			"name": "Prop_Melee_Playing_Card_Runtime",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": 0.5038779973983765,
+							"y": -2.9872920513153076,
+							"z": 0.0
+						}
+					}
+				}
+			},
+			"propertyAliases": {
+				"Kinematic": [
+					{
+						"originalProperty": "Kinematic",
+						"originalEntity": "f6760b7eda2ea4b8"
+					}
+				],
+				"m_bEnabledImpulseListener": [
+					{
+						"originalProperty": "m_bEnabledImpulseListener",
+						"originalEntity": "f6760b7eda2ea4b8"
+					}
+				],
+				"m_bStartKinematic": [
+					{
+						"originalProperty": "m_bStartKinematic",
+						"originalEntity": "f6760b7eda2ea4b8"
+					}
+				],
+				"m_bStartPhysical": [
+					{
+						"originalProperty": "m_bStartPhysical",
+						"originalEntity": "f6760b7eda2ea4b8"
+					}
+				],
+				"m_bStartVisible": [
+					{
+						"originalProperty": "m_bStartVisible",
+						"originalEntity": "f6760b7eda2ea4b8"
+					}
+				],
+				"m_eidParent": [
+					{
+						"originalProperty": "m_eidParent",
+						"originalEntity": "0f068da37c5fedbd"
+					}
+				],
+				"m_mTransform": [
+					{
+						"originalProperty": "m_mTransform",
+						"originalEntity": "0f068da37c5fedbd"
+					}
+				]
+			},
+			"exposedInterfaces": {
+				"IPhysicsAccessor": "0f068da37c5fedbd",
+				"IDynamicPhysics": "0f068da37c5fedbd",
+				"IItemWeapon": "f6760b7eda2ea4b8",
+				"IItem": "f6760b7eda2ea4b8",
+				"ZHM5ItemCCWeapon": "f6760b7eda2ea4b8",
+				"ZHM5Item": "f6760b7eda2ea4b8",
+				"IItemBase": "f6760b7eda2ea4b8",
+				"ZGeomEntity": "0f068da37c5fedbd",
+				"ZSpatialEntity": "0f068da37c5fedbd"
+			}
+		},
+		"cafe8471b7ad33c7": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "Keyword_ITEM_ELECTRICAL_KIT",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_electrical_kit.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_item_electrical_kit.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["0f068da37c5fedbd"]
+				}
+			}
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [
+		{
+			"resource": "[assembly:/geometry/g2/gizmos.wl2?/gizmo_trigger_01.prim].pc_prim",
+			"flag": "5F"
+		},
+		{ "resource": "0008F9555AACD391", "flag": "5F" }
+	],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}
