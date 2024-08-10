@@ -1,18 +1,3 @@
-/*
-+-------+
-| Config|
-+-------+
-*/
-//
-//If set to true, objectives will be formatted like HITMAPS in game roulette, if false, objectives will look more like vanilla game objectives.
-let hitmapsobjectives = false
-//
-/*
-+------+
-| CODR |
-+------+
-*/
-//
 const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
 const zlib = require("zlib")
 const { Buffer } = require("buffer")
@@ -354,11 +339,22 @@ module.exports = function ContractSearch(controller) {
             const killMethodObjectiveId = randomUUID()
             const disguiseObjectiveId = randomUUID()
 
+            const berlinNpcName = "UI_ROULETTE_BERLIN_" + e
+            const berlinObjectiveName = "$loc UI_ROULETTE_BERLIN_" + e
+
             let killDisplay
 
             const npcPartOne = "$($repository "
             const npcPartTwo = ").Name"
-            const npcString = npcPartOne + info.RouletteTargetIds[e] + npcPartTwo
+
+            let npcString
+
+            if (selectedMission == "LOCATION_EDGY_FOX"){
+                npcString = berlinNpcName
+            }
+            else {
+                npcString = npcPartOne + info.RouletteTargetIds[e] + npcPartTwo
+            }
 
             let weaponString
 
@@ -381,6 +377,8 @@ module.exports = function ContractSearch(controller) {
 
             let disguiseFailDisplay
 
+            let berlinDesc
+
             if (rouletteFilters.includes("specificDisguises")){
 
                 let disguiseString
@@ -393,19 +391,18 @@ module.exports = function ContractSearch(controller) {
                     disguiseString = disguisePartOne + selectedDisguiseList[e] + disguisePartTwo
                 }
                 disguiseFailDisplay = {"$loc":{"key":"UI_ROULETTE_DISGUISE_FAIL","data":[disguiseString]}}
-                if (hitmapsobjectives) {killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED","data":[npcString,killMethodString,disguiseString]}}}
 
+                if (selectedDisguiseList[e] == "suit") {
+                    killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE_SUIT","data":[npcString,killMethodString,disguiseString]}}}
                 else {
-                    if (selectedDisguiseList[e] == "suit") {
-                       killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE_SUIT","data":[npcString,killMethodString,disguiseString]}}}
-               else{
-                   killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE","data":[npcString,killMethodString,disguiseString]}}
-               }}
+                    killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_DISGUISED_VERBOSE","data":[npcString,killMethodString,disguiseString]}}
+                }
+
+                berlinDesc = {"$loc":{"key":"UI_ROULETTE_KILL_BERLIN_DISGUISED","data":[killMethodString,disguiseString]}}
             }
             else {
-                if (hitmapsobjectives) {killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE","data":[npcString,killMethodString]}}}
-
-                else { killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE_VERBOSE","data":[npcString,killMethodString]}}}
+                killDisplay = {"$loc":{"key":"UI_ROULETTE_KILL_ANYDISGUISE","data":[npcString,killMethodString]}}
+                berlinDesc = {"$loc":{"key":"UI_ROULETTE_KILL_BERLIN_ANYDISGUISE","data":killMethodString}}
             }
 
             let mainObjective
@@ -417,7 +414,7 @@ module.exports = function ContractSearch(controller) {
                 mainObjective = {"Category":"primary","Type":"statemachine","OnInactive":{"IfCompleted":{"State":"Completed","Visible":false}},"OnActive":{"IfCompleted":{"Visible":true}},"Definition":{"Scope":"hit","Context":{"TargetEscaping":1,"Targets":[info.RouletteTargetIds[e]]},"States":{"Start":{"Kill":[{"Condition":{"$eq":["$Value.RepositoryId",info.RouletteTargetIds[e]]},"Transition":"Success"}],"Target_Leaving":[{"Actions":{"$dec":"TargetEscaping"},"Transition":"TargetEscaping"}]},"TargetEscaping":{"Kill":[{"Condition":{"$eq":["$Value.RepositoryId",info.RouletteTargetIds[e]]},"Transition":"Success"}],"Target_Escape":{"Transition":"Failure"}}}},"Id":mainObjectiveId,"HUDTemplate":{"display":killDisplay},"BriefingText":killDisplay,"LongBriefingText":killDisplay,"TargetConditions":[]}
             }
             else if (["ballsack", "cunt", "asshole", "borisjohnson", "vladimirputin"].includes(info.RouletteTargetIds[e])){
-                mainObjective = {"Category":"primary","ObjectiveType":"setpiece","Type":"statemachine","Definition":{"ContextListeners":{"Failure":{"type":"custom","LongBriefingText":"balls"}},"Context":{"Targets":["252428ca-3f8e-4477-b2b9-58f18cff3e44"],"PossibleTargets":["252428ca-3f8e-4477-b2b9-58f18cff3e44","abd1c0e7-e406-43bd-9185-419029c5bf3d","922deccd-7fb4-45d9-ae3d-2cf11915c403","b8e7e65b-587e-471b-894d-282cda6614d4","2ab07903-e958-4af6-b01c-b62058745ce1","28cb7e91-bf9c-46ee-a371-1bd1448f1994","633398ac-c4b4-4441-852d-ae6460172025","eb024a5e-9580-49dc-a519-bb92c886f3b1","1305c2e4-6394-4cfa-b873-22adbd0c9702","f83376a4-6e56-4f2a-8122-151b272108fd","8b29da09-461f-44d7-9042-d4fde829b9f2"],"PacifiedTargets":[],"KilledTargets":0},"States":{"Start":{"Pacify":{"Condition":{"$eq":["$Value.IsTarget",true]},"Actions":{"$pushunique":["PacifiedTargets","$Value.RepositoryId"]}},"Kill":[{"Condition":{"$eq":["$Value.IsTarget",true]},"Actions":{"$inc":"KilledTargets"}},{"Condition":{"$and":[{"$inarray":{"in":"$.PossibleTargets","?":{"$eq":["$.#","$Value.RepositoryId"]}}}]},"Transition":"Success"}]},"Success":{"Kill":[{"Condition":{"$and":[{"$inarray":{"in":"$.PossibleTargets","?":{"$eq":["$.#","$Value.RepositoryId"]}}},{"$lt":["$.KilledTargets",6]}]},"Transition":"Failure"}]}}},"Id":mainObjectiveId,"Image":"images/actors/ica-agents.png","BriefingName":"balls","BriefingText":"balls","LongBriefingText":"balls","HUDTemplate":{"display":"balls"}}
+                mainObjective = {"Category":"primary","ObjectiveType":"setpiece","Type":"statemachine","Definition":{"ContextListeners":{"Failure":{"type":"custom","LongBriefingText":"balls"}},"Context":{"Targets":["252428ca-3f8e-4477-b2b9-58f18cff3e44"],"PossibleTargets":["252428ca-3f8e-4477-b2b9-58f18cff3e44","abd1c0e7-e406-43bd-9185-419029c5bf3d","922deccd-7fb4-45d9-ae3d-2cf11915c403","b8e7e65b-587e-471b-894d-282cda6614d4","2ab07903-e958-4af6-b01c-b62058745ce1","28cb7e91-bf9c-46ee-a371-1bd1448f1994","633398ac-c4b4-4441-852d-ae6460172025","eb024a5e-9580-49dc-a519-bb92c886f3b1","1305c2e4-6394-4cfa-b873-22adbd0c9702","f83376a4-6e56-4f2a-8122-151b272108fd","8b29da09-461f-44d7-9042-d4fde829b9f2"],"PacifiedTargets":[],"KilledTargets":0},"States":{"Start":{"Pacify":{"Condition":{"$eq":["$Value.IsTarget",true]},"Actions":{"$pushunique":["PacifiedTargets","$Value.RepositoryId"]}},"Kill":[{"Condition":{"$eq":["$Value.IsTarget",true]},"Actions":{"$inc":"KilledTargets"}},{"Condition":{"$and":[{"$inarray":{"in":"$.PossibleTargets","?":{"$eq":["$.#","$Value.RepositoryId"]}}}]},"Transition":"Success"}]},"Success":{"Kill":[{"Condition":{"$and":[{"$inarray":{"in":"$.PossibleTargets","?":{"$eq":["$.#","$Value.RepositoryId"]}}},{"$lt":["$.KilledTargets",6]}]},"Transition":"Failure"}]}}},"Id":mainObjectiveId,"Image":"images/actors/ica-agents.png","BriefingName":berlinObjectiveName,"BriefingText":berlinDesc,"LongBriefingText":berlinDesc,"HUDTemplate":{"display":killDisplay}}
             }
             else {
                 mainObjective = {"Category":"primary","Type":"statemachine","OnInactive":{"IfCompleted":{"State":"Completed","Visible":false}},"OnActive":{"IfCompleted":{"Visible":true}},"Definition":{"Scope":"hit","Context":{"Targets":[info.RouletteTargetIds[e]]},"States":{"Start":{"Kill":[{"Condition":{"$eq":["$Value.RepositoryId",info.RouletteTargetIds[e]]},"Transition":"Success"}]}}},"Id":mainObjectiveId,"HUDTemplate":{"display":killDisplay},"BriefingText":killDisplay,"LongBriefingText":killDisplay,"TargetConditions":[]}
