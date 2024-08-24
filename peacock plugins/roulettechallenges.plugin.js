@@ -234,7 +234,7 @@ function initPlugin(controller) {
       Rewards: {
         MasteryXP: 0
       },
-      Drops: ["CARD_SHURIKEN"],
+      Drops: ["PROP_DEVICE_PLAYING_CARD_HACKER"],
       IsPlayable: false,
       IsLocked: false,
       HideProgression: false,
