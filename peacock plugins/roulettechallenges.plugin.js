@@ -613,7 +613,7 @@ function initPlugin(controller) {
       }
     },
     {
-      Id: "150cb41c-2a09-4140-8cb4-a10971ef6a6d",
+      Id: "150cb41c-2a09-4140-8ab4-a10971ef6a6d",
       Name: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3D_TITLE",
       ImageName: "images/contracts/Roulette/rdt3.jpg",
       Description: "UI_CHALLENGES_GLOBAL_ROULETTE_CHALLENGE_3D_DESC",
