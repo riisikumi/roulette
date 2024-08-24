@@ -27,7 +27,7 @@ let NOTMYDOG = false
 //Adds Terrorist on all Random Roulette Contracts. Remember, no Russian. Don't use with Carte Blanche, Wick, OSP or Bird%.
 let onawatchlist = false
 //Enables Bird% on all contracts, can I get a +2 in chat? Don't use with Carte Blanche, Wick, OSP or Terrorist.
-let aspecticormode = false
+let aspecticormode = true
 //
 /*
 +------+
@@ -589,7 +589,7 @@ module.exports = function EscPlugin(controller) {
       let flattenedSideObjectiveGameChangers =
         shuffledSideObjectiveGameChangers.flat(2);
       SideObjectiveGC1 = flattenedSideObjectiveGameChangers[randomIndexGC1];
-      log(LogLevel.INFO, contract.RouletteType + " " + SideObjectiveGC1)
+      //log(LogLevel.INFO, contract.RouletteType + " " + SideObjectiveGC1)
       clearCaches();
       controller.configManager.configs.GameChangerProperties = Object.assign(
         {},
@@ -712,12 +712,6 @@ else {
                 Properties: {
                     LoadoutSlot: "gear",
                     RepositoryId: "a02af9a5-aefb-47e0-9d67-51cc9ec89774"
-                }
-            }, {
-                Id: "Flashbang",
-                Properties: {
-                    LoadoutSlot: "gear",
-                    RepositoryId: "e17172cc-bf70-4df6-9828-d9856b1a24fd"
                 }
             }, {
                 Id: "Flashbang",
@@ -918,43 +912,19 @@ else {
                 Id: "FIREARMS_HERO_CONCEALABLE_DUCK",
                 Properties: {
                     LoadoutSlot: "gear",
-                    RepositoryId: "4ca96340-ae60-427b-a011-9e296cd67fd9"
-                }
-            }, {
-                Id: "FIREARMS_HERO_CONCEALABLE_DUCK",
-                Properties: {
-                    LoadoutSlot: "gear",
                     RepositoryId: "356b016c-fdb3-47d3-913c-3973e6a5a8cf"
                 }
             }, {
                 Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
                 Properties: {
                     LoadoutSlot: "gear",
-                    RepositoryId: "271eb4ce-7297-449d-95d4-20cd56dffd80"
-                }
-            }, {
-                Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
-                Properties: {
-                    LoadoutSlot: "gear",
                     RepositoryId: "09268e60-216a-4ccf-8e41-c3cc45391222"
                 }
             }, {
                 Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
                 Properties: {
                     LoadoutSlot: "gear",
-                    RepositoryId: "3a05dae6-d904-4a18-8196-de2d46e4c5d4"
-                }
-            }, {
-                Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
-                Properties: {
-                    LoadoutSlot: "gear",
                     RepositoryId: "271eb4ce-7297-449d-95d4-20cd56dffd80"
-                }
-            }, {
-                Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
-                Properties: {
-                    LoadoutSlot: "gear",
-                    RepositoryId: "6b87c27d-0d73-4c63-b852-5a9c7a9ffb90"
                 }
             }, {
                 Id: "FIREARMS_HERO_CONCEALABLE_EXPLOSIVES",
@@ -967,12 +937,6 @@ else {
                 Properties: {
                     LoadoutSlot: "gear",
                     RepositoryId: "4ec12492-e385-424d-9f23-6f605501242d"
-                }
-            }, {
-                Id: "FIREARMS_HERO_CONCEALABLE_FLASH",
-                Properties: {
-                    LoadoutSlot: "gear",
-                    RepositoryId: "09268e60-216a-4ccf-8e41-c3cc45391222"
                 }
             }, {
                 Id: "FIREARMS_HERO_CONCEALABLE_FLASH",
