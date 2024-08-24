@@ -27,7 +27,7 @@ let NOTMYDOG = false
 //Adds Terrorist on all Random Roulette Contracts. Remember, no Russian. Don't use with Carte Blanche, Wick, OSP or Bird%.
 let onawatchlist = false
 //Enables Bird% on all contracts, can I get a +2 in chat? Don't use with Carte Blanche, Wick, OSP or Terrorist.
-let aspecticormode = true
+let aspecticormode = false
 //
 /*
 +------+
