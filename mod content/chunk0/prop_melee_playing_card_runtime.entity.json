@@ -580,6 +580,19 @@
 					"value": ["0f068da37c5fedbd"]
 				}
 			}
+		},
+		"cafe5428f0f73096": {
+			"parent": "ad6d4b599285d4a1",
+			"name": "keyword_ITEMRULE_LEGAL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_itemrule_legal.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keyworditems.template?/keyword_itemrule_legal.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": [],
+					"postInit": true
+				}
+			}
 		}
 	},
 	"propertyOverrides": [],
