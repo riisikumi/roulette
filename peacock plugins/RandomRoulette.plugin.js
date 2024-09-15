@@ -298,28 +298,6 @@ const NewGamechangers={"3c48b60a-579a-4d3c-bb28-0233a4a1876a":{Name:"RR_KILLCOND
     NewGamechangers
   );
   //Add oil/water cans to unlockables
-  controller.configManager.configs.allunlockables.push({
-    Id: "PROP_JERRY_CAN",
-    Guid: "3386b808-4e4b-4468-8b70-a9dc647ecd5c",
-    Type: "gear",
-    Subtype: "tool",
-    RMTPrice: -1,
-    GamePrice: -1,
-    IsPurchasable: !1,
-    IsPublished: !0,
-    IsDroppable: !1,
-    Capabilities: [],
-    Qualities: {},
-    Properties: {
-      Gameplay: {},
-      Quality: 4,
-      Rarity: "common",
-      IsContainer: !1,
-      LoadoutSlot: "gear",
-      RepositoryId: "8431dd21-42ba-4da8-bfdb-6d870c9e1458",
-    },
-    Rarity: "common",
-  }),
     controller.configManager.configs.allunlockables.push({
       Id: "PROP_PROPANE_FLASK",
       Guid: "41d9297a-ab93-45e5-99c6-183f85b76a20",

@@ -104,7 +104,7 @@ function initPlugin(controller) {
       Rewards: {
         MasteryXP: 0
       },
-      Drops: ["PROP_JERRY_CAN"],
+      Drops: ["PROP_DEVICE_EVERGREEN_OILSPILL_CANISTER"],
       IsPlayable: false,
       IsLocked: false,
       HideProgression: false,
