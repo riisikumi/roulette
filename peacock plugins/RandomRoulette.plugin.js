@@ -133,13 +133,6 @@ var RRAdditiveModifiersSection = {
       default: "Random",
       requiresPeacockRestart: false
     },
-    contractgen: {
-      title: "contractgen",
-      desc: "Random Roulette Contracts will be generated in this style. Regenerate Contracts for this option to take effect. Random is the intended way to play.",
-      possibleValues: ["true", "false"],
-      default: "false",
-      requiresPeacockRestart: false
-    },
     targetcount: {
       title: "Maximum Target Count",
       desc: "Detirmines how many NPCs could be selected as targets. Regenerate Contracts for this option to take effect. Four is the intended way to play.",
@@ -188,6 +181,13 @@ var RRAdditiveModifiersSection = {
       title: "Contract Saving",
       desc: "When turned on, Random Roulette contracts will be saved to the drive in the Peacock Contracts directory.",
       default: false,
+      requiresPeacockRestart: false
+    },
+    contractgen: {
+      title: "DO NOT EDIT THIS VALUE",
+      desc: "This contains the value that enables compatibility with contracts mode! Don't touch this or you risk breaking both modes! This is handled by the mod. Don't touch it, if you touch it we are not responsible for whatever goes wrong with your game and will ignore any bug reports with a mention of editing this.",
+      possibleValues: ["true", "false"],
+      default: "false",
       requiresPeacockRestart: false
     },
   }
@@ -285,61 +285,58 @@ const NewGamechangers={"3c48b60a-579a-4d3c-bb28-0233a4a1876a":{Name:"RR_KILLCOND
       Rarity: "common",
     });
   //Search Result Handling
-  
   controller.hooks.getSearchResults.tap(
+    //some dirty shit left over from the previous method for parsing the seed, but fuck it, ship it.
     "ContractSearchResults",
-    async (parameters, ids) => {
-      log(LogLevel.INFO, "Contract Gen " + import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`))
-      if (import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`).toString === "true") {
-        let Counter = 0;
-        let seedSet = false;
-        let seed, fakeseed, plaintextseedfordisplay, seedimagepath, seedtitle;
-        
-        for (const param of parameters) {
-          const [key, value] = param.split(";", 2);
-          
-          switch (true) {
-            case key.trim() === "Text":
-              seedSet = true;
-              fakeseed = value.trim();
-              seed = crc32(fakeseed);
+    async (parameters, ids) => {    if (import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`) === "true") {
+      let Counter = 0;
+      controller.transferseed = seed;
+      controller.transferfakeseed = fakeseed
+      let seedSet = false;
+
+      for (const param of parameters) {
+        const [key, value] = param.split(";", 2);
+        switch (true) {
+          case key.trim() === "Text":
+            seedSet = true;
+            fakeseed = value.trim();
+            seed = crc32(fakeseed);
+            controller.transferseed = seed;
+            controller.transferfakeseed = fakeseed
+            plaintextseedfordisplay = fakeseed.toString(),
+            controller.transferdisplayseed = plaintextseedfordisplay;
+            log(LogLevel.INFO, "Seed set to: " + fakeseed.toString());
+            seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+            controller.transferseedimagepath = seedimagepath;
+            seedtitle = "RR_LOCKED_CONTRACT";
+            controller.transferseedtitle = seedtitle;
+            RandomizeContracts(contracts);
+            copyToClipboard(fakeseed);
+            break;
+          default:
+            if (!seedSet && Counter === 0) {
+              seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+              fakeseed = seed
+              seed = crc32(fakeseed)
+              //log(LogLevel.INFO, "NO TEXT");
+              copyToClipboard(fakeseed);
               controller.transferseed = seed;
-              controller.transferfakeseed = fakeseed;
-              plaintextseedfordisplay = fakeseed.toString();
+              controller.transferfakeseed = fakeseed
+              plaintextseedfordisplay = fakeseed.toString(),
               controller.transferdisplayseed = plaintextseedfordisplay;
               log(LogLevel.INFO, "Seed set to: " + fakeseed.toString());
-              seedimagepath = "images/Contracts/RandomRoulette/locked_contract.png";
+              seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
               controller.transferseedimagepath = seedimagepath;
-              seedtitle = "RR_LOCKED_CONTRACT";
+              seedtitle = "RR_UNLOCKED_CONTRACT";
               controller.transferseedtitle = seedtitle;
               RandomizeContracts(contracts);
-              copyToClipboard(fakeseed);
-              break;
-            default:
-              if (!seedSet && Counter === 0) {
-                seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-                fakeseed = seed;
-                seed = crc32(fakeseed);
-                copyToClipboard(fakeseed);
-                controller.transferseed = seed;
-                controller.transferfakeseed = fakeseed;
-                plaintextseedfordisplay = fakeseed.toString();
-                controller.transferdisplayseed = plaintextseedfordisplay;
-                log(LogLevel.INFO, "Seed set to: " + fakeseed.toString());
-                seedimagepath = "images/Contracts/RandomRoulette/unlocked_contract.png";
-                controller.transferseedimagepath = seedimagepath;
-                seedtitle = "RR_UNLOCKED_CONTRACT";
-                controller.transferseedtitle = seedtitle;
-                RandomizeContracts(contracts);
-                Counter = 1;
-              }
-              break;
-          }
+              Counter = 1;
+            }
+            break;
         }
       }
-    }
+    }}
   );
-  
   
   //Uses all of the previous code stuffs to randomize the contracts
   function RandomizeContracts(contracts) {
