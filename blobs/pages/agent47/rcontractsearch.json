@@ -68,7 +68,7 @@
                             "controller":"list",
                             "row":0.75,
                             "children":{
-                                "$include":"hub/contractsearchcomponents/contractsearch.json"
+                                "$include":"hub/contractsearchcomponents/rcontractsearch.json"
                             }
                         }
                     },

@@ -278,7 +278,7 @@
                                                     "autoselectchildren": true,
                                                     "navigationmode": "forward-to-parent",
                                                     "ncols": {
-                                                        "$include": "hub/contractsearchcomponents/filterelementlistwidth.json"
+                                                        "$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
                                                     },
                                                     "nrows": {
                                                         "$if $eqs ($.Key,False)": {
@@ -290,7 +290,7 @@
                                                             {
                                                                 "view": "menu3.search.SearchTagGroupHeader",
                                                                 "ncols": {
-                                                                    "$include": "hub/contractsearchcomponents/filterelementlistwidth.json"
+                                                                    "$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
                                                                 },
                                                                 "nrows": 0.32,
                                                                 "selectable": false,
@@ -350,8 +350,8 @@
                             "col": 0,
                             "nrows": 1,
                             "ncols": 2,
-                            "selectable": false,
-                            "pressable": false,
+                            "selectable": true,
+                            "pressable": true,
                             "data": {
                                 "title": "Generate Spin",
                                 "icon": "reset",

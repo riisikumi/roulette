@@ -42,15 +42,26 @@
                                         "value": "images/backgrounds/gamemode_contracts.jpg"
                                     }
                                 },
-                                "accept": {
-                                    "link": {
+                                "accept": [
+                                    {
+                                        "trigger-input": {
+                                            "action": "cancel"
+                                        }
+                                    },
+                                    {
+                                        "ioiaccount": {
+                                            "mode": "submit-email",
+                                            "email": "$formatstring peacock:setFlagEnum?key={randomroulette.contractgen}&value={false}|getAllFlags"
+                                        }
+                                    },
+                                    {"link": {
                                         "page": "gamemode_contracts",
                                         "args": {
                                             "url": "contracts",
                                             "mode": "dataonly"
                                         }
-                                    }
-                                }
+                                    }}
+                                ]
                             },
                             "children": [
                                 {
@@ -183,14 +194,25 @@
                                         "value": "images/contracts/roulette/roulettebranding.jpg"
                                     }
                                 },
-                                "accept": {
+                                "accept": [{
                                     "link": {
-                                        "page": "contractsearchpage",
+                                        "page": "contractsearchpagetest",
                                         "args": {
                                             "url": "contractsearchpage"
                                         }
                                     }
-                                }
+                                },
+                                {
+                                    "trigger-input": {
+                                        "action": "cancel"
+                                    }
+                                },
+                                {
+                                    "ioiaccount": {
+                                        "mode": "submit-email",
+                                        "email": "$formatstring peacock:setFlagEnum?key={randomroulette.contractgen}&value={true}|getAllFlags"
+                                    }
+                                }]
                             },
                             "children": [
                                 {

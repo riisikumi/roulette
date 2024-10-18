@@ -1,0 +1,78 @@
+{
+	"tempHash": "00C8C314E552073A",
+	"tbluHash": "00D1C7E81D1A7EE4",
+	"patch": [
+		{
+			"SubEntityOperation": [
+				"83d2c38619642d7d",
+				{
+					"PatchArrayPropertyValue": [
+						"m_aPageDefinitions",
+						[
+							{
+								"AddItemBefore": [
+									"af9e58d814163a0b",
+									"cafe479356f812b8"
+								]
+							}
+						]
+					]
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe479356f812b8",
+				{
+					"parent": "a392e21f4502322a",
+					"name": "test",
+					"factory": "[modules:/zmenupageentity.class].pc_entitytype",
+					"blueprint": "[modules:/zmenupageentity.class].pc_entityblueprint",
+					"properties": {
+						"m_sPageName": {
+							"type": "ZString",
+							"value": "contractsearchpagetest"
+						},
+						"m_pPageContent": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["cafe9b5785cf363d"]
+						},
+						"m_bCacheOnBack": {
+							"type": "bool",
+							"value": true
+						},
+						"m_bShowHelpPage": {
+							"type": "bool",
+							"value": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe9b5785cf363d",
+				{
+					"parent": "a392e21f4502322a",
+					"name": "test2",
+					"factory": "[assembly:/templates/ui/controls/menucontrols.template?/dynamicmenupagecontroller.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/templates/ui/controls/menucontrols.template?/dynamicmenupagecontroller.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_sTemplatePath": {
+							"type": "ZString",
+							"value": "pages/agent47/rcontractsearch.json"
+						},
+						"m_ridTemplate": {
+							"type": "ZRuntimeResourceID",
+							"value": {
+								"resource": "[assembly:/_pro/online/default/cloudstorage/resources/pages/agent47/rcontractsearch.json].pc_json",
+								"flag": "9F"
+							}
+						}
+					}
+				}
+			]
+		}
+	],
+	"patchVersion": 6
+}

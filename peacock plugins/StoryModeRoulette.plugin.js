@@ -2,7 +2,8 @@ const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
 const zlib = require("zlib")
 const { Buffer } = require("buffer")
 const randomUUID = require("crypto").randomUUID
-
+var import_flags = require("@peacockproject/core/flags");
+var RRAdditiveModifiersFlagSectionKey = "randomroulette";
 function decompress(input) {
     return JSON.parse(
         zlib.brotliDecompressSync(Buffer.from(input, "base64")).toString()
@@ -53,6 +54,7 @@ const getRandomIntWithSeed = (t, e, r) => {
 module.exports = function ContractSearch(controller) {
     let seed = controller.transferseed
     controller.hooks.getSearchResults.tap("ContractSearchResults", async (parameters, ids) => {
+        if (import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`) === "true") {
         const contractId = randomUUID()
         controller.transfercontractid = contractId
         seed = controller.transferseed
@@ -743,5 +745,5 @@ module.exports = function ContractSearch(controller) {
         ids.push(contractId)
 
         require("node:fs").writeFileSync("out.json", JSON.stringify(baseContract))
-    })
+    }})
 }
