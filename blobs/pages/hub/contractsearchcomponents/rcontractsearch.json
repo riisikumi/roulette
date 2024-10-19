@@ -312,11 +312,11 @@
                                                                 }
                                                             },
                                                             {
-                                                                "$include": "hub/contractsearchcomponents/filterelementany.json"
+                                                                "$include": "hub/contractsearchcomponents/rfilterelementany.json"
                                                             },
                                                             {
                                                                 "$each $.Values": {
-                                                                    "$include": "hub/contractsearchcomponents/filterelement.json"
+                                                                    "$include": "hub/contractsearchcomponents/rfilterelement.json"
                                                                 }
                                                             }
                                                         ]

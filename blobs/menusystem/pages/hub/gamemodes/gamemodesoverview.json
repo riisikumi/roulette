@@ -203,11 +203,6 @@
                                     }
                                 },
                                 {
-                                    "trigger-input": {
-                                        "action": "cancel"
-                                    }
-                                },
-                                {
                                     "ioiaccount": {
                                         "mode": "submit-email",
                                         "email": "$formatstring peacock:setFlagEnum?key={randomroulette.contractgen}&value={true}|getAllFlags"

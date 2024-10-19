@@ -2010,9 +2010,6 @@
 		}
 	],
 	"peacockPlugins": [
-		"peacock plugins/Contractsearch.plugin.js",
-		"peacock plugins/Contractsresponse.plugin.js",
-		"peacock plugins/Contractspaginate.plugin.js",
 		"peacock plugins/RandomRoulette.plugin.js",
 		"peacock plugins/StoryModeRoulette.plugin.js",
 		"peacock plugins/roulettechallenges.plugin.js",
