@@ -350,8 +350,8 @@ module.exports = function ContractSearch(controller) {
             const killMethodObjectiveId = randomUUID()
             const disguiseObjectiveId = randomUUID()
 
-            objectiveIdList.push(mainObjectiveId)
-            objectiveIdList.push(killMethodObjectiveId)
+            objectiveIdList.push(`$${mainObjectiveId}`)
+            objectiveIdList.push(`$${killMethodObjectiveId}`)
 
             const berlinNpcName = "$loc UI_ROULETTE_BERLIN_" + e
 
@@ -394,7 +394,7 @@ module.exports = function ContractSearch(controller) {
 
             if (rouletteFilters.includes("specificDisguises")){
 
-                objectiveIdList.push(disguiseObjectiveId)
+                objectiveIdList.push(`$${disguiseObjectiveId}`)
 
                 let disguiseString
                 if (selectedDisguiseList[e] == "suit"){
