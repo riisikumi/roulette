@@ -418,27 +418,27 @@ handleCommand.tap("RouletteHandleCommand", (lastResponse, command, args) => {
         "Key":"RouletteFilter",
         "Values":[
             {
-                "Title":"Require Specific Disguise",
+                "Title":"$loc REQUIRE_SPECIFIC_DISGUISE",
                 "Value":"specificDisguises",
                 "Key":"RouletteFilter"
             },
             {
-                "Title":"Include Specific Melee Weapons",
+                "Title":"$loc INCLUDE_SPECIFIC_MELEE_WEAPONS",
                 "Value":"specificMelee",
                 "Key":"RouletteFilter"
             },
             {
-                "Title":"Include Specific Firearms",
+                "Title":"$loc INCLUDE_SPECIFIC_FIREARMS",
                 "Value":"specificFirearms",
                 "Key":"RouletteFilter"
             },
             {
-                "Title":"Include Specific Accidents / Poison Kills",
+                "Title":"$loc INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS",
                 "Value":"specificAccidents",
                 "Key":"RouletteFilter"
             },
             {
-                "Title":"Include Conditions Banned in Roulette Rivals",
+                "Title":"$loc INCLUDE_CONDITIONS_BANNED_IN_ROULETTE_RIVALS",
                 "Value":"rrBannedKills",
                 "Key":"RouletteFilter"
             }

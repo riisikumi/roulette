@@ -353,7 +353,7 @@
                             "selectable": true,
                             "pressable": true,
                             "data": {
-                                "title": "Generate Spin",
+                                "title": "$loc ROULETTE_GENERATE_SPIN",
                                 "icon": "reset",
                                 "highcontrastmode": true
                             },
