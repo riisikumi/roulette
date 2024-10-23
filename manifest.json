@@ -10,11 +10,11 @@
 	},
 	"localisation": {
 		"english": {
-			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise.",
-			"INCLUDE_SPECIFIC_MELEE_WEAPONS": "Include Specific Melee Weapons.",
-			"INCLUDE_SPECIFIC_FIREARMS": "Include Specific Firearms.",
-			"INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS": "Include Specific Accidents / Poison Kills.",
-			"INCLUDE_CONDITIONS_BANNED_IN_ROULETTE_RIVALS": "Include Conditions Banned in Roulette Rivals.",
+			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
+			"INCLUDE_SPECIFIC_MELEE_WEAPONS": "Include Specific Melee Weapons",
+			"INCLUDE_SPECIFIC_FIREARMS": "Include Specific Firearms",
+			"INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS": "Include Specific Accidents / Poison Kills",
+			"INCLUDE_CONDITIONS_BANNED_IN_ROULETTE_RIVALS": "Include Conditions Banned in Roulette Rivals",
 			"ROULETTE_GENERATE_SPIN": "Generate Spin",
 			"UI_LOCATION_UNTOUCHED_CITY": "Carpathian Mountains",
 			"UI_KILL_METHOD_ACCIDENT_DROWN_SR": "Drowning Accident",
