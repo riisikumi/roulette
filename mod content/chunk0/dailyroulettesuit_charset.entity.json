@@ -1,1 +1,84 @@
-{"tempHash":"008D399432C2892C","tbluHash":"00381FBD847AAA53","rootEntity":"9ce69d2ca71f8b80","entities":{"4f8a88f13de1a72b":{"parent":"2f3a8672afe57a01","name":"0","factory":"[modules:/zoutfitvariation.class].pc_entitytype","blueprint":"[modules:/zoutfitvariation.class].pc_entityblueprint"},"9ce69d2ca71f8b80":{"parent":null,"name":"CHARSET_Agent47_DailyRouletteSuit","factory":"004470A9E6A7722D","blueprint":"00E21A11EC782D9E","properties":{"m_aCharacters":{"type":"TArray<SEntityTemplateReference>","value":["2f3a8672afe57a01","586e9cfc2657e5b9","de91d0e2277a7dea"],"postInit":true}}},"586e9cfc2657e5b9":{"parent":"9ce69d2ca71f8b80","name":"Nude","factory":"[modules:/zcharsetcharactertype.class].pc_entitytype","blueprint":"[modules:/zcharsetcharactertype.class].pc_entityblueprint","properties":{"m_aVariations":{"type":"TArray<SEntityTemplateReference>","value":["61a4f9db497e2f43"],"postInit":true}}},"0bfb720456fe2b48":{"parent":"de91d0e2277a7dea","name":"Var0","factory":"[modules:/zoutfitvariation.class].pc_entitytype","blueprint":"[modules:/zoutfitvariation.class].pc_entityblueprint","properties":{"m_Outfit":{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/_pro/characters/templates/hero/agent47/agent47_outfits.template?/outfit_agent47_daily_roulette_suit_heroa_v0.entitytemplate].pc_entitytemplate","flag":"9F"}}}},"de91d0e2277a7dea":{"parent":"9ce69d2ca71f8b80","name":"HeroA","factory":"[modules:/zcharsetcharactertype.class].pc_entitytype","blueprint":"[modules:/zcharsetcharactertype.class].pc_entityblueprint","properties":{"m_aVariations":{"type":"TArray<SEntityTemplateReference>","value":["0bfb720456fe2b48"]}}},"2f3a8672afe57a01":{"parent":"9ce69d2ca71f8b80","name":"Actor","factory":"[modules:/zcharsetcharactertype.class].pc_entitytype","blueprint":"[modules:/zcharsetcharactertype.class].pc_entityblueprint","properties":{"m_aVariations":{"type":"TArray<SEntityTemplateReference>","value":["4f8a88f13de1a72b"]}}},"61a4f9db497e2f43":{"parent":"586e9cfc2657e5b9","name":"Var0","factory":"[modules:/zoutfitvariation.class].pc_entitytype","blueprint":"[modules:/zoutfitvariation.class].pc_entityblueprint"}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":[],"subType":"template","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "008D399432C2892C",
+	"tbluHash": "00381FBD847AAA53",
+	"rootEntity": "9ce69d2ca71f8b80",
+	"entities": {
+		"4f8a88f13de1a72b": {
+			"parent": "2f3a8672afe57a01",
+			"name": "0",
+			"factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+			"blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint"
+		},
+		"9ce69d2ca71f8b80": {
+			"parent": null,
+			"name": "CHARSET_Agent47_DailyRouletteSuit",
+			"factory": "004470A9E6A7722D",
+			"blueprint": "00E21A11EC782D9E",
+			"properties": {
+				"m_aCharacters": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["2f3a8672afe57a01", "586e9cfc2657e5b9", "de91d0e2277a7dea"],
+					"postInit": true
+				}
+			}
+		},
+		"586e9cfc2657e5b9": {
+			"parent": "9ce69d2ca71f8b80",
+			"name": "Nude",
+			"factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+			"blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+			"properties": {
+				"m_aVariations": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["61a4f9db497e2f43"],
+					"postInit": true
+				}
+			}
+		},
+		"0bfb720456fe2b48": {
+			"parent": "de91d0e2277a7dea",
+			"name": "Var0",
+			"factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+			"blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint",
+			"properties": {
+				"m_Outfit": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/_pro/characters/templates/hero/agent47/agent47_outfits.template?/outfit_agent47_daily_roulette_suit_heroa_v0.entitytemplate].pc_entitytemplate",
+						"flag": "9F"
+					}
+				}
+			}
+		},
+		"de91d0e2277a7dea": {
+			"parent": "9ce69d2ca71f8b80",
+			"name": "HeroA",
+			"factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+			"blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+			"properties": { "m_aVariations": { "type": "TArray<SEntityTemplateReference>", "value": ["0bfb720456fe2b48"] } }
+		},
+		"2f3a8672afe57a01": {
+			"parent": "9ce69d2ca71f8b80",
+			"name": "Actor",
+			"factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+			"blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+			"properties": { "m_aVariations": { "type": "TArray<SEntityTemplateReference>", "value": ["4f8a88f13de1a72b"] } }
+		},
+		"61a4f9db497e2f43": {
+			"parent": "586e9cfc2657e5b9",
+			"name": "Var0",
+			"factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+			"blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint"
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}

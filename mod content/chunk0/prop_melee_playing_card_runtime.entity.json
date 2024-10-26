@@ -408,11 +408,7 @@
 				},
 				"m_aEffectSetsBack": {
 					"type": "TArray<SEntityTemplateReference>",
-					"value": [
-						"2a5b594e67201ee8",
-						"f5f4ec2f98a82961",
-						"5cdd0112bc2b9c87"
-					]
+					"value": ["2a5b594e67201ee8", "f5f4ec2f98a82961", "5cdd0112bc2b9c87"]
 				},
 				"m_aEffectSetsFrontSide": {
 					"type": "TArray<SEntityTemplateReference>",

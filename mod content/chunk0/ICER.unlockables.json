@@ -1,23 +1,23 @@
 {
-    "FIREARMS_HERO_PISTOL_ICER": {
-        "Guid": "2639873c-f1f8-4876-a3f3-22ad2d450833",
-        "Type": "weapon",
-        "Subtype": "pistol",
-        "RMTPrice": -1,
-        "GamePrice": -1,
-        "IsPurchasable": false,
-        "IsPublished": true,
-        "IsDroppable": false,
-        "Capabilities": [],
-        "Qualities": {},
-        "Properties": {
-            "Gameplay": {},
-            "Quality": 4,
-            "OrderIndex": 302,
-            "Rarity": "common",
-            "LoadoutSlot": "concealedweapon",
-            "RepositoryId": "1108fdb0-d2ec-48c9-81fc-88267aec8ba1"
-        },
-        "Rarity": "common"
-    }
+	"FIREARMS_HERO_PISTOL_ICER": {
+		"Guid": "2639873c-f1f8-4876-a3f3-22ad2d450833",
+		"Type": "weapon",
+		"Subtype": "pistol",
+		"RMTPrice": -1,
+		"GamePrice": -1,
+		"IsPurchasable": false,
+		"IsPublished": true,
+		"IsDroppable": false,
+		"Capabilities": [],
+		"Qualities": {},
+		"Properties": {
+			"Gameplay": {},
+			"Quality": 4,
+			"OrderIndex": 302,
+			"Rarity": "common",
+			"LoadoutSlot": "concealedweapon",
+			"RepositoryId": "1108fdb0-d2ec-48c9-81fc-88267aec8ba1"
+		},
+		"Rarity": "common"
+	}
 }

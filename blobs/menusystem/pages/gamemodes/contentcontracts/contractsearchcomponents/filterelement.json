@@ -1,206 +1,206 @@
 {
-    "$setup": {
-        "$set View": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": "menu3.search.SearchTagElementBig"
-                },
-                {
-                    "case": "RouletteFilter",
-                    "return": "menu3.search.SearchTagElementBig"
-                },
-                {
-                    "default": "menu3.search.SearchTagElement"
-                }
-            ]
-        },
-        "$set Width": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": 3.2
-                },
-                {
-                    "default": 3.2
-                }
-            ]
-        },
-        "$set FilterEnabled": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": false
-                },
-                {
-                    "default": true
-                }
-            ]
-        },
-        "$set TitleTab01": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": {
-                        "$setup": {
-                            "$set City": {
-                                "$switch $.Value": [
-                                    {
-                                        "default": "$loc $formatstring UI_{$.Value}_CITY"
-                                    }
-                                ]
-                            },
-                            "$in": "$formatstring {$.City}"
-                        }
-                    }
-                },
-                {
-                    "default": null
-                }
-            ]
-        },
-        "$set TitleTab02": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": "$loc $.Title"
-                },
-                {
-                    "default": null
-                }
-            ]
-        },
-        "$set Title": {
-            "$switch $.Key": [
-                {
-                    "case": "Location",
-                    "return": {
-                        "$setup": {
-                            "$set City": {
-                                "$switch $.Value": [
-                                    {
-                                        "default": "$loc $formatstring UI_{$.Value}_CITY"
-                                    }
-                                ]
-                            },
-                            "$set Mission": "$loc $.Title",
-                            "$in": "$formatstring {$.City} / {$.Mission}"
-                        }
-                    }
-                },
-                {
-                    "case": "RouletteFilter",
-                    "return": "$.Title"
-                },
-                {
-                    "default": "$loc $.Title"
-                }
-            ]
-        },
-        "$in": {
-            "view": "$.View",
-            "ncols": "$.Width",
-            "nrows": 0.32,
-            "selectable": true,
-            "pressable": true,
-            "id": "$formatstring FILTER_{$.Key}_{$.Value}",
-            "data": {
-                "title": "$.Title",
-                "titletab01": "$.TitleTab01",
-                "titletab02": "$.TitleTab02",
-                "tabposition": 180,
-                "disabled": "$not $.FilterEnabled",
-                "active": {
-                    "$if $stringcontains ($.Value,false)": {
-                        "$then": true,
-                        "$else": false
-                    }
-                }
-            },
-            "buttons": [
-                {
-                    "actiontype": "accept",
-                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
-                },
-                {
-                    "actiontype": "cancel",
-                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
-                }
-            ],
-            "actions": {
-                "onapplyuidata": {
-                    "$if": {
-                        "$condition": {
-                            "$and": [
-                                "$stringcontains ($.Key,RouletteFilter)",
-                                {
-                                    "$or": [
-                                        "$eqs ($.Value,specificDisguises)",
-                                        "$eqs ($.Value,specificMelee)",
-                                        "$eqs ($.Value,specificFirearms)",
-                                        "$eqs ($.Value,specificAccidents)"
-                                    ]
-                                }
-                            ]
-                        },
-                        "$then": {
-                            "sm:toggle-filter": {
-                                "selected-filter-id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
-                                "filter-group-id": "$.Key",
-                                "filter-element": {
-                                    "view": "menu3.search.SearchSelectedTagElement",
-                                    "id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
-                                    "data": {
-                                        "title": {
-                                            "$switch $.Key": [
-                                                {
-                                                    "case": "Text",
-                                                    "return": "$formatstring \"{$.Title}\""
-                                                },
-                                                {
-                                                    "default": "$.Title"
-                                                }
-                                            ]
-                                        },
-                                        "key": "$.Key",
-                                        "value": "$.Value",
-                                        "active": false
-                                    },
-                                    "actions": {
-                                        "$switch $.Key": [
-                                            {
-                                                "case": "Text",
-                                                "return": {
-                                                    "accept": {
-                                                        "sm:remove-text-filter": ""
-                                                    }
-                                                }
-                                            },
-                                            {
-                                                "default": {
-                                                    "accept": {
-                                                        "sm:remove-filter": ""
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        },
-                        "$else": null
-                    }
-                },
-                "accept": {
-                    "sm:toggle-filter": {
-                        "selected-filter-id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
-                        "filter-group-id": "$.Key",
-                        "filter-element": {
-                            "$include": "hub/contractsearchcomponents/selectedfilterelement.json"
-                        }
-                    }
-                }
-            }
-        }
-    }
+	"$setup": {
+		"$set View": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": "menu3.search.SearchTagElementBig"
+				},
+				{
+					"case": "RouletteFilter",
+					"return": "menu3.search.SearchTagElementBig"
+				},
+				{
+					"default": "menu3.search.SearchTagElement"
+				}
+			]
+		},
+		"$set Width": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": 3.2
+				},
+				{
+					"default": 3.2
+				}
+			]
+		},
+		"$set FilterEnabled": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": false
+				},
+				{
+					"default": true
+				}
+			]
+		},
+		"$set TitleTab01": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": {
+						"$setup": {
+							"$set City": {
+								"$switch $.Value": [
+									{
+										"default": "$loc $formatstring UI_{$.Value}_CITY"
+									}
+								]
+							},
+							"$in": "$formatstring {$.City}"
+						}
+					}
+				},
+				{
+					"default": null
+				}
+			]
+		},
+		"$set TitleTab02": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": "$loc $.Title"
+				},
+				{
+					"default": null
+				}
+			]
+		},
+		"$set Title": {
+			"$switch $.Key": [
+				{
+					"case": "Location",
+					"return": {
+						"$setup": {
+							"$set City": {
+								"$switch $.Value": [
+									{
+										"default": "$loc $formatstring UI_{$.Value}_CITY"
+									}
+								]
+							},
+							"$set Mission": "$loc $.Title",
+							"$in": "$formatstring {$.City} / {$.Mission}"
+						}
+					}
+				},
+				{
+					"case": "RouletteFilter",
+					"return": "$.Title"
+				},
+				{
+					"default": "$loc $.Title"
+				}
+			]
+		},
+		"$in": {
+			"view": "$.View",
+			"ncols": "$.Width",
+			"nrows": 0.32,
+			"selectable": true,
+			"pressable": true,
+			"id": "$formatstring FILTER_{$.Key}_{$.Value}",
+			"data": {
+				"title": "$.Title",
+				"titletab01": "$.TitleTab01",
+				"titletab02": "$.TitleTab02",
+				"tabposition": 180,
+				"disabled": "$not $.FilterEnabled",
+				"active": {
+					"$if $stringcontains ($.Value,false)": {
+						"$then": true,
+						"$else": false
+					}
+				}
+			},
+			"buttons": [
+				{
+					"actiontype": "accept",
+					"actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+				},
+				{
+					"actiontype": "cancel",
+					"actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+				}
+			],
+			"actions": {
+				"onapplyuidata": {
+					"$if": {
+						"$condition": {
+							"$and": [
+								"$stringcontains ($.Key,RouletteFilter)",
+								{
+									"$or": [
+										"$eqs ($.Value,specificDisguises)",
+										"$eqs ($.Value,specificMelee)",
+										"$eqs ($.Value,specificFirearms)",
+										"$eqs ($.Value,specificAccidents)"
+									]
+								}
+							]
+						},
+						"$then": {
+							"sm:toggle-filter": {
+								"selected-filter-id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
+								"filter-group-id": "$.Key",
+								"filter-element": {
+									"view": "menu3.search.SearchSelectedTagElement",
+									"id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
+									"data": {
+										"title": {
+											"$switch $.Key": [
+												{
+													"case": "Text",
+													"return": "$formatstring \"{$.Title}\""
+												},
+												{
+													"default": "$.Title"
+												}
+											]
+										},
+										"key": "$.Key",
+										"value": "$.Value",
+										"active": false
+									},
+									"actions": {
+										"$switch $.Key": [
+											{
+												"case": "Text",
+												"return": {
+													"accept": {
+														"sm:remove-text-filter": ""
+													}
+												}
+											},
+											{
+												"default": {
+													"accept": {
+														"sm:remove-filter": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
+						},
+						"$else": null
+					}
+				},
+				"accept": {
+					"sm:toggle-filter": {
+						"selected-filter-id": "$formatstring SELECTED_FILTER_{$.Key}_{$.Value}",
+						"filter-group-id": "$.Key",
+						"filter-element": {
+							"$include": "hub/contractsearchcomponents/selectedfilterelement.json"
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,23 +1,23 @@
 {
-    "FIREARMS_PISTOL_GOLDEN_GUN": {
-        "Guid": "7667cefd-acd1-43d8-8101-15703a6ce6d8",
-        "Type": "weapon",
-        "Subtype": "pistol",
-        "RMTPrice": -1,
-        "GamePrice": -1,
-        "IsPurchasable": false,
-        "IsPublished": true,
-        "IsDroppable": false,
-        "Capabilities": [],
-        "Qualities": {},
-        "Properties": {
-            "Gameplay": {},
-            "OrderIndex": 272,
-            "Quality": 4,
-            "Rarity": "common",
-            "LoadoutSlot": "concealedweapon",
-            "RepositoryId": "77bbd7dd-fc47-4839-8003-5dada8fe5814"
-        },
-        "Rarity": "common"
-    }
+	"FIREARMS_PISTOL_GOLDEN_GUN": {
+		"Guid": "7667cefd-acd1-43d8-8101-15703a6ce6d8",
+		"Type": "weapon",
+		"Subtype": "pistol",
+		"RMTPrice": -1,
+		"GamePrice": -1,
+		"IsPurchasable": false,
+		"IsPublished": true,
+		"IsDroppable": false,
+		"Capabilities": [],
+		"Qualities": {},
+		"Properties": {
+			"Gameplay": {},
+			"OrderIndex": 272,
+			"Quality": 4,
+			"Rarity": "common",
+			"LoadoutSlot": "concealedweapon",
+			"RepositoryId": "77bbd7dd-fc47-4839-8003-5dada8fe5814"
+		},
+		"Rarity": "common"
+	}
 }

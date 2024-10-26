@@ -1,1 +1,29 @@
-{"tempHash":"00B465A0A9523F64","tbluHash":"0096E8C5FA5494F2","patch":[{"AddEntity":["cafe22c0168d00a1",{"parent":"60d2649e32d1b25a","name":"ClothBundleSpawn_CHAR_Hokkaido_Hero_PatientSuit_M_HPA2707","factory":"[modules:/zclothbundlespawnentity.class].pc_entitytype","blueprint":"[modules:/zclothbundlespawnentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":0,"y":0,"z":74.08718},"position":{"x":-27.765312,"y":96.01875,"z":21.936392}}},"m_RepositoryId":{"type":"ZGuid","value":"06456d4d-da36-4008-bea5-c0b985a565f5"},"m_eidParent":{"type":"SEntityTemplateReference","value":"fffffffffffffffe"}}}]}],"patchVersion":6}
+{
+	"tempHash": "00B465A0A9523F64",
+	"tbluHash": "0096E8C5FA5494F2",
+	"patch": [
+		{
+			"AddEntity": [
+				"cafe22c0168d00a1",
+				{
+					"parent": "60d2649e32d1b25a",
+					"name": "ClothBundleSpawn_CHAR_Hokkaido_Hero_PatientSuit_M_HPA2707",
+					"factory": "[modules:/zclothbundlespawnentity.class].pc_entitytype",
+					"blueprint": "[modules:/zclothbundlespawnentity.class].pc_entityblueprint",
+					"properties": {
+						"m_mTransform": {
+							"type": "SMatrix43",
+							"value": {
+								"rotation": { "x": 0, "y": 0, "z": 74.08718 },
+								"position": { "x": -27.765312, "y": 96.01875, "z": 21.936392 }
+							}
+						},
+						"m_RepositoryId": { "type": "ZGuid", "value": "06456d4d-da36-4008-bea5-c0b985a565f5" },
+						"m_eidParent": { "type": "SEntityTemplateReference", "value": "fffffffffffffffe" }
+					}
+				}
+			]
+		}
+	],
+	"patchVersion": 6
+}

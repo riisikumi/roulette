@@ -1,498 +1,487 @@
 {
-    "id": "contractsearch_body",
-    "controller": "group",
-    "components": {
-        "search-manager": {
-            "always-reload-setup": false,
-            "setup": {
-                "submit-button": "go_search_button",
-                "input-textfield": "freetext_search",
-                "selected-filters-container": "selected_filter_container"
-            }
-        }
-    },
-    "actions": {
-        "on-add-child": {
-            "sm:set-active": true
-        },
-        "on-remove-child": {
-            "sm:set-active": false
-        }
-    },
-    "children": [
-        {
-            "id": "search_input",
-            "controller": "group",
-            "view": "menu3.containers.AnimationContainerSearchPage",
-            "pages": true,
-            "autoselectchildren": true,
-            "data": {
-                "move_col": -8.2,
-                "move_row": 0,
-                "moveduration": 0.5,
-                "blendoutduration": 0.2,
-                "callback_forward": "start_search",
-                "callback_reverse": "reset_input"
-            },
-            "actions": {
-                "start_search": {
-                    "sm:submit-search-request": {
-                        "load-async": {
-                            "from": {
-                                "url": "contractsearch",
-                                "args": {
-                                    "sorting": ""
-                                }
-                            },
-                            "post-load-action": {
-                                "hide-node": "search_input",
-                                "show-node": "search_results",
-                                "set-selected": {
-                                    "target": "search_results_container"
-                                }
-                            },
-                            "target": "search_results",
-                            "showloadingindicator": true,
-                            "blocksinput": true
-                        }
-                    },
-                    "set-busystate": {
-                        "set-active": false
-                    }
-                },
-                "reset_input": {
-                    "set-busystate": {
-                        "set-active": false
-                    },
-                    "show-node": [
-                        "search_matrix"
-                    ]
-                }
-            },
-            "children": [
-                {
-                    "id": "search_matrix",
-                    "controller": "group",
-                    "pages": true,
-                    "view": "menu3.containers.ScrollingListContainer",
-                    "direction": "vertical",
-                    "data": {
-                        "direction": "vertical",
-                        "overflowscrolling": 2,
-                        "scrollbarspaceoffset": -10,
-                        "animation": "blendout"
-                    },
-                    "ncols": 8,
-                    "nrows": 3.96,
-                    "children": [
-                        {
-                            "id": "freetext_search_group",
-                            "controller": "group",
-                            "pages": true,
-                            "ncols": 8,
-                            "nrows": 1.32,
-                            "row": 0,
-                            "col": 0,
-                            "autoselectchildren": true,
-                            "children": [
-                                {
-                                    "id": "freetext_search_header",
-                                    "view": "menu3.search.SearchTagGroupHeader",
-                                    "ncols": 4.8,
-                                    "nrows": 0.32,
-                                    "selectable": false,
-                                    "pressable": true,
-                                    "data": {
-                                        "title": "$loc UI_ROULETTE_SET_SEED",
-                                        "icon": "evergreen_destination_not_owned"
-                                    },
-                                    "buttons": [
-                                        {
-                                            "actiontype": "select",
-                                            "actionlabel": "$loc UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "id": "freetext_search",
-                                    "view": "menu3.search.SearchTagElementCustomInput",
-                                    "ncols": 4.8,
-                                    "nrows": 1,
-                                    "data": {
-                                        "title": "$loc UI_ROULETTE_SET_SEED",
-                                        "input-replace-token": "InputTextToken"
-                                    },
-                                    "buttons": [
-                                        {
-                                            "actiontype": "select",
-                                            "actionlabel": "$loc UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP"
-                                        }
-                                    ],
-                                    "actions": {
-                                        "accept": {
-                                            "$switch $arg _platform": [
-                                                {
-                                                    "case": "pc",
-                                                    "return": {
-                                                        "open-floating-virtual-keyboard": {
-                                                            "multiline": false,
-                                                            "on-error-action": {
-                                                                "open-virtual-keyboard": {
-                                                                    "target": "freetext_search",
-                                                                    "title": "$loc UI_SEARCH_PAGE_INPUT_TITLE",
-                                                                    "maxchars": 40,
-                                                                    "multiline": false,
-                                                                    "on-error-action": {
-                                                                        "call": {
-                                                                            "target": "freetext_search",
-                                                                            "method": "doTextFieldAccept"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "case": "stadia",
-                                                    "return": {
-                                                        "call": {
-                                                            "target": "freetext_search",
-                                                            "method": "doTextFieldAccept"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "default": {
-                                                        "open-virtual-keyboard": {
-                                                            "target": "freetext_search",
-                                                            "title": "$loc UI_SEARCH_PAGE_INPUT_TITLE",
-                                                            "maxchars": 40,
-                                                            "multiline": false
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        "on-input-entered": {
-                                            "$notransform": {
-                                                "sm:add-text-filter": {
-                                                    "$setup": {
-                                                        "$set Title": "$.InputTextToken",
-                                                        "$set Key": "Text",
-                                                        "$set Value": "$.InputTextToken",
-                                                        "$in": {
-                                                            "selected-filter-id": "$formatstring SELECTED_FILTER_Text_{$.InputTextToken}",
-                                                            "filter-group-id": "$.Key",
-                                                            "filter-element": {
-                                                                "$include": "hub/contractsearchcomponents/selectedfilterelement.json"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "action-select": {
-                                            "set-selectable": {
-                                                "freetext_search_header": true
-                                            },
-                                            "set-selected": {
-                                                "target": "freetext_search_header"
-                                            },
-                                            "show-modal": {
-                                                "config": {
-                                                    "view": "menu3.modal.ModalDialogGeneric",
-                                                    "buttons": [
-                                                        {
-                                                            "label": "$loc UI_DIALOG_OK",
-                                                            "type": "cancel",
-                                                            "icon": "arrowright"
-                                                        }
-                                                    ],
-                                                    "data": {
-                                                        "title": "$loc UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TITLE",
-                                                        "description": "$loc UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TEXT"
-                                                    }
-                                                },
-                                                "onbutton": [
-                                                    {
-                                                        "set-selected": {
-                                                            "target": "freetext_search"
-                                                        },
-                                                        "set-selectable": {
-                                                            "freetext_search_header": false
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "$setup": {
-                                "$set DataTemp": {
-                                    "$mergeobjects": {
-                                        "$each $.FilterData": {
-                                            "$expand $.Key": "$."
-                                        }
-                                    }
-                                },
-                                "$set Data": [
-                                    {
-                                        "Width": 3.2,
-                                        "SubData": [
-                                            "$.DataTemp.Location"
-                                        ]
-                                    },
-                                    {
-                                        "Width": 3.2,
-                                        "SubData": [
-                                            "$.DataTemp.RouletteFilter"
-                                        ]
-                                    }
-                                ],
-                                "$in": {
-                                    "id": "tag_search_group",
-                                    "controller": "group",
-                                    "pages": true,
-                                    "ncols": 8,
-                                    "nrows": 2.88,
-                                    "row": 1,
-                                    "col": 0,
-                                    "navigationmode": "leaf-selection",
-                                    "autoselectchildren": true,
-                                    "children": {
-                                        "$each $.Data": {
-                                            "controller": "group",
-                                            "pages": true,
-                                            "autoselectchildren": true,
-                                            "navigationmode": "forward-to-parent",
-                                            "ncols": "$.Width",
-                                            "children": {
-                                                "$each $.SubData": {
-                                                    "controller": "group",
-                                                    "fillstrategy": "rowfirst",
-                                                    "pages": true,
-                                                    "autoselectchildren": true,
-                                                    "navigationmode": "forward-to-parent",
-                                                    "ncols": {
-                                                        "$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
-                                                    },
-                                                    "nrows": {
-                                                        "$if $eqs ($.Key,False)": {
-                                                            "$then": 2.24
-                                                        }
-                                                    },
-                                                    "children": {
-                                                        "$merge": [
-                                                            {
-                                                                "view": "menu3.search.SearchTagGroupHeader",
-                                                                "ncols": {
-                                                                    "$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
-                                                                },
-                                                                "nrows": 0.32,
-                                                                "selectable": false,
-                                                                "pressable": false,
-                                                                "data": {
-                                                                    "title": "$loc $.Title",
-                                                                    "icon": {
-                                                                        "$switch $.Key": [
-                                                                            {
-                                                                                "case": "Location",
-                                                                                "return": "mission"
-                                                                            },
-                                                                            {
-                                                                                "case": "RouletteFilter",
-                                                                                "return": "settings"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                }
-                                                            },
-                                                            {
-                                                                "$include": "hub/contractsearchcomponents/rfilterelementany.json"
-                                                            },
-                                                            {
-                                                                "$each $.Values": {
-                                                                    "$include": "hub/contractsearchcomponents/rfilterelement.json"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "search_matrix_selected",
-                    "controller": "list",
-                    "direction": "vertical",
-                    "data": {
-                        "direction": "vertical",
-                        "animation": "move"
-                    },
-                    "row": 0,
-                    "col": 8.1,
-                    "ncols": 1,
-                    "nrows": 3.9,
-                    "children": [
-                        {
-                            "id": "go_search_button",
-                            "view": "menu3.search.SearchButton",
-                            "row": 0,
-                            "col": 0,
-                            "nrows": 1,
-                            "ncols": 2,
-                            "selectable": true,
-                            "pressable": true,
-                            "data": {
-                                "title": "$loc ROULETTE_GENERATE_SPIN",
-                                "icon": "reset",
-                                "highcontrastmode": true
-                            },
-                            "buttons": [
-                                {
-                                    "actiontype": "accept",
-                                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
-                                },
-                                {
-                                    "actiontype": "cancel",
-                                    "actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
-                                }
-                            ],
-                            "actions": {
-                                "accept": {
-                                    "hide-node": [
-                                        "search_matrix",
-                                        "search_results"
-                                    ],
-                                    "set-busystate": {
-                                        "set-active": true,
-                                        "blocksinput": true
-                                    },
-                                    "call": {
-                                        "target": "search_input",
-                                        "method": "startAnimation",
-                                        "args": true
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "id": "selected_filter_container",
-                            "controller": "list",
-                            "view": "menu3.search.SearchSelectedTagScrollingListContainer",
-                            "direction": "vertical",
-                            "data": {
-                                "direction": "vertical",
-                                "instantfirstscroll": true,
-                                "usepersistentreloaddata": true,
-                                "overflowscrolling": "1.15",
-                                "scrollbarspaceoffset": -18,
-                                "offsetCol": 0.056,
-                                "emptycount": 8,
-                                "emptyelementfillcount": 1,
-                                "elementnrows": 0.32,
-                                "icon": "tag",
-                                "title": "$loc UI_SEARCH_PAGE_CATEGORY_SELECTEDTAGS"
-                            },
-                            "row": 1.071,
-                            "col": 0.029,
-                            "ncols": 1.94,
-                            "nrows": 2.88,
-                            "hidedefaultnocontent": true,
-                            "actions": {
-                                "last-child-removed": {
-                                    "set-selected": {
-                                        "target": "search_matrix"
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "search_results",
-            "controller": "group",
-            "children": [
-            ]
-        },
-        {
-            "id": "locations_resourceavailability_check_container",
-            "children": {
-                "$each $.LocationsData.Data.Locations": {
-                    "selectable": false,
-                    "pressable": false,
-                    "stateproviders": [
-                        {
-                            "type": "contractavailability",
-                            "activate-on-page-opened": false,
-                            "fire-actions-again-after-reactivating": true,
-                            "contract": "$.Contract"
-                        }
-                    ],
-                    "actions": {
-
-                        "activated": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-available": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-not-available": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-not-owned": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-not-installed": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-downloading": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-update-required": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        },
-                        "on-content-installing": {
-                            "sm:enable-owned-location": {
-                                "available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
-                                "location-id": "$.SubLocation.Id"
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    ]
+	"id": "contractsearch_body",
+	"controller": "group",
+	"components": {
+		"search-manager": {
+			"always-reload-setup": false,
+			"setup": {
+				"submit-button": "go_search_button",
+				"input-textfield": "freetext_search",
+				"selected-filters-container": "selected_filter_container"
+			}
+		}
+	},
+	"actions": {
+		"on-add-child": {
+			"sm:set-active": true
+		},
+		"on-remove-child": {
+			"sm:set-active": false
+		}
+	},
+	"children": [
+		{
+			"id": "search_input",
+			"controller": "group",
+			"view": "menu3.containers.AnimationContainerSearchPage",
+			"pages": true,
+			"autoselectchildren": true,
+			"data": {
+				"move_col": -8.2,
+				"move_row": 0,
+				"moveduration": 0.5,
+				"blendoutduration": 0.2,
+				"callback_forward": "start_search",
+				"callback_reverse": "reset_input"
+			},
+			"actions": {
+				"start_search": {
+					"sm:submit-search-request": {
+						"load-async": {
+							"from": {
+								"url": "contractsearch",
+								"args": {
+									"sorting": ""
+								}
+							},
+							"post-load-action": {
+								"hide-node": "search_input",
+								"show-node": "search_results",
+								"set-selected": {
+									"target": "search_results_container"
+								}
+							},
+							"target": "search_results",
+							"showloadingindicator": true,
+							"blocksinput": true
+						}
+					},
+					"set-busystate": {
+						"set-active": false
+					}
+				},
+				"reset_input": {
+					"set-busystate": {
+						"set-active": false
+					},
+					"show-node": ["search_matrix"]
+				}
+			},
+			"children": [
+				{
+					"id": "search_matrix",
+					"controller": "group",
+					"pages": true,
+					"view": "menu3.containers.ScrollingListContainer",
+					"direction": "vertical",
+					"data": {
+						"direction": "vertical",
+						"overflowscrolling": 2,
+						"scrollbarspaceoffset": -10,
+						"animation": "blendout"
+					},
+					"ncols": 8,
+					"nrows": 3.96,
+					"children": [
+						{
+							"id": "freetext_search_group",
+							"controller": "group",
+							"pages": true,
+							"ncols": 8,
+							"nrows": 1.32,
+							"row": 0,
+							"col": 0,
+							"autoselectchildren": true,
+							"children": [
+								{
+									"id": "freetext_search_header",
+									"view": "menu3.search.SearchTagGroupHeader",
+									"ncols": 4.8,
+									"nrows": 0.32,
+									"selectable": false,
+									"pressable": true,
+									"data": {
+										"title": "$loc UI_ROULETTE_SET_SEED",
+										"icon": "evergreen_destination_not_owned"
+									},
+									"buttons": [
+										{
+											"actiontype": "select",
+											"actionlabel": "$loc UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP"
+										}
+									]
+								},
+								{
+									"id": "freetext_search",
+									"view": "menu3.search.SearchTagElementCustomInput",
+									"ncols": 4.8,
+									"nrows": 1,
+									"data": {
+										"title": "$loc UI_ROULETTE_SET_SEED",
+										"input-replace-token": "InputTextToken"
+									},
+									"buttons": [
+										{
+											"actiontype": "select",
+											"actionlabel": "$loc UI_BUTTON_PROMPTS_SHOW_TEXT_ROULETTE_HELP"
+										}
+									],
+									"actions": {
+										"accept": {
+											"$switch $arg _platform": [
+												{
+													"case": "pc",
+													"return": {
+														"open-floating-virtual-keyboard": {
+															"multiline": false,
+															"on-error-action": {
+																"open-virtual-keyboard": {
+																	"target": "freetext_search",
+																	"title": "$loc UI_SEARCH_PAGE_INPUT_TITLE",
+																	"maxchars": 40,
+																	"multiline": false,
+																	"on-error-action": {
+																		"call": {
+																			"target": "freetext_search",
+																			"method": "doTextFieldAccept"
+																		}
+																	}
+																}
+															}
+														}
+													}
+												},
+												{
+													"case": "stadia",
+													"return": {
+														"call": {
+															"target": "freetext_search",
+															"method": "doTextFieldAccept"
+														}
+													}
+												},
+												{
+													"default": {
+														"open-virtual-keyboard": {
+															"target": "freetext_search",
+															"title": "$loc UI_SEARCH_PAGE_INPUT_TITLE",
+															"maxchars": 40,
+															"multiline": false
+														}
+													}
+												}
+											]
+										},
+										"on-input-entered": {
+											"$notransform": {
+												"sm:add-text-filter": {
+													"$setup": {
+														"$set Title": "$.InputTextToken",
+														"$set Key": "Text",
+														"$set Value": "$.InputTextToken",
+														"$in": {
+															"selected-filter-id": "$formatstring SELECTED_FILTER_Text_{$.InputTextToken}",
+															"filter-group-id": "$.Key",
+															"filter-element": {
+																"$include": "hub/contractsearchcomponents/selectedfilterelement.json"
+															}
+														}
+													}
+												}
+											}
+										},
+										"action-select": {
+											"set-selectable": {
+												"freetext_search_header": true
+											},
+											"set-selected": {
+												"target": "freetext_search_header"
+											},
+											"show-modal": {
+												"config": {
+													"view": "menu3.modal.ModalDialogGeneric",
+													"buttons": [
+														{
+															"label": "$loc UI_DIALOG_OK",
+															"type": "cancel",
+															"icon": "arrowright"
+														}
+													],
+													"data": {
+														"title": "$loc UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TITLE",
+														"description": "$loc UI_DIALOG_CONTRACT_TEXT_ROULETTE_HELP_TEXT"
+													}
+												},
+												"onbutton": [
+													{
+														"set-selected": {
+															"target": "freetext_search"
+														},
+														"set-selectable": {
+															"freetext_search_header": false
+														}
+													}
+												]
+											}
+										}
+									}
+								}
+							]
+						},
+						{
+							"$setup": {
+								"$set DataTemp": {
+									"$mergeobjects": {
+										"$each $.FilterData": {
+											"$expand $.Key": "$."
+										}
+									}
+								},
+								"$set Data": [
+									{
+										"Width": 3.2,
+										"SubData": ["$.DataTemp.Location"]
+									},
+									{
+										"Width": 3.2,
+										"SubData": ["$.DataTemp.RouletteFilter"]
+									}
+								],
+								"$in": {
+									"id": "tag_search_group",
+									"controller": "group",
+									"pages": true,
+									"ncols": 8,
+									"nrows": 2.88,
+									"row": 1,
+									"col": 0,
+									"navigationmode": "leaf-selection",
+									"autoselectchildren": true,
+									"children": {
+										"$each $.Data": {
+											"controller": "group",
+											"pages": true,
+											"autoselectchildren": true,
+											"navigationmode": "forward-to-parent",
+											"ncols": "$.Width",
+											"children": {
+												"$each $.SubData": {
+													"controller": "group",
+													"fillstrategy": "rowfirst",
+													"pages": true,
+													"autoselectchildren": true,
+													"navigationmode": "forward-to-parent",
+													"ncols": {
+														"$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
+													},
+													"nrows": {
+														"$if $eqs ($.Key,False)": {
+															"$then": 2.24
+														}
+													},
+													"children": {
+														"$merge": [
+															{
+																"view": "menu3.search.SearchTagGroupHeader",
+																"ncols": {
+																	"$include": "hub/contractsearchcomponents/rfilterelementlistwidth.json"
+																},
+																"nrows": 0.32,
+																"selectable": false,
+																"pressable": false,
+																"data": {
+																	"title": "$loc $.Title",
+																	"icon": {
+																		"$switch $.Key": [
+																			{
+																				"case": "Location",
+																				"return": "mission"
+																			},
+																			{
+																				"case": "RouletteFilter",
+																				"return": "settings"
+																			}
+																		]
+																	}
+																}
+															},
+															{
+																"$include": "hub/contractsearchcomponents/rfilterelementany.json"
+															},
+															{
+																"$each $.Values": {
+																	"$include": "hub/contractsearchcomponents/rfilterelement.json"
+																}
+															}
+														]
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": "search_matrix_selected",
+					"controller": "list",
+					"direction": "vertical",
+					"data": {
+						"direction": "vertical",
+						"animation": "move"
+					},
+					"row": 0,
+					"col": 8.1,
+					"ncols": 1,
+					"nrows": 3.9,
+					"children": [
+						{
+							"id": "go_search_button",
+							"view": "menu3.search.SearchButton",
+							"row": 0,
+							"col": 0,
+							"nrows": 1,
+							"ncols": 2,
+							"selectable": true,
+							"pressable": true,
+							"data": {
+								"title": "$loc ROULETTE_GENERATE_SPIN",
+								"icon": "reset",
+								"highcontrastmode": true
+							},
+							"buttons": [
+								{
+									"actiontype": "accept",
+									"actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_SELECT"
+								},
+								{
+									"actiontype": "cancel",
+									"actionlabel": "$loc UI_BUTTON_PROMPTS_ACTION_BACK"
+								}
+							],
+							"actions": {
+								"accept": {
+									"hide-node": ["search_matrix", "search_results"],
+									"set-busystate": {
+										"set-active": true,
+										"blocksinput": true
+									},
+									"call": {
+										"target": "search_input",
+										"method": "startAnimation",
+										"args": true
+									}
+								}
+							}
+						},
+						{
+							"id": "selected_filter_container",
+							"controller": "list",
+							"view": "menu3.search.SearchSelectedTagScrollingListContainer",
+							"direction": "vertical",
+							"data": {
+								"direction": "vertical",
+								"instantfirstscroll": true,
+								"usepersistentreloaddata": true,
+								"overflowscrolling": "1.15",
+								"scrollbarspaceoffset": -18,
+								"offsetCol": 0.056,
+								"emptycount": 8,
+								"emptyelementfillcount": 1,
+								"elementnrows": 0.32,
+								"icon": "tag",
+								"title": "$loc UI_SEARCH_PAGE_CATEGORY_SELECTEDTAGS"
+							},
+							"row": 1.071,
+							"col": 0.029,
+							"ncols": 1.94,
+							"nrows": 2.88,
+							"hidedefaultnocontent": true,
+							"actions": {
+								"last-child-removed": {
+									"set-selected": {
+										"target": "search_matrix"
+									}
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "search_results",
+			"controller": "group",
+			"children": []
+		},
+		{
+			"id": "locations_resourceavailability_check_container",
+			"children": {
+				"$each $.LocationsData.Data.Locations": {
+					"selectable": false,
+					"pressable": false,
+					"stateproviders": [
+						{
+							"type": "contractavailability",
+							"activate-on-page-opened": false,
+							"fire-actions-again-after-reactivating": true,
+							"contract": "$.Contract"
+						}
+					],
+					"actions": {
+						"activated": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-available": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-not-available": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-not-owned": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-not-installed": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-downloading": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-update-required": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						},
+						"on-content-installing": {
+							"sm:enable-owned-location": {
+								"available-filter-element": "$formatstring FILTER_Location_{$.SubLocation.Id}",
+								"location-id": "$.SubLocation.Id"
+							}
+						}
+					}
+				}
+			}
+		}
+	]
 }

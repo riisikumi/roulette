@@ -1,1 +1,160 @@
-{"tempHash":"00A229A4E89B7D1F","tbluHash":"0015A4FDA61748F7","rootEntity":"fffffffffffffffe","entities":{"fffffffffffffffe":{"parent":null,"name":"Scene","factory":"[modules:/zspatialentity.class].pc_entitytype","blueprint":"[modules:/zspatialentity.class].pc_entityblueprint"},"cafefd2810c587ca":{"parent":"fffffffffffffffe","name":"Gamechangers_Roulette_BlueRed","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafe36791b6ad0aa":{"parent":"cafefd2810c587ca","name":"States","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafeb0752e5e5beb":{"parent":"cafe36791b6ad0aa","name":"States","factory":"[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entityblueprint","properties":{"m_nInitialStateIndex":{"type":"int32","value":0},"m_States":{"type":"TArray<SEntityTemplateReference>","value":["cafea9bff33fa09a","cafef40af65a0a62"]},"m_eWrapMode":{"type":"ZStateControllerEntity.WrapMode","value":"WM_Loop"}}},"cafea9bff33fa09a":{"parent":"cafe36791b6ad0aa","name":"Blue light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafef40af65a0a62":{"parent":"cafe36791b6ad0aa","name":"Red light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafe731911e915d5":{"parent":"cafefd2810c587ca","name":"Logic","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafe35bda8072440":{"parent":"cafe731911e915d5","name":"ValueBool_Changed Blue","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafea9bff33fa09a"},"m_bFireOnLevelStart":{"type":"bool","value":true}},"events":{"OnTrue":{"In":["cafeea6b8e77b273"],"Signal":["cafef036e18671b0"],"Reset":["cafe8fc6bd52bb45"],"TransmitEvent":[{"ref":"cafeed35db7d8116","value":{"type":"int32","value":0}}]}}},"cafeea6b8e77b273":{"parent":"cafe35bda8072440","name":"TimerSimple Blue","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":10000}},"events":{"Out":{"NextState":["cafeb0752e5e5beb"]}}},"cafeaf0f9ba3feb0":{"parent":"cafe731911e915d5","name":"ValueBool_Changed Red","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafef40af65a0a62"}},"events":{"OnTrue":{"In":["cafe5ace09257556"],"Signal":["cafe8fc6bd52bb45"],"Reset":["cafef036e18671b0"],"TransmitEvent":[{"ref":"cafeed35db7d8116","value":{"type":"int32","value":1}}]}}},"cafe5ace09257556":{"parent":"cafeaf0f9ba3feb0","name":"TimerSimple Red","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":10000}},"events":{"Out":{"NextState":["cafeb0752e5e5beb"]}}},"cafe2440834c4fb6":{"parent":"cafe731911e915d5","name":"ContractsEvent Blue","factory":"[modules:/zcontractsevententity.class].pc_entitytype","blueprint":"[modules:/zcontractsevententity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"Blue"}}},"cafef036e18671b0":{"parent":"cafe731911e915d5","name":"VoidSignalOnce_Simple Blue","factory":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint","events":{"Out":{"Trigger":["cafe2440834c4fb6"]}}},"cafeed35db7d8116":{"parent":"cafe731911e915d5","name":"EventChannelTransmitter_int32","factory":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entityblueprint","properties":{"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafed6ccdbb76f26","postInit":true}}},"cafed6ccdbb76f26":{"parent":"cafeed35db7d8116","name":"TokenID_PF_BlueRed","factory":"[modules:/ztokenidentity.class].pc_entitytype","blueprint":"[modules:/ztokenidentity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"PF_BlueRed"}}},"cafeba0c00b6eac2":{"parent":"cafe731911e915d5","name":"ContractsEvent Red","factory":"[modules:/zcontractsevententity.class].pc_entitytype","blueprint":"[modules:/zcontractsevententity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"Red"}}},"cafe8fc6bd52bb45":{"parent":"cafe731911e915d5","name":"VoidSignalOnce_Simple Red","factory":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint","events":{"Out":{"Trigger":["cafeba0c00b6eac2"]}}}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":["[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"],"subType":"brick","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "00A229A4E89B7D1F",
+	"tbluHash": "0015A4FDA61748F7",
+	"rootEntity": "fffffffffffffffe",
+	"entities": {
+		"fffffffffffffffe": {
+			"parent": null,
+			"name": "Scene",
+			"factory": "[modules:/zspatialentity.class].pc_entitytype",
+			"blueprint": "[modules:/zspatialentity.class].pc_entityblueprint"
+		},
+		"cafefd2810c587ca": {
+			"parent": "fffffffffffffffe",
+			"name": "Gamechangers_Roulette_BlueRed",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafe36791b6ad0aa": {
+			"parent": "cafefd2810c587ca",
+			"name": "States",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafeb0752e5e5beb": {
+			"parent": "cafe36791b6ad0aa",
+			"name": "States",
+			"factory": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_nInitialStateIndex": { "type": "int32", "value": 0 },
+				"m_States": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafea9bff33fa09a", "cafef40af65a0a62"]
+				},
+				"m_eWrapMode": { "type": "ZStateControllerEntity.WrapMode", "value": "WM_Loop" }
+			}
+		},
+		"cafea9bff33fa09a": {
+			"parent": "cafe36791b6ad0aa",
+			"name": "Blue light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafef40af65a0a62": {
+			"parent": "cafe36791b6ad0aa",
+			"name": "Red light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafe731911e915d5": {
+			"parent": "cafefd2810c587ca",
+			"name": "Logic",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafe35bda8072440": {
+			"parent": "cafe731911e915d5",
+			"name": "ValueBool_Changed Blue",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafea9bff33fa09a" },
+				"m_bFireOnLevelStart": { "type": "bool", "value": true }
+			},
+			"events": {
+				"OnTrue": {
+					"In": ["cafeea6b8e77b273"],
+					"Signal": ["cafef036e18671b0"],
+					"Reset": ["cafe8fc6bd52bb45"],
+					"TransmitEvent": [{ "ref": "cafeed35db7d8116", "value": { "type": "int32", "value": 0 } }]
+				}
+			}
+		},
+		"cafeea6b8e77b273": {
+			"parent": "cafe35bda8072440",
+			"name": "TimerSimple Blue",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 10000 } },
+			"events": { "Out": { "NextState": ["cafeb0752e5e5beb"] } }
+		},
+		"cafeaf0f9ba3feb0": {
+			"parent": "cafe731911e915d5",
+			"name": "ValueBool_Changed Red",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": { "m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafef40af65a0a62" } },
+			"events": {
+				"OnTrue": {
+					"In": ["cafe5ace09257556"],
+					"Signal": ["cafe8fc6bd52bb45"],
+					"Reset": ["cafef036e18671b0"],
+					"TransmitEvent": [{ "ref": "cafeed35db7d8116", "value": { "type": "int32", "value": 1 } }]
+				}
+			}
+		},
+		"cafe5ace09257556": {
+			"parent": "cafeaf0f9ba3feb0",
+			"name": "TimerSimple Red",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 10000 } },
+			"events": { "Out": { "NextState": ["cafeb0752e5e5beb"] } }
+		},
+		"cafe2440834c4fb6": {
+			"parent": "cafe731911e915d5",
+			"name": "ContractsEvent Blue",
+			"factory": "[modules:/zcontractsevententity.class].pc_entitytype",
+			"blueprint": "[modules:/zcontractsevententity.class].pc_entityblueprint",
+			"properties": { "m_sName": { "type": "ZString", "value": "Blue" } }
+		},
+		"cafef036e18671b0": {
+			"parent": "cafe731911e915d5",
+			"name": "VoidSignalOnce_Simple Blue",
+			"factory": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint",
+			"events": { "Out": { "Trigger": ["cafe2440834c4fb6"] } }
+		},
+		"cafeed35db7d8116": {
+			"parent": "cafe731911e915d5",
+			"name": "EventChannelTransmitter_int32",
+			"factory": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rChannelToken": { "type": "SEntityTemplateReference", "value": "cafed6ccdbb76f26", "postInit": true }
+			}
+		},
+		"cafed6ccdbb76f26": {
+			"parent": "cafeed35db7d8116",
+			"name": "TokenID_PF_BlueRed",
+			"factory": "[modules:/ztokenidentity.class].pc_entitytype",
+			"blueprint": "[modules:/ztokenidentity.class].pc_entityblueprint",
+			"properties": { "m_sName": { "type": "ZString", "value": "PF_BlueRed" } }
+		},
+		"cafeba0c00b6eac2": {
+			"parent": "cafe731911e915d5",
+			"name": "ContractsEvent Red",
+			"factory": "[modules:/zcontractsevententity.class].pc_entitytype",
+			"blueprint": "[modules:/zcontractsevententity.class].pc_entityblueprint",
+			"properties": { "m_sName": { "type": "ZString", "value": "Red" } }
+		},
+		"cafe8fc6bd52bb45": {
+			"parent": "cafe731911e915d5",
+			"name": "VoidSignalOnce_Simple Red",
+			"factory": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint",
+			"events": { "Out": { "Trigger": ["cafeba0c00b6eac2"] } }
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": ["[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"],
+	"subType": "brick",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}

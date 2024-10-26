@@ -1,1 +1,5 @@
-{"customPaths":["[assembly:/_pro/design/items/firearm_runtimes.template?/firearms_hero_pistol_caseless_5mm_gold_runtime.entitytemplate].pc_entitytemplate"]}
+{
+	"customPaths": [
+		"[assembly:/_pro/design/items/firearm_runtimes.template?/firearms_hero_pistol_caseless_5mm_gold_runtime.entitytemplate].pc_entitytemplate"
+	]
+}

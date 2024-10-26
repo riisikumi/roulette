@@ -1,39 +1,37 @@
 {
-    "set-persistent-context":{
-        "target":"hub",
-        "actions":[
-            {
-                "call":{
-                    "onmenuframe":true,
-                    "method":"showBackground",
-                    "args":false
-                }
-            },
-            {
-                "set-selected":{
-                    "target":"category_featured"
-                }
-            },
-            {
-                "set-selected":{
-                    "target":"roulette_element"
-                }
-            },
-            {
-                "trigger-input":{
-                    "action":"accept"
-                }
-            },
-            {
-                "call":{
-                    "onmenuframe":true,
-                    "method":"showBackground",
-                    "args":true
-                }
-            }
-        ]
-    },
-    "exit-to-main-menu":{
-        
-    }
+	"set-persistent-context": {
+		"target": "hub",
+		"actions": [
+			{
+				"call": {
+					"onmenuframe": true,
+					"method": "showBackground",
+					"args": false
+				}
+			},
+			{
+				"set-selected": {
+					"target": "category_featured"
+				}
+			},
+			{
+				"set-selected": {
+					"target": "roulette_element"
+				}
+			},
+			{
+				"trigger-input": {
+					"action": "accept"
+				}
+			},
+			{
+				"call": {
+					"onmenuframe": true,
+					"method": "showBackground",
+					"args": true
+				}
+			}
+		]
+	},
+	"exit-to-main-menu": {}
 }

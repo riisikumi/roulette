@@ -1,51 +1,51 @@
 {
-    "show-modal": {
-        "config": {
-            "view": "menu3.modal.ModalDialogGeneric",
-            "buttons": [
-                "$loc UI_DIALOG_CONFIRM",
-                {
-                    "label": "$loc UI_DIALOG_CANCEL",
-                    "type": "cancel"
-                }
-            ],
-            "data": {
-                "title": "$loc UI_DIALOG_RESET_BULLETDANCER_TITLE",
-                "description": "$loc UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION"
-            }
-        },
-        "onbutton": [
-            [
-                {
-                    "alter-history": {
-                        "target": "destination",
-                        "forcenocache": true
-                    }
-                },
-                {
-                    "alter-history": {
-                        "target": "hub",
-                        "forcenocache": true
-                    }
-                },
-                {
-                    "alter-history": {
-                        "target": "gamemode_placeholder",
-                        "forcenocache": true
-                    }
-                },
-                {
-                    "link": {
-                        "page": "planning",
-                        "addtohistory": false,
-                        "args": {
-                            "url": "planning",
-                            "contractid": "$.Contract.Metadata.Id",
-                            "resetescalation": true
-                        }
-                    }
-                }
-            ]
-        ]
-    }
+	"show-modal": {
+		"config": {
+			"view": "menu3.modal.ModalDialogGeneric",
+			"buttons": [
+				"$loc UI_DIALOG_CONFIRM",
+				{
+					"label": "$loc UI_DIALOG_CANCEL",
+					"type": "cancel"
+				}
+			],
+			"data": {
+				"title": "$loc UI_DIALOG_RESET_BULLETDANCER_TITLE",
+				"description": "$loc UI_DIALOG_RESET_BULLETDANCER_DESCRIPTION"
+			}
+		},
+		"onbutton": [
+			[
+				{
+					"alter-history": {
+						"target": "destination",
+						"forcenocache": true
+					}
+				},
+				{
+					"alter-history": {
+						"target": "hub",
+						"forcenocache": true
+					}
+				},
+				{
+					"alter-history": {
+						"target": "gamemode_placeholder",
+						"forcenocache": true
+					}
+				},
+				{
+					"link": {
+						"page": "planning",
+						"addtohistory": false,
+						"args": {
+							"url": "planning",
+							"contractid": "$.Contract.Metadata.Id",
+							"resetescalation": true
+						}
+					}
+				}
+			]
+		]
+	}
 }

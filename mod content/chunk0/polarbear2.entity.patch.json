@@ -1,1 +1,40 @@
-{"tempHash":"006C9343BBF34191","tbluHash":"00CDBB69B1C4208A","patch":[{"AddEntity":["cafe015036c5a20b",{"parent":"14dbd70f725ae3ee","name":"Agency Pickups","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"}]},{"AddEntity":["cafe25afaf919820",{"parent":"cafe015036c5a20b","name":"Security Checkpoint","factory":"[assembly:/_pro/design/setpieces/setpieces_agencypickups.template?/setpiece_agencypickup_briefcase.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/setpieces/setpieces_agencypickups.template?/setpiece_agencypickup_briefcase.entitytemplate].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":108.03121889256562},"position":{"x":12.694684028625488,"y":18.178810119628906,"z":3.6012794971466064}}},"m_sId":{"type":"ZGuid","value":"57c458e1-1064-4cb1-aaad-63e2bf071365"},"m_eidParent":{"type":"SEntityTemplateReference","value":"fffffffffffffffe","postInit":true}}}]}],"patchVersion":6}
+{
+	"tempHash": "006C9343BBF34191",
+	"tbluHash": "00CDBB69B1C4208A",
+	"patch": [
+		{
+			"AddEntity": [
+				"cafe015036c5a20b",
+				{
+					"parent": "14dbd70f725ae3ee",
+					"name": "Agency Pickups",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe25afaf919820",
+				{
+					"parent": "cafe015036c5a20b",
+					"name": "Security Checkpoint",
+					"factory": "[assembly:/_pro/design/setpieces/setpieces_agencypickups.template?/setpiece_agencypickup_briefcase.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/setpieces/setpieces_agencypickups.template?/setpiece_agencypickup_briefcase.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_mTransform": {
+							"type": "SMatrix43",
+							"value": {
+								"rotation": { "x": -0.0, "y": 0.0, "z": 108.03121889256562 },
+								"position": { "x": 12.694684028625488, "y": 18.178810119628906, "z": 3.6012794971466064 }
+							}
+						},
+						"m_sId": { "type": "ZGuid", "value": "57c458e1-1064-4cb1-aaad-63e2bf071365" },
+						"m_eidParent": { "type": "SEntityTemplateReference", "value": "fffffffffffffffe", "postInit": true }
+					}
+				}
+			]
+		}
+	],
+	"patchVersion": 6
+}

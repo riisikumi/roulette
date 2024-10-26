@@ -1,1 +1,143 @@
-{"tempHash":"00CD66EAB67BE7EF","tbluHash":"00B4B30CC23C1DC0","rootEntity":"cafec0f89e37e072","entities":{"cafef4a36bd5ef40":{"parent":"cafec75dd05cb595","name":"DebugBox","factory":"[modules:/zdebugboxentity.class].pc_entitytype","blueprint":"[modules:/zdebugboxentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.0,"y":0.0,"z":0.0}}},"m_Color":{"type":"SColorRGBA","value":"#6cf56cff"},"m_bForceVisible":{"type":"bool","value":true},"m_eDrawLayer":{"type":"ZDebugSpatialEntity.EDrawLayer","value":"DL_ALIGNMENT"},"m_bSelectVisibleOnly":{"type":"bool","value":false},"m_rBoxVolume":{"type":"SEntityTemplateReference","value":"cafec75dd05cb595","postInit":true},"m_eidParent":{"type":"SEntityTemplateReference","value":"cafec75dd05cb595","postInit":true}}},"cafec75dd05cb595":{"parent":"cafec0f89e37e072","name":"PlacementVolume","factory":"[modules:/zboxvolumeentity.class].pc_entitytype","blueprint":"[modules:/zboxvolumeentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.0,"y":0.0,"z":0.0}}},"m_vGlobalSize":{"type":"SVector3","value":{"x":0.05999999865889549,"y":0.20000000298023224,"z":0.4000000059604645}},"m_eidParent":{"type":"SEntityTemplateReference","value":"cafe9431905c51e0","postInit":true}}},"cafebf86b97af8f1":{"parent":"cafec0f89e37e072","name":"HandAttacherSpatial","factory":"[modules:/zdebuggizmoentity.class].pc_entitytype","blueprint":"[modules:/zdebuggizmoentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":89.99994270422063,"y":0.0,"z":-0.0},"position":{"x":0.0,"y":0.0,"z":0.0}}},"m_GizmoGeomRID":{"type":"ZRuntimeResourceID","value":{"resource":"[assembly:/geometry/g2/actspecific_gizmos.wl2?/debug_misc_horiz_4x4.prim].pc_prim","flag":"5F"}},"m_eidParent":{"type":"SEntityTemplateReference","value":"cafe9431905c51e0","postInit":true}}},"cafe746190e443f1":{"parent":"cafec0f89e37e072","name":"PropHelper_Item_Placement","factory":"[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":0.0,"y":0.0,"z":0.0}}},"m_eidParent":{"type":"SEntityTemplateReference","value":"cafe9431905c51e0","postInit":true}}},"cafe9431905c51e0":{"parent":"cafec0f89e37e072","name":"breaching_chip","factory":"[assembly:/_pro/items/geometry/roulette/poker_chip.wl2?/poker_chip.prim].pc_entitytype","blueprint":"[assembly:/templates/geometrytemplaterigidbody.template?/geomentity01.entitytemplate].pc_entityblueprint","properties":{"m_eCCD":{"type":"ECCDUsage","value":"ECCDUSAGE_AGAINST_STATIC"},"m_eGlowType":{"type":"ERenderGlowTypes","value":"ERENDERGLOWTYPE_ITEMS"},"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":10.019410133361816,"y":0.0,"z":0.6948540210723877}}},"m_eidParent":{"type":"SEntityTemplateReference","value":null}},"outputCopying":{"OnSleep":{"OnSleep":["cafec0f89e37e072"]}}},"cafec0f89e37e072":{"parent":null,"name":"ItemArt_Breaching_Chip","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint","properties":{"m_mTransform":{"type":"SMatrix43","value":{"rotation":{"x":-0.0,"y":0.0,"z":-0.0},"position":{"x":10.019410133361816,"y":0.0,"z":0.6948540210723877}}}},"inputCopying":{"SetVisible":{"SetVisible":["cafe9431905c51e0"]},"SetInPhysicsWorld":{"SetInPhysicsWorld":["cafe9431905c51e0"]},"KinematicBody":{"KinematicBody":["cafe9431905c51e0"]},"Triggered":{"Triggered":["cafe9431905c51e0"]}},"propertyAliases":{"m_eidParent":[{"originalProperty":"m_eidParent","originalEntity":"cafe9431905c51e0"}],"m_mTransform":[{"originalProperty":"m_mTransform","originalEntity":"cafe9431905c51e0"}]},"exposedEntities":{"HandAttacherSpatial":{"isArray":false,"refersTo":["cafebf86b97af8f1"]},"PropHelper_Item_Placement":{"isArray":false,"refersTo":["cafe746190e443f1"]},"PlacementVolume":{"isArray":false,"refersTo":["cafec75dd05cb595"]}},"exposedInterfaces":{"ZSpatialEntity":"cafe9431905c51e0","IPhysicsAccessor":"cafe9431905c51e0","ZGeomEntity":"cafe9431905c51e0","IDynamicPhysics":"cafe9431905c51e0"}}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":[],"subType":"template","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "00CD66EAB67BE7EF",
+	"tbluHash": "00B4B30CC23C1DC0",
+	"rootEntity": "cafec0f89e37e072",
+	"entities": {
+		"cafef4a36bd5ef40": {
+			"parent": "cafec75dd05cb595",
+			"name": "DebugBox",
+			"factory": "[modules:/zdebugboxentity.class].pc_entitytype",
+			"blueprint": "[modules:/zdebugboxentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": { "rotation": { "x": -0.0, "y": 0.0, "z": -0.0 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+				},
+				"m_Color": { "type": "SColorRGBA", "value": "#6cf56cff" },
+				"m_bForceVisible": { "type": "bool", "value": true },
+				"m_eDrawLayer": { "type": "ZDebugSpatialEntity.EDrawLayer", "value": "DL_ALIGNMENT" },
+				"m_bSelectVisibleOnly": { "type": "bool", "value": false },
+				"m_rBoxVolume": { "type": "SEntityTemplateReference", "value": "cafec75dd05cb595", "postInit": true },
+				"m_eidParent": { "type": "SEntityTemplateReference", "value": "cafec75dd05cb595", "postInit": true }
+			}
+		},
+		"cafec75dd05cb595": {
+			"parent": "cafec0f89e37e072",
+			"name": "PlacementVolume",
+			"factory": "[modules:/zboxvolumeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zboxvolumeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": { "rotation": { "x": -0.0, "y": 0.0, "z": -0.0 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+				},
+				"m_vGlobalSize": {
+					"type": "SVector3",
+					"value": { "x": 0.05999999865889549, "y": 0.20000000298023224, "z": 0.4000000059604645 }
+				},
+				"m_eidParent": { "type": "SEntityTemplateReference", "value": "cafe9431905c51e0", "postInit": true }
+			}
+		},
+		"cafebf86b97af8f1": {
+			"parent": "cafec0f89e37e072",
+			"name": "HandAttacherSpatial",
+			"factory": "[modules:/zdebuggizmoentity.class].pc_entitytype",
+			"blueprint": "[modules:/zdebuggizmoentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": 89.99994270422063, "y": 0.0, "z": -0.0 },
+						"position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+					}
+				},
+				"m_GizmoGeomRID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/geometry/g2/actspecific_gizmos.wl2?/debug_misc_horiz_4x4.prim].pc_prim",
+						"flag": "5F"
+					}
+				},
+				"m_eidParent": { "type": "SEntityTemplateReference", "value": "cafe9431905c51e0", "postInit": true }
+			}
+		},
+		"cafe746190e443f1": {
+			"parent": "cafec0f89e37e072",
+			"name": "PropHelper_Item_Placement",
+			"factory": "[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": { "rotation": { "x": -0.0, "y": 0.0, "z": -0.0 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+				},
+				"m_eidParent": { "type": "SEntityTemplateReference", "value": "cafe9431905c51e0", "postInit": true }
+			}
+		},
+		"cafe9431905c51e0": {
+			"parent": "cafec0f89e37e072",
+			"name": "breaching_chip",
+			"factory": "[assembly:/_pro/items/geometry/roulette/poker_chip.wl2?/poker_chip.prim].pc_entitytype",
+			"blueprint": "[assembly:/templates/geometrytemplaterigidbody.template?/geomentity01.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_eCCD": { "type": "ECCDUsage", "value": "ECCDUSAGE_AGAINST_STATIC" },
+				"m_eGlowType": { "type": "ERenderGlowTypes", "value": "ERENDERGLOWTYPE_ITEMS" },
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 10.019410133361816, "y": 0.0, "z": 0.6948540210723877 }
+					}
+				},
+				"m_eidParent": { "type": "SEntityTemplateReference", "value": null }
+			},
+			"outputCopying": { "OnSleep": { "OnSleep": ["cafec0f89e37e072"] } }
+		},
+		"cafec0f89e37e072": {
+			"parent": null,
+			"name": "ItemArt_Breaching_Chip",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 10.019410133361816, "y": 0.0, "z": 0.6948540210723877 }
+					}
+				}
+			},
+			"inputCopying": {
+				"SetVisible": { "SetVisible": ["cafe9431905c51e0"] },
+				"SetInPhysicsWorld": { "SetInPhysicsWorld": ["cafe9431905c51e0"] },
+				"KinematicBody": { "KinematicBody": ["cafe9431905c51e0"] },
+				"Triggered": { "Triggered": ["cafe9431905c51e0"] }
+			},
+			"propertyAliases": {
+				"m_eidParent": [{ "originalProperty": "m_eidParent", "originalEntity": "cafe9431905c51e0" }],
+				"m_mTransform": [{ "originalProperty": "m_mTransform", "originalEntity": "cafe9431905c51e0" }]
+			},
+			"exposedEntities": {
+				"HandAttacherSpatial": { "isArray": false, "refersTo": ["cafebf86b97af8f1"] },
+				"PropHelper_Item_Placement": { "isArray": false, "refersTo": ["cafe746190e443f1"] },
+				"PlacementVolume": { "isArray": false, "refersTo": ["cafec75dd05cb595"] }
+			},
+			"exposedInterfaces": {
+				"ZSpatialEntity": "cafe9431905c51e0",
+				"IPhysicsAccessor": "cafe9431905c51e0",
+				"ZGeomEntity": "cafe9431905c51e0",
+				"IDynamicPhysics": "cafe9431905c51e0"
+			}
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}

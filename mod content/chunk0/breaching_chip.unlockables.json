@@ -1,30 +1,26 @@
 {
-    "PROP_DEVICE_BREACHING_CHIP": {
-        "Guid": "dac1792a-b0a5-4451-bfa2-8e9cab29ca28",
-        "Type": "gear",
-        "Subtype": "explosive",
-        "ImageId": "",
-        "RMTPrice": 149,
-        "GamePrice": 149,
-        "IsPurchasable": false,
-        "IsPublished": true,
-        "IsDroppable": false,
-        "Capabilities": [],
-        "Qualities": {},
-        "Properties": {
-            "Quality": 4,
-            "LoadoutSlot": "gear",
-            "Rarity": "common",
-            "OrderIndex": 182,
-            "GameAssets": [
-                "PROP_DEVICE_BREACHING_CHIP"
-            ],
-            "RepositoryId": "4aa57da4-07d7-44aa-9a71-8469287d43e2",
-            "RepositoryAssets": [
-                "4aa57da4-07d7-44aa-9a71-8469287d43e2"
-            ],
-            "UnlockOrder": 5
-        },
-        "Rarity": "common"
-    }
+	"PROP_DEVICE_BREACHING_CHIP": {
+		"Guid": "dac1792a-b0a5-4451-bfa2-8e9cab29ca28",
+		"Type": "gear",
+		"Subtype": "explosive",
+		"ImageId": "",
+		"RMTPrice": 149,
+		"GamePrice": 149,
+		"IsPurchasable": false,
+		"IsPublished": true,
+		"IsDroppable": false,
+		"Capabilities": [],
+		"Qualities": {},
+		"Properties": {
+			"Quality": 4,
+			"LoadoutSlot": "gear",
+			"Rarity": "common",
+			"OrderIndex": 182,
+			"GameAssets": ["PROP_DEVICE_BREACHING_CHIP"],
+			"RepositoryId": "4aa57da4-07d7-44aa-9a71-8469287d43e2",
+			"RepositoryAssets": ["4aa57da4-07d7-44aa-9a71-8469287d43e2"],
+			"UnlockOrder": 5
+		},
+		"Rarity": "common"
+	}
 }

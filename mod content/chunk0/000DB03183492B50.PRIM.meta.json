@@ -1,22 +1,22 @@
 {
-    "hash_value": "000DB03183492B50",
-    "hash_path": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/geometry/male_reg_hokkaido_bodyguard.wl2?/wire_daily_roulette.weightedprim](bodypart).pc_weightedprim",
-    "hash_offset": 17996960,
-    "hash_size": 2147574656,
-    "hash_resource_type": "PRIM",
-    "hash_reference_table_size": 22,
-    "hash_reference_table_dummy": 0,
-    "hash_size_final": 137648,
-    "hash_size_in_memory": 4294967295,
-    "hash_size_in_video_memory": 4294967295,
-    "hash_reference_data": [
-        {
-            "hash": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/geometry/male_reg_hokkaido_bodyguard.wl2?/wire.weightedprim](bodypart).pc_bonerig",
-            "flag": "1F"
-        },
-        {
-            "hash": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/materials/male_reg_hokkaido_bodyguard_acc.mi].pc_mi",
-            "flag": "5F"
-        }
-    ]
+	"hash_value": "000DB03183492B50",
+	"hash_path": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/geometry/male_reg_hokkaido_bodyguard.wl2?/wire_daily_roulette.weightedprim](bodypart).pc_weightedprim",
+	"hash_offset": 17996960,
+	"hash_size": 2147574656,
+	"hash_resource_type": "PRIM",
+	"hash_reference_table_size": 22,
+	"hash_reference_table_dummy": 0,
+	"hash_size_final": 137648,
+	"hash_size_in_memory": 4294967295,
+	"hash_size_in_video_memory": 4294967295,
+	"hash_reference_data": [
+		{
+			"hash": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/geometry/male_reg_hokkaido_bodyguard.wl2?/wire.weightedprim](bodypart).pc_bonerig",
+			"flag": "1F"
+		},
+		{
+			"hash": "[assembly:/_pro/characters/assets/guards/hokkaido/bodyguards/materials/male_reg_hokkaido_bodyguard_acc.mi].pc_mi",
+			"flag": "5F"
+		}
+	]
 }

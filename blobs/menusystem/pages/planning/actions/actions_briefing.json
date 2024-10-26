@@ -1,91 +1,89 @@
 {
-    "actiony": {
-        "$switch $.Contract.Metadata.Type": [
-            {
-                "case": "escalation",
-                "return": {
-                    "$if": {
-                        "$condition": {
-                            "$and": [
-                            ]
-                        },
-                        "$then": {
-                            "$mergeobjects": [
-                                {
-                                    "prompt_label": "$loc UI_MENU_PAGE_TITLE_RESET_ESCALATION"
-                                },
-                                {
-                                    "$include": {
-                                        "$path": "menusystem/pages/planning/actions/actions_resetescalation.json"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            {
-                "case": "bulletdancer",
-                "return": {
-                    "$if": {
-                        "$condition": {
-                            "$and": [
-                            ]
-                        },
-                        "$then": {
-                            "$mergeobjects": [
-                                {
-                                    "prompt_label": "$loc UI_MENU_PAGE_REGEN_CONTRACTS"
-                                },
-                                {
-                                    "$include": {
-                                        "$path": "menusystem/pages/planning/actions/actions_resetbulletdancer.json"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            {
-                "case": "evergreen",
-                "return": {
-                    "$if $isdebug": {
-                        "$then": {
-                            "$mergeobjects": [
-                                {
-                                    "prompt_label": "$formatstring Debug: {$loc UI_MENU_PAGE_TITLE_RESET_EVERGREEN}"
-                                },
-                                {
-                                    "$include": {
-                                        "$path": "menusystem/pages/planning/actions/actions_resetevergreen.json"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            {
-                "case": "usercreated",
-                "return": {
-                    "prompt_label": "$loc UI_BUTTON_PROMPTS_ACTION_REPORT_CONTRACT",
-                    "link": {
-                        "page": "report",
-                        "args": {
-                            "url": "report",
-                            "args": {
-                                "contractid": "$.Contract.Metadata.Id"
-                            },
-                            "contractid": "$.Contract.Metadata.Id",
-                            "contracttitle": "$.Contract.Metadata.Title"
-                        }
-                    }
-                }
-            },
-            {
-                "default": null
-            }
-        ]
-    }
+	"actiony": {
+		"$switch $.Contract.Metadata.Type": [
+			{
+				"case": "escalation",
+				"return": {
+					"$if": {
+						"$condition": {
+							"$and": []
+						},
+						"$then": {
+							"$mergeobjects": [
+								{
+									"prompt_label": "$loc UI_MENU_PAGE_TITLE_RESET_ESCALATION"
+								},
+								{
+									"$include": {
+										"$path": "menusystem/pages/planning/actions/actions_resetescalation.json"
+									}
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"case": "bulletdancer",
+				"return": {
+					"$if": {
+						"$condition": {
+							"$and": []
+						},
+						"$then": {
+							"$mergeobjects": [
+								{
+									"prompt_label": "$loc UI_MENU_PAGE_REGEN_CONTRACTS"
+								},
+								{
+									"$include": {
+										"$path": "menusystem/pages/planning/actions/actions_resetbulletdancer.json"
+									}
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"case": "evergreen",
+				"return": {
+					"$if $isdebug": {
+						"$then": {
+							"$mergeobjects": [
+								{
+									"prompt_label": "$formatstring Debug: {$loc UI_MENU_PAGE_TITLE_RESET_EVERGREEN}"
+								},
+								{
+									"$include": {
+										"$path": "menusystem/pages/planning/actions/actions_resetevergreen.json"
+									}
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"case": "usercreated",
+				"return": {
+					"prompt_label": "$loc UI_BUTTON_PROMPTS_ACTION_REPORT_CONTRACT",
+					"link": {
+						"page": "report",
+						"args": {
+							"url": "report",
+							"args": {
+								"contractid": "$.Contract.Metadata.Id"
+							},
+							"contractid": "$.Contract.Metadata.Id",
+							"contracttitle": "$.Contract.Metadata.Title"
+						}
+					}
+				}
+			},
+			{
+				"default": null
+			}
+		]
+	}
 }

@@ -1,1 +1,27 @@
-{"PROP_DEVICE_PLAYING_CARD_HACKER":{"Guid":"fce79cfc-a59e-4ebc-acf3-489a636282eb","Type":"weapon","Subtype":"melee","ImageId":"","RMTPrice":149,"GamePrice":149,"IsPurchasable":false,"IsPublished":true,"IsDroppable":false,"Capabilities":[],"Qualities":{},"Properties":{"Quality":3,"LoadoutSlot":"gear","Rarity":"common","RepositoryId":"490926c9-4a74-4cac-952b-d203af4e498a","RepositoryAssets":["490926c9-4a74-4cac-952b-d203af4e498a","490926c9-4a74-4cac-952b-d203af4e498a","490926c9-4a74-4cac-952b-d203af4e498a"]},"Rarity":"common"}}
+{
+	"PROP_DEVICE_PLAYING_CARD_HACKER": {
+		"Guid": "fce79cfc-a59e-4ebc-acf3-489a636282eb",
+		"Type": "weapon",
+		"Subtype": "melee",
+		"ImageId": "",
+		"RMTPrice": 149,
+		"GamePrice": 149,
+		"IsPurchasable": false,
+		"IsPublished": true,
+		"IsDroppable": false,
+		"Capabilities": [],
+		"Qualities": {},
+		"Properties": {
+			"Quality": 3,
+			"LoadoutSlot": "gear",
+			"Rarity": "common",
+			"RepositoryId": "490926c9-4a74-4cac-952b-d203af4e498a",
+			"RepositoryAssets": [
+				"490926c9-4a74-4cac-952b-d203af4e498a",
+				"490926c9-4a74-4cac-952b-d203af4e498a",
+				"490926c9-4a74-4cac-952b-d203af4e498a"
+			]
+		},
+		"Rarity": "common"
+	}
+}

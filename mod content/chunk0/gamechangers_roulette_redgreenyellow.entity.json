@@ -1,1 +1,372 @@
-{"tempHash":"00DFC8FB32A05B2F","tbluHash":"005EA782959CCFBC","rootEntity":"fffffffffffffffe","entities":{"fffffffffffffffe":{"parent":null,"name":"Scene","factory":"[modules:/zspatialentity.class].pc_entitytype","blueprint":"[modules:/zspatialentity.class].pc_entityblueprint"},"cafe7d045a8b5fd9":{"parent":"fffffffffffffffe","name":"Gamechangers_Roulette_RedGreenYellow","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafe7fb18ab8f34d":{"parent":"cafe7d045a8b5fd9","name":"Debug Text","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint","properties":{"Enabled":{"type":"bool","value":false}},"propertyAliases":{"Enabled":[{"originalProperty":"m_bIsVisible","originalEntity":"cafe67bee04c7b46"}]}},"cafe30e045936118":{"parent":"cafe7fb18ab8f34d","name":"TextBox Is 47 moving","factory":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint","properties":{"Font":{"type":"ZString","value":"$normal"},"FontSize":{"type":"float32","value":28},"m_vPositionOffset":{"type":"SVector3","value":{"x":300,"y":300,"z":0}},"m_vLayoutSize":{"type":"SVector2","value":{"x":1000,"y":1000}},"Text":{"type":"ZString","value":"Is 47 moving: "},"TextColor":{"type":"ZString","value":"FF00FF"}}},"cafe61ef03af53e4":{"parent":"cafe7d045a8b5fd9","name":"HLQ Walking","factory":"[modules:/zhitmanlocomotionquery.class].pc_entitytype","blueprint":"[modules:/zhitmanlocomotionquery.class].pc_entityblueprint","properties":{"m_bIsWalking":{"type":"bool","value":true}}},"cafe8928a0f28f82":{"parent":"cafe7d045a8b5fd9","name":"VBO Is 47 moving","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint","properties":{"m_aValues":{"type":"TArray<SEntityTemplateReference>","value":["cafe61ef03af53e4","cafed30cde392f49"]},"m_eEvaluation":{"type":"ZValueBool_Operation_Signal.EEvaluationType","value":"ANY"}},"events":{"OnFalse":{"SetText":[{"ref":"cafe30e045936118","value":{"type":"ZString","value":"Is 47 moving: false"}}]},"OnTrue":{"SetText":[{"ref":"cafe30e045936118","value":{"type":"ZString","value":"Is 47 moving: true"}}]}}},"cafed30cde392f49":{"parent":"cafe7d045a8b5fd9","name":"HLQ Running","factory":"[modules:/zhitmanlocomotionquery.class].pc_entitytype","blueprint":"[modules:/zhitmanlocomotionquery.class].pc_entityblueprint","properties":{"m_bIsRunning":{"type":"bool","value":true}}},"cafe92430d24ef0f":{"parent":"cafe7d045a8b5fd9","name":"States","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafe9bbaced8bea9":{"parent":"cafe92430d24ef0f","name":"States","factory":"[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entityblueprint","properties":{"m_nInitialStateIndex":{"type":"int32","value":0},"m_States":{"type":"TArray<SEntityTemplateReference>","value":["cafecbedd2084110","cafedb4428b84378","cafe1df81b16644b","cafe39b5524f66a8"]},"m_eWrapMode":{"type":"ZStateControllerEntity.WrapMode","value":"WM_Loop"}}},"cafecbedd2084110":{"parent":"cafe92430d24ef0f","name":"Green light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafedb4428b84378":{"parent":"cafe92430d24ef0f","name":"Yellow light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafe39b5524f66a8":{"parent":"cafe92430d24ef0f","name":"Red light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafe89597789c243":{"parent":"cafe7fb18ab8f34d","name":"TextBox Current state","factory":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint","properties":{"Font":{"type":"ZString","value":"$normal"},"FontSize":{"type":"float32","value":28},"m_vPositionOffset":{"type":"SVector3","value":{"x":300,"y":325,"z":0}},"m_vLayoutSize":{"type":"SVector2","value":{"x":1000,"y":1000}},"Text":{"type":"ZString","value":"Current state: "},"TextColor":{"type":"ZString","value":"FF00FF"}}},"cafe25a80161f7eb":{"parent":"cafe7fb18ab8f34d","name":"AttachementController","factory":"[modules:/zuiattachementcontrollerentity.class].pc_entitytype","blueprint":"[modules:/zuiattachementcontrollerentity.class].pc_entityblueprint","properties":{"m_pTargetControl":{"type":"SEntityTemplateReference","value":{"ref":"db9f74950fec79f8","externalScene":"[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"}},"m_pSourceControl":{"type":"SEntityTemplateReference","value":"cafe67bee04c7b46","postInit":true}}},"cafe67bee04c7b46":{"parent":"cafe7fb18ab8f34d","name":"UIContainer","factory":"[assembly:/templates/ui/controls/basiccontrols.template?/uicontainer.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/ui/controls/basiccontrols.template?/uicontainer.entitytemplate].pc_entityblueprint","properties":{"m_aChildren":{"type":"TArray<SEntityTemplateReference>","value":["cafe30e045936118","cafe89597789c243","cafe9d5cc6a10aef"]}}},"cafe9d5cc6a10aef":{"parent":"cafe7fb18ab8f34d","name":"TextBox Last contract event sent","factory":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint","properties":{"Font":{"type":"ZString","value":"$normal"},"FontSize":{"type":"float32","value":28},"m_vPositionOffset":{"type":"SVector3","value":{"x":300,"y":350,"z":0}},"m_vLayoutSize":{"type":"SVector2","value":{"x":1000,"y":1000}},"Text":{"type":"ZString","value":"Last contract event sent: "},"TextColor":{"type":"ZString","value":"FF00FF"}}},"cafeacd8f5ffac28":{"parent":"cafe7d045a8b5fd9","name":"Logic","factory":"[modules:/zentity.class].pc_entitytype","blueprint":"[modules:/zentity.class].pc_entityblueprint"},"cafe86b7bbf3dbef":{"parent":"cafe5f4a47a1a911","name":"TimerRandom Green","factory":"[assembly:/_pro/design/logic.template?/timerrandom.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timerrandom.entitytemplate].pc_entityblueprint","properties":{"m_fMinTime":{"type":"float32","value":5},"m_fMaxTime":{"type":"float32","value":10},"m_fProbability":{"type":"float32","value":1},"m_rUpdateCondition":{"type":"SEntityTemplateReference","value":"cafecbedd2084110"}},"events":{"TimeOut":{"NextState":["cafe9bbaced8bea9"]}}},"cafec4cd7aed742f":{"parent":"cafeacd8f5ffac28","name":"ValueBool_Changed Yellow","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafedb4428b84378"}},"events":{"OnTrue":{"In":["cafeb808ecbdff5d"],"SetText":[{"ref":"cafe89597789c243","value":{"type":"ZString","value":"Current state: Yellow light"}}],"TransmitEvent":[{"ref":"cafe961894e726c1","value":{"type":"int32","value":1}}]}}},"cafeb808ecbdff5d":{"parent":"cafec4cd7aed742f","name":"TimerSimple Yellow","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":10000}},"events":{"Out":{"NextState":["cafe9bbaced8bea9"]}}},"cafe581dc12beaf6":{"parent":"cafeacd8f5ffac28","name":"ValueBool_Changed Red","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafe39b5524f66a8"}},"events":{"OnTrue":{"In":["cafe392fb23845a9"],"SetText":[{"ref":"cafe89597789c243","value":{"type":"ZString","value":"Current state: Red light"}}]}}},"cafe392fb23845a9":{"parent":"cafe581dc12beaf6","name":"TimerSimple Red","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":5000}},"events":{"Out":{"NextState":["cafe9bbaced8bea9"]}}},"cafe4420b91bec97":{"parent":"cafeacd8f5ffac28","name":"ContractsEvent 47MovedWhileRedLight","factory":"[modules:/zcontractsevententity.class].pc_entitytype","blueprint":"[modules:/zcontractsevententity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"47MovedWhileRedLight"}}},"cafe3df425493b4c":{"parent":"cafeacd8f5ffac28","name":"VoidSignalOnce_Simple","factory":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint","events":{"Out":{"Trigger":["cafe4420b91bec97"],"SetText":[{"ref":"cafe9d5cc6a10aef","value":{"type":"ZString","value":"Last contract event sent: 47MovedWhileRedLight"}}]}}},"cafe03b8892b7644":{"parent":"cafe581dc12beaf6","name":"ValueBool_Operation Moving while red light","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint","properties":{"m_aValues":{"type":"TArray<SEntityTemplateReference>","value":["cafe39b5524f66a8","cafe8928a0f28f82"]},"m_eEvaluation":{"type":"ZValueBool_Operation_Signal.EEvaluationType","value":"ALL"}},"events":{"OnTrue":{"Signal":["cafe3df425493b4c"]}}},"cafe1df81b16644b":{"parent":"cafe92430d24ef0f","name":"Faux red light","factory":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"},"cafe057c993fe78f":{"parent":"cafeacd8f5ffac28","name":"ValueBool_Changed Faux red","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafe1df81b16644b"}},"events":{"OnTrue":{"In":["cafe008702234e5d"],"SetText":[{"ref":"cafe89597789c243","value":{"type":"ZString","value":"Current state: Faux Red light"}}],"TransmitEvent":[{"ref":"cafe961894e726c1","value":{"type":"int32","value":2}}],"Send":["cafeaa71de010ae1"]}}},"cafe008702234e5d":{"parent":"cafe057c993fe78f","name":"TimerSimple Faux red","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":2000}},"events":{"Out":{"NextState":["cafe9bbaced8bea9"]}}},"cafe961894e726c1":{"parent":"cafeacd8f5ffac28","name":"EventChannelTransmitter_int32","factory":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entityblueprint","properties":{"m_rChannelToken":{"type":"SEntityTemplateReference","value":"cafedc9cea752080","postInit":true}}},"cafedc9cea752080":{"parent":"cafe961894e726c1","name":"TokenID_PF_RedGreenYellowLight","factory":"[modules:/ztokenidentity.class].pc_entitytype","blueprint":"[modules:/ztokenidentity.class].pc_entityblueprint","properties":{"m_sName":{"type":"ZString","value":"PF_RedGreenYellowLight"}}},"cafe5f4a47a1a911":{"parent":"cafeacd8f5ffac28","name":"ValueBool_Changed Green","factory":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint","properties":{"m_rValueEntity":{"type":"SEntityTemplateReference","value":"cafecbedd2084110"},"m_bFireOnLevelStart":{"type":"bool","value":true}},"events":{"OnTrue":{"SetText":[{"ref":"cafe89597789c243","value":{"type":"ZString","value":"Current state: Green light"}}],"Reset":["cafe3df425493b4c"],"TransmitEvent":[{"ref":"cafe961894e726c1","value":{"type":"int32","value":0}}]}}},"cafeaa71de010ae1":{"parent":"cafe057c993fe78f","name":"Play_SFX_GameplayMockUp_AccessDeniedBeep_2d_01","factory":"[modules:/zaudioevententity.class].pc_entitytype","blueprint":"[modules:/zaudioevententity.class].pc_entityblueprint","properties":{"m_pMainEvent":{"type":"ZRuntimeResourceID","value":"0014C400903FB75F"},"m_pEmitter":{"type":"SEntityTemplateReference","value":"cafe7bda7bb88993"}}},"cafe7bda7bb88993":{"parent":"cafeacd8f5ffac28","name":"2DAE","factory":"[assembly:/templates/sound/wwise/soundentities.template?/2daudioemitter.entitytemplate].pc_entitytype","blueprint":"[assembly:/templates/sound/wwise/soundentities.template?/2daudioemitter.entitytemplate].pc_entityblueprint","subsets":{"AudioEmitters":["fffffffffffffffe"]}}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":["[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"],"subType":"brick","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "00DFC8FB32A05B2F",
+	"tbluHash": "005EA782959CCFBC",
+	"rootEntity": "fffffffffffffffe",
+	"entities": {
+		"fffffffffffffffe": {
+			"parent": null,
+			"name": "Scene",
+			"factory": "[modules:/zspatialentity.class].pc_entitytype",
+			"blueprint": "[modules:/zspatialentity.class].pc_entityblueprint"
+		},
+		"cafe7d045a8b5fd9": {
+			"parent": "fffffffffffffffe",
+			"name": "Gamechangers_Roulette_RedGreenYellow",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafe7fb18ab8f34d": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "Debug Text",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+			"properties": { "Enabled": { "type": "bool", "value": false } },
+			"propertyAliases": { "Enabled": [{ "originalProperty": "m_bIsVisible", "originalEntity": "cafe67bee04c7b46" }] }
+		},
+		"cafe30e045936118": {
+			"parent": "cafe7fb18ab8f34d",
+			"name": "TextBox Is 47 moving",
+			"factory": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"Font": { "type": "ZString", "value": "$normal" },
+				"FontSize": { "type": "float32", "value": 28 },
+				"m_vPositionOffset": { "type": "SVector3", "value": { "x": 300, "y": 300, "z": 0 } },
+				"m_vLayoutSize": { "type": "SVector2", "value": { "x": 1000, "y": 1000 } },
+				"Text": { "type": "ZString", "value": "Is 47 moving: " },
+				"TextColor": { "type": "ZString", "value": "FF00FF" }
+			}
+		},
+		"cafe61ef03af53e4": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "HLQ Walking",
+			"factory": "[modules:/zhitmanlocomotionquery.class].pc_entitytype",
+			"blueprint": "[modules:/zhitmanlocomotionquery.class].pc_entityblueprint",
+			"properties": { "m_bIsWalking": { "type": "bool", "value": true } }
+		},
+		"cafe8928a0f28f82": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "VBO Is 47 moving",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aValues": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafe61ef03af53e4", "cafed30cde392f49"]
+				},
+				"m_eEvaluation": { "type": "ZValueBool_Operation_Signal.EEvaluationType", "value": "ANY" }
+			},
+			"events": {
+				"OnFalse": {
+					"SetText": [
+						{ "ref": "cafe30e045936118", "value": { "type": "ZString", "value": "Is 47 moving: false" } }
+					]
+				},
+				"OnTrue": {
+					"SetText": [{ "ref": "cafe30e045936118", "value": { "type": "ZString", "value": "Is 47 moving: true" } }]
+				}
+			}
+		},
+		"cafed30cde392f49": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "HLQ Running",
+			"factory": "[modules:/zhitmanlocomotionquery.class].pc_entitytype",
+			"blueprint": "[modules:/zhitmanlocomotionquery.class].pc_entityblueprint",
+			"properties": { "m_bIsRunning": { "type": "bool", "value": true } }
+		},
+		"cafe92430d24ef0f": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "States",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafe9bbaced8bea9": {
+			"parent": "cafe92430d24ef0f",
+			"name": "States",
+			"factory": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_nInitialStateIndex": { "type": "int32", "value": 0 },
+				"m_States": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafecbedd2084110", "cafedb4428b84378", "cafe1df81b16644b", "cafe39b5524f66a8"]
+				},
+				"m_eWrapMode": { "type": "ZStateControllerEntity.WrapMode", "value": "WM_Loop" }
+			}
+		},
+		"cafecbedd2084110": {
+			"parent": "cafe92430d24ef0f",
+			"name": "Green light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafedb4428b84378": {
+			"parent": "cafe92430d24ef0f",
+			"name": "Yellow light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafe39b5524f66a8": {
+			"parent": "cafe92430d24ef0f",
+			"name": "Red light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafe89597789c243": {
+			"parent": "cafe7fb18ab8f34d",
+			"name": "TextBox Current state",
+			"factory": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"Font": { "type": "ZString", "value": "$normal" },
+				"FontSize": { "type": "float32", "value": 28 },
+				"m_vPositionOffset": { "type": "SVector3", "value": { "x": 300, "y": 325, "z": 0 } },
+				"m_vLayoutSize": { "type": "SVector2", "value": { "x": 1000, "y": 1000 } },
+				"Text": { "type": "ZString", "value": "Current state: " },
+				"TextColor": { "type": "ZString", "value": "FF00FF" }
+			}
+		},
+		"cafe25a80161f7eb": {
+			"parent": "cafe7fb18ab8f34d",
+			"name": "AttachementController",
+			"factory": "[modules:/zuiattachementcontrollerentity.class].pc_entitytype",
+			"blueprint": "[modules:/zuiattachementcontrollerentity.class].pc_entityblueprint",
+			"properties": {
+				"m_pTargetControl": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "db9f74950fec79f8",
+						"externalScene": "[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"
+					}
+				},
+				"m_pSourceControl": { "type": "SEntityTemplateReference", "value": "cafe67bee04c7b46", "postInit": true }
+			}
+		},
+		"cafe67bee04c7b46": {
+			"parent": "cafe7fb18ab8f34d",
+			"name": "UIContainer",
+			"factory": "[assembly:/templates/ui/controls/basiccontrols.template?/uicontainer.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/ui/controls/basiccontrols.template?/uicontainer.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aChildren": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafe30e045936118", "cafe89597789c243", "cafe9d5cc6a10aef"]
+				}
+			}
+		},
+		"cafe9d5cc6a10aef": {
+			"parent": "cafe7fb18ab8f34d",
+			"name": "TextBox Last contract event sent",
+			"factory": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/ui/controls/basiccontrols.template?/uitextbox.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"Font": { "type": "ZString", "value": "$normal" },
+				"FontSize": { "type": "float32", "value": 28 },
+				"m_vPositionOffset": { "type": "SVector3", "value": { "x": 300, "y": 350, "z": 0 } },
+				"m_vLayoutSize": { "type": "SVector2", "value": { "x": 1000, "y": 1000 } },
+				"Text": { "type": "ZString", "value": "Last contract event sent: " },
+				"TextColor": { "type": "ZString", "value": "FF00FF" }
+			}
+		},
+		"cafeacd8f5ffac28": {
+			"parent": "cafe7d045a8b5fd9",
+			"name": "Logic",
+			"factory": "[modules:/zentity.class].pc_entitytype",
+			"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+		},
+		"cafe86b7bbf3dbef": {
+			"parent": "cafe5f4a47a1a911",
+			"name": "TimerRandom Green",
+			"factory": "[assembly:/_pro/design/logic.template?/timerrandom.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timerrandom.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_fMinTime": { "type": "float32", "value": 5 },
+				"m_fMaxTime": { "type": "float32", "value": 10 },
+				"m_fProbability": { "type": "float32", "value": 1 },
+				"m_rUpdateCondition": { "type": "SEntityTemplateReference", "value": "cafecbedd2084110" }
+			},
+			"events": { "TimeOut": { "NextState": ["cafe9bbaced8bea9"] } }
+		},
+		"cafec4cd7aed742f": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "ValueBool_Changed Yellow",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": { "m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafedb4428b84378" } },
+			"events": {
+				"OnTrue": {
+					"In": ["cafeb808ecbdff5d"],
+					"SetText": [
+						{ "ref": "cafe89597789c243", "value": { "type": "ZString", "value": "Current state: Yellow light" } }
+					],
+					"TransmitEvent": [{ "ref": "cafe961894e726c1", "value": { "type": "int32", "value": 1 } }]
+				}
+			}
+		},
+		"cafeb808ecbdff5d": {
+			"parent": "cafec4cd7aed742f",
+			"name": "TimerSimple Yellow",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 10000 } },
+			"events": { "Out": { "NextState": ["cafe9bbaced8bea9"] } }
+		},
+		"cafe581dc12beaf6": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "ValueBool_Changed Red",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": { "m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafe39b5524f66a8" } },
+			"events": {
+				"OnTrue": {
+					"In": ["cafe392fb23845a9"],
+					"SetText": [
+						{ "ref": "cafe89597789c243", "value": { "type": "ZString", "value": "Current state: Red light" } }
+					]
+				}
+			}
+		},
+		"cafe392fb23845a9": {
+			"parent": "cafe581dc12beaf6",
+			"name": "TimerSimple Red",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 5000 } },
+			"events": { "Out": { "NextState": ["cafe9bbaced8bea9"] } }
+		},
+		"cafe4420b91bec97": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "ContractsEvent 47MovedWhileRedLight",
+			"factory": "[modules:/zcontractsevententity.class].pc_entitytype",
+			"blueprint": "[modules:/zcontractsevententity.class].pc_entityblueprint",
+			"properties": { "m_sName": { "type": "ZString", "value": "47MovedWhileRedLight" } }
+		},
+		"cafe3df425493b4c": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "VoidSignalOnce_Simple",
+			"factory": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/signalpipes.template?/voidsignalonce_simple.entitytemplate].pc_entityblueprint",
+			"events": {
+				"Out": {
+					"Trigger": ["cafe4420b91bec97"],
+					"SetText": [
+						{
+							"ref": "cafe9d5cc6a10aef",
+							"value": { "type": "ZString", "value": "Last contract event sent: 47MovedWhileRedLight" }
+						}
+					]
+				}
+			}
+		},
+		"cafe03b8892b7644": {
+			"parent": "cafe581dc12beaf6",
+			"name": "ValueBool_Operation Moving while red light",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aValues": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cafe39b5524f66a8", "cafe8928a0f28f82"]
+				},
+				"m_eEvaluation": { "type": "ZValueBool_Operation_Signal.EEvaluationType", "value": "ALL" }
+			},
+			"events": { "OnTrue": { "Signal": ["cafe3df425493b4c"] } }
+		},
+		"cafe1df81b16644b": {
+			"parent": "cafe92430d24ef0f",
+			"name": "Faux red light",
+			"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+		},
+		"cafe057c993fe78f": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "ValueBool_Changed Faux red",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": { "m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafe1df81b16644b" } },
+			"events": {
+				"OnTrue": {
+					"In": ["cafe008702234e5d"],
+					"SetText": [
+						{
+							"ref": "cafe89597789c243",
+							"value": { "type": "ZString", "value": "Current state: Faux Red light" }
+						}
+					],
+					"TransmitEvent": [{ "ref": "cafe961894e726c1", "value": { "type": "int32", "value": 2 } }],
+					"Send": ["cafeaa71de010ae1"]
+				}
+			}
+		},
+		"cafe008702234e5d": {
+			"parent": "cafe057c993fe78f",
+			"name": "TimerSimple Faux red",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 2000 } },
+			"events": { "Out": { "NextState": ["cafe9bbaced8bea9"] } }
+		},
+		"cafe961894e726c1": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "EventChannelTransmitter_int32",
+			"factory": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/events/eventchannel.template?/eventchanneltransmitter_int32.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rChannelToken": { "type": "SEntityTemplateReference", "value": "cafedc9cea752080", "postInit": true }
+			}
+		},
+		"cafedc9cea752080": {
+			"parent": "cafe961894e726c1",
+			"name": "TokenID_PF_RedGreenYellowLight",
+			"factory": "[modules:/ztokenidentity.class].pc_entitytype",
+			"blueprint": "[modules:/ztokenidentity.class].pc_entityblueprint",
+			"properties": { "m_sName": { "type": "ZString", "value": "PF_RedGreenYellowLight" } }
+		},
+		"cafe5f4a47a1a911": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "ValueBool_Changed Green",
+			"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_changed.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_rValueEntity": { "type": "SEntityTemplateReference", "value": "cafecbedd2084110" },
+				"m_bFireOnLevelStart": { "type": "bool", "value": true }
+			},
+			"events": {
+				"OnTrue": {
+					"SetText": [
+						{ "ref": "cafe89597789c243", "value": { "type": "ZString", "value": "Current state: Green light" } }
+					],
+					"Reset": ["cafe3df425493b4c"],
+					"TransmitEvent": [{ "ref": "cafe961894e726c1", "value": { "type": "int32", "value": 0 } }]
+				}
+			}
+		},
+		"cafeaa71de010ae1": {
+			"parent": "cafe057c993fe78f",
+			"name": "Play_SFX_GameplayMockUp_AccessDeniedBeep_2d_01",
+			"factory": "[modules:/zaudioevententity.class].pc_entitytype",
+			"blueprint": "[modules:/zaudioevententity.class].pc_entityblueprint",
+			"properties": {
+				"m_pMainEvent": { "type": "ZRuntimeResourceID", "value": "0014C400903FB75F" },
+				"m_pEmitter": { "type": "SEntityTemplateReference", "value": "cafe7bda7bb88993" }
+			}
+		},
+		"cafe7bda7bb88993": {
+			"parent": "cafeacd8f5ffac28",
+			"name": "2DAE",
+			"factory": "[assembly:/templates/sound/wwise/soundentities.template?/2daudioemitter.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/templates/sound/wwise/soundentities.template?/2daudioemitter.entitytemplate].pc_entityblueprint",
+			"subsets": { "AudioEmitters": ["fffffffffffffffe"] }
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": ["[assembly:/_pro/scenes/bricks/gameessentialsbase.brick].pc_entitytype"],
+	"subType": "brick",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}

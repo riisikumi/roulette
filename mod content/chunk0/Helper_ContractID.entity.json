@@ -1,1 +1,104 @@
-{"tempHash":"00C9C874F2621B8A","tbluHash":"000A8855B31676E8","rootEntity":"cafe7b8a11e035eb","entities":{"cafe71fb9cbcfbbf":{"parent":"cafe7b8a11e035eb","name":"GetPosition","factory":"[modules:/zgetpositionentity.class].pc_entitytype","blueprint":"[modules:/zgetpositionentity.class].pc_entityblueprint","properties":{"m_Source":{"type":"SEntityTemplateReference","value":"cafebb88a272ee2e"},"m_bPosPinOnActivate":{"type":"bool","value":false},"m_bPosPinOnTransformChange":{"type":"bool","value":false},"m_bWorldPostion":{"type":"bool","value":true}},"events":{"PositionOutput":{"Position":["cafe42239aefa538"],"In":["cafe6a3cce957e50"]}}},"cafe42239aefa538":{"parent":"cafe7b8a11e035eb","name":"SetPosition","factory":"[modules:/zsetpositionentity.class].pc_entitytype","blueprint":"[modules:/zsetpositionentity.class].pc_entityblueprint","properties":{"m_bSetLocalPosition":{"type":"bool","value":false}}},"cafe7b8a11e035eb":{"parent":null,"name":"Helper_ContractID","factory":"[modules:/zcontractidcomparerentity.class].pc_entitytype","blueprint":"[modules:/zcontractidcomparerentity.class].pc_entityblueprint","properties":{"m_sContractId":{"type":"ZString","value":"36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5"},"SpawnTransform":{"type":"SMatrix43","value":{"rotation":{"x":0,"y":0,"z":94.70471193686382},"position":{"x":-126.96,"y":-5.26,"z":7.4}}},"HologramColourValue":{"type":"SColorRGB","value":"#080000"},"ActorEntity":{"type":"SEntityTemplateReference","value":null},"HologramEntity":{"type":"SEntityTemplateReference","value":null}},"events":{"ContractIDsIdentical":{"GetPosition":["cafe71fb9cbcfbbf"],"Get":["cafe9ad29a08ed37"]}},"propertyAliases":{"SpawnTransform":[{"originalProperty":"m_mTransform","originalEntity":"cafebb88a272ee2e"}],"ActorEntity":[{"originalProperty":"m_Entity","originalEntity":"cafe42239aefa538"},{"originalProperty":"m_rActor","originalEntity":"cafef58e29176a8a"}],"HologramColourValue":[{"originalProperty":"m_Value","originalEntity":"cafe9ad29a08ed37"}],"HologramEntity":[{"originalProperty":"m_Entity","originalEntity":"cafef8ee68d88318"}]}},"cafebb88a272ee2e":{"parent":"cafe7b8a11e035eb","name":"Spawn point","factory":"[modules:/zspatialentity.class].pc_entitytype","blueprint":"[modules:/zspatialentity.class].pc_entityblueprint"},"cafef8ee68d88318":{"parent":"cafe7b8a11e035eb","name":"Hologram_HM5PropertyValueEntity_SColorRGB","factory":"[modules:/zhm5propertyvalueentity_scolorrgb.class].pc_entitytype","blueprint":"[modules:/zhm5propertyvalueentity_scolorrgb.class].pc_entityblueprint","properties":{"m_sPropertyName":{"type":"ZString","value":"ConstantColorRGB_01_Value"}}},"cafe9ad29a08ed37":{"parent":"cafe7b8a11e035eb","name":"Hologram_HM5ValueEntity_SColorRGB","factory":"[modules:/zhm5valueentity_scolorrgb.class].pc_entitytype","blueprint":"[modules:/zhm5valueentity_scolorrgb.class].pc_entityblueprint","properties":{"m_bForwardOnSet":{"type":"bool","value":true},"m_bGenerateOnStart":{"type":"bool","value":false}},"events":{"Value":{"Set":["cafef8ee68d88318"]}}},"cafe6a3cce957e50":{"parent":"cafe7b8a11e035eb","name":"TimerSimple","factory":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype","blueprint":"[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint","properties":{"Delay time (ms)":{"type":"int32","value":50}},"events":{"Out":{"Enable":["cafef58e29176a8a"]}}},"cafef58e29176a8a":{"parent":"cafe7b8a11e035eb","name":"ActorProxy","factory":"[modules:/zactorproxyentity.class].pc_entitytype","blueprint":"[modules:/zactorproxyentity.class].pc_entityblueprint"}},"propertyOverrides":[],"overrideDeletes":[],"pinConnectionOverrides":[],"pinConnectionOverrideDeletes":[],"externalScenes":[],"subType":"template","quickEntityVersion":3.1,"extraFactoryDependencies":[],"extraBlueprintDependencies":[],"comments":[]}
+{
+	"tempHash": "00C9C874F2621B8A",
+	"tbluHash": "000A8855B31676E8",
+	"rootEntity": "cafe7b8a11e035eb",
+	"entities": {
+		"cafe71fb9cbcfbbf": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "GetPosition",
+			"factory": "[modules:/zgetpositionentity.class].pc_entitytype",
+			"blueprint": "[modules:/zgetpositionentity.class].pc_entityblueprint",
+			"properties": {
+				"m_Source": { "type": "SEntityTemplateReference", "value": "cafebb88a272ee2e" },
+				"m_bPosPinOnActivate": { "type": "bool", "value": false },
+				"m_bPosPinOnTransformChange": { "type": "bool", "value": false },
+				"m_bWorldPostion": { "type": "bool", "value": true }
+			},
+			"events": { "PositionOutput": { "Position": ["cafe42239aefa538"], "In": ["cafe6a3cce957e50"] } }
+		},
+		"cafe42239aefa538": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "SetPosition",
+			"factory": "[modules:/zsetpositionentity.class].pc_entitytype",
+			"blueprint": "[modules:/zsetpositionentity.class].pc_entityblueprint",
+			"properties": { "m_bSetLocalPosition": { "type": "bool", "value": false } }
+		},
+		"cafe7b8a11e035eb": {
+			"parent": null,
+			"name": "Helper_ContractID",
+			"factory": "[modules:/zcontractidcomparerentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcontractidcomparerentity.class].pc_entityblueprint",
+			"properties": {
+				"m_sContractId": { "type": "ZString", "value": "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5" },
+				"SpawnTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": 0, "y": 0, "z": 94.70471193686382 },
+						"position": { "x": -126.96, "y": -5.26, "z": 7.4 }
+					}
+				},
+				"HologramColourValue": { "type": "SColorRGB", "value": "#080000" },
+				"ActorEntity": { "type": "SEntityTemplateReference", "value": null },
+				"HologramEntity": { "type": "SEntityTemplateReference", "value": null }
+			},
+			"events": { "ContractIDsIdentical": { "GetPosition": ["cafe71fb9cbcfbbf"], "Get": ["cafe9ad29a08ed37"] } },
+			"propertyAliases": {
+				"SpawnTransform": [{ "originalProperty": "m_mTransform", "originalEntity": "cafebb88a272ee2e" }],
+				"ActorEntity": [
+					{ "originalProperty": "m_Entity", "originalEntity": "cafe42239aefa538" },
+					{ "originalProperty": "m_rActor", "originalEntity": "cafef58e29176a8a" }
+				],
+				"HologramColourValue": [{ "originalProperty": "m_Value", "originalEntity": "cafe9ad29a08ed37" }],
+				"HologramEntity": [{ "originalProperty": "m_Entity", "originalEntity": "cafef8ee68d88318" }]
+			}
+		},
+		"cafebb88a272ee2e": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "Spawn point",
+			"factory": "[modules:/zspatialentity.class].pc_entitytype",
+			"blueprint": "[modules:/zspatialentity.class].pc_entityblueprint"
+		},
+		"cafef8ee68d88318": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "Hologram_HM5PropertyValueEntity_SColorRGB",
+			"factory": "[modules:/zhm5propertyvalueentity_scolorrgb.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5propertyvalueentity_scolorrgb.class].pc_entityblueprint",
+			"properties": { "m_sPropertyName": { "type": "ZString", "value": "ConstantColorRGB_01_Value" } }
+		},
+		"cafe9ad29a08ed37": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "Hologram_HM5ValueEntity_SColorRGB",
+			"factory": "[modules:/zhm5valueentity_scolorrgb.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5valueentity_scolorrgb.class].pc_entityblueprint",
+			"properties": {
+				"m_bForwardOnSet": { "type": "bool", "value": true },
+				"m_bGenerateOnStart": { "type": "bool", "value": false }
+			},
+			"events": { "Value": { "Set": ["cafef8ee68d88318"] } }
+		},
+		"cafe6a3cce957e50": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "TimerSimple",
+			"factory": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/logic.template?/timersimple.entitytemplate].pc_entityblueprint",
+			"properties": { "Delay time (ms)": { "type": "int32", "value": 50 } },
+			"events": { "Out": { "Enable": ["cafef58e29176a8a"] } }
+		},
+		"cafef58e29176a8a": {
+			"parent": "cafe7b8a11e035eb",
+			"name": "ActorProxy",
+			"factory": "[modules:/zactorproxyentity.class].pc_entitytype",
+			"blueprint": "[modules:/zactorproxyentity.class].pc_entityblueprint"
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}

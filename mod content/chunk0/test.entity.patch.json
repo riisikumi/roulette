@@ -10,10 +10,7 @@
 						"m_aPageDefinitions",
 						[
 							{
-								"AddItemBefore": [
-									"af9e58d814163a0b",
-									"cafe479356f812b8"
-								]
+								"AddItemBefore": ["af9e58d814163a0b", "cafe479356f812b8"]
 							}
 						]
 					]
