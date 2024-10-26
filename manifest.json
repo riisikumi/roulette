@@ -10,7 +10,7 @@
 	},
 	"localisation": {
 		"english": {
-			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
+		"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
 			"INCLUDE_SPECIFIC_MELEE_WEAPONS": "Include Specific Melee Weapons",
 			"INCLUDE_SPECIFIC_FIREARMS": "Include Specific Firearms",
 			"INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS": "Include Specific Accidents / Poison Kills",
