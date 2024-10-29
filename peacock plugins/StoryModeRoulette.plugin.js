@@ -120,9 +120,7 @@ module.exports = function ContractSearch(controller) {
 			if (rouletteFilters.length == 0) {
 				rouletteFilters.push.apply(rouletteFilters, defaultRouletteFilters)
 			}
-
-			log(LogLevel.INFO, "[Story Mode Roulette] Selected missions:" + selectedMissionPool)
-			log(LogLevel.INFO, "[Story Mode Roulette] Selected missions:" + selectedMissionPool)
+			
 			const badlocation = selectedMissionPool.indexOf("LOCATION_ANCESTRAL_SMOOTHSNAKE")
 
 			if (badlocation !== -1) {
@@ -246,7 +244,6 @@ module.exports = function ContractSearch(controller) {
 				killMethodPool.push.apply(killMethodPool, info.RouletteMeleeWeapons)
 				killMethodPool.push("fiberwire")
 				killMethodPool.push("unarmed")
-				log(LogLevel.INFO, killMethodPool)
 			}
 
 			if (rouletteFilters.includes("rrBannedKills") && rouletteFilters.includes("specificFirearms")) {
@@ -493,13 +490,6 @@ module.exports = function ContractSearch(controller) {
 						otherBannedConditions = true
 					}
 				}
-
-				log(LogLevel.INFO, "Selected Kill Methods: ", selectedKillMethodList)
-				log(LogLevel.INFO, "notMultipleLargeFirearms: ", notMultipleLargeFirearms(selectedKillMethodList))
-				log(LogLevel.INFO, "notMultiplePistols: ", notMultiplePistols(selectedKillMethodList))
-				log(LogLevel.INFO, "notMultipleSmgs: ", notMultipleSmgs(selectedKillMethodList))
-				log(LogLevel.INFO, "noOtherDuplicates: ", noOtherDuplicates(selectedKillMethodList))
-				log(LogLevel.INFO, "[Story Mode Roulette] Other banned conditions: " + otherBannedConditions)
 
 				if (
 					notMultipleLargeFirearms(selectedKillMethodList) &&
