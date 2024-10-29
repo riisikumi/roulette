@@ -120,7 +120,7 @@ module.exports = function ContractSearch(controller) {
 			if (rouletteFilters.length == 0) {
 				rouletteFilters.push.apply(rouletteFilters, defaultRouletteFilters)
 			}
-			
+
 			const badlocation = selectedMissionPool.indexOf("LOCATION_ANCESTRAL_SMOOTHSNAKE")
 
 			if (badlocation !== -1) {
