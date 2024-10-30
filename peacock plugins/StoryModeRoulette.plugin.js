@@ -3638,10 +3638,68 @@ module.exports = function ContractSearch(controller) {
 				}
 			}
 
-			// Mendoza exit fix
-
-			baseContract.Data["EnableExits"] = {
-				$eq: objectiveIdList.concat("$ffaa1229-2fd3-4a93-87ca-974122e2a25f", "Completed")
+			if (selectedMission == "LOCATION_ELEGANT_LLAMA") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$ffaa1229-2fd3-4a93-87ca-974122e2a25f", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_GREEDY_RACCOON") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$b6dae5cd-31f7-4c81-8ccb-b0b9c58c791d", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_COASTALTOWN") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$e15b5171-2b12-4966-9339-3344042f9867", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_COASTALTOWN_EBOLA") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$f6d7ccfd-6f0b-4e01-b80f-982c051c4c8e", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_MARRAKECH_NIGHT") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$341c93cc-05b5-45df-8b32-17ffa44e29ac", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_HOKKAIDO_FLU") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$b8ffc636-4f9a-49b5-8293-98839a6ca202", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_COLOMBIA_ANACONDA") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$d61d68e2-1e72-4c50-9c65-f2106ae30a9d", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_NORTHAMERICA") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$369dd2f7-acfa-4c51-b03d-dbbb4bb863ac", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_ANCESTRAL_BULLDOG") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$ccb699ba-e975-40bd-aa7b-9b3c88cd6448", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_ROCKY_DUGONG") {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("$3a71e4b6-6de1-4cc7-8e21-02970fdb1b3a", "Completed")
+				}
+			} else if (selectedMission == "LOCATION_EDGY_FOX") {
+				baseContract.Data["EnableExits"] = {
+					"$or": [
+						{
+							"$eq": [
+								"$47de2b7d-eae7-4d60-9987-154078ff11e9",
+								"Completed"
+							]
+						},
+						{
+							"$eq": [
+								"$11d9655f-190c-4181-be5f-30cadd50dc3c",
+								"Completed"
+							]
+						}
+					]
+				}
+			} 
+			else {
+				baseContract.Data["EnableExits"] = {
+					$eq: objectiveIdList.concat("Completed")
+				}
 			}
 
 			// Easter egg: why in the hell are you reading through this mess of a plugin? Are you a masochist or something?
