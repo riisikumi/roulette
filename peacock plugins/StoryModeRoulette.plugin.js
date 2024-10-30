@@ -3644,7 +3644,7 @@ module.exports = function ContractSearch(controller) {
 				$eq: objectiveIdList.concat("$ffaa1229-2fd3-4a93-87ca-974122e2a25f", "Completed")
 			}
 
-			// Easter egg: why in the hell are you reading through this mess of a plugin?
+			// Easter egg: why in the hell are you reading through this mess of a plugin? Are you a masochist or something?
 
 			baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, additionalObjectives(selectedMission))
 
