@@ -90,10 +90,10 @@
 				},
 				{
 					"case": "RouletteFilter",
-					"return": "$.Title"
+					"return": "$loc $formatstring $.Title"
 				},
 				{
-					"default": "$loc $.Title"
+					"default": "$loc $formatstring $.Title"
 				}
 			]
 		},
