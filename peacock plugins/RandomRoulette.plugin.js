@@ -1,5 +1,19 @@
 const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
-const { debug } = require("node:console")
+const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
+function openWebpage(url) {
+	const { exec } = require('child_process');
+    const platform = process.platform;
+    let command;
+    if (platform === 'win32') {
+        command = `start ${url}`;
+    } else if (platform === 'darwin') {
+        command = `open ${url}`;
+    } else {
+        command = `xdg-open ${url}`; 
+    }
+    exec(command, () => {
+    });
+}
 var import_flags = require("@peacockproject/core/flags")
 let targetsmax = 4
 let savingstartupallowed = false
@@ -7,6 +21,11 @@ const { randomUUID } = require("node:crypto")
 let saving = false ///Defunct Contract Saving, I may bring it back at some point, but for now it just archives daily contracts
 let daily = false //If you're not a dev, please don't mess with these, not worth the trouble
 module.exports = function EscPlugin(controller) {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.2") {
+		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.2 required for Peacock Roulette.") 
+		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.2")
+		return
+	}
 	//Enables Global Challenges in Roulette
 	var baseglobal = controller.configManager.configs.GlobalChallenges
 	baseglobal.forEach((challenge) => {
@@ -51795,9 +51814,9 @@ module.exports = function EscPlugin(controller) {
 			"0920912a-e6ca-4f2a-8aaf-56bef6ece7ce",
 			"d85e5b45-bc20-4bc7-8520-d3e4ddc652c5"
 		])
-	const { handleCommand } = require("@peacockproject/core/profileHandler")
+	const { commandService } = require("@peacockproject/core/commandService")
 	//Add handiling!
-	handleCommand.tap("RouletteHandleCommand", (lastResponse, command, args) => {
+	commandService.handleCommand.tap("RouletteHandleCommand", (lastResponse, command, args) => {
 		if (import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`) === "true") {
 			controller.configManager.configs.FilterData = [
 				{
@@ -52016,27 +52035,27 @@ module.exports = function EscPlugin(controller) {
 					Key: "RouletteFilter",
 					Values: [
 						{
-							Title: "$loc REQUIRE_SPECIFIC_DISGUISE",
+							Title: "Require Specific Disguise",
 							Value: "specificDisguises",
 							Key: "RouletteFilter"
 						},
 						{
-							Title: "$loc INCLUDE_SPECIFIC_MELEE_WEAPONS",
+							Title: "Include Specific Melee Weapons",
 							Value: "specificMelee",
 							Key: "RouletteFilter"
 						},
 						{
-							Title: "$loc INCLUDE_SPECIFIC_FIREARMS",
+							Title:  "Include Specific Firearms",
 							Value: "specificFirearms",
 							Key: "RouletteFilter"
 						},
 						{
-							Title: "$loc INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS",
+							Title:  "Include Specific Accidents / Poison Kills",
 							Value: "specificAccidents",
 							Key: "RouletteFilter"
 						},
 						{
-							Title: "$loc INCLUDE_CONDITIONS_BANNED_IN_ROULETTE_RIVALS",
+							Title: "Include Conditions Banned in Roulette Rivals",
 							Value: "rrBannedKills",
 							Key: "RouletteFilter"
 						}
@@ -63834,7 +63853,7 @@ module.exports = function EscPlugin(controller) {
 			if (locationid === contract.RouletteType && daily) {
 				var modifiedcontract = require("@peacockproject/core/utils").fastClone(contract)
 				Jsonfilename = "contracts/" + "Random Roulette/Daily Contracts/" + month + "_" + day + "_" + year + ".json"
-				log(LogLevel.INFO, Jsonfilename)
+				//log(LogLevel.INFO, Jsonfilename)
 				require("node:fs").mkdirSync(require("node:path").dirname(Jsonfilename), { recursive: true })
 				modifiedcontract.Metadata.Title = "RR Daily " + month + "|" + day + "|" + year
 				modifiedcontract.Metadata.Id = generaterandomUUID(finalDate)

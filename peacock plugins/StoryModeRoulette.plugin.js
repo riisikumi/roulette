@@ -3,6 +3,7 @@ const zlib = require("zlib")
 const { Buffer } = require("buffer")
 const randomUUID = require("crypto").randomUUID
 var import_flags = require("@peacockproject/core/flags")
+const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
 var RRAdditiveModifiersFlagSectionKey = "randomroulette"
 function decompress(input) {
 	return JSON.parse(zlib.brotliDecompressSync(Buffer.from(input, "base64")).toString())
@@ -43,6 +44,9 @@ class MersenneTwister {
 }
 
 module.exports = function ContractSearch(controller) {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.2") {
+		return
+	}
 	let seed = controller.transferseed
 	controller.hooks.getSearchResults.tap("ContractSearchResults", async (parameters, ids) => {
 		if (import_flags.getFlag(`${RRAdditiveModifiersFlagSectionKey}.contractgen`) === "true") {
@@ -134,7 +138,7 @@ module.exports = function ContractSearch(controller) {
 
 			const info = contractInfo[selectedMission]
 
-			log(LogLevel.INFO, "[Story Mode Roulette] Selected mission:" + selectedMission)
+			log(LogLevel.INFO, "[Roulette] Selected mission:" + selectedMission)
 
 			const baseContract = {
 				Data: { Objectives: [], Bricks: [], VR: [], GameChangers: [] },
@@ -502,8 +506,8 @@ module.exports = function ContractSearch(controller) {
 				}
 			}
 
-			log(LogLevel.INFO, "[Story Mode Roulette] Selected killmethods: " + selectedKillMethodList)
-			log(LogLevel.INFO, "[Story Mode Roulette] Selected disguises: " + selectedDisguiseList)
+			log(LogLevel.INFO, "[Roulette] Selected killmethods: " + selectedKillMethodList)
+			log(LogLevel.INFO, "[Roulette] Selected disguises: " + selectedDisguiseList)
 
 			// The following section generates objectives based on the randomized conditions
 
