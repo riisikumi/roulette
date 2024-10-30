@@ -1,18 +1,17 @@
 const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
 const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
 function openWebpage(url) {
-	const { exec } = require('child_process');
-    const platform = process.platform;
-    let command;
-    if (platform === 'win32') {
-        command = `start ${url}`;
-    } else if (platform === 'darwin') {
-        command = `open ${url}`;
-    } else {
-        command = `xdg-open ${url}`; 
-    }
-    exec(command, () => {
-    });
+	const { exec } = require("child_process")
+	const platform = process.platform
+	let command
+	if (platform === "win32") {
+		command = `start ${url}`
+	} else if (platform === "darwin") {
+		command = `open ${url}`
+	} else {
+		command = `xdg-open ${url}`
+	}
+	exec(command, () => {})
 }
 var import_flags = require("@peacockproject/core/flags")
 let targetsmax = 4
@@ -22,7 +21,7 @@ let saving = false ///Defunct Contract Saving, I may bring it back at some point
 let daily = false //If you're not a dev, please don't mess with these, not worth the trouble
 module.exports = function EscPlugin(controller) {
 	if (PEACOCKVERSTRING !== "8.0.0-alpha.2") {
-		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.2 required for Peacock Roulette.") 
+		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.2 required for Peacock Roulette.")
 		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.2")
 		return
 	}
@@ -52045,12 +52044,12 @@ module.exports = function EscPlugin(controller) {
 							Key: "RouletteFilter"
 						},
 						{
-							Title:  "Include Specific Firearms",
+							Title: "Include Specific Firearms",
 							Value: "specificFirearms",
 							Key: "RouletteFilter"
 						},
 						{
-							Title:  "Include Specific Accidents / Poison Kills",
+							Title: "Include Specific Accidents / Poison Kills",
 							Value: "specificAccidents",
 							Key: "RouletteFilter"
 						},
