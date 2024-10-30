@@ -3680,23 +3680,16 @@ module.exports = function ContractSearch(controller) {
 				}
 			} else if (selectedMission == "LOCATION_EDGY_FOX") {
 				baseContract.Data["EnableExits"] = {
-					"$or": [
+					$or: [
 						{
-							"$eq": [
-								"$47de2b7d-eae7-4d60-9987-154078ff11e9",
-								"Completed"
-							]
+							$eq: ["$47de2b7d-eae7-4d60-9987-154078ff11e9", "Completed"]
 						},
 						{
-							"$eq": [
-								"$11d9655f-190c-4181-be5f-30cadd50dc3c",
-								"Completed"
-							]
+							$eq: ["$11d9655f-190c-4181-be5f-30cadd50dc3c", "Completed"]
 						}
 					]
 				}
-			} 
-			else {
+			} else {
 				baseContract.Data["EnableExits"] = {
 					$eq: objectiveIdList.concat("Completed")
 				}
