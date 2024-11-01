@@ -97,13 +97,13 @@ module.exports = function EscPlugin(controller) {
 	//Clipboard stuff, no clue if this works on linux or Mac lmao
 	const { execSync } = require("child_process")
 	function copyToClipboard(text) {
-		if (process.platform === "darwin") {
-			execSync(`echo "${text}" | pbcopy`)
-		} else if (process.platform === "win32") {
-			execSync(`echo ${text} | clip`)
-		} else {
-			execSync(`echo "${text}" | xclip -selection clipboard`)
-		}
+	//	if (process.platform === "darwin") {
+		//	execSync(`echo "${text}" | pbcopy`)
+	//	} else if (process.platform === "win32") {
+	//		execSync(`echo ${text} | clip`)
+	//	} else {
+			//execSync(`echo "${text}" | xclip -selection clipboard`)
+		//}
 	}
 	//seed stuff, needs to be set early
 	let seed = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
