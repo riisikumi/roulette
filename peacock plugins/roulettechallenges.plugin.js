@@ -33,7 +33,7 @@ var __toESM = (mod, isNodeMode, target) => (
 var import_loggingInterop = require("@peacockproject/core/loggingInterop")
 var path = __toESM(require("path"))
 function initPlugin(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.2") {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.3") {
 		return
 	}
 	const groupName = "roulette-challenge-pack"

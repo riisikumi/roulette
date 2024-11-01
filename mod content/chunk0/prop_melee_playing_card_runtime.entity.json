@@ -1,6 +1,6 @@
 {
-	"tempHash": "00DE5D92EEF52C35",
-	"tbluHash": "0057B098B29B4F4A",
+	"tempHash": "0049D938A50B93E8",
+	"tbluHash": "00A55B290D3DB48F",
 	"rootEntity": "ad6d4b599285d4a1",
 	"entities": {
 		"6c9d1a508a5d3f78": {
@@ -152,13 +152,13 @@
 					"value": {
 						"rotation": {
 							"x": -0.0,
-							"y": -1.3340170285192955e-8,
+							"y": -1.3340170285192956e-8,
 							"z": -0.0
 						},
 						"position": {
-							"x": -5.792000767890215e-10,
+							"x": -5.792000767890214e-10,
 							"y": 0.0,
-							"z": 9.126730304842567e-8
+							"z": 9.126730304842569e-8
 						}
 					}
 				},
@@ -408,7 +408,11 @@
 				},
 				"m_aEffectSetsBack": {
 					"type": "TArray<SEntityTemplateReference>",
-					"value": ["2a5b594e67201ee8", "f5f4ec2f98a82961", "5cdd0112bc2b9c87"]
+					"value": [
+						"2a5b594e67201ee8",
+						"f5f4ec2f98a82961",
+						"5cdd0112bc2b9c87"
+					]
 				},
 				"m_aEffectSetsFrontSide": {
 					"type": "TArray<SEntityTemplateReference>",

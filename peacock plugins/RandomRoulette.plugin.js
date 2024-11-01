@@ -20,9 +20,71 @@ const { randomUUID } = require("node:crypto")
 let saving = false ///Defunct Contract Saving, I may bring it back at some point, but for now it just archives daily contracts
 let daily = false //If you're not a dev, please don't mess with these, not worth the trouble
 module.exports = function EscPlugin(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.2") {
-		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.2 required for Peacock Roulette.")
-		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.2")
+	let oilchallenge = {
+		"Id": "ba7425f7-b4d2-45b1-bb91-942722903c22",
+		"Name": "UI_CHALLENGES_DUGONG_AKKA_ELIMINATE_FIRE_NAME",
+		"ImageName": "images/challenges/Rocky/Dugong_AkkaFire_kill.jpg",
+		"Description": "UI_CHALLENGES_DUGONG_AKKA_ELIMINATE_FIRE_DESC",
+		"Rewards": {
+			"MasteryXP": 2000
+		},
+		"Drops": [],
+		"IsPlayable": true,
+		"IsLocked": false,
+		"HideProgression": false,
+		"CategoryName": "UI_MENU_PAGE_PROFILE_CHALLENGES_CATEGORY_SIGNATUREKILL",
+		"Icon": "challenge_category_assassination",
+		"LocationId": "LOCATION_PARENT_ROCKY",
+		"ParentLocationId": "LOCATION_PARENT_ROCKY",
+		"Type": "contract",
+		"DifficultyLevels": [],
+		"OrderIndex": 10000,
+		"XpModifier": {},
+		"RuntimeType": "Hit",
+		"Definition": {
+			"Scope": "session",
+			"States": {
+				"Start": {
+					"Kill": {
+						"Condition": {
+							"$and": [
+								{
+									"$eq": [
+										"$Value.RepositoryId",
+										"666521d2-1efe-4d0a-b7f7-2afeb08262b6"
+									]
+								},
+								{
+									"$any": {
+										"?": {
+											"$eq": [
+												"$.#",
+												"accident_burn"
+											]
+										},
+										"in": [
+											"$Value.KillMethodBroad",
+											"$Value.KillMethodStrict"
+										]
+									}
+								}
+							]
+						},
+						"Transition": "Success"
+					}
+				}
+			}
+		},
+		"Tags": ["story", "medium", "assassination"],
+		"InclusionData": {
+			"ContractIds": ["b2aac100-dfc7-4f85-b9cd-528114436f6c"]
+		}
+	}
+	controller.challengeService.removeChallenge(oilchallenge.Id, "h3")
+	controller.challengeService.registerChallenge(oilchallenge,"assassination",oilchallenge.LocationId,"h3")
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.3") {
+		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.3 required for Peacock Roulette.")
+		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.3")
 		return
 	}
 	//Enables Global Challenges in Roulette
