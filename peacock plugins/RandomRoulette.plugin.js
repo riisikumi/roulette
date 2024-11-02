@@ -29847,7 +29847,7 @@ module.exports = function EscPlugin(controller) {
 												{
 													$eq: [
 														"$Value.OutfitRepositoryId",
-														"BF9629E0-F25C-4E71-9561-4A99A93A43E8"
+														"bf9629e0-f25c-4e71-9561-4a99a93a43e8"
 													]
 												}
 											]
