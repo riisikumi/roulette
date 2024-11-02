@@ -3727,6 +3727,15 @@ module.exports = function EscPlugin(controller) {
 									"ea0c8934-63ca-4efe-8db0-586473e86a6f",
 									"1207bd2c-9d35-4b8d-9e39-cb2ce874fd83",
 									"af184652-3e74-4e5b-b74d-69e0d2bcf987",
+									"300ed301-f260-4dc3-ab28-9c52a55ead17",
+									"c7f93aae-af17-4d37-8332-359b7f3afb3c",
+									"82c727f1-23c3-4015-92c2-f06b2f079b21",
+									"0e9bbf6c-90d5-4de7-aa27-59169fdfcc36",
+									"48323fb0-b232-4389-8f6d-f9cea21fdd61",
+									"b866ab09-11d4-4c43-8c16-4b7476a5b120",
+									"a2a0f919-c9f2-494c-826e-a6d49a9afec7",
+									"7f512446-f616-4f89-acfe-79ff6a54ced8",
+									"7a307113-b390-4c7a-a676-4b70eae2c099",
 									"7fcda930-d7a8-4e4c-8436-3a73f7b37238",
 									"e1e6880f-eab3-4ef8-91b1-70e5f4b3246b",
 									"c209ca91-22e9-4d58-8c2c-8b93030c9c76",
@@ -46592,7 +46601,6 @@ module.exports = function EscPlugin(controller) {
 			"1bde6932-efb2-449d-a8d4-f8d1bd8eafe1",
 			"db4f4be3-00b5-4e00-93fa-26ec0caa161c",
 			"6322f527-e0a7-4a6b-87f7-9a31c7a92374",
-			"3250f14e-f1e2-4f0a-865a-c8de2e399a81",
 			"9820e86d-0b13-4698-a59d-2c04c50a21a5",
 			"317b30a3-6810-4b39-8c8d-1543523d3532",
 			"8503ddee-4f89-431d-a60c-83cef7418c74",
@@ -63893,12 +63901,12 @@ module.exports = function EscPlugin(controller) {
 					"/contract.json"
 				require("node:fs").mkdirSync(require("node:path").dirname(Jsonfilename), { recursive: true })
 				//log(LogLevel.INFO, Jsonfilename);
-				modifiedcontract.Metadata.Title = "RR Contract" + ": " + seed
+				modifiedcontract.Metadata.Title = "RR Contract" + ": " + plaintextseedfordisplay
 				modifiedcontract.Metadata.Id = randomUUID()
 				modifiedcontract.Metadata.Type = "bulletdancer"
 				modifiedcontract.Data.GameChangers
 				modifiedcontract.Data.GameChangers.pop()
-				modifiedcontract.Metadata.Description = "Archived Random Roulette Contract| Seed:" + seed
+				modifiedcontract.Metadata.Description = "Archived Random Roulette Contract| Seed:" + plaintextseedfordisplay
 				require("node:fs").writeFileSync(Jsonfilename, JSON.stringify(modifiedcontract))
 			}
 			//daily contract creation
