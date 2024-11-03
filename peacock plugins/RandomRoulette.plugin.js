@@ -23733,19 +23733,15 @@ module.exports = function EscPlugin(controller) {
 						OnActive: { IfCompleted: { Visible: !1 } },
 						Definition: {
 							Scope: "Hit",
-							Context: { Targets: [] },
+							Context: { Targets: [], "ValidOutfits": ["4912D30A-80CB-41D8-8137-7B4727E76E4E", "e3256178-ce59-4796-bc5b-800cd6120b28"] },
 							States: {
 								Start: {
 									Kill: {
 										Condition: {
 											$and: [
-												{ $eq: ["$Value.IsTarget", !0] },
-												{
-													$eq: [
-														"$Value.OutfitRepositoryId",
-														"4912D30A-80CB-41D8-8137-7B4727E76E4E"
-													]
-												}
+												{ $eq: ["$Value.IsTarget", !0] },{
+														$any: { "?": { $eq: ["$.#", "$Value.OutfitRepositoryId",] }, in: "$.ValidOutfits" }
+													}
 											]
 										},
 										Transition: "Success"
@@ -24104,19 +24100,15 @@ module.exports = function EscPlugin(controller) {
 						OnActive: { IfCompleted: { Visible: !1 } },
 						Definition: {
 							Scope: "Hit",
-							Context: { Targets: [] },
+							Context: { Targets: [], "ValidOutfits": ["8b162546-0eab-40a0-a66b-a08e8ddf2ea4", "78fc9e38-cade-42c3-958c-c7d8edf43713"] },
 							States: {
 								Start: {
 									Kill: {
 										Condition: {
 											$and: [
-												{ $eq: ["$Value.IsTarget", !0] },
-												{
-													$eq: [
-														"$Value.OutfitRepositoryId",
-														"78FC9E38-CADE-42C3-958C-C7D8EDF43713"
-													]
-												}
+												{ $eq: ["$Value.IsTarget", !0] },{
+														$any: { "?": { $eq: ["$.#", "$Value.OutfitRepositoryId",] }, in: "$.ValidOutfits" }
+													}
 											]
 										},
 										Transition: "Success"
@@ -36406,19 +36398,15 @@ module.exports = function EscPlugin(controller) {
 						OnActive: { IfCompleted: { Visible: !1 } },
 						Definition: {
 							Scope: "Hit",
-							Context: { Targets: [] },
+							Context: { Targets: [], "ValidOutfits": ["4912D30A-80CB-41D8-8137-7B4727E76E4E", "e3256178-ce59-4796-bc5b-800cd6120b28"] },
 							States: {
 								Start: {
 									Kill: {
 										Condition: {
 											$and: [
-												{ $eq: ["$Value.IsTarget", !0] },
-												{
-													$eq: [
-														"$Value.OutfitRepositoryId",
-														"4912D30A-80CB-41D8-8137-7B4727E76E4E"
-													]
-												}
+												{ $eq: ["$Value.IsTarget", !0] },{
+														$any: { "?": { $eq: ["$.#", "$Value.OutfitRepositoryId",] }, in: "$.ValidOutfits" }
+													}
 											]
 										},
 										Transition: "Success"
@@ -36777,19 +36765,15 @@ module.exports = function EscPlugin(controller) {
 						OnActive: { IfCompleted: { Visible: !1 } },
 						Definition: {
 							Scope: "Hit",
-							Context: { Targets: [] },
+							Context: { Targets: [], "ValidOutfits": ["8b162546-0eab-40a0-a66b-a08e8ddf2ea4", "78fc9e38-cade-42c3-958c-c7d8edf43713"] },
 							States: {
 								Start: {
 									Kill: {
 										Condition: {
 											$and: [
-												{ $eq: ["$Value.IsTarget", !0] },
-												{
-													$eq: [
-														"$Value.OutfitRepositoryId",
-														"78FC9E38-CADE-42C3-958C-C7D8EDF43713"
-													]
-												}
+												{ $eq: ["$Value.IsTarget", !0] },{
+														$any: { "?": { $eq: ["$.#", "$Value.OutfitRepositoryId",] }, in: "$.ValidOutfits" }
+													}
 											]
 										},
 										Transition: "Success"
