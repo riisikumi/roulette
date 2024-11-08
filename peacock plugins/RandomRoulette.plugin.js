@@ -11787,6 +11787,14 @@ module.exports = function EscPlugin(controller) {
 											},
 											Transition: "Failure"
 										}
+									],
+									Actorsick: [
+										{
+											Condition: {
+												$inarray: { in: "$.Phantom", "?": { $eq: ["$.#", "$Value.actor_R_ID",] } }
+											},
+											Transition: "Failure"
+										}
 									]
 								}
 							}
