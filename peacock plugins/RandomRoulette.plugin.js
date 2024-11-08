@@ -11791,7 +11791,7 @@ module.exports = function EscPlugin(controller) {
 									Actorsick: [
 										{
 											Condition: {
-												$inarray: { in: "$.Phantom", "?": { $eq: ["$.#", "$Value.actor_R_ID",] } }
+												$inarray: { in: "$.Phantom", "?": { $eq: ["$.#", "$Value.actor_R_ID"] } }
 											},
 											Transition: "Failure"
 										}
