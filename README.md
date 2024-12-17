@@ -6,4 +6,4 @@ Generates randomized Contracts.
 
 ---
 
-`BurnthewitchRiisikumi.Roulette` v2.0.0, by Roulette Collective. This README was automatically generated from the mod's manifest.
+`BurnthewitchRiisikumi.Roulette` v2.0.1, by Roulette Collective. This README was automatically generated from the mod's manifest.
