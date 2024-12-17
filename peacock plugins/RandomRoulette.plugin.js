@@ -73,9 +73,9 @@ module.exports = function EscPlugin(controller) {
 	}
 	controller.challengeService.removeChallenge(oilchallenge.Id, "h3")
 	controller.challengeService.registerChallenge(oilchallenge, "assassination", oilchallenge.LocationId, "h3")
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.3") {
-		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.3 required for Peacock Roulette.")
-		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.3")
+	if (PEACOCKVERSTRING !== "8.0.0-4") {
+		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.4 required for Peacock Roulette.")
+		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.4")
 		return
 	}
 	//Enables Global Challenges in Roulette
