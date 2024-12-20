@@ -44,7 +44,7 @@ class MersenneTwister {
 }
 
 module.exports = function ContractSearch(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.4") {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.5") {
 		return
 	}
 	let seed = controller.transferseed
