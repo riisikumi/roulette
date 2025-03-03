@@ -1,5 +1,5 @@
 {
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
@@ -16966,7 +16966,7 @@
 			"UI_KILL_METHOD_LOUD_EXPLOSIVE_SR": "Loud Explosive"
 		}
 	},
-	"frameworkVersion": "2.33.22",
+	"frameworkVersion": "2.33.23",
 	"packagedefinition": [
 		{
 			"type": "entity",
