@@ -73,9 +73,9 @@ module.exports = function EscPlugin(controller) {
 	}
 	controller.challengeService.removeChallenge(oilchallenge.Id, "h3")
 	controller.challengeService.registerChallenge(oilchallenge, "assassination", oilchallenge.LocationId, "h3")
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.5") {
-		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.5 required for Peacock Roulette.")
-		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.5")
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
+		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.6 required for Peacock Roulette.")
+		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.6")
 		return
 	}
 	//Enables Global Challenges in Roulette
@@ -38304,9 +38304,10 @@ module.exports = function EscPlugin(controller) {
 				ShowBasedOnObjectives: null,
 				IsPrestigeObjective: null
 			}
-		},
-		contracts = [
+		}
+		var contracts = [
 			{
+				RouletteSeed: null,
 				RouletteType: "FinalTest",
 				Data: {
 					Objectives: [
@@ -38424,6 +38425,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Ship",
 				Data: {
 					Objectives: [
@@ -38542,6 +38544,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Showstopper",
 				Data: {
 					Objectives: [
@@ -38676,6 +38679,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "WoT",
 				Data: {
 					Objectives: [
@@ -38806,6 +38810,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Icon",
 				Data: {
 					Objectives: [
@@ -38935,6 +38940,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Landslide",
 				Data: {
 					Objectives: [
@@ -39064,6 +39070,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Author",
 				Data: {
 					Objectives: [
@@ -39192,6 +39199,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Gilded",
 				Data: {
 					Objectives: [
@@ -39325,6 +39333,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Sand",
 				Data: {
 					Objectives: [
@@ -39454,6 +39463,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Club27",
 				Data: {
 					Objectives: [
@@ -39587,6 +39597,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Source",
 				Data: {
 					Objectives: [
@@ -39715,6 +39726,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "FreedomFighters",
 				Data: {
 					Objectives: [
@@ -39848,6 +39860,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "SitusInversus",
 				Data: {
 					Objectives: [
@@ -39981,6 +39994,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "PZ",
 				Data: {
 					Objectives: [
@@ -40145,6 +40159,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Festival",
 				Data: {
 					Objectives: [
@@ -40278,6 +40293,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Noel",
 				Data: {
 					Objectives: [
@@ -40415,6 +40431,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Vector",
 				Data: {
 					Objectives: [
@@ -40536,6 +40553,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Nightcall",
 				Data: {
 					Objectives: [
@@ -40662,6 +40680,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Finishline",
 				Data: {
 					Objectives: [
@@ -40795,6 +40814,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "SilverTongue",
 				Data: {
 					Objectives: [
@@ -40928,6 +40948,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "ThreeHeadedSerpent",
 				Data: {
 					Objectives: [
@@ -41061,6 +41082,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "EmbraceofTheSerpent",
 				Data: {
 					Objectives: [
@@ -41194,6 +41216,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "ChasingaGhost",
 				Data: {
 					Objectives: [
@@ -41327,6 +41350,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "Illusions",
 				Data: {
 					Objectives: [
@@ -41472,6 +41496,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "AnotherLife",
 				Data: {
 					Objectives: [
@@ -41605,6 +41630,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "BitterPill",
 				Data: {
 					Objectives: [
@@ -41738,6 +41764,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "ArkSociety",
 				Data: {
 					Objectives: [
@@ -41871,6 +41898,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "GoldenHandshake",
 				Data: {
 					Objectives: [
@@ -42004,6 +42032,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "LastResort",
 				Data: {
 					Objectives: [
@@ -42141,6 +42170,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "TopoftheWorld",
 				Data: {
 					Objectives: [
@@ -42274,6 +42304,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "DeathintheFamily",
 				Data: {
 					Objectives: [
@@ -42407,6 +42438,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "DartmoorGardenShow",
 				Data: {
 					Objectives: [
@@ -42536,6 +42568,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "ApexPredator",
 				Data: {
 					Objectives: [
@@ -42669,6 +42702,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "EndofanEra",
 				Data: {
 					Objectives: [
@@ -42796,6 +42830,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "TheFarewell",
 				Data: {
 					Objectives: [
@@ -42929,6 +42964,7 @@ module.exports = function EscPlugin(controller) {
 				}
 			},
 			{
+				RouletteSeed: null,
 				RouletteType: "ShadowsintheWater",
 				Data: {
 					Objectives: [
@@ -43057,840 +43093,6 @@ module.exports = function EscPlugin(controller) {
 					Drops: ["1"],
 					PublicId: "099348042247"
 				}
-			}
-		],
-		escalations = [
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "405cf513-5ef6-4cf0-b4c8-a0a126e0fbed",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					ScenePath: "assembly:/_pro/scenes/missions/thefacility/_scene_polarbear_005.entity",
-					Location: "LOCATION_ICA_FACILITY",
-					RequiredUnlockable: "",
-					GroupDefinition: { Type: "escalation", Order: ["9fa789e5-ad9b-47d9-a273-4de53ec12fda"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "c2b79ad8-da87-4374-a9c0-7000172611e5",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/TheFacility/_Scene_Mission_Polarbear_Module_002_B.entity",
-					Location: "LOCATION_ICA_FACILITY_SHIP",
-					RequiredUnlockable: "",
-					GroupDefinition: { Type: "escalation", Order: ["1024ba27-f0fa-486e-b067-5cb0594afce8"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "f2712065-0e9d-41b8-b54b-13c7c44e4c61",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_PARIS",
-					RequiredUnlockable: "",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity",
-					GroupDefinition: { Type: "escalation", Order: ["36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "f2712065-0e9d-41b8-b54b-13c7c44e4c62",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COASTALTOWN",
-					RequiredUnlockable: "",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_octopus.entity",
-					GroupDefinition: { Type: "escalation", Order: ["36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "2a6f0c67-071e-44c8-bff3-01d255f93b52",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COASTALTOWN_MOVIESET",
-					ScenePath: "assembly:/_pro/scenes/missions/coastaltown/_scene_copperhead.entity",
-					GroupDefinition: { Type: "escalation", Order: ["d37426cd-7907-4c5e-99ed-bbe95205a7d1"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "fe8b7cc0-f625-4457-8a90-3de4329dd45c",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COASTALTOWN_NIGHT",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/_Scene_Mission_Mamba.entity",
-					GroupDefinition: { Type: "escalation", Order: ["4ebedf46-31b5-4d10-8a8d-2b3bbd55f85b"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "c951bc49-83a4-47bc-8c54-5af986b6a9d8",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COASTALTOWN_EBOLA",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/scene_ebola.entity",
-					GroupDefinition: { Type: "escalation", Order: ["a2566b41-26b3-4f27-b76c-9f831aae6780"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "a07fb46e-2f92-4df4-bbb1-9b21fb1c82b6",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MARRAKECH",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Spider.entity",
-					GroupDefinition: { Type: "escalation", Order: ["68b5b045-6e05-4461-9155-3be4b63064c2"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "8eb41e07-1014-463d-93f5-9d46c05ff746",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MARRAKECH_NIGHT",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Python.entity",
-					GroupDefinition: { Type: "escalation", Order: ["3fd4ec10-7d6b-45de-b9cf-5b532d48bba2"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "37b018a1-3a22-49a4-86a5-b94ce6ba7bfb",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_BANGKOK",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Bangkok/_scene_tiger.entity",
-					GroupDefinition: { Type: "escalation", Order: ["108aa785-6ca7-4a60-8ca7-b66e347026a4"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "53d473b4-5128-432b-b711-ebf721ebbdb4",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_BANGKOK_ZIKA",
-					ScenePath: "assembly:/_pro/scenes/missions/Bangkok/scene_zika.entity",
-					GroupDefinition: { Type: "escalation", Order: ["c01c4061-6821-4e6a-8fdf-6e535401878e"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "a481752b-5818-4e90-8438-e07f1245f8dd",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COLORADO",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_bull.entity",
-					GroupDefinition: { Type: "escalation", Order: ["095b7bdb-c95f-4112-9cfe-21e533c3a300"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "29d58e63-214b-4c77-b7e1-05cf2bfe3d4a",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_HOKKAIDO",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_snowcrane.entity",
-					GroupDefinition: { Type: "escalation", Order: ["335984ac-5d96-4f81-a1af-4cb9975b4b34"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "559414d6-52d8-4caa-99b0-d5a466be331a",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_HOKKAIDO_FLU",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_flu.entity",
-					GroupDefinition: { Type: "escalation", Order: ["910dc548-6845-47cb-a09f-c77edcdebfbe"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "586d00cb-70c6-4078-bbeb-7004af055d95",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_HOKKAIDO",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/scene_mamushi.entity",
-					GroupDefinition: { Type: "escalation", Order: ["047e0364-4b26-4679-b637-cb939b9f415d"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "c44c59c0-3e8e-4387-92e2-6ec8a99a251c",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_PARIS_NOEL",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity",
-					GroupDefinition: { Type: "escalation", Order: ["499281d3-a697-4ae5-85ba-e533a17d5d53"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "1db968c1-851c-4a43-a1d8-8596be3d9ead",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COLORADO_RABIES",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Colorado_2/scene_rabies.entity",
-					GroupDefinition: { Type: "escalation", Order: ["3bf5da92-f387-4fae-a12c-e56cf9b93834"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H1_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "0af9ae1b-4cc2-4d16-bf9d-2e0a71ef41a3",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_NEWZEALAND",
-					ScenePath: "assembly:/_pro/scenes/missions/sheep/scene_sheep.entity",
-					GroupDefinition: { Type: "escalation", Order: ["f475c192-5eab-4a3f-b62d-68bbd6de6724"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "9a80d7cd-b2bb-47a5-8210-7b14d1772877",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MIAMI",
-					ScenePath: "assembly:/_pro/scenes/missions/miami/scene_flamingo.entity",
-					GroupDefinition: { Type: "escalation", Order: ["b22d78ec-f12b-46f8-89f9-93cb82dc6d71"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MIAMI_COTTONMOUTH",
-					ScenePath: "assembly:/_pro/scenes/missions/miami/scene_cottonmouth.entity",
-					GroupDefinition: { Type: "escalation", Order: ["7c9e6679-7425-40de-944b-e07fc1f90ae7"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "a2b51a56-ff30-4d8e-bb9d-64cfa296834f",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COLOMBIA",
-					ScenePath: "assembly:/_pro/scenes/missions/colombia/scene_hippo.entity",
-					GroupDefinition: { Type: "escalation", Order: ["c5a88b3b-d3af-4691-9ec7-72128c921b55"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "f7d9c596-8ab6-4b87-a78d-3fd7a3e091b6",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_COLOMBIA_ANACONDA",
-					ScenePath: "assembly:/_pro/scenes/missions/colombia/scene_anaconda.entity",
-					GroupDefinition: { Type: "escalation", Order: ["d64f2431-6e43-4b14-a42f-ffb82de870a8"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "8d4547c3-0817-46d1-8727-761f75032e7d",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MUMBAI",
-					ScenePath: "assembly:/_pro/scenes/missions/Mumbai/scene_mongoose.entity",
-					GroupDefinition: { Type: "escalation", Order: ["2a9266f3-2d58-4e68-a9bb-07d8bb7f4e1f"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "0f52d029-368d-4e2f-b32c-1c31b36b9d20",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_MUMBAI_KINGCOBRA",
-					ScenePath: "assembly:/_pro/scenes/missions/mumbai/scene_kingcobra.entity",
-					GroupDefinition: { Type: "escalation", Order: ["29c5e92d-b650-4c1a-8809-55fa8e511562"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "d6720f38-5b88-494f-b7ec-d10e4972b73e",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_NORTHAMERICA",
-					ScenePath: "assembly:/_pro/scenes/missions/skunk/scene_skunk.entity",
-					GroupDefinition: { Type: "escalation", Order: ["e880d5d4-84b4-4a91-8925-1b9f61c21d8a"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "25b93e77-2b57-42cb-ae29-7257a7e49a0c",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_NORTHAMERICA_GARTERSNAKE",
-					ScenePath: "assembly:/_pro/scenes/missions/skunk/scene_gartersnake.entity",
-					GroupDefinition: { Type: "escalation", Order: ["b539a067-1763-4b97-b9c4-1ed69b8d6b02"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "0c9ee8e4-6b08-4969-b33e-3b682b4b58c9",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_NORTHSEA",
-					ScenePath: "assembly:/_pro/scenes/missions/theark/scene_magpie.entity",
-					GroupDefinition: { Type: "escalation", Order: ["ee7b2b1a-0d9d-437e-b42e-1b527799a91b"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_STANDARD"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "fdbbf019-f34a-4c2c-a4fc-4b79f06258ae",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_GREEDY_RACCOON",
-					ScenePath: "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/scene_raccoon_basic.entity",
-					GroupDefinition: { Type: "escalation", Order: ["d1aa7ad3-1b9e-4e36-8d48-9c5bc7e3e618"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "f35d5fb1-00e4-4e95-9ef3-eb2d0e180d27",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_OPULENT_STINGRAY",
-					ScenePath: "assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_stingray_basic.entity",
-					GroupDefinition: { Type: "escalation", Order: ["ed5ff1f8-dbee-4439-a48e-8cb3a0536be2"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["H2_LEGACY_EXPANSION"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "4a6fcd4e-21c1-4ba3-b47e-c215f352f20e",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/Contracts/RandomRoulette/FF-R.png",
-					Location: "LOCATION_GOLDEN_GECKO",
-					ScenePath: "assembly:/_pro/scenes/missions/golden/mission_gecko/scene_gecko_basic.entity",
-					GroupDefinition: { Type: "escalation", Order: ["c67c7a11-01f7-434e-976e-901c20be8fc2"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_GOLDEN"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "fae07309-3a6e-40cb-893e-f9a86b1f73a7",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_ANCESTRAL_BULLDOG",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Ancestral/scene_bulldog.entity",
-					GroupDefinition: { Type: "escalation", Order: ["f0d66a38-24d7-4cf4-9a71-b98d35fb1b1a"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_ANCESTRAL"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "2d3a1724-4923-4b8d-bd0d-7ab33a3a0fd8",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_ANCESTRAL_SMOOTHSNAKE",
-					ScenePath: "assembly:/_PRO/Scenes/Missions/Ancestral/scene_smoothsnake.entity",
-					GroupDefinition: { Type: "escalation", Order: ["1f23ff13-f1f4-49c8-936f-d405d7af0252"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_ANCESTRAL"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "0e7b65b4-8298-438d-8ef6-31c7d6637ae4",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_EDGY_FOX",
-					ScenePath: "assembly:/_pro/scenes/missions/edgy/mission_fox/scene_fox_basic.entity",
-					GroupDefinition: { Type: "escalation", Order: ["968153b5-5467-4b1a-b29f-18ae5828f125"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_EDGY"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "d5e05354-57de-4f11-92b5-6fb8df007d71",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_WET_RAT",
-					ScenePath: "assembly:/_pro/scenes/missions/wet/scene_rat_basic.entity",
-					GroupDefinition: { Type: "escalation", Order: ["b4f27b27-ec9f-4f78-a583-6dcb6d6a3f52"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_WET"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "45fd071a-9f8e-4cb2-a3de-ec1a4f7a1c0c",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_ELEGANT_LLAMA",
-					ScenePath: "assembly:/_pro/scenes/missions/elegant/scene_llama.entity",
-					GroupDefinition: { Type: "escalation", Order: ["d8e15667-ec5b-4f12-bb5d-8a726a0e78d2"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_ELEGANT"],
-					season: -1
-				},
-				UserData: {}
-			},
-			{
-				Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
-				Metadata: {
-					Id: "92eb28bf-480b-4ad8-8404-7800128f3994",
-					IsPublished: !0,
-					CreationTimestamp: "2015-11-26T15:00:06.36Z",
-					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
-					Title: "RR_TEST",
-					Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
-					CodeName_Hint: "Snowdrop Group",
-					TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
-					Location: "LOCATION_ROCKY_DUGONG",
-					ScenePath: "assembly:/_pro/scenes/missions/Rocky/scene_dugong.entity",
-					GroupDefinition: { Type: "escalation", Order: ["8bde3c9a-09cb-4f45-b21b-8b0a02f9ac26"] },
-					Type: "escalation",
-					Release: "1.0.x Escalation",
-					LastUpdate: "2020-11-09T13:35:25.5078466Z",
-					PublicId: "001479819747",
-					Entitlements: ["LOCATION_ROCKY"],
-					season: -1
-				},
-				UserData: {}
 			}
 		],
 		TutorialGameChanger = ["9dd8ad68-0882-495f-9d65-4c558a77e9b3"],
@@ -61940,8 +61142,842 @@ module.exports = function EscPlugin(controller) {
 		if (a) return a
 	})
 	// Add contracts and escalations
+	const escalations = [
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "405cf513-5ef6-4cf0-b4c8-a0a126e0fbed",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				ScenePath: "assembly:/_pro/scenes/missions/thefacility/_scene_polarbear_005.entity",
+				Location: "LOCATION_ICA_FACILITY",
+				RequiredUnlockable: "",
+				GroupDefinition: { Type: "escalation", Order: ["9fa789e5-ad9b-47d9-a273-4de53ec12fda"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "c2b79ad8-da87-4374-a9c0-7000172611e5",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/TheFacility/_Scene_Mission_Polarbear_Module_002_B.entity",
+				Location: "LOCATION_ICA_FACILITY_SHIP",
+				RequiredUnlockable: "",
+				GroupDefinition: { Type: "escalation", Order: ["1024ba27-f0fa-486e-b067-5cb0594afce8"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "f2712065-0e9d-41b8-b54b-13c7c44e4c61",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_PARIS",
+				RequiredUnlockable: "",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity",
+				GroupDefinition: { Type: "escalation", Order: ["36b3dcb4-2e22-4b7e-b1b0-3e8708bf52b5"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "f2712065-0e9d-41b8-b54b-13c7c44e4c62",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COASTALTOWN",
+				RequiredUnlockable: "",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_octopus.entity",
+				GroupDefinition: { Type: "escalation", Order: ["36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "2a6f0c67-071e-44c8-bff3-01d255f93b52",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COASTALTOWN_MOVIESET",
+				ScenePath: "assembly:/_pro/scenes/missions/coastaltown/_scene_copperhead.entity",
+				GroupDefinition: { Type: "escalation", Order: ["d37426cd-7907-4c5e-99ed-bbe95205a7d1"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "fe8b7cc0-f625-4457-8a90-3de4329dd45c",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COASTALTOWN_NIGHT",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/_Scene_Mission_Mamba.entity",
+				GroupDefinition: { Type: "escalation", Order: ["4ebedf46-31b5-4d10-8a8d-2b3bbd55f85b"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "c951bc49-83a4-47bc-8c54-5af986b6a9d8",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COASTALTOWN_EBOLA",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/scene_ebola.entity",
+				GroupDefinition: { Type: "escalation", Order: ["a2566b41-26b3-4f27-b76c-9f831aae6780"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "a07fb46e-2f92-4df4-bbb1-9b21fb1c82b6",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MARRAKECH",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Spider.entity",
+				GroupDefinition: { Type: "escalation", Order: ["68b5b045-6e05-4461-9155-3be4b63064c2"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "8eb41e07-1014-463d-93f5-9d46c05ff746",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MARRAKECH_NIGHT",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Python.entity",
+				GroupDefinition: { Type: "escalation", Order: ["3fd4ec10-7d6b-45de-b9cf-5b532d48bba2"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "37b018a1-3a22-49a4-86a5-b94ce6ba7bfb",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_BANGKOK",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Bangkok/_scene_tiger.entity",
+				GroupDefinition: { Type: "escalation", Order: ["108aa785-6ca7-4a60-8ca7-b66e347026a4"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "53d473b4-5128-432b-b711-ebf721ebbdb4",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_BANGKOK_ZIKA",
+				ScenePath: "assembly:/_pro/scenes/missions/Bangkok/scene_zika.entity",
+				GroupDefinition: { Type: "escalation", Order: ["c01c4061-6821-4e6a-8fdf-6e535401878e"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "a481752b-5818-4e90-8438-e07f1245f8dd",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COLORADO",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_bull.entity",
+				GroupDefinition: { Type: "escalation", Order: ["095b7bdb-c95f-4112-9cfe-21e533c3a300"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "29d58e63-214b-4c77-b7e1-05cf2bfe3d4a",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_HOKKAIDO",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_snowcrane.entity",
+				GroupDefinition: { Type: "escalation", Order: ["335984ac-5d96-4f81-a1af-4cb9975b4b34"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "559414d6-52d8-4caa-99b0-d5a466be331a",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_HOKKAIDO_FLU",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_flu.entity",
+				GroupDefinition: { Type: "escalation", Order: ["910dc548-6845-47cb-a09f-c77edcdebfbe"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "586d00cb-70c6-4078-bbeb-7004af055d95",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_HOKKAIDO",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Hokkaido/scene_mamushi.entity",
+				GroupDefinition: { Type: "escalation", Order: ["047e0364-4b26-4679-b637-cb939b9f415d"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "c44c59c0-3e8e-4387-92e2-6ec8a99a251c",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_PARIS_NOEL",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity",
+				GroupDefinition: { Type: "escalation", Order: ["499281d3-a697-4ae5-85ba-e533a17d5d53"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "1db968c1-851c-4a43-a1d8-8596be3d9ead",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COLORADO_RABIES",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Colorado_2/scene_rabies.entity",
+				GroupDefinition: { Type: "escalation", Order: ["3bf5da92-f387-4fae-a12c-e56cf9b93834"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H1_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "0af9ae1b-4cc2-4d16-bf9d-2e0a71ef41a3",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_NEWZEALAND",
+				ScenePath: "assembly:/_pro/scenes/missions/sheep/scene_sheep.entity",
+				GroupDefinition: { Type: "escalation", Order: ["f475c192-5eab-4a3f-b62d-68bbd6de6724"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "9a80d7cd-b2bb-47a5-8210-7b14d1772877",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MIAMI",
+				ScenePath: "assembly:/_pro/scenes/missions/miami/scene_flamingo.entity",
+				GroupDefinition: { Type: "escalation", Order: ["b22d78ec-f12b-46f8-89f9-93cb82dc6d71"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MIAMI_COTTONMOUTH",
+				ScenePath: "assembly:/_pro/scenes/missions/miami/scene_cottonmouth.entity",
+				GroupDefinition: { Type: "escalation", Order: ["7c9e6679-7425-40de-944b-e07fc1f90ae7"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "a2b51a56-ff30-4d8e-bb9d-64cfa296834f",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COLOMBIA",
+				ScenePath: "assembly:/_pro/scenes/missions/colombia/scene_hippo.entity",
+				GroupDefinition: { Type: "escalation", Order: ["c5a88b3b-d3af-4691-9ec7-72128c921b55"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "f7d9c596-8ab6-4b87-a78d-3fd7a3e091b6",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_COLOMBIA_ANACONDA",
+				ScenePath: "assembly:/_pro/scenes/missions/colombia/scene_anaconda.entity",
+				GroupDefinition: { Type: "escalation", Order: ["d64f2431-6e43-4b14-a42f-ffb82de870a8"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "8d4547c3-0817-46d1-8727-761f75032e7d",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MUMBAI",
+				ScenePath: "assembly:/_pro/scenes/missions/Mumbai/scene_mongoose.entity",
+				GroupDefinition: { Type: "escalation", Order: ["2a9266f3-2d58-4e68-a9bb-07d8bb7f4e1f"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "0f52d029-368d-4e2f-b32c-1c31b36b9d20",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_MUMBAI_KINGCOBRA",
+				ScenePath: "assembly:/_pro/scenes/missions/mumbai/scene_kingcobra.entity",
+				GroupDefinition: { Type: "escalation", Order: ["29c5e92d-b650-4c1a-8809-55fa8e511562"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "d6720f38-5b88-494f-b7ec-d10e4972b73e",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_NORTHAMERICA",
+				ScenePath: "assembly:/_pro/scenes/missions/skunk/scene_skunk.entity",
+				GroupDefinition: { Type: "escalation", Order: ["e880d5d4-84b4-4a91-8925-1b9f61c21d8a"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "25b93e77-2b57-42cb-ae29-7257a7e49a0c",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_NORTHAMERICA_GARTERSNAKE",
+				ScenePath: "assembly:/_pro/scenes/missions/skunk/scene_gartersnake.entity",
+				GroupDefinition: { Type: "escalation", Order: ["b539a067-1763-4b97-b9c4-1ed69b8d6b02"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "0c9ee8e4-6b08-4969-b33e-3b682b4b58c9",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_NORTHSEA",
+				ScenePath: "assembly:/_pro/scenes/missions/theark/scene_magpie.entity",
+				GroupDefinition: { Type: "escalation", Order: ["ee7b2b1a-0d9d-437e-b42e-1b527799a91b"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_STANDARD"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "fdbbf019-f34a-4c2c-a4fc-4b79f06258ae",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_GREEDY_RACCOON",
+				ScenePath: "assembly:/_pro/scenes/missions/Greedy/mission_raccoon/scene_raccoon_basic.entity",
+				GroupDefinition: { Type: "escalation", Order: ["d1aa7ad3-1b9e-4e36-8d48-9c5bc7e3e618"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "f35d5fb1-00e4-4e95-9ef3-eb2d0e180d27",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_OPULENT_STINGRAY",
+				ScenePath: "assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_stingray_basic.entity",
+				GroupDefinition: { Type: "escalation", Order: ["ed5ff1f8-dbee-4439-a48e-8cb3a0536be2"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["H2_LEGACY_EXPANSION"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "4a6fcd4e-21c1-4ba3-b47e-c215f352f20e",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/Contracts/RandomRoulette/FF-R.png",
+				Location: "LOCATION_GOLDEN_GECKO",
+				ScenePath: "assembly:/_pro/scenes/missions/golden/mission_gecko/scene_gecko_basic.entity",
+				GroupDefinition: { Type: "escalation", Order: ["c67c7a11-01f7-434e-976e-901c20be8fc2"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_GOLDEN"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "fae07309-3a6e-40cb-893e-f9a86b1f73a7",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_ANCESTRAL_BULLDOG",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Ancestral/scene_bulldog.entity",
+				GroupDefinition: { Type: "escalation", Order: ["f0d66a38-24d7-4cf4-9a71-b98d35fb1b1a"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_ANCESTRAL"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "2d3a1724-4923-4b8d-bd0d-7ab33a3a0fd8",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_ANCESTRAL_SMOOTHSNAKE",
+				ScenePath: "assembly:/_PRO/Scenes/Missions/Ancestral/scene_smoothsnake.entity",
+				GroupDefinition: { Type: "escalation", Order: ["1f23ff13-f1f4-49c8-936f-d405d7af0252"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_ANCESTRAL"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "0e7b65b4-8298-438d-8ef6-31c7d6637ae4",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_EDGY_FOX",
+				ScenePath: "assembly:/_pro/scenes/missions/edgy/mission_fox/scene_fox_basic.entity",
+				GroupDefinition: { Type: "escalation", Order: ["968153b5-5467-4b1a-b29f-18ae5828f125"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_EDGY"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "d5e05354-57de-4f11-92b5-6fb8df007d71",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_WET_RAT",
+				ScenePath: "assembly:/_pro/scenes/missions/wet/scene_rat_basic.entity",
+				GroupDefinition: { Type: "escalation", Order: ["b4f27b27-ec9f-4f78-a583-6dcb6d6a3f52"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_WET"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "45fd071a-9f8e-4cb2-a3de-ec1a4f7a1c0c",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_ELEGANT_LLAMA",
+				ScenePath: "assembly:/_pro/scenes/missions/elegant/scene_llama.entity",
+				GroupDefinition: { Type: "escalation", Order: ["d8e15667-ec5b-4f12-bb5d-8a726a0e78d2"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_ELEGANT"],
+				season: -1
+			},
+			UserData: {}
+		},
+		{
+			Data: { EnableSaving: !1, Objectives: [], Bricks: [], GameChangers: [] },
+			Metadata: {
+				Id: "92eb28bf-480b-4ad8-8404-7800128f3994",
+				IsPublished: !0,
+				CreationTimestamp: "2015-11-26T15:00:06.36Z",
+				CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
+				Title: "RR_TEST",
+				Description: "UI_CONTRACT_SNOWDROP_GROUP_DESC",
+				CodeName_Hint: "Snowdrop Group",
+				TileImage: "images/contracts/bulldog/bulldog_tile.jpg",
+				Location: "LOCATION_ROCKY_DUGONG",
+				ScenePath: "assembly:/_pro/scenes/missions/Rocky/scene_dugong.entity",
+				GroupDefinition: { Type: "escalation", Order: ["8bde3c9a-09cb-4f45-b21b-8b0a02f9ac26"] },
+				Type: "escalation",
+				Release: "1.0.x Escalation",
+				LastUpdate: "2020-11-09T13:35:25.5078466Z",
+				PublicId: "001479819747",
+				Entitlements: ["LOCATION_ROCKY"],
+				season: -1
+			},
+			UserData: {}
+		}
+	]
 	escalations.forEach((a) => {
-		controller.addEscalation(a)
+		controller.addEscalation(a, a.Metadata.Location, "h3")
 	})
 	///Regenerate Contracts on Escalation Reset
 	controller.hooks.onEscalationReset.tap("randomreset", (t) => {
@@ -62057,6 +62093,7 @@ module.exports = function EscPlugin(controller) {
 	//Uses all of the previous code stuffs to randomize the contracts
 	function RandomizeContracts(contracts) {
 		contracts.forEach((contract) => {
+			contract.RouletteSeed = seed
 			function getRandomTargetId() {
 				// Filter out used target IDs
 				const availableTargets = possibleTargets.filter((target) => !usedTargetIds.includes(target))

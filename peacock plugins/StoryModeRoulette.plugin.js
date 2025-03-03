@@ -44,7 +44,7 @@ class MersenneTwister {
 }
 
 module.exports = function ContractSearch(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.5") {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
 		return
 	}
 	let seed = controller.transferseed
@@ -3698,7 +3698,7 @@ module.exports = function ContractSearch(controller) {
 			// Easter egg: why in the hell are you reading through this mess of a plugin? Are you a masochist or something?
 
 			baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, additionalObjectives(selectedMission))
-
+			baseContract.RouletteSeed = seed
 			if (selectedMission == "LOCATION_ICA_FACILITY_SHIP") {
 				baseContract.Data.MandatoryLoadout = [
 					{

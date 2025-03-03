@@ -33,7 +33,7 @@ var __toESM = (mod, isNodeMode, target) => (
 var import_loggingInterop = require("@peacockproject/core/loggingInterop")
 var path = __toESM(require("path"))
 function initPlugin(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.5") {
+	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
 		return
 	}
 	const groupName = "roulette-challenge-pack"
@@ -542,6 +542,7 @@ function initPlugin(controller) {
 			// Those don't really do anything, but it's a good idea to populate the tags.
 			Tags: ["story", "hard", groupName],
 			InclusionData: {
+				ContractTypes: ["bulletdancer"],
 				ContractIds: ["218313f3-2b5e-4a8b-b916-ab5862b7874f"]
 			}
 		},
@@ -605,6 +606,7 @@ function initPlugin(controller) {
 			// Those don't really do anything, but it's a good idea to populate the tags.
 			Tags: ["story", "hard", groupName],
 			InclusionData: {
+				ContractTypes: ["bulletdancer"],
 				ContractIds: ["218313f3-2b5e-4a8b-b916-ab5862b7874f"]
 			}
 		},
@@ -668,6 +670,7 @@ function initPlugin(controller) {
 			// Those don't really do anything, but it's a good idea to populate the tags.
 			Tags: ["story", "hard", groupName],
 			InclusionData: {
+				ContractTypes: ["bulletdancer"],
 				ContractIds: ["218313f3-2b5e-4a8b-b916-ab5862b7874f"]
 			}
 		}

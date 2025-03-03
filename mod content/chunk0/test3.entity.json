@@ -1,0 +1,902 @@
+{
+	"tempHash": "00E31B270BC4EEF7",
+	"tbluHash": "0073FEAD9C8A5B2F",
+	"rootEntity": "4d967a557168d965",
+	"entities": {
+		"cfd12ae2f86b0138": {
+			"parent": "b549eab69026e9a4",
+			"name": "PosBox_MuzzleExit",
+			"factory": "[modules:/zcompositeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcompositeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": -0.0017729999963194132,
+							"y": 0.13811400532722473,
+							"z": 0.0451200008392334
+						}
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4",
+					"postInit": true
+				}
+			}
+		},
+		"e433b14d0c39ba3a": {
+			"parent": "4d967a557168d965",
+			"name": "HideClipBoneName",
+			"factory": "[modules:/zhm5valueentity_zstring.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5valueentity_zstring.class].pc_entityblueprint",
+			"properties": {
+				"m_bForwardOnSet": { "type": "bool", "value": false },
+				"m_Value": { "type": "ZString", "value": "w_bone_clip" },
+				"m_bLocalize": { "type": "bool", "value": false }
+			},
+			"events": { "Value": { "HideBone": ["b549eab69026e9a4"] } }
+		},
+		"26825904f9effc5c": {
+			"parent": "4d967a557168d965",
+			"name": "Keyword_WEAPON_ICA_SMALL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_ica_small.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_ica_small.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"],
+					"postInit": true
+				}
+			}
+		},
+		"e701791ec9cd87a8": {
+			"parent": "4d967a557168d965",
+			"name": "HM5CamFov",
+			"factory": "[modules:/zhm5camfoventity.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5camfoventity.class].pc_entityblueprint",
+			"properties": {
+				"m_fFov1Max": { "type": "float32", "value": 0.5 },
+				"m_fFov1Min": {
+					"type": "float32",
+					"value": 0.30000001192092896
+				},
+				"m_fFov2Max": {
+					"type": "float32",
+					"value": -0.05000000074505806
+				},
+				"m_fFov2Min": {
+					"type": "float32",
+					"value": -0.10000000149011612
+				},
+				"m_fBlendIn1": {
+					"type": "float32",
+					"value": 0.0010000000474974513
+				},
+				"m_fBlendIn2": {
+					"type": "float32",
+					"value": 0.05000000074505806
+				},
+				"m_fBlendOut": {
+					"type": "float32",
+					"value": 0.019999999552965164
+				}
+			}
+		},
+		"f0a7256084917b2f": {
+			"parent": "2f09e440e79c1651",
+			"name": "EntityTrack",
+			"factory": "[modules:/zentitygroup.class].pc_entitytype",
+			"blueprint": "[modules:/zentitygroup.class].pc_entityblueprint",
+			"properties": {
+				"m_targetEntity": {
+					"type": "SEntityTemplateReference",
+					"value": "a9a92006a0f12eae",
+					"postInit": true
+				},
+				"m_aTracksAndGroups": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["52b1b162301dc476"],
+					"postInit": true
+				}
+			}
+		},
+		"948ff63f21c032bd": {
+			"parent": "4d967a557168d965",
+			"name": "Weapon Event Consumer",
+			"factory": "[modules:/zhm5weaponeventconsumer.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5weaponeventconsumer.class].pc_entityblueprint",
+			"events": {
+				"ShowClip": { "Get": ["1d52d7b3cb7ddd06"] },
+				"HideClip": { "Get": ["e433b14d0c39ba3a"] },
+				"SpawnPhysicsClip": { "SpawnClip": ["b549eab69026e9a4"] }
+			}
+		},
+		"13725764a149ca44": {
+			"parent": "4d967a557168d965",
+			"name": "EventConsumerCollection",
+			"factory": "[modules:/zeventconsumercollection.class].pc_entitytype",
+			"blueprint": "[modules:/zeventconsumercollection.class].pc_entityblueprint",
+			"properties": {
+				"m_BaseEventConsumers": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["948ff63f21c032bd"]
+				}
+			}
+		},
+		"cf2f355f480a396b": {
+			"parent": "4d967a557168d965",
+			"name": "SingleGun",
+			"factory": "[modules:/zvariationresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zvariationresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_VariationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/animationdatabases/hm5_weapons.aset?/singlegun.asva].pc_asva",
+						"flag": "5F"
+					}
+				}
+			}
+		},
+		"586a4de5812b5cc2": {
+			"parent": "b549eab69026e9a4",
+			"name": "PosBox_CartridgeEject",
+			"factory": "[modules:/zcompositeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcompositeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": {
+							"x": -3.632592272676859,
+							"y": -45.85062032035997,
+							"z": -2.1236669926829923
+						},
+						"position": {
+							"x": 0.017928000539541245,
+							"y": 0.009569999761879444,
+							"z": 0.05631199851632118
+						}
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4",
+					"postInit": true
+				}
+			}
+		},
+		"ef65779b6633e2f0": {
+			"parent": "4d967a557168d965",
+			"name": "GUN_DualHardBaller_Reload_Left",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/reload/hm_dualhardballer_reload.xmd?/gun2_dualhardballer_reload.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": {
+					"type": "ZString",
+					"value": "DualReloadLeft"
+				}
+			}
+		},
+		"7635f203eaf49992": {
+			"parent": "4d967a557168d965",
+			"name": "Keyword_WEAPON_FIREARM",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_firearm.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_firearm.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"],
+					"postInit": true
+				}
+			}
+		},
+		"f8aa81ba7d4031a9": {
+			"parent": "4d967a557168d965",
+			"name": "Keyword_WEAPON_FIREARM_1H",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_firearm_1h.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_firearm_1h.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"],
+					"postInit": true
+				}
+			}
+		},
+		"04172b60cd6f7cb9": {
+			"parent": "4d967a557168d965",
+			"name": "PlacementVolume",
+			"factory": "[modules:/zboxvolumeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zboxvolumeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": {
+							"x": 0.0,
+							"y": 0.0689999982714653,
+							"z": -0.009999999776482582
+						}
+					}
+				},
+				"m_vGlobalSize": {
+					"type": "SVector3",
+					"value": {
+						"x": 0.019999999552965164,
+						"y": 0.33000001311302185,
+						"z": 0.12999999523162842
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4",
+					"postInit": true
+				}
+			}
+		},
+		"b80e19162854da79": {
+			"parent": "4d967a557168d965",
+			"name": "AmmoProperties_Hero_Pistol",
+			"factory": "[modules:/zhm5ammoproperties.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5ammoproperties.class].pc_entityblueprint",
+			"properties": {
+				"m_fBlodSplatSizeMultiplier": {
+					"type": "float32",
+					"value": 0.8500000238418579
+				},
+				"m_fTracerEveryNthBullet": { "type": "int32", "value": 3 }
+			}
+		},
+		"2f09e440e79c1651": {
+			"parent": "4d967a557168d965",
+			"name": "Hardballer_Rumble",
+			"factory": "[modules:/zsequenceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zsequenceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_duration": {
+					"type": "ZGameTime",
+					"value": { "m_nTicks": 125829 }
+				},
+				"m_aTracksAndGroups": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["f0a7256084917b2f"]
+				}
+			}
+		},
+		"87d2dc7ba06d384a": {
+			"parent": "4d967a557168d965",
+			"name": "RandomFloat32Entity",
+			"factory": "[modules:/zrandentity_float32.class].pc_entitytype",
+			"blueprint": "[modules:/zrandentity_float32.class].pc_entityblueprint"
+		},
+		"40bb90e1e70eedf0": {
+			"parent": "4d967a557168d965",
+			"name": "AnimPlayerEntity",
+			"factory": "[modules:/zanimplayerentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimplayerentity.class].pc_entityblueprint",
+			"properties": {
+				"m_pEventConsumerCollection": {
+					"type": "SEntityTemplateReference",
+					"value": "13725764a149ca44"
+				},
+				"m_bTrajectoryEnabled": { "type": "bool", "value": false },
+				"m_fAnimTime": { "type": "float32", "value": 0.0 },
+				"m_bLoop": { "type": "bool", "value": false },
+				"m_AnimPlayListEntity": {
+					"type": "SEntityTemplateReference",
+					"value": "5936f4d8694654a4",
+					"postInit": true
+				},
+				"m_LinkedEntity": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4",
+					"postInit": true
+				}
+			}
+		},
+		"c6a80f8943f27002": {
+			"parent": "4d967a557168d965",
+			"name": "DebugBox",
+			"factory": "[modules:/zdebugboxentity.class].pc_entitytype",
+			"blueprint": "[modules:/zdebugboxentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+					}
+				},
+				"m_rBoxVolume": {
+					"type": "SEntityTemplateReference",
+					"value": "04172b60cd6f7cb9"
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "04172b60cd6f7cb9"
+				},
+				"m_Color": { "type": "SColorRGBA", "value": "#6cf56cff" },
+				"m_bForceVisible": { "type": "bool", "value": true },
+				"m_eDrawLayer": {
+					"type": "ZDebugSpatialEntity.EDrawLayer",
+					"value": "DL_ALIGNMENT"
+				},
+				"m_bSelectVisibleOnly": { "type": "bool", "value": false }
+			}
+		},
+		"037c7beaaa19c1c4": {
+			"parent": "52b1b162301dc476",
+			"name": "Boolean",
+			"factory": "[modules:/zbooleansource.class].pc_entitytype",
+			"blueprint": "[modules:/zbooleansource.class].pc_entityblueprint",
+			"properties": {
+				"m_startTime": {
+					"type": "ZGameTime",
+					"value": { "m_nTicks": 0 }
+				},
+				"m_duration": {
+					"type": "ZGameTime",
+					"value": { "m_nTicks": 262144 }
+				},
+				"m_fTimes": {
+					"type": "TArray<ZGameTime>",
+					"value": [{ "m_nTicks": 0 }, { "m_nTicks": 125829 }]
+				},
+				"m_bValues": {
+					"type": "TArray<bool>",
+					"value": [true, false]
+				}
+			}
+		},
+		"3b3582ea0f889769": {
+			"parent": "4d967a557168d965",
+			"name": "GUN_SingleHardBaller_Reload",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/reload/hm_singlehardballer_reload.xmd?/gun_singlehardballer_reload.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": { "type": "ZString", "value": "Reload" }
+			}
+		},
+		"a908f0123692d4ae": {
+			"parent": "4d967a557168d965",
+			"name": "Gun_Single_SilverBaller_Firing",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/firing/gun_single_silverballer_firing.xmd?/gun_single_silverballer_firing.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": { "type": "ZString", "value": "Fire" }
+			}
+		},
+		"6de44f4b996116b0": {
+			"parent": "4d967a557168d965",
+			"name": "DualGuns",
+			"factory": "[modules:/zvariationresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zvariationresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_VariationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/animationdatabases/hm5_weapons.aset?/dualguns.asva].pc_asva",
+						"flag": "5F"
+					}
+				}
+			}
+		},
+		"77e212318a5eed71": {
+			"parent": "4d967a557168d965",
+			"name": "VariationListEntity",
+			"factory": "[modules:/zvariationlistentity.class].pc_entitytype",
+			"blueprint": "[modules:/zvariationlistentity.class].pc_entityblueprint",
+			"properties": {
+				"m_VariationList": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["cf2f355f480a396b", "6de44f4b996116b0"]
+				}
+			}
+		},
+		"7618970a881281f6": {
+			"parent": "4d967a557168d965",
+			"name": "Gun_Single_SilverBaller_FinalShot",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/firing/gun_single_silverballer_firing.xmd?/gun_single_silverballer_finalshot.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": { "type": "ZString", "value": "FinalShot" }
+			}
+		},
+		"1d52d7b3cb7ddd06": {
+			"parent": "4d967a557168d965",
+			"name": "ShowClipBoneName",
+			"factory": "[modules:/zhm5valueentity_zstring.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5valueentity_zstring.class].pc_entityblueprint",
+			"properties": {
+				"m_Value": { "type": "ZString", "value": "w_bone_clip" },
+				"m_bForwardOnSet": { "type": "bool", "value": false },
+				"m_bLocalize": { "type": "bool", "value": false }
+			},
+			"events": { "Value": { "ShowBone": ["b549eab69026e9a4"] } }
+		},
+		"52b1b162301dc476": {
+			"parent": "f0a7256084917b2f",
+			"name": "m_bActive Track",
+			"factory": "[modules:/zentitypropertytrack.class].pc_entitytype",
+			"blueprint": "[modules:/zentitypropertytrack.class].pc_entityblueprint",
+			"properties": {
+				"m_sPropertyName": {
+					"type": "ZString",
+					"value": "m_bActive"
+				},
+				"m_entityGroup": {
+					"type": "SEntityTemplateReference",
+					"value": "f0a7256084917b2f"
+				},
+				"m_aItems": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["037c7beaaa19c1c4"]
+				}
+			},
+			"platformSpecificProperties": {
+				"PS5": {
+					"m_sPropertyName": {
+						"type": "ZString",
+						"value": "PS5_DontUse"
+					}
+				}
+			}
+		},
+		"a9a92006a0f12eae": {
+			"parent": "4d967a557168d965",
+			"name": "ZRumbleEntity",
+			"factory": "[modules:/zrumbleentity.class].pc_entitytype",
+			"blueprint": "[modules:/zrumbleentity.class].pc_entityblueprint",
+			"properties": {
+				"m_fRightRPM": { "type": "float32", "value": 0.5 },
+				"m_fLeftRPM": { "type": "float32", "value": 0.5 }
+			}
+		},
+		"6eae7d0bbbb3cb31": {
+			"parent": "4d967a557168d965",
+			"name": "KeywordEntity_DIALOGUE_GUN",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordaidialogue.template?/keywordentity_dialogue_gun.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordaidialogue.template?/keywordentity_dialogue_gun.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"],
+					"postInit": true
+				}
+			}
+		},
+		"b549eab69026e9a4": {
+			"parent": "4d967a557168d965",
+			"name": "Firearm_Model_Pistol_Classic_A",
+			"factory": "007980B1B988423D",
+			"blueprint": "0040D0A04ACE4EB9",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": {
+							"x": -0.00022918311747247523,
+							"y": 0.000572957780599778,
+							"z": 2.291830575204098e-9
+						},
+						"position": {
+							"x": 0.0,
+							"y": 0.0,
+							"z": -0.0001900000061141327
+						}
+					}
+				},
+				"m_eRoomBehaviour": {
+					"type": "ZSpatialEntity.ERoomBehaviour",
+					"value": "ROOM_DYNAMIC"
+				},
+				"m_eGlowType": {
+					"type": "ERenderGlowTypes",
+					"value": "ERENDERGLOWTYPE_ITEMS"
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "4d967a557168d965",
+					"postInit": true
+				}
+			}
+		},
+		"dcc3f0990b175196": {
+			"parent": "4d967a557168d965",
+			"name": "GUN_DualHardBaller_Reload_Right",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/reload/hm_dualhardballer_reload.xmd?/gun_dualhardballer_reload.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": {
+					"type": "ZString",
+					"value": "DualReloadRight"
+				}
+			}
+		},
+		"da04fceca541531f": {
+			"parent": "4d967a557168d965",
+			"name": "Keyword_WEAPON_SMALL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_small.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_small.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"]
+				}
+			}
+		},
+		"dfdddf922c2bd634": {
+			"parent": "4d967a557168d965",
+			"name": "GUN_SingleHardBaller_Crouch_Reload",
+			"factory": "[modules:/zanimresourceentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimresourceentity.class].pc_entityblueprint",
+			"properties": {
+				"m_animationResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/animations/hitman01/movement/019_weapon actions/reload/hm_singlehardballer_crouch_reload.xmd?/gun_singlehardballer_crouch_reload.xmdtake](cutsequence).pc_animation",
+						"flag": "5F"
+					}
+				},
+				"m_sAnimName": {
+					"type": "ZString",
+					"value": "Crouch_Reload"
+				}
+			}
+		},
+		"5936f4d8694654a4": {
+			"parent": "4d967a557168d965",
+			"name": "AnimPlayListEntity",
+			"factory": "[modules:/zanimplaylistentity.class].pc_entitytype",
+			"blueprint": "[modules:/zanimplaylistentity.class].pc_entityblueprint",
+			"properties": {
+				"m_AnimList": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": [
+						"a908f0123692d4ae",
+						"7618970a881281f6",
+						"3b3582ea0f889769",
+						"dcc3f0990b175196",
+						"ef65779b6633e2f0",
+						"dfdddf922c2bd634"
+					]
+				}
+			}
+		},
+		"535708f5a4ea60de": {
+			"parent": "4d967a557168d965",
+			"name": "PropHelper_Item_Placement",
+			"factory": "[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/prophelpers.template?/prophelper_item_placement.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": {
+							"x": 180.0,
+							"y": 89.99983794485559,
+							"z": 0.0
+						},
+						"position": {
+							"x": -0.02007400058209896,
+							"y": 0.0,
+							"z": 0.0
+						}
+					}
+				},
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4"
+				}
+			}
+		},
+		"629df25c1f698b72": {
+			"parent": "4d967a557168d965",
+			"name": "WeaponModularCore",
+			"factory": "[assembly:/_pro/design/gamecore/itemcore.template?/weaponmodularcore.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/itemcore.template?/weaponmodularcore.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_Geom": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4"
+				},
+				"m_rGeomentity": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4"
+				},
+				"m_AmmoProperties": {
+					"type": "SEntityTemplateReference",
+					"value": "b80e19162854da79"
+				},
+				"m_MuzzleExit": {
+					"type": "SEntityTemplateReference",
+					"value": {
+						"ref": "b549eab69026e9a4",
+						"externalScene": null,
+						"exposedEntity": "MuzzleExit"
+					}
+				},
+				"m_CartridgeEject": {
+					"type": "SEntityTemplateReference",
+					"value": "586a4de5812b5cc2"
+				},
+				"m_ridClipTemplate": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "[assembly:/_pro/items/templates/firearms/ammunition/shells.template?/cartridge_45acp_silverballer_a.entitytemplate].pc_entitytemplate",
+						"flag": "5F"
+					}
+				},
+				"m_CollisionResourceID": {
+					"type": "ZRuntimeResourceID",
+					"value": {
+						"resource": "00EB4D9ABD3A3F51",
+						"flag": "5F"
+					}
+				},
+				"m_fMass": {
+					"type": "float32",
+					"value": 1.100000023841858
+				},
+				"m_WeaponType": {
+					"type": "eWeaponType",
+					"value": "WT_SLOWGUN"
+				},
+				"AnimPlayer": {
+					"type": "SEntityTemplateReference",
+					"value": "40bb90e1e70eedf0"
+				},
+				"m_pVariationResource": {
+					"type": "SEntityTemplateReference",
+					"value": "77e212318a5eed71"
+				},
+				"m_eAnimationCategory": {
+					"type": "EWeaponAnimationCategory",
+					"value": "eWAC_Pistol"
+				},
+				"m_fCartridgeEjectForceMultiplier": {
+					"type": "float32",
+					"value": 8.0
+				},
+				"m_bKinematic": { "type": "bool", "value": true },
+				"m_rHolder": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4"
+				},
+				"m_bRandomStartState": { "type": "bool", "value": true },
+				"m_PosPlacementAttach": {
+					"type": "SEntityTemplateReference",
+					"value": "535708f5a4ea60de"
+				},
+				"m_PlacementVolume": {
+					"type": "SEntityTemplateReference",
+					"value": "04172b60cd6f7cb9"
+				},
+				"m_eidParent1": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4",
+					"postInit": true
+				}
+			},
+			"events": {
+				"EjectCartridgeHitman": {
+					"ActivateShellFX": ["b549eab69026e9a4"]
+				},
+				"OnFireProjectilesLocal": {
+					"Start": ["2f09e440e79c1651"],
+					"Activate": ["072f6d26ae8352f0", "e701791ec9cd87a8"]
+				}
+			},
+			"outputCopying": {
+				"OwnedByHitman": { "OwnedByHitman": ["4d967a557168d965"] }
+			},
+			"subsets": {
+				"AudioEmitters": ["4d967a557168d965"],
+				"Replicable": ["4d967a557168d965"]
+			}
+		},
+		"4d967a557168d965": {
+			"parent": null,
+			"name": "Firearms_Hero_002_Modular_Pistol_Tactical_Runtime",
+			"factory": "[modules:/zcompositeentity.class].pc_entitytype",
+			"blueprint": "[modules:/zcompositeentity.class].pc_entityblueprint",
+			"properties": {
+				"m_mTransform": {
+					"type": "SMatrix43",
+					"value": {
+						"rotation": { "x": -0.0, "y": 0.0, "z": -0.0 },
+						"position": { "x": 1.0, "y": 0.0, "z": 0.5 }
+					}
+				},
+				"m_eRoomBehaviour": {
+					"type": "ZSpatialEntity.ERoomBehaviour",
+					"value": "ROOM_DYNAMIC"
+				}
+			},
+			"inputCopying": {
+				"SetGlowType": { "SetGlowType": ["b549eab69026e9a4"] }
+			},
+			"propertyAliases": {
+				"Kinematic": [
+					{
+						"originalProperty": "Kinematic",
+						"originalEntity": "629df25c1f698b72"
+					}
+				],
+				"m_bStartSleeping": [
+					{
+						"originalProperty": "m_bStartSleeping",
+						"originalEntity": "629df25c1f698b72"
+					}
+				],
+				"m_nNumberOfAmmo": [
+					{
+						"originalProperty": "m_nNumberOfAmmo",
+						"originalEntity": "629df25c1f698b72"
+					}
+				]
+			},
+			"exposedEntities": {
+				"Geometry": {
+					"isArray": false,
+					"refersTo": ["b549eab69026e9a4"]
+				}
+			},
+			"exposedInterfaces": {
+				"IItemBase": "629df25c1f698b72",
+				"IFirearm": "629df25c1f698b72",
+				"IAnimPlayerEntity": "40bb90e1e70eedf0",
+				"ZHM5Item": "629df25c1f698b72",
+				"ZHM5ItemWeapon": "629df25c1f698b72",
+				"IItemWeapon": "629df25c1f698b72",
+				"IItem": "629df25c1f698b72"
+			}
+		},
+		"ed647c344e111463": {
+			"parent": "4d967a557168d965",
+			"name": "Keyword_WEAPON_PISTOL",
+			"factory": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_pistol.entitytemplate].pc_entitytype",
+			"blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordweapondescriptors.template?/keyword_weapon_pistol.entitytemplate].pc_entityblueprint",
+			"properties": {
+				"m_aHolders": {
+					"type": "TArray<SEntityTemplateReference>",
+					"value": ["b549eab69026e9a4"]
+				}
+			}
+		},
+		"072f6d26ae8352f0": {
+			"parent": "4d967a557168d965",
+			"name": "HM5CamShakerEntity",
+			"factory": "[modules:/zhm5camshakerentity.class].pc_entitytype",
+			"blueprint": "[modules:/zhm5camshakerentity.class].pc_entityblueprint",
+			"properties": {
+				"m_bUseDistanceScale": { "type": "bool", "value": true },
+				"m_fRangeH": {
+					"type": "float32",
+					"value": 0.0010000000474974513
+				},
+				"m_fRangeV": {
+					"type": "float32",
+					"value": 0.009999999776482582
+				},
+				"m_fFrequency": { "type": "float32", "value": 20.0 },
+				"m_fSustain": {
+					"type": "float32",
+					"value": 0.009999999776482582
+				},
+				"m_fRelease": {
+					"type": "float32",
+					"value": 0.10000000149011612
+				},
+				"m_fNearRadius": { "type": "float32", "value": 5.0 },
+				"m_fFarRadius": { "type": "float32", "value": 10.0 },
+				"m_bEnabled": { "type": "bool", "value": false },
+				"m_eidParent": {
+					"type": "SEntityTemplateReference",
+					"value": "b549eab69026e9a4"
+				},
+				"m_fRangeRoll": {
+					"type": "float32",
+					"value": 0.004999999888241291
+				},
+				"m_fDelay": { "type": "float32", "value": 0.0 },
+				"m_eChannel": {
+					"type": "ECameraShakerChannel",
+					"value": "eCameraShakerChannel_Weapon"
+				}
+			}
+		}
+	},
+	"propertyOverrides": [],
+	"overrideDeletes": [],
+	"pinConnectionOverrides": [],
+	"pinConnectionOverrideDeletes": [],
+	"externalScenes": [],
+	"subType": "template",
+	"quickEntityVersion": 3.1,
+	"extraFactoryDependencies": [
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_unequip_holster_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_entercrouch_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_enterstand_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_aim_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_unequip_place_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_empthyshot_default_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons/firearm_handling_exitaim_pistol_play.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/sound/wwise/exportedwwisedata/events/weapons2/play_firearmpickup.wwiseevent].pc_wwisebank",
+			"flag": "5F"
+		},
+		{ "resource": "00F429FAEFD8616E", "flag": "5F" },
+		{
+			"resource": "[assembly:/geometry/g2/gizmos.wl2?/gizmo_trigger_01.prim].pc_prim",
+			"flag": "5F"
+		},
+		{
+			"resource": "[assembly:/_pro/items/geometry/firearms/frames/pistol_classic_a/pistol_classic_a_rig.wl2?/pistol_classic_a.linkedprim](bodypart).pc_bonerig",
+			"flag": "5F"
+		}
+	],
+	"extraBlueprintDependencies": [],
+	"comments": []
+}
