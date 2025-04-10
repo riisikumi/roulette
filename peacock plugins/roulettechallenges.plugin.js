@@ -16,7 +16,7 @@ var __copyProps = (to, from, except, desc) => {
 	}
 	return to
 }
-const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
+const { PEACOCKVERSTRING, compare } = require("@peacockproject/core/utils")
 var __toESM = (mod, isNodeMode, target) => (
 	(target = mod != null ? __create(__getProtoOf(mod)) : {}),
 	__copyProps(
@@ -33,7 +33,7 @@ var __toESM = (mod, isNodeMode, target) => (
 var import_loggingInterop = require("@peacockproject/core/loggingInterop")
 var path = __toESM(require("path"))
 function initPlugin(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
+	if (compare(PEACOCKVERSTRING, "8.0.0-beta.2") < 0) {
 		return
 	}
 	const groupName = "roulette-challenge-pack"

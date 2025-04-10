@@ -1,7 +1,7 @@
 const loggingInterop_1 = require("@peacockproject/core/loggingInterop")
-const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
+const { PEACOCKVERSTRING, compare } = require("@peacockproject/core/utils")
 module.exports = function test(controller) {
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
+	if (compare(PEACOCKVERSTRING, "8.0.0-beta.2") < 0) {
 		return
 	}
 	;(0, loggingInterop_1.log)(loggingInterop_1.LogLevel.INFO, "[Roulette] Custom Locations Added.")

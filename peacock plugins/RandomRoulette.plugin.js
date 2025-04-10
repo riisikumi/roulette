@@ -1,5 +1,5 @@
 const { log, LogLevel } = require("@peacockproject/core/loggingInterop")
-const { PEACOCKVER, PEACOCKVERSTRING } = require("@peacockproject/core/utils")
+const { PEACOCKVERSTRING, compare } = require("@peacockproject/core/utils")
 function openWebpage(url) {
 	const { exec } = require("child_process")
 	const platform = process.platform
@@ -73,9 +73,9 @@ module.exports = function EscPlugin(controller) {
 	}
 	controller.challengeService.removeChallenge(oilchallenge.Id, "h3")
 	controller.challengeService.registerChallenge(oilchallenge, "assassination", oilchallenge.LocationId, "h3")
-	if (PEACOCKVERSTRING !== "8.0.0-alpha.6") {
-		log(LogLevel.ERROR, "[Roulette] Peacock V.8.0.0-alpha.6 required for Peacock Roulette.")
-		openWebpage("https://github.com/thepeacockproject/Peacock/releases/tag/v8.0.0-alpha.6")
+	if (compare(PEACOCKVERSTRING, "8.0.0-beta.2") < 0) {
+		log(LogLevel.ERROR, "[Roulette] A minimum Peacock version of v.8.0.0-beta.2 required for Peacock Roulette!")
+		openWebpage("https://github.com/thepeacockproject/Peacock/releases")
 		return
 	}
 	//Enables Global Challenges in Roulette
@@ -49888,6 +49888,11 @@ module.exports = function EscPlugin(controller) {
 						{
 							Title: "INCLUDE_SPECIFIC_ACCIDENTS_POISON_KILLS",
 							Value: "specificAccidents",
+							Key: "RouletteFilter"
+						},
+						{
+							Title: "REQUIRE_SPECIFIC_EXIT",
+							Value: "specificExit",
 							Key: "RouletteFilter"
 						},
 						{
