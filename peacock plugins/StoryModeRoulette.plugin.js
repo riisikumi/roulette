@@ -1686,7 +1686,6 @@ module.exports = function ContractSearch(controller) {
 			// Handling for required exit objectives (randomization and json patching)
 
 			if (rouletteFilters.includes("specificExit")) {
-
 				const selectedExit = exitPool[getRandomIntWithSeed(0, exitPool.length - 1, seed++)]
 				log(LogLevel.INFO, "[Roulette] Selected exit:" + selectedExit)
 
@@ -1696,7 +1695,7 @@ module.exports = function ContractSearch(controller) {
 
 				const exitDummyId = randomUUID()
 
-				const objectiveIdsForExit = baseContract.Data.Objectives.map(item => item.Id)
+				const objectiveIdsForExit = baseContract.Data.Objectives.map((item) => item.Id)
 
 				if (info.RouletteExtraObjectives.length != 0) {
 					objectiveIdsForExit.push.apply(objectiveIdsForExit, info.RouletteExtraObjectives)
@@ -1704,13 +1703,93 @@ module.exports = function ContractSearch(controller) {
 
 				const exitObjectiveCount = objectiveIdsForExit.length
 
-				const exitDummyObjective = [{"Type":"statemachine","Id":exitDummyId,"ObjectiveType":"custom","Category":"secondary","BriefingName":"$loc UI_CONTRACT_UGC_REQUIRED_EXIT_NAME","BriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"LongBriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"HUDTemplate":{"display":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"iconType":7},"Image":"images/contractconditions/condition_roulette_requiredexit.png","ShowInHud":true,"ForceShowOnLoadingScreen":true,"ExcludeFromScoring":true,"OnActive":{"IfCompleted":{"Visible":false}},"Definition":{"Constants":{"Goal":exitObjectiveCount},"Context":{"Count":0,"GameChangers":objectiveIdsForExit},"States":{"Start":{"ObjectiveCompleted":[{"Condition":{$any:{"?":{$eq:["$.#","$Value.Id"]},in:"$.GameChangers"}},"Actions":{"$inc":"Count"}},{"Condition":{"$eq":["$.Count","$.Goal"]},"Transition":"Success"}]}}}}]
-			
+				const exitDummyObjective = [
+					{
+						Type: "statemachine",
+						Id: exitDummyId,
+						ObjectiveType: "custom",
+						Category: "secondary",
+						BriefingName: "$loc UI_CONTRACT_UGC_REQUIRED_EXIT_NAME",
+						BriefingText: { $loc: { key: "UI_ROULETTE_EXIT_DESC", data: [exitString] } },
+						LongBriefingText: { $loc: { key: "UI_ROULETTE_EXIT_DESC", data: [exitString] } },
+						HUDTemplate: {
+							display: { $loc: { key: "UI_ROULETTE_EXIT_DESC", data: [exitString] } },
+							iconType: 7
+						},
+						Image: "images/contractconditions/condition_roulette_requiredexit.png",
+						ShowInHud: true,
+						ForceShowOnLoadingScreen: true,
+						ExcludeFromScoring: true,
+						OnActive: { IfCompleted: { Visible: false } },
+						Definition: {
+							Constants: { Goal: exitObjectiveCount },
+							Context: { Count: 0, GameChangers: objectiveIdsForExit },
+							States: {
+								Start: {
+									ObjectiveCompleted: [
+										{
+											Condition: {
+												$any: { "?": { $eq: ["$.#", "$Value.Id"] }, in: "$.GameChangers" }
+											},
+											Actions: { $inc: "Count" }
+										},
+										{ Condition: { $eq: ["$.Count", "$.Goal"] }, Transition: "Success" }
+									]
+								}
+							}
+						}
+					}
+				]
+
 				baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, exitDummyObjective)
 
 				const exitObjectiveId = randomUUID()
 
-				const exitObjective = [{"Type":"statemachine","Id":exitObjectiveId,"ObjectiveType":"custom","Category":"secondary","Exits":[selectedExit],"ShowInHud":false,"IsHidden":true,"ExcludeFromScoring":true,"Definition":{"Scope":"session","Context":{"Exited":false,"LastItemDroppedTime":0,"LastKillTime":0},"States":{"Start":{"-":[{"Transition":"Success"}]},"Success":{"exit_gate":[{"Actions":{"$set":["Exited",true]}}],"TaxiDriverDistracted":[{"Actions":{"$set":["LastItemDroppedTime","$Timestamp"]}}],"Kill":[{"Actions":{"$set":["LastKillTime","$Timestamp"]}}],"ItemDropped":[{"Actions":{"$set":["LastItemDroppedTime","$Timestamp"]}}],"ExitInventory":[{"Actions":{"$set":["LastItemDroppedTime","$Timestamp"]}}],"ItemRemovedFromInventory":[{"Actions":{"$set":["LastItemDroppedTime","$Timestamp"]}}],"ItemThrown":[{"Actions":{"$set":["LastItemDroppedTime","$Timestamp"]}}],"ExitDisabled":[{"Condition":{"$or":[{"$and":[{"$eq":["$Value",selectedExit]},{"$eq":["$.Exited",false]},{"$not":{"$eq":["$.LastItemDroppedTime","$Timestamp"]}}]},{"$eq":["$.LastKillTime","$Timestamp"]}]},"Transition":"Failure"}]}}}}]
+				const exitObjective = [
+					{
+						Type: "statemachine",
+						Id: exitObjectiveId,
+						ObjectiveType: "custom",
+						Category: "secondary",
+						Exits: [selectedExit],
+						ShowInHud: false,
+						IsHidden: true,
+						ExcludeFromScoring: true,
+						Definition: {
+							Scope: "session",
+							Context: { Exited: false, LastItemDroppedTime: 0, LastKillTime: 0 },
+							States: {
+								Start: { "-": [{ Transition: "Success" }] },
+								Success: {
+									exit_gate: [{ Actions: { $set: ["Exited", true] } }],
+									TaxiDriverDistracted: [{ Actions: { $set: ["LastItemDroppedTime", "$Timestamp"] } }],
+									Kill: [{ Actions: { $set: ["LastKillTime", "$Timestamp"] } }],
+									ItemDropped: [{ Actions: { $set: ["LastItemDroppedTime", "$Timestamp"] } }],
+									ExitInventory: [{ Actions: { $set: ["LastItemDroppedTime", "$Timestamp"] } }],
+									ItemRemovedFromInventory: [{ Actions: { $set: ["LastItemDroppedTime", "$Timestamp"] } }],
+									ItemThrown: [{ Actions: { $set: ["LastItemDroppedTime", "$Timestamp"] } }],
+									ExitDisabled: [
+										{
+											Condition: {
+												$or: [
+													{
+														$and: [
+															{ $eq: ["$Value", selectedExit] },
+															{ $eq: ["$.Exited", false] },
+															{ $not: { $eq: ["$.LastItemDroppedTime", "$Timestamp"] } }
+														]
+													},
+													{ $eq: ["$.LastKillTime", "$Timestamp"] }
+												]
+											},
+											Transition: "Failure"
+										}
+									]
+								}
+							}
+						}
+					}
+				]
 
 				baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, exitObjective)
 			}
@@ -1866,32 +1945,32 @@ module.exports = function ContractSearch(controller) {
 								}
 							}
 						]
-					case "LOCATION_THECONTROLLER": 
+					case "LOCATION_THECONTROLLER":
 						return [
 							{
-								"Id": "b1ec35e8-2b35-4394-815f-ac4db064f877",
-								"ObjectiveType": "custom",
-								"Image": "Images/Contracts/sarajevosix/Orbis006_SeaBreeze/Objective1.jpg",
-								"BriefingName": "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
-								"BriefingText": "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
-								"LongBriefingText": "$loc UI_CONTRACT_SEABREEZE_OBJ_1_DESC",
-								"Category": "primary",
-								"HUDTemplate": {
-									"display": "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
-									"iconType": 17
+								Id: "b1ec35e8-2b35-4394-815f-ac4db064f877",
+								ObjectiveType: "custom",
+								Image: "Images/Contracts/sarajevosix/Orbis006_SeaBreeze/Objective1.jpg",
+								BriefingName: "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
+								BriefingText: "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
+								LongBriefingText: "$loc UI_CONTRACT_SEABREEZE_OBJ_1_DESC",
+								Category: "primary",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SEABREEZE_OBJ_1_TITLE",
+									iconType: 17
 								},
-								"Type": "statemachine",
-								"Definition": {
-									"Context": {
-										"Targets": ["08374fe4-147e-48ca-a662-505be5409ae9"]
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["08374fe4-147e-48ca-a662-505be5409ae9"]
 									},
-									"States": {
-										"Start": {
-											"UncoveredEvidence": {
-												"Transition": "Success"
+									States: {
+										Start: {
+											UncoveredEvidence: {
+												Transition: "Success"
 											},
-											"Spotted": {
-												"Transition": "Failure"
+											Spotted: {
+												Transition: "Failure"
 											}
 										}
 									}

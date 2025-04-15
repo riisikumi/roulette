@@ -1,5 +1,5 @@
 {
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
@@ -18217,7 +18217,7 @@
 			"105A1C9A-6B89-4495-8220-056950E9EB0C": "Militia Boat"
 		}
 	},
-	"frameworkVersion": "2.33.23",
+	"frameworkVersion": "2.33.25",
 	"packagedefinition": [
 		{
 			"type": "entity",
