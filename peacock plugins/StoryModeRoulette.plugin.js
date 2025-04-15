@@ -1407,7 +1407,7 @@ module.exports = function ContractSearch(controller) {
 							Type: "statemachine",
 							Id: pacificationObjectiveId,
 							ObjectiveType: "setpiece",
-							Image: "images/contracts/gamechangers/gamechanger_global_nopacifications.jpg",
+							Image: "images/Contracts/gamechangers/gamechanger_roulette_nopacifications.png",
 							BriefingName: "$loc UI_ROULETTE_NOKO_TITLE",
 							BriefingText: { $loc: { key: "UI_ROULETTE_NOKO_DESC", data: [npcString] } },
 							LongBriefingText: { $loc: { key: "UI_ROULETTE_NOKO_LONGDESC", data: [npcString] } },
@@ -1704,7 +1704,7 @@ module.exports = function ContractSearch(controller) {
 
 				const exitObjectiveCount = objectiveIdsForExit.length
 
-				const exitDummyObjective = [{"Type":"statemachine","Id":exitDummyId,"ObjectiveType":"custom","Category":"secondary","BriefingName":"$loc UI_CONTRACT_UGC_REQUIRED_EXIT_NAME","BriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"LongBriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"HUDTemplate":{"display":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"iconType":7},"Image":"images/contractconditions/condition_contrac_required_exit.jpg","ShowInHud":true,"ForceShowOnLoadingScreen":true,"ExcludeFromScoring":true,"OnActive":{"IfCompleted":{"Visible":false}},"Definition":{"Constants":{"Goal":exitObjectiveCount},"Context":{"Count":0,"GameChangers":objectiveIdsForExit},"States":{"Start":{"ObjectiveCompleted":[{"Condition":{$any:{"?":{$eq:["$.#","$Value.Id"]},in:"$.GameChangers"}},"Actions":{"$inc":"Count"}},{"Condition":{"$eq":["$.Count","$.Goal"]},"Transition":"Success"}]}}}}]
+				const exitDummyObjective = [{"Type":"statemachine","Id":exitDummyId,"ObjectiveType":"custom","Category":"secondary","BriefingName":"$loc UI_CONTRACT_UGC_REQUIRED_EXIT_NAME","BriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"LongBriefingText":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"HUDTemplate":{"display":{$loc:{key:"UI_ROULETTE_EXIT_DESC",data:[exitString]}},"iconType":7},"Image":"images/contractconditions/condition_roulette_requiredexit.png","ShowInHud":true,"ForceShowOnLoadingScreen":true,"ExcludeFromScoring":true,"OnActive":{"IfCompleted":{"Visible":false}},"Definition":{"Constants":{"Goal":exitObjectiveCount},"Context":{"Count":0,"GameChangers":objectiveIdsForExit},"States":{"Start":{"ObjectiveCompleted":[{"Condition":{$any:{"?":{$eq:["$.#","$Value.Id"]},in:"$.GameChangers"}},"Actions":{"$inc":"Count"}},{"Condition":{"$eq":["$.Count","$.Goal"]},"Transition":"Success"}]}}}}]
 			
 				baseContract.Data.Objectives.push.apply(baseContract.Data.Objectives, exitDummyObjective)
 
