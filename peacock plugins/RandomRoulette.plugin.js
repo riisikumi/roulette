@@ -49899,6 +49899,11 @@ module.exports = function EscPlugin(controller) {
 							Title: "INCLUDE_CONDITIONS_BANNED_IN_ROULETTE_RIVALS",
 							Value: "rrBannedKills",
 							Key: "RouletteFilter"
+						},
+						{
+							Title: "UI_ROULETTE_ELUSIVE_TARGETS",
+							Value: "elusiveTargets",
+							Key: "RouletteFilter"
 						}
 					]
 				}
