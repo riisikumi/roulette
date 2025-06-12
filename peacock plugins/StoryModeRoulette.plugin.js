@@ -133,7 +133,26 @@ module.exports = function ContractSearch(controller) {
 
 			let preliminarySelectedMission
 
-			const locationsWithElusives = ["LOCATION_PARIS", "LOCATION_COASTALTOWN", "LOCATION_COASTALTOWN_MOVIESET", "LOCATION_MARRAKECH", "LOCATION_MARRAKECH_NIGHT", "LOCATION_BANGKOK", "LOCATION_COLORADO", "LOCATION_HOKKAIDO", "LOCATION_NEWZEALAND", "LOCATION_MIAMI", "LOCATION_COLOMBIA", "LOCATION_NORTHAMERICA", "LOCATION_NORTHSEA", "LOCATION_GOLDEN_GECKO", "LOCATION_ANCESTRAL_BULLDOG", "LOCATION_EDGY_FOX", "LOCATION_WET_RAT", "LOCATION_ELEGANT_LLAMA"]
+			const locationsWithElusives = [
+				"LOCATION_PARIS",
+				"LOCATION_COASTALTOWN",
+				"LOCATION_COASTALTOWN_MOVIESET",
+				"LOCATION_MARRAKECH",
+				"LOCATION_MARRAKECH_NIGHT",
+				"LOCATION_BANGKOK",
+				"LOCATION_COLORADO",
+				"LOCATION_HOKKAIDO",
+				"LOCATION_NEWZEALAND",
+				"LOCATION_MIAMI",
+				"LOCATION_COLOMBIA",
+				"LOCATION_NORTHAMERICA",
+				"LOCATION_NORTHSEA",
+				"LOCATION_GOLDEN_GECKO",
+				"LOCATION_ANCESTRAL_BULLDOG",
+				"LOCATION_EDGY_FOX",
+				"LOCATION_WET_RAT",
+				"LOCATION_ELEGANT_LLAMA"
+			]
 
 			let selectedMission
 
@@ -142,7 +161,9 @@ module.exports = function ContractSearch(controller) {
 			)
 
 			if (rouletteFilters.includes("elusiveTargets")) {
-				if (selectedMissionPool.every(elusiveMission => contractInfo[elusiveMission].RouletteElusives.length === 0)) {
+				if (
+					selectedMissionPool.every((elusiveMission) => contractInfo[elusiveMission].RouletteElusives.length === 0)
+				) {
 					selectedMissionPool.length = 0
 					selectedMissionPool.push.apply(selectedMissionPool, locationsWithElusives)
 				}
@@ -150,16 +171,19 @@ module.exports = function ContractSearch(controller) {
 				let elusiveLength = false
 
 				while (!elusiveLength) {
-					preliminarySelectedMission = selectedMissionPool[getRandomIntWithSeed(0, selectedMissionPool.length - 1, seed++)]
+					preliminarySelectedMission =
+						selectedMissionPool[getRandomIntWithSeed(0, selectedMissionPool.length - 1, seed++)]
 					if (contractInfo[preliminarySelectedMission].RouletteElusives.length !== 0) {
 						elusiveLength = true
 					}
 				}
 
 				selectedMissionPool.length = 0
-				selectedMissionPool.push.apply(selectedMissionPool, contractInfo[preliminarySelectedMission].RouletteElusives)
+				selectedMissionPool.push.apply(
+					selectedMissionPool,
+					contractInfo[preliminarySelectedMission].RouletteElusives
+				)
 				selectedMission = selectedMissionPool[getRandomIntWithSeed(0, selectedMissionPool.length - 1, seed++)]
-
 			} else {
 				selectedMission = selectedMissionPool[getRandomIntWithSeed(0, selectedMissionPool.length - 1, seed++)]
 			}
@@ -311,7 +335,15 @@ module.exports = function ContractSearch(controller) {
 
 			if (selectedMission == "bushwhacker") {
 				killMethodPool.length = 0
-				const bushwhackers = ["accident_drown","accident_push","accident_suspended_object","accident_electric","accident_burn","injected_poison","consumed_poison"]
+				const bushwhackers = [
+					"accident_drown",
+					"accident_push",
+					"accident_suspended_object",
+					"accident_electric",
+					"accident_burn",
+					"injected_poison",
+					"consumed_poison"
+				]
 				killMethodPool.push.apply(killMethodPool, bushwhackers)
 			}
 
@@ -697,7 +729,9 @@ module.exports = function ContractSearch(controller) {
 						$loc: { key: "UI_ROULETTE_KILL_BERLIN_DISGUISED", data: [killMethodString, disguiseString] }
 					}
 				} else {
-					killDisplay = { $loc: { key: "UI_ROULETTE_KILL_ANYDISGUISE_VERBOSE", data: [npcString, killMethodString] } }
+					killDisplay = {
+						$loc: { key: "UI_ROULETTE_KILL_ANYDISGUISE_VERBOSE", data: [npcString, killMethodString] }
+					}
 					berlinDesc = { $loc: { key: "UI_ROULETTE_KILL_BERLIN_ANYDISGUISE", data: killMethodString } }
 				}
 
@@ -897,65 +931,54 @@ module.exports = function ContractSearch(controller) {
 					}
 				} else if (info.RouletteTargetIds[e] == "fuckwad") {
 					mainObjective = {
-						"Primary": true,
-						"IsHidden": true,
-						"Category": "primary",
-						"ObjectiveType": "kill",
-						"DisplayAsKillObjective": true,
-						"Image": "images/actors/elusive_DirtyOctopus_face.jpg",
-						"Type": "statemachine",
-						"Scope": "hit",
-						"Definition": {
-							"Context": {
-								"TargetId": "",
-								"Targets": ["2f47716a-2663-461b-bd8c-2dfdccc720c6"]
+						Primary: true,
+						IsHidden: true,
+						Category: "primary",
+						ObjectiveType: "kill",
+						DisplayAsKillObjective: true,
+						Image: "images/actors/elusive_DirtyOctopus_face.jpg",
+						Type: "statemachine",
+						Scope: "hit",
+						Definition: {
+							Context: {
+								TargetId: "",
+								Targets: ["2f47716a-2663-461b-bd8c-2dfdccc720c6"]
 							},
-							"States": {
-								"Start": {
+							States: {
+								Start: {
 									"-": {
-										"$set": [
-											"Targets", []
-										]
+										$set: ["Targets", []]
 									},
-									"TargetPicked": [
+									TargetPicked: [
 										{
-											"Actions": {
-												"$set": [
-													"TargetId",
-													"$Value.RepositoryId"
-												],
-												"$push": [
-													"Targets",
-													"$Value.RepositoryId"
-												]
+											Actions: {
+												$set: ["TargetId", "$Value.RepositoryId"],
+												$push: ["Targets", "$Value.RepositoryId"]
 											},
-											"Transition": "WeHaveATarget"
+											Transition: "WeHaveATarget"
 										}
 									]
 								},
-								"WeHaveATarget": {
-									"Kill": [
+								WeHaveATarget: {
+									Kill: [
 										{
-											"Condition": {
-												"$eq": [
-													"$Value.RepositoryId",
-													"$.TargetId"
-												]
+											Condition: {
+												$eq: ["$Value.RepositoryId", "$.TargetId"]
 											},
-											"Transition": "Success"
+											Transition: "Success"
 										}
 									]
 								}
 							}
 						},
-						"Id": mainObjectiveId,
-						"HUDTemplate": { "display": killDisplay },
-						"BriefingName": killDisplay,
-                		"BriefingText": killDisplay,
-						"LongBriefingText": killDisplay,
-						"TargetConditions": []
+						Id: mainObjectiveId,
+						HUDTemplate: { display: killDisplay },
+						BriefingName: killDisplay,
+						BriefingText: killDisplay,
+						LongBriefingText: killDisplay,
+						TargetConditions: []
 					}
-				} else if ((rouletteFilters.includes("elusiveTargets", 0)) && (info.RouletteTargetIds[e] != "fuckwad")) {
+				} else if (rouletteFilters.includes("elusiveTargets", 0) && info.RouletteTargetIds[e] != "fuckwad") {
 					mainObjective = {
 						Category: "primary",
 						Type: "statemachine",
@@ -1333,60 +1356,51 @@ module.exports = function ContractSearch(controller) {
 					}
 				} else if (info.RouletteTargetIds[e] == "fuckwad") {
 					killMethodObjective = {
-						"Type": "statemachine",
-						"Id": killMethodObjectiveId,
-						"BriefingText": killMethodFailDisplay,
-						"Category": "primary",
-						"Definition": {
-							"Scope": "Hit",
-							"Context": {
-								"TargetId": ""
+						Type: "statemachine",
+						Id: killMethodObjectiveId,
+						BriefingText: killMethodFailDisplay,
+						Category: "primary",
+						Definition: {
+							Scope: "Hit",
+							Context: {
+								TargetId: ""
 							},
-							"States": {
-								"Start": {
-									"TargetPicked": [
+							States: {
+								Start: {
+									TargetPicked: [
 										{
-											"Actions": {
-												"$set": [
-													"TargetId",
-													"$Value.RepositoryId"
-												]
+											Actions: {
+												$set: ["TargetId", "$Value.RepositoryId"]
 											},
-											"Transition": "WeHaveATarget"
+											Transition: "WeHaveATarget"
 										}
 									]
 								},
-								"WeHaveATarget": {
-									"Kill": [
+								WeHaveATarget: {
+									Kill: [
 										{
-											"Condition": {
-												"$and": [
+											Condition: {
+												$and: [
 													{
-														"$eq": [
-															"$Value.RepositoryId",
-															"$.TargetId"
-														]
+														$eq: ["$Value.RepositoryId", "$.TargetId"]
 													},
 													killMethodObjectiveCondition
 												]
 											},
-											"Transition": "Success"
+											Transition: "Success"
 										},
 										{
-											"Condition": {
-												"$eq": [
-													"$Value.RepositoryId",
-													"$.TargetId"
-												]
+											Condition: {
+												$eq: ["$Value.RepositoryId", "$.TargetId"]
 											},
-											"Transition": "Failure"
+											Transition: "Failure"
 										}
 									]
 								}
 							}
 						}
 					}
-				} else if ((rouletteFilters.includes("elusiveTargets", 0)) && (info.RouletteTargetIds[e] != "fuckwad")) {
+				} else if (rouletteFilters.includes("elusiveTargets", 0) && info.RouletteTargetIds[e] != "fuckwad") {
 					killMethodObjective = {
 						Type: "statemachine",
 						Id: killMethodObjectiveId,
@@ -1536,60 +1550,51 @@ module.exports = function ContractSearch(controller) {
 							}
 						} else if (info.RouletteTargetIds[e] == "fuckwad") {
 							disguiseObjective = {
-						"Type": "statemachine",
-						"Id": disguiseObjectiveId,
-						"BriefingText": disguiseFailDisplay,
-						"Category": "primary",
-						"Definition": {
-							"Scope": "Hit",
-							"Context": {
-								"TargetId": ""
-							},
-							"States": {
-								"Start": {
-									"TargetPicked": [
-										{
-											"Actions": {
-												"$set": [
-													"TargetId",
-													"$Value.RepositoryId"
-												]
-											},
-											"Transition": "WeHaveATarget"
-										}
-									]
-								},
-								"WeHaveATarget": {
-									"Kill": [
-										{
-											"Condition": {
-												"$and": [
-													{
-														"$eq": [
-															"$Value.RepositoryId",
-															"$.TargetId"
+								Type: "statemachine",
+								Id: disguiseObjectiveId,
+								BriefingText: disguiseFailDisplay,
+								Category: "primary",
+								Definition: {
+									Scope: "Hit",
+									Context: {
+										TargetId: ""
+									},
+									States: {
+										Start: {
+											TargetPicked: [
+												{
+													Actions: {
+														$set: ["TargetId", "$Value.RepositoryId"]
+													},
+													Transition: "WeHaveATarget"
+												}
+											]
+										},
+										WeHaveATarget: {
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: ["$Value.RepositoryId", "$.TargetId"]
+															},
+															disguiseObjectiveCondition
 														]
 													},
-													disguiseObjectiveCondition
-												]
-											},
-											"Transition": "Success"
-										},
-										{
-											"Condition": {
-												"$eq": [
-													"$Value.RepositoryId",
-													"$.TargetId"
-												]
-											},
-											"Transition": "Failure"
+													Transition: "Success"
+												},
+												{
+													Condition: {
+														$eq: ["$Value.RepositoryId", "$.TargetId"]
+													},
+													Transition: "Failure"
+												}
+											]
 										}
-									]
+									}
 								}
 							}
-						}
-					}
-						} else if ((rouletteFilters.includes("elusiveTargets", 0)) && (info.RouletteTargetIds[e] != "fuckwad")) {
+						} else if (rouletteFilters.includes("elusiveTargets", 0) && info.RouletteTargetIds[e] != "fuckwad") {
 							disguiseObjective = {
 								Type: "statemachine",
 								Id: disguiseObjectiveId,
@@ -4067,67 +4072,61 @@ module.exports = function ContractSearch(controller) {
 					case "margarita":
 						return [
 							{
-								"Id": "1495cf66-c9a8-481e-92da-9990c4e2630f",
-								"IsHidden": true,
-								"Category": "primary",
-								"ObjectiveType": "custom",
-								"Image": "images/unlockables/item_perspective_d12fc231-020b-4673-a7b8-3789ed9fee93_0.jpg",
-								"BriefingName": "$loc UI_CONTRACT_MARGARITA_OBJ_2_TITLE",
-								"BriefingText": "$loc UI_CONTRACT_MARGARITA_OBJ_2_DESC",
-								"LongBriefingText": "$loc UI_CONTRACT_MARGARITA_OBJ_2_DESC",
-								"HUDTemplate": {
-									"display": "$loc UI_CONTRACT_MARGARITA_OBJ_2_TITLE"
+								Id: "1495cf66-c9a8-481e-92da-9990c4e2630f",
+								IsHidden: true,
+								Category: "primary",
+								ObjectiveType: "custom",
+								Image: "images/unlockables/item_perspective_d12fc231-020b-4673-a7b8-3789ed9fee93_0.jpg",
+								BriefingName: "$loc UI_CONTRACT_MARGARITA_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_MARGARITA_OBJ_2_DESC",
+								LongBriefingText: "$loc UI_CONTRACT_MARGARITA_OBJ_2_DESC",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_MARGARITA_OBJ_2_TITLE"
 								},
-								"Type": "statemachine",
-								"Definition": {
-									"Context": {
-										"Targets": ["d12fc231-020b-4673-a7b8-3789ed9fee93"]
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["d12fc231-020b-4673-a7b8-3789ed9fee93"]
 									},
-									"States": {
-										"Start": {
-											"ItemPickedUp": {
-												"Condition": {
-													"$eq": [
-														"$Value.RepositoryId",
-														"d12fc231-020b-4673-a7b8-3789ed9fee93"
-													]
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "d12fc231-020b-4673-a7b8-3789ed9fee93"]
 												},
-												"Transition": "Success"
+												Transition: "Success"
 											}
 										}
 									}
 								}
 							}
 						]
-					case "lumumba": 
+					case "lumumba":
 						return [
 							{
-								"Id": "c6c864fe-287c-4345-8a04-03682a65498f",
-								"IsHidden": true,
-								"Category": "primary",
-								"ObjectiveType": "custom",
-								"Image": "images/unlockables/item_perspective_55d34557-5b46-422f-84ce-7bb13cfcef96_0.jpg",
-								"BriefingName": "$loc UI_CONTRACT_LUMUMBA_OBJ_2_TITLE",
-								"BriefingText": "$loc UI_CONTRACT_LUMUMBA_OBJ_2_DESC",
-								"LongBriefingText": "$loc UI_CONTRACT_LUMUMBA_OBJ_2_DESC",
-								"HUDTemplate": {
-									"display": "$loc UI_CONTRACT_LUMUMBA_OBJ_2_TITLE"
+								Id: "c6c864fe-287c-4345-8a04-03682a65498f",
+								IsHidden: true,
+								Category: "primary",
+								ObjectiveType: "custom",
+								Image: "images/unlockables/item_perspective_55d34557-5b46-422f-84ce-7bb13cfcef96_0.jpg",
+								BriefingName: "$loc UI_CONTRACT_LUMUMBA_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_LUMUMBA_OBJ_2_DESC",
+								LongBriefingText: "$loc UI_CONTRACT_LUMUMBA_OBJ_2_DESC",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_LUMUMBA_OBJ_2_TITLE"
 								},
-								"Type": "statemachine",
-								"Definition": {
-									"Context": {
-										"Targets": ["6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
 									},
-									"States": {
-										"Start": {
-											"ItemPickedUp": {
-												"Condition": {
-													"$eq": [
-														"$Value.RepositoryId",
-														"6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"
-													]
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
 												},
-												"Transition": "Success"
+												Transition: "Success"
 											}
 										}
 									}
@@ -4137,1274 +4136,1208 @@ module.exports = function ContractSearch(controller) {
 					case "piscosour":
 						return [
 							{
-                				"Id": "29122337-1643-48d2-a76f-d7c738378cb6",
-                			"Category": "primary",
-                			"OnActive": { "IfCompleted": { "Visible": false } },
-                			"IsHidden": true,
-                			"BriefingText": "$loc UI_CONTRACT_PISCO_SOUR_FAIL_GONZALES_HARMED",
-                			"Type": "statemachine",
-                			"ExcludeFromScoring": true,
-                			"Definition": {
-                    			"Scope": "hit",
-                    			"Context": {
-                        			"KilledActors": [],
-                        			"Targets": ["168c6da4-c583-47f4-9435-a42d9ea22546"]
-                    			},
-                    			"States": {
-                        			"Start": {
-                            			"Pacify": [
-                                			{
-                                    			"Condition": {
-                                        			"$and": [
-                                            			{
-                                                			"$eq": [
-                                                    			"$Value.RepositoryId",
-                                                    			"168c6da4-c583-47f4-9435-a42d9ea22546"
-                                                			]
-                                            			}
-                                        			]
-                                    			},
-                                    			"Transition": "Failure"
-                                			}
-                            			],
-                            			"Kill": [
-                                			{
-                                    			"Condition": {
-                                        			"$and": [
-                                            			{
-                                                			"$eq": [
-                                                    			"$Value.RepositoryId",
-                                                    			"168c6da4-c583-47f4-9435-a42d9ea22546"
-                                                			]
-                                            			}
-                                        			]
-                                    			},
-                                    			"Transition": "Failure"
-                                			}
-                            			]
-                        			}
-                    			}
-                			}
-            			}
+								Id: "29122337-1643-48d2-a76f-d7c738378cb6",
+								Category: "primary",
+								OnActive: { IfCompleted: { Visible: false } },
+								IsHidden: true,
+								BriefingText: "$loc UI_CONTRACT_PISCO_SOUR_FAIL_GONZALES_HARMED",
+								Type: "statemachine",
+								ExcludeFromScoring: true,
+								Definition: {
+									Scope: "hit",
+									Context: {
+										KilledActors: [],
+										Targets: ["168c6da4-c583-47f4-9435-a42d9ea22546"]
+									},
+									States: {
+										Start: {
+											Pacify: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"168c6da4-c583-47f4-9435-a42d9ea22546"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											],
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"168c6da4-c583-47f4-9435-a42d9ea22546"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											]
+										}
+									}
+								}
+							}
 						]
 					case "harveywallbanger":
 						return [
 							{
-                "Id": "dd898098-ca1d-4630-a12c-1a701cc2a3fa",
-                "Category": "primary",
-                "OnActive": {
-                    "IfCompleted": {
-                        "Visible": false
-                    }
-                },
-                "IsHidden": true,
-                "BriefingText": "$loc UI_CONTRACT_HARVEY_WALLBANGER_FAIL_1",
-                "Type": "statemachine",
-                "ExcludeFromScoring": true,
-                "Definition": {
-                    "Scope": "hit",
-                    "Context": {
-                        "KilledActors": [],
-                        "Targets": ["8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"]
-                    },
-                    "States": {
-                        "Start": {
-                            "Pacify": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ],
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "d36f8de6-1818-4237-a3b9-405d98391e95",
-                "Category": "primary",
-                "OnActive": {
-                    "IfCompleted": {
-                        "Visible": false
-                    }
-                },
-                "IsHidden": true,
-                "BriefingText": "$loc UI_CONTRACT_HARVEY_WALLBANGER_FAIL_2",
-                "Type": "statemachine",
-                "ExcludeFromScoring": true,
-                "Definition": {
-                    "Scope": "hit",
-                    "Context": {
-                        "KilledActors": [],
-                        "Targets": ["d555c808-a97d-4094-ae90-d684dd68e936"]
-                    },
-                    "States": {
-                        "Start": {
-                            "Pacify": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "d555c808-a97d-4094-ae90-d684dd68e936"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ],
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "d555c808-a97d-4094-ae90-d684dd68e936"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
+								Id: "dd898098-ca1d-4630-a12c-1a701cc2a3fa",
+								Category: "primary",
+								OnActive: {
+									IfCompleted: {
+										Visible: false
+									}
+								},
+								IsHidden: true,
+								BriefingText: "$loc UI_CONTRACT_HARVEY_WALLBANGER_FAIL_1",
+								Type: "statemachine",
+								ExcludeFromScoring: true,
+								Definition: {
+									Scope: "hit",
+									Context: {
+										KilledActors: [],
+										Targets: ["8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"]
+									},
+									States: {
+										Start: {
+											Pacify: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											],
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"8c2dbfaf-d9f5-4343-9bf5-f8092f22da6b"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											]
+										}
+									}
+								}
+							},
+							{
+								Id: "d36f8de6-1818-4237-a3b9-405d98391e95",
+								Category: "primary",
+								OnActive: {
+									IfCompleted: {
+										Visible: false
+									}
+								},
+								IsHidden: true,
+								BriefingText: "$loc UI_CONTRACT_HARVEY_WALLBANGER_FAIL_2",
+								Type: "statemachine",
+								ExcludeFromScoring: true,
+								Definition: {
+									Scope: "hit",
+									Context: {
+										KilledActors: [],
+										Targets: ["d555c808-a97d-4094-ae90-d684dd68e936"]
+									},
+									States: {
+										Start: {
+											Pacify: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"d555c808-a97d-4094-ae90-d684dd68e936"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											],
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"d555c808-a97d-4094-ae90-d684dd68e936"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											]
+										}
+									}
+								}
+							}
 						]
 					case "cosmopolitan":
 						return [
 							{
-                "Id": "907e5a9e-8751-4887-8ed3-e8434131313a",
-                "IsHidden": true,
-                "ObjectiveType": "custom",
-                "Image": "images/contracts/elusive/019_Cosmopolitan/Contract_Elusive_Cosmopolitan_Diamond_ObjectiveTile.jpg",
-                "BriefingName": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_BRIEF",
-                "LongBriefingText": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_DESC",
-                "Category": "primary",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_TITLE"
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "87d60de1-c050-48a1-ba43-9d2dbc052de0"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            },
-                            "DiamondsSecured": {
-                                "Transition": "Failure"
-                            },
-                            "MeetingNeverHappened": {
-                                "Transition": "Failure"
-                            },
-                            "DiamondsNeverPickedup": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "1495cf66-c9a8-481e-92da-9990c4e2630f",
-                "IsHidden": true,
-                "ObjectiveType": "custom",
-                "Image": "images/unlockables/item_perspective_87d60de1-c050-48a1-ba43-9d2dbc052de0_0.jpg",
-                "BriefingName": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_BRIEF",
-                "LongBriefingText": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_DESC",
-                "Category": "primary",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_TITLE"
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["87d60de1-c050-48a1-ba43-9d2dbc052de0"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "87d60de1-c050-48a1-ba43-9d2dbc052de0"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            },
-                            "DiamondsSecured": {
-                                "Transition": "Failure"
-                            },
-                            "MeetingNeverHappened": {
-                                "Transition": "Failure"
-                            },
-                            "DiamondsNeverPickedup": {
-                                "Transition": "Failure"
-                            },
-                            "CourierExitedWithDiamonds": {
-                                "Transition": "Failure"
-                            },
-                            "CourierExitedNoDiamonds": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            }
+								Id: "907e5a9e-8751-4887-8ed3-e8434131313a",
+								IsHidden: true,
+								ObjectiveType: "custom",
+								Image: "images/contracts/elusive/019_Cosmopolitan/Contract_Elusive_Cosmopolitan_Diamond_ObjectiveTile.jpg",
+								BriefingName: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_BRIEF",
+								LongBriefingText: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_DESC",
+								Category: "primary",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_2_TITLE"
+								},
+								Type: "statemachine",
+								Definition: {
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "87d60de1-c050-48a1-ba43-9d2dbc052de0"]
+												},
+												Transition: "Success"
+											},
+											DiamondsSecured: {
+												Transition: "Failure"
+											},
+											MeetingNeverHappened: {
+												Transition: "Failure"
+											},
+											DiamondsNeverPickedup: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "1495cf66-c9a8-481e-92da-9990c4e2630f",
+								IsHidden: true,
+								ObjectiveType: "custom",
+								Image: "images/unlockables/item_perspective_87d60de1-c050-48a1-ba43-9d2dbc052de0_0.jpg",
+								BriefingName: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_TITLE",
+								BriefingText: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_BRIEF",
+								LongBriefingText: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_DESC",
+								Category: "primary",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_COSMOPOLITAN_OBJ_3_TITLE"
+								},
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["87d60de1-c050-48a1-ba43-9d2dbc052de0"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "87d60de1-c050-48a1-ba43-9d2dbc052de0"]
+												},
+												Transition: "Success"
+											},
+											DiamondsSecured: {
+												Transition: "Failure"
+											},
+											MeetingNeverHappened: {
+												Transition: "Failure"
+											},
+											DiamondsNeverPickedup: {
+												Transition: "Failure"
+											},
+											CourierExitedWithDiamonds: {
+												Transition: "Failure"
+											},
+											CourierExitedNoDiamonds: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "maitai":
 						return [
 							{
-                "Id": "f574d4f6-fcb5-48c3-b3c9-15595069080b",
-                "IsHidden": true,
-                "Category": "primary",
-                "ObjectiveType": "custom",
-                "Image": "images/unlockables/item_perspective_74a4f6ee-b465-437c-bef9-3a67c9932853_0.jpg",
-                "BriefingName": "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE",
-                "LongBriefingText": "$loc UI_CONTRACT_MAITAI_OBJ_2_DESC",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE"
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["f8b7e382-6893-48b5-b34e-aec668d20564"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "f8b7e382-6893-48b5-b34e-aec668d20564"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            }
+								Id: "f574d4f6-fcb5-48c3-b3c9-15595069080b",
+								IsHidden: true,
+								Category: "primary",
+								ObjectiveType: "custom",
+								Image: "images/unlockables/item_perspective_74a4f6ee-b465-437c-bef9-3a67c9932853_0.jpg",
+								BriefingName: "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE",
+								LongBriefingText: "$loc UI_CONTRACT_MAITAI_OBJ_2_DESC",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_MAITAI_OBJ_2_TITLE"
+								},
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["f8b7e382-6893-48b5-b34e-aec668d20564"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "f8b7e382-6893-48b5-b34e-aec668d20564"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "bloodymary":
 						return [
 							{
-                "Id": "e8da2281-192e-45b4-886e-36d713314145",
-                "IsHidden": true,
-                "Category": "primary",
-                "ObjectiveType": "custom",
-                "ForceShowOnLoadingScreen": true,
-                "Image": "images/unlockables/item_perspective_55d34557-5b46-422f-84ce-7bb13cfcef96_0.jpg",
-                "BriefingName": "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE",
-                "LongBriefingText": "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_DESC",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE"
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            }
+								Id: "e8da2281-192e-45b4-886e-36d713314145",
+								IsHidden: true,
+								Category: "primary",
+								ObjectiveType: "custom",
+								ForceShowOnLoadingScreen: true,
+								Image: "images/unlockables/item_perspective_55d34557-5b46-422f-84ce-7bb13cfcef96_0.jpg",
+								BriefingName: "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE",
+								LongBriefingText: "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_DESC",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_BLOODYMARY_OBJ_2_TITLE"
+								},
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "6c05ffd3-a02b-45b6-9c05-ac3f6fcc0561"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "bushwhacker":
 						return [
 							{
-                "Id": "f94dcce7-2d6e-4f1f-a095-7b93b5e3a5ea",
-                "IsHidden": true,
-                "ObjectiveType": "custom",
-                "ForceShowOnLoadingScreen": true,
-                "Image": "images/contracts/elusive/027_Bushwacker/Objective1.jpg",
-                "BriefingName": "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_DESC",
-                "LongBriefingText": "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_DESC",
-                "Category": "primary",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_TITLE"
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "States": {
-                        "Start": {
-                            "UncoveredEvidence": { "Transition": "Success" },
-                            "LaptopDestroyed": { "Transition": "Failure" }
-                        }
-                    }
-                }
-            }
+								Id: "f94dcce7-2d6e-4f1f-a095-7b93b5e3a5ea",
+								IsHidden: true,
+								ObjectiveType: "custom",
+								ForceShowOnLoadingScreen: true,
+								Image: "images/contracts/elusive/027_Bushwacker/Objective1.jpg",
+								BriefingName: "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_DESC",
+								LongBriefingText: "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_DESC",
+								Category: "primary",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_BUSHWHACKER_OBJ_2_TITLE"
+								},
+								Type: "statemachine",
+								Definition: {
+									States: {
+										Start: {
+											UncoveredEvidence: { Transition: "Success" },
+											LaptopDestroyed: { Transition: "Failure" }
+										}
+									}
+								}
+							}
 						]
 					case "flirtini":
 						return [
 							{
-                "BriefingName": "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE",
-                "Category": "primary",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["92a71bd8-471e-49c9-b698-16771121ac05"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "92a71bd8-471e-49c9-b698-16771121ac05"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                },
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE"
-                },
-                "Id": "6f25f505-d95c-49d5-8fbd-430a8178eaa6",
-                "Image": "images/unlockables/item_perspective_74a4f6ee-b465-437c-bef9-3a67c9932853_0.jpg",
-                "IsHidden": true,
-                "LongBriefingText": "$loc UI_CONTRACT_FLIRTINI_OBJ_2_DESC",
-                "ObjectiveType": "custom",
-                "Type": "statemachine"
-            },
-            {
-                "Category": "condition",
-                "Definition": {
-                    "Context": {},
-                    "Scope": "session",
-                    "States": {
-                        "Start": {
-                            "TargetEscaped": { "Transition": "Success" }
-                        }
-                    }
-                },
-                "ExcludeFromScoring": true,
-                "Id": "d76898ad-1279-45e0-a83f-3821ab4507d8",
-                "OnActive": { "IfInProgress": { "Visible": false } },
-                "Type": "statemachine"
-            },
-            {
-                "Activation": {
-                    "$eq": [
-                        "$d76898ad-1279-45e0-a83f-3821ab4507d8",
-                        "Completed"
-                    ]
-                },
-                "BriefingText": "$loc UI_CONTRACT_FLIRTINI_FAIL_TARGET_ESCAPED",
-                "Category": "primary",
-                "Definition": {
-                    "Context": {},
-                    "States": {
-                        "EscapeCountdownStart": {
-                            "$timer": {
-                                "Condition": { "$after": 30 },
-                                "Transition": "Failure"
-                            },
-                            "CarDestroyed": { "Transition": "Success" },
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$eq": [
-                                            "$Value.RepositoryId",
-                                            "229d24be-d95a-4c73-a1be-afac4a05a5e3"
-                                        ]
-                                    },
-                                    "Transition": "Success"
-                                }
-                            ]
-                        },
-                        "Start": {
-                            "TargetEscaped": {
-                                "Transition": "EscapeCountdownStart"
-                            }
-                        }
-                    }
-                },
-                "IgnoreIfInactive": true,
-                "HUDTemplate": { "display": "$loc UI_CONTRACT_FLIRTINI_OBJ_3" },
-                "Id": "980a8b37-21f1-466f-a220-d2083df88ebb",
-                "Scope": "session",
-                "Type": "statemachine"
-            }
+								BriefingName: "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE",
+								Category: "primary",
+								Definition: {
+									Context: {
+										Targets: ["92a71bd8-471e-49c9-b698-16771121ac05"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "92a71bd8-471e-49c9-b698-16771121ac05"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								},
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_FLIRTINI_OBJ_2_TITLE"
+								},
+								Id: "6f25f505-d95c-49d5-8fbd-430a8178eaa6",
+								Image: "images/unlockables/item_perspective_74a4f6ee-b465-437c-bef9-3a67c9932853_0.jpg",
+								IsHidden: true,
+								LongBriefingText: "$loc UI_CONTRACT_FLIRTINI_OBJ_2_DESC",
+								ObjectiveType: "custom",
+								Type: "statemachine"
+							},
+							{
+								Category: "condition",
+								Definition: {
+									Context: {},
+									Scope: "session",
+									States: {
+										Start: {
+											TargetEscaped: { Transition: "Success" }
+										}
+									}
+								},
+								ExcludeFromScoring: true,
+								Id: "d76898ad-1279-45e0-a83f-3821ab4507d8",
+								OnActive: { IfInProgress: { Visible: false } },
+								Type: "statemachine"
+							},
+							{
+								Activation: {
+									$eq: ["$d76898ad-1279-45e0-a83f-3821ab4507d8", "Completed"]
+								},
+								BriefingText: "$loc UI_CONTRACT_FLIRTINI_FAIL_TARGET_ESCAPED",
+								Category: "primary",
+								Definition: {
+									Context: {},
+									States: {
+										EscapeCountdownStart: {
+											$timer: {
+												Condition: { $after: 30 },
+												Transition: "Failure"
+											},
+											CarDestroyed: { Transition: "Success" },
+											Kill: [
+												{
+													Condition: {
+														$eq: ["$Value.RepositoryId", "229d24be-d95a-4c73-a1be-afac4a05a5e3"]
+													},
+													Transition: "Success"
+												}
+											]
+										},
+										Start: {
+											TargetEscaped: {
+												Transition: "EscapeCountdownStart"
+											}
+										}
+									}
+								},
+								IgnoreIfInactive: true,
+								HUDTemplate: { display: "$loc UI_CONTRACT_FLIRTINI_OBJ_3" },
+								Id: "980a8b37-21f1-466f-a220-d2083df88ebb",
+								Scope: "session",
+								Type: "statemachine"
+							}
 						]
 					case "goldendoublet":
 						return [
 							{
-                "_comment": "----- Retrieve the Logbook -----",
-                "Id": "8d2e7efa-e47d-4a5e-8e0d-4d768bfb6d38",
-                "Category": "primary",
-                "IsHidden": true,
-                "ObjectiveType": "custom",
-                "ForceShowOnLoadingScreen": true,
-                "Image": "images/contracts/elusive/S2_GoldenDoublet/Objective1.jpg",
-                "BriefingName": "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_TITLE",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_TITLE",
-                    "iconType": 17
-                },
-                "BriefingText": "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_DESC",
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["264bb993-399a-4a60-9911-7c31cee0a2aa"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "a2b90ea0-a4b9-4ce6-b5e5-2b36b12d5970"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            }
+								_comment: "----- Retrieve the Logbook -----",
+								Id: "8d2e7efa-e47d-4a5e-8e0d-4d768bfb6d38",
+								Category: "primary",
+								IsHidden: true,
+								ObjectiveType: "custom",
+								ForceShowOnLoadingScreen: true,
+								Image: "images/contracts/elusive/S2_GoldenDoublet/Objective1.jpg",
+								BriefingName: "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_TITLE",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_TITLE",
+									iconType: 17
+								},
+								BriefingText: "$loc UI_CONTRACT_GOLDENDOUBLET_OBJ_1_DESC",
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["264bb993-399a-4a60-9911-7c31cee0a2aa"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "a2b90ea0-a4b9-4ce6-b5e5-2b36b12d5970"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "skittlebomb":
 						return [
 							{
-                "Id": "9f14eb28-cc91-44ba-93c4-7b90bae6b912",
-                "Category": "primary",
-                "ForceShowOnLoadingScreen": true,
-                "IsHidden": true,
-                "ObjectiveType": "custom",
-                "Image": "images/contracts/elusive/s2_skittlebomb/objective2.jpg",
-                "BriefingName": "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_TITLE",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_TITLE",
-                    "iconType": 17
-                },
-                "BriefingText": "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_DESC",
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {
-                        "Targets": ["39dee301-8480-4d74-a100-9a797297bda7"]
-                    },
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "e303a7f6-2f5e-4c2f-84df-f851c14583a5"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            }
+								Id: "9f14eb28-cc91-44ba-93c4-7b90bae6b912",
+								Category: "primary",
+								ForceShowOnLoadingScreen: true,
+								IsHidden: true,
+								ObjectiveType: "custom",
+								Image: "images/contracts/elusive/s2_skittlebomb/objective2.jpg",
+								BriefingName: "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_TITLE",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_TITLE",
+									iconType: 17
+								},
+								BriefingText: "$loc UI_CONTRACT_SKITTLEBOMB_OBJ_2_DESC",
+								Type: "statemachine",
+								Definition: {
+									Context: {
+										Targets: ["39dee301-8480-4d74-a100-9a797297bda7"]
+									},
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "e303a7f6-2f5e-4c2f-84df-f851c14583a5"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "penicillin":
 						return [
 							{
-                "_comment": "----- [HIDDEN] Pen Escaped -----",
-                "Id": "a50652e6-eccb-4491-97ea-d03ca15b11a0",
-                "Primary": true,
-                "ObjectiveType": "custom",
-                "ForceShowOnLoadingScreen": false,
-                "ExcludeFromScoring": true,
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": false
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    }
-                },
-                "Image": "images/challenges/elusive_target/et_penicillin_started.jpg",
-                "BriefingName": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_PEN_FAIL",
-                "BriefingText": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_PEN_FAIL",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
-                    "iconType": 17
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "display": {
-                        "iconType": 17
-                    },
-                    "Scope": "session",
-                    "States": {
-                        "Start": {
-                            "Pen_Escaped": {
-                                "Transition": "Failure"
-                            },
-                            "Pen_Done": {
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Do Not Eliminate Tim Quinn [Optional] -----",
-                "Id": "f965e220-bfe0-4b2f-8c47-40472dedfbd6",
-                "Category": "secondary",
-                "ForceShowOnLoadingScreen": true,
-                "IsHidden": false,
-                "ObjectiveType": "custom",
-                "Image": "images/contracts/elusive/s3_penicillin/objective2.jpg",
-                "BriefingName": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
-                    "iconType": 17
-                },
-                "BriefingText": "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_DESC",
-                "Type": "statemachine",
-                "ExcludeFromScoring": false,
-                "Definition": {
-                    "States": {
-                        "Start": {
-                            "ContractEnd": {
-                                "Transition": "Success"
-                            },
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "4addab15-2ea0-4868-aaed-f544fe05e62b"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ]
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "03834afc-9aae-4a2a-803d-e60363ca1c3c",
-                "Type": "statemachine",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": true
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    }
-                },
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "TargetEscapeStarted": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "Activation": {
-                    "$eq": ["$03834afc-9aae-4a2a-803d-e60363ca1c3c", "Failed"]
-                },
-                "HUDTemplate": {
-                    "display": "$loc EGAME_TEXT_SL_TARGET_ESCAPING"
-                },
-                "Id": "f92b9623-6cb5-44cb-b9a2-bf483a3bfe1d",
-                "Scope": "session",
-                "Type": "statemachine",
-                "Category": "secondary",
-                "ExcludeFromScoring": true,
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": true
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": false
-                    }
-                },
-                "Definition": {
-                    "ContextListeners": {
-                        "Timeout": {
-                            "type": "custom",
-                            "HUDTemplate": {
-                                "display": {
-                                    "$loc": {
-                                        "key": "UI_CONTRACT_HAWK_TIMER_TIMED_OUT",
-                                        "iconType": 17,
-                                        "data": []
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "Context": {
-                        "Timeout": 1
-                    },
-                    "States": {
-                        "Start": {
-                            "BeginTimer": {
-                                "Transition": "TimerRunning"
-                            }
-                        },
-                        "TimerRunning": {
-                            "$timer": {
-                                "Condition": {
-                                    "$after": 70
-                                },
-                                "Actions": {
-                                    "$dec": "Timeout"
-                                },
-                                "Transition": "Failure"
-                            },
-                            "EndTimer": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            }
+								_comment: "----- [HIDDEN] Pen Escaped -----",
+								Id: "a50652e6-eccb-4491-97ea-d03ca15b11a0",
+								Primary: true,
+								ObjectiveType: "custom",
+								ForceShowOnLoadingScreen: false,
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Image: "images/challenges/elusive_target/et_penicillin_started.jpg",
+								BriefingName: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_PEN_FAIL",
+								BriefingText: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_PEN_FAIL",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
+									iconType: 17
+								},
+								Type: "statemachine",
+								Definition: {
+									display: {
+										iconType: 17
+									},
+									Scope: "session",
+									States: {
+										Start: {
+											Pen_Escaped: {
+												Transition: "Failure"
+											},
+											Pen_Done: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Do Not Eliminate Tim Quinn [Optional] -----",
+								Id: "f965e220-bfe0-4b2f-8c47-40472dedfbd6",
+								Category: "secondary",
+								ForceShowOnLoadingScreen: true,
+								IsHidden: false,
+								ObjectiveType: "custom",
+								Image: "images/contracts/elusive/s3_penicillin/objective2.jpg",
+								BriefingName: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_NAME",
+									iconType: 17
+								},
+								BriefingText: "$loc UI_CONTRACT_PENICILLIN_OBJECTIVE_QUINN_DESC",
+								Type: "statemachine",
+								ExcludeFromScoring: false,
+								Definition: {
+									States: {
+										Start: {
+											ContractEnd: {
+												Transition: "Success"
+											},
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"4addab15-2ea0-4868-aaed-f544fe05e62b"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											]
+										}
+									}
+								}
+							},
+							{
+								Id: "03834afc-9aae-4a2a-803d-e60363ca1c3c",
+								Type: "statemachine",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: true
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetEscapeStarted: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							},
+							{
+								Activation: {
+									$eq: ["$03834afc-9aae-4a2a-803d-e60363ca1c3c", "Failed"]
+								},
+								HUDTemplate: {
+									display: "$loc EGAME_TEXT_SL_TARGET_ESCAPING"
+								},
+								Id: "f92b9623-6cb5-44cb-b9a2-bf483a3bfe1d",
+								Scope: "session",
+								Type: "statemachine",
+								Category: "secondary",
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: {
+										Visible: true
+									},
+									IfFailed: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									}
+								},
+								Definition: {
+									ContextListeners: {
+										Timeout: {
+											type: "custom",
+											HUDTemplate: {
+												display: {
+													$loc: {
+														key: "UI_CONTRACT_HAWK_TIMER_TIMED_OUT",
+														iconType: 17,
+														data: []
+													}
+												}
+											}
+										}
+									},
+									Context: {
+										Timeout: 1
+									},
+									States: {
+										Start: {
+											BeginTimer: {
+												Transition: "TimerRunning"
+											}
+										},
+										TimerRunning: {
+											$timer: {
+												Condition: {
+													$after: 70
+												},
+												Actions: {
+													$dec: "Timeout"
+												},
+												Transition: "Failure"
+											},
+											EndTimer: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							}
 						]
 					case "gibson":
 						return [
 							{
-                "_comment": "----- Hide target escaping objective -----",
-                "Id": "9859eb6c-6d5a-4770-85af-67d618c4a09d",
-                "Type": "statemachine",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "TargetLeaving": { "Transition": "Success" }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Target escaping -----",
-                "Id": "b7d1b0b6-653c-43a8-ab3e-675465537a96",
-                "Category": "primary",
-                "ExcludeFromScoring": true,
-                "Activation": {
-                    "$eq": [
-                        "$9859eb6c-6d5a-4770-85af-67d618c4a09d",
-                        "Completed"
-                    ]
-                },
-                "OnInactive": { "IfCompleted": { "State": "Completed" } },
-                "OnActive": { "IfCompleted": { "Visible": false } },
-                "BriefingName": "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
-                "BriefingText": "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_TEXT",
-                "LongBriefingText": "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
-                    "iconType": 3
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "display": { "iconType": 3 },
-                    "Context": { "Timeout": 15 },
-                    "States": {
-                        "Start": {
-                            "TargetReachedExit": { "Transition": "Countdown" },
-                            "ObjectiveCompleted": [
-                                {
-                                    "Condition": {
-                                        "$eq": [
-                                            "$Value.Id",
-                                            "85c51ea1-5f20-4408-8606-c44f08f6b931"
-                                        ]
-                                    },
-                                    "Transition": "Success"
-                                }
-                            ]
-                        },
-                        "Countdown": {
-                            "$timer": {
-                                "Condition": { "$after": "$.Timeout" },
-                                "Transition": "Failure"
-                            },
-                            "ObjectiveCompleted": [
-                                {
-                                    "Condition": {
-                                        "$eq": [
-                                            "$Value.Id",
-                                            "85c51ea1-5f20-4408-8606-c44f08f6b931"
-                                        ]
-                                    },
-                                    "Transition": "Success"
-                                }
-                            ],
-                            "TargetLeftExit": { "Transition": "Start" }
-                        }
-                    }
-                }
-            }
+								_comment: "----- Hide target escaping objective -----",
+								Id: "9859eb6c-6d5a-4770-85af-67d618c4a09d",
+								Type: "statemachine",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetLeaving: { Transition: "Success" }
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Target escaping -----",
+								Id: "b7d1b0b6-653c-43a8-ab3e-675465537a96",
+								Category: "primary",
+								ExcludeFromScoring: true,
+								Activation: {
+									$eq: ["$9859eb6c-6d5a-4770-85af-67d618c4a09d", "Completed"]
+								},
+								OnInactive: { IfCompleted: { State: "Completed" } },
+								OnActive: { IfCompleted: { Visible: false } },
+								BriefingName: "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
+								BriefingText: "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_TEXT",
+								LongBriefingText: "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_GIBSON_OBJ_TARGETESCAPING_NAME",
+									iconType: 3
+								},
+								Type: "statemachine",
+								Definition: {
+									display: { iconType: 3 },
+									Context: { Timeout: 15 },
+									States: {
+										Start: {
+											TargetReachedExit: { Transition: "Countdown" },
+											ObjectiveCompleted: [
+												{
+													Condition: {
+														$eq: ["$Value.Id", "85c51ea1-5f20-4408-8606-c44f08f6b931"]
+													},
+													Transition: "Success"
+												}
+											]
+										},
+										Countdown: {
+											$timer: {
+												Condition: { $after: "$.Timeout" },
+												Transition: "Failure"
+											},
+											ObjectiveCompleted: [
+												{
+													Condition: {
+														$eq: ["$Value.Id", "85c51ea1-5f20-4408-8606-c44f08f6b931"]
+													},
+													Transition: "Success"
+												}
+											],
+											TargetLeftExit: { Transition: "Start" }
+										}
+									}
+								}
+							}
 						]
 					case "bramble":
 						return [
 							{
-                "_comment": "----- Retrieve the painting [Optional] -----",
-                "Id": "482570fd-949f-41c9-be77-922657dc6376",
-                "Category": "secondary",
-                "ForceShowOnLoadingScreen": true,
-                "IsHidden": false,
-                "ObjectiveType": "custom",
-                "Image": "images/contracts/elusive/s3_bramble/objective2.jpg",
-                "BriefingName": "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_TITLE",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_TITLE",
-                    "iconType": 17
-                },
-                "BriefingText": "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_DESC",
-                "Type": "statemachine",
-                "Definition": {
-                    "States": {
-                        "Start": {
-                            "ItemPickedUp": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "49853af0-d50b-4959-a446-15429b1f4530"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Silent objective to trigger escape -----",
-                "Id": "42718523-7c71-41e3-8e72-ae0ba6e13a47",
-                "Type": "statemachine",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "OnActive": {
-                    "IfInProgress": { "Visible": false },
-                    "IfCompleted": { "Visible": false },
-                    "IfFailed": { "Visible": false }
-                },
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "TargetEscapeStarted": { "Transition": "Success" }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Target Escape -----",
-                "Activation": {
-                    "$eq": [
-                        "$42718523-7c71-41e3-8e72-ae0ba6e13a47",
-                        "Completed"
-                    ]
-                },
-                "Id": "9571d196-8d67-4d94-8dad-6e2d970d7a91",
-                "Category": "primary",
-                "ExcludeFromScoring": true,
-                "IgnoreIfInactive": true,
-                "OnActive": {
-                    "IfCompleted": { "Visible": false },
-                    "IfInProgress": { "Visible": true }
-                },
-                "BriefingText": "$loc UI_CONTRACT_BRAMBLE_FAIL_ESCAPE",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_BRAMBLE_OBJ_ESCAPE",
-                    "iconType": 8
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {},
-                    "States": {
-                        "Start": { "-": { "Transition": "Standby" } },
-                        "Standby": {
-                            "TargetEscapeStarted": { "Transition": "Escaping" }
-                        },
-                        "Escaping": {
-                            "Kill": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "6240a1a1-f5ef-43b9-8665-7829fb0c0b52"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            },
-                            "TargetEscaped": { "Transition": "Failure" }
-                        }
-                    }
-                }
-            }
+								_comment: "----- Retrieve the painting [Optional] -----",
+								Id: "482570fd-949f-41c9-be77-922657dc6376",
+								Category: "secondary",
+								ForceShowOnLoadingScreen: true,
+								IsHidden: false,
+								ObjectiveType: "custom",
+								Image: "images/contracts/elusive/s3_bramble/objective2.jpg",
+								BriefingName: "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_TITLE",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_TITLE",
+									iconType: 17
+								},
+								BriefingText: "$loc UI_CONTRACT_BRAMBLE_OBJ_PAINTING_DESC",
+								Type: "statemachine",
+								Definition: {
+									States: {
+										Start: {
+											ItemPickedUp: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "49853af0-d50b-4959-a446-15429b1f4530"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Silent objective to trigger escape -----",
+								Id: "42718523-7c71-41e3-8e72-ae0ba6e13a47",
+								Type: "statemachine",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: { Visible: false },
+									IfCompleted: { Visible: false },
+									IfFailed: { Visible: false }
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetEscapeStarted: { Transition: "Success" }
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Target Escape -----",
+								Activation: {
+									$eq: ["$42718523-7c71-41e3-8e72-ae0ba6e13a47", "Completed"]
+								},
+								Id: "9571d196-8d67-4d94-8dad-6e2d970d7a91",
+								Category: "primary",
+								ExcludeFromScoring: true,
+								IgnoreIfInactive: true,
+								OnActive: {
+									IfCompleted: { Visible: false },
+									IfInProgress: { Visible: true }
+								},
+								BriefingText: "$loc UI_CONTRACT_BRAMBLE_FAIL_ESCAPE",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_BRAMBLE_OBJ_ESCAPE",
+									iconType: 8
+								},
+								Type: "statemachine",
+								Definition: {
+									Context: {},
+									States: {
+										Start: { "-": { Transition: "Standby" } },
+										Standby: {
+											TargetEscapeStarted: { Transition: "Escaping" }
+										},
+										Escaping: {
+											Kill: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "6240a1a1-f5ef-43b9-8665-7829fb0c0b52"]
+												},
+												Transition: "Success"
+											},
+											TargetEscaped: { Transition: "Failure" }
+										}
+									}
+								}
+							}
 						]
 					case "radler":
 						return [
 							{
-                "_comment": "----- Do not eliminate the guide -----",
-                "Id": "d5331a6d-4d91-4949-884f-eb981048a137",
-                "Category": "secondary",
-                "ObjectiveType": "custom",
-                "ForceShowOnLoadingScreen": true,
-                "Image": "images/contracts/elusive/s3_radler/objective2.jpg",
-                "BriefingName": "$loc UI_CONTRACT_RADLER_OBJ_2_TITLE",
-                "BriefingText": "$loc UI_CONTRACT_RADLER_OBJ_2_DESC",
-                "LongBriefingText": "$loc UI_CONTRACT_RADLER_OBJ_2_DESC_LONG",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_RADLER_OBJ_2_TITLE",
-                    "iconType": 17
-                },
-                "Type": "statemachine",
-                "ExcludeFromScoring": false,
-                "Definition": {
-                    "Scope": "session",
-                    "States": {
-                        "Start": {
-                            "ContractEnd": { "Transition": "Success" },
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$and": [
-                                            {
-                                                "$eq": [
-                                                    "$Value.RepositoryId",
-                                                    "a66118e9-9c3e-4251-849c-d3146d218bd5"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "Transition": "Failure"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
+								_comment: "----- Do not eliminate the guide -----",
+								Id: "d5331a6d-4d91-4949-884f-eb981048a137",
+								Category: "secondary",
+								ObjectiveType: "custom",
+								ForceShowOnLoadingScreen: true,
+								Image: "images/contracts/elusive/s3_radler/objective2.jpg",
+								BriefingName: "$loc UI_CONTRACT_RADLER_OBJ_2_TITLE",
+								BriefingText: "$loc UI_CONTRACT_RADLER_OBJ_2_DESC",
+								LongBriefingText: "$loc UI_CONTRACT_RADLER_OBJ_2_DESC_LONG",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_RADLER_OBJ_2_TITLE",
+									iconType: 17
+								},
+								Type: "statemachine",
+								ExcludeFromScoring: false,
+								Definition: {
+									Scope: "session",
+									States: {
+										Start: {
+											ContractEnd: { Transition: "Success" },
+											Kill: [
+												{
+													Condition: {
+														$and: [
+															{
+																$eq: [
+																	"$Value.RepositoryId",
+																	"a66118e9-9c3e-4251-849c-d3146d218bd5"
+																]
+															}
+														]
+													},
+													Transition: "Failure"
+												}
+											]
+										}
+									}
+								}
+							}
 						]
-				case "lambic":
-					return [
-						{
-                "_comment": "----- Eliminate secondary targets (hidden) -----",
-                "Id": "acd7b21f-a088-4980-a49d-4a7c7e70cdf5",
-                "Type": "statemachine",
-                "Category": "primary",
-                "IsHidden": true,
-                "ExcludeFromScoring": true,
-                "OnInactive": {
-                    "IfCompleted": {
-                        "State": "Completed",
-                        "Visible": false
-                    }
-                },
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": false
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    }
-                },
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {
-                        "Targets": [],
-                        "TargetCount": 0
-                    },
-                    "States": {
-                        "Start": {
-                            "AddTarget": [
-                                {
-                                    "Actions": {
-                                        "$pushunique": [
-                                            "Targets",
-                                            "$Value.RepositoryId"
-                                        ],
-                                        "$inc": "TargetCount"
-                                    }
-                                }
-                            ],
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$inarray": {
-                                            "in": "$.Targets",
-                                            "?": {
-                                                "$eq": [
-                                                    "$.#",
-                                                    "$Value.RepositoryId"
-                                                ]
-                                            }
-                                        }
-                                    },
-                                    "Actions": {
-                                        "$dec": "TargetCount"
-                                    }
-                                },
-                                {
-                                    "Condition": {
-                                        "$eq": ["$.TargetCount", 0]
-                                    },
-                                    "Transition": "Success"
-                                }
-                            ],
-                            "Lambic_EnableSecondaryTargetsObjective": {
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Eliminate secondary targets -----",
-                "Id": "0158e00e-88e7-4e95-bbf6-bca90f673a23",
-                "Category": "primary",
-                "Image": "Images/Contracts/Elusive/S3_Lambic/Secondary_Target.jpg",
-                "BriefingName": "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_NAME",
-                "BriefingText": "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_DESC",
-                "LongBriefingText": "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_LONG",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_HUD",
-                    "iconType": 0
-                },
-                "ObjectiveType": "custom",
-                "Type": "statemachine",
-                "Scope": "hit",
-                "Activation": {
-                    "$eq": [
-                        "$acd7b21f-a088-4980-a49d-4a7c7e70cdf5",
-                        "Completed"
-                    ]
-                },
-                "OnInactive": {
-                    "IfCompleted": {
-                        "State": "Completed",
-                        "Visible": true
-                    }
-                },
-                "Definition": {
-                    "Context": {
-                        "Targets": [],
-                        "TargetCount": 0
-                    },
-                    "ContextListeners": {
-                        "TargetCount": {
-                            "type": "objective-counter",
-                            "header": "UI_CONTRACT_LAMBIC_OBJ_SECONDARY_COUNTER"
-                        }
-                    },
-                    "States": {
-                        "Start": {
-                            "AddTarget": [
-                                {
-                                    "Actions": {
-                                        "$pushunique": [
-                                            "Targets",
-                                            "$Value.RepositoryId"
-                                        ],
-                                        "$inc": "TargetCount"
-                                    }
-                                }
-                            ],
-                            "Kill": [
-                                {
-                                    "Condition": {
-                                        "$inarray": {
-                                            "in": "$.Targets",
-                                            "?": {
-                                                "$eq": [
-                                                    "$.#",
-                                                    "$Value.RepositoryId"
-                                                ]
-                                            }
-                                        }
-                                    },
-                                    "Actions": {
-                                        "$dec": "TargetCount"
-                                    }
-                                },
-                                {
-                                    "Condition": {
-                                        "$eq": ["$.TargetCount", 0]
-                                    },
-                                    "Transition": "Success"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-					]
-				case "frenchmartini":
-					return [
-						{
-                "_comment": "----- Enable optional target -----",
-                "Id": "6d234a73-2ae4-445d-be8a-e9c92b177e5b",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "EnableOptionalTarget": {
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "_comment": "----- Eliminate optional target -----",
-                "Id": "8bff61ab-42e0-4c94-b74f-2303548ad028",
-                "Category": "secondary",
-                "ExcludeFromScoring": true,
-                "IsHidden": true,
-                "Activation": {
-                    "$eq": [
-                        "$6d234a73-2ae4-445d-be8a-e9c92b177e5b",
-                        "Completed"
-                    ]
-                },
-                "SuccessEvent": {
-                    "EventName": "Kill",
-                    "EventValues": {
-                        "RepositoryId": "8ea03ee0-7eac-4efa-8206-af4531cc00ee"
-                    }
-                }
-            },
-            {
-                "Id": "db93108b-137f-42f6-af1e-81cf1a1959fe",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "Type": "statemachine",
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": true
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    }
-                },
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "47Poisoned": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "2919d130-5d1a-4e89-8e2e-dfac16b4907f",
-                "Category": "secondary",
-                "ExcludeFromScoring": true,
-                "Type": "statemachine",
-                "Activation": {
-                    "$eq": ["$db93108b-137f-42f6-af1e-81cf1a1959fe", "Failed"]
-                },
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": true
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": false
-                    }
-                },
-                "HUDTemplate": {
-                    "display": "$loc UI_ET_FRENCHMARTINI_OPPORTUNITY_STEP_ANTIDOTE"
-                },
-                "Definition": {
-                    "ContextListeners": {
-                        "Timeout": {
-                            "type": "custom",
-                            "HUDTemplate": {
-                                "display": {
-                                    "$loc": {
-                                        "key": "UI_CONTRACT_HAWK_TIMER_TIMED_OUT",
-                                        "data": []
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "Context": {
-                        "Timeout": 1
-                    },
-                    "States": {
-                        "Start": {
-                            "BeginTimer": {
-                                "Transition": "TimerRunning"
-                            }
-                        },
-                        "TimerRunning": {
-                            "$timer": {
-                                "Condition": {
-                                    "$after": 70
-                                },
-                                "Actions": {
-                                    "$dec": "Timeout"
-                                },
-                                "Transition": "Failure"
-                            },
-                            "EndTimer": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "01821807-ff15-4ee3-94ec-d6633cb645ca",
-                "Category": "condition",
-                "ExcludeFromScoring": true,
-                "Type": "statemachine",
-                "OnActive": {
-                    "IfInProgress": {
-                        "Visible": false
-                    },
-                    "IfCompleted": {
-                        "Visible": false
-                    },
-                    "IfFailed": {
-                        "Visible": false
-                    }
-                },
-                "Definition": {
-                    "Scope": "session",
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "TargetEscapeStarted": {
-                                "Transition": "Failure"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "Id": "2f964b33-50ad-45f3-8ca6-ac2b0d0d7d4d",
-                "Category": "primary",
-                "ExcludeFromScoring": true,
-                "BriefingText": "$loc UI_CONTRACT_FRENCHMARTINI_OBJ_TARGETESCAPING_TEXT",
-                "HUDTemplate": {
-                    "display": "$loc UI_CONTRACT_FRENCHMARTINI_OBJ_TARGETESCAPING_HUD"
-                },
-                "OnInactive": {
-                    "IfCompleted": {
-                        "State": "Completed"
-                    }
-                },
-                "OnActive": {
-                    "IfCompleted": {
-                        "Visible": false
-                    }
-                },
-                "Activation": {
-                    "$eq": ["$01821807-ff15-4ee3-94ec-d6633cb645ca", "Failed"]
-                },
-                "Type": "statemachine",
-                "Definition": {
-                    "Context": {},
-                    "States": {
-                        "Start": {
-                            "TargetEscapeCompleted": {
-                                "Transition": "Failure"
-                            },
-                            "Kill": {
-                                "Condition": {
-                                    "$eq": [
-                                        "$Value.RepositoryId",
-                                        "54f583de-f261-4473-956c-dc278e5162e2"
-                                    ]
-                                },
-                                "Transition": "Success"
-                            }
-                        }
-                    }
-                }
-            }
-					]
+					case "lambic":
+						return [
+							{
+								_comment: "----- Eliminate secondary targets (hidden) -----",
+								Id: "acd7b21f-a088-4980-a49d-4a7c7e70cdf5",
+								Type: "statemachine",
+								Category: "primary",
+								IsHidden: true,
+								ExcludeFromScoring: true,
+								OnInactive: {
+									IfCompleted: {
+										State: "Completed",
+										Visible: false
+									}
+								},
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {
+										Targets: [],
+										TargetCount: 0
+									},
+									States: {
+										Start: {
+											AddTarget: [
+												{
+													Actions: {
+														$pushunique: ["Targets", "$Value.RepositoryId"],
+														$inc: "TargetCount"
+													}
+												}
+											],
+											Kill: [
+												{
+													Condition: {
+														$inarray: {
+															in: "$.Targets",
+															"?": {
+																$eq: ["$.#", "$Value.RepositoryId"]
+															}
+														}
+													},
+													Actions: {
+														$dec: "TargetCount"
+													}
+												},
+												{
+													Condition: {
+														$eq: ["$.TargetCount", 0]
+													},
+													Transition: "Success"
+												}
+											],
+											Lambic_EnableSecondaryTargetsObjective: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Eliminate secondary targets -----",
+								Id: "0158e00e-88e7-4e95-bbf6-bca90f673a23",
+								Category: "primary",
+								Image: "Images/Contracts/Elusive/S3_Lambic/Secondary_Target.jpg",
+								BriefingName: "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_NAME",
+								BriefingText: "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_DESC",
+								LongBriefingText: "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_LONG",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_LAMBIC_OBJ_SECONDARY_HUD",
+									iconType: 0
+								},
+								ObjectiveType: "custom",
+								Type: "statemachine",
+								Scope: "hit",
+								Activation: {
+									$eq: ["$acd7b21f-a088-4980-a49d-4a7c7e70cdf5", "Completed"]
+								},
+								OnInactive: {
+									IfCompleted: {
+										State: "Completed",
+										Visible: true
+									}
+								},
+								Definition: {
+									Context: {
+										Targets: [],
+										TargetCount: 0
+									},
+									ContextListeners: {
+										TargetCount: {
+											type: "objective-counter",
+											header: "UI_CONTRACT_LAMBIC_OBJ_SECONDARY_COUNTER"
+										}
+									},
+									States: {
+										Start: {
+											AddTarget: [
+												{
+													Actions: {
+														$pushunique: ["Targets", "$Value.RepositoryId"],
+														$inc: "TargetCount"
+													}
+												}
+											],
+											Kill: [
+												{
+													Condition: {
+														$inarray: {
+															in: "$.Targets",
+															"?": {
+																$eq: ["$.#", "$Value.RepositoryId"]
+															}
+														}
+													},
+													Actions: {
+														$dec: "TargetCount"
+													}
+												},
+												{
+													Condition: {
+														$eq: ["$.TargetCount", 0]
+													},
+													Transition: "Success"
+												}
+											]
+										}
+									}
+								}
+							}
+						]
+					case "frenchmartini":
+						return [
+							{
+								_comment: "----- Enable optional target -----",
+								Id: "6d234a73-2ae4-445d-be8a-e9c92b177e5b",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								Type: "statemachine",
+								Definition: {
+									Context: {},
+									States: {
+										Start: {
+											EnableOptionalTarget: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								_comment: "----- Eliminate optional target -----",
+								Id: "8bff61ab-42e0-4c94-b74f-2303548ad028",
+								Category: "secondary",
+								ExcludeFromScoring: true,
+								IsHidden: true,
+								Activation: {
+									$eq: ["$6d234a73-2ae4-445d-be8a-e9c92b177e5b", "Completed"]
+								},
+								SuccessEvent: {
+									EventName: "Kill",
+									EventValues: {
+										RepositoryId: "8ea03ee0-7eac-4efa-8206-af4531cc00ee"
+									}
+								}
+							},
+							{
+								Id: "db93108b-137f-42f6-af1e-81cf1a1959fe",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								Type: "statemachine",
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: true
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											"47Poisoned": {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "2919d130-5d1a-4e89-8e2e-dfac16b4907f",
+								Category: "secondary",
+								ExcludeFromScoring: true,
+								Type: "statemachine",
+								Activation: {
+									$eq: ["$db93108b-137f-42f6-af1e-81cf1a1959fe", "Failed"]
+								},
+								OnActive: {
+									IfInProgress: {
+										Visible: true
+									},
+									IfFailed: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									}
+								},
+								HUDTemplate: {
+									display: "$loc UI_ET_FRENCHMARTINI_OPPORTUNITY_STEP_ANTIDOTE"
+								},
+								Definition: {
+									ContextListeners: {
+										Timeout: {
+											type: "custom",
+											HUDTemplate: {
+												display: {
+													$loc: {
+														key: "UI_CONTRACT_HAWK_TIMER_TIMED_OUT",
+														data: []
+													}
+												}
+											}
+										}
+									},
+									Context: {
+										Timeout: 1
+									},
+									States: {
+										Start: {
+											BeginTimer: {
+												Transition: "TimerRunning"
+											}
+										},
+										TimerRunning: {
+											$timer: {
+												Condition: {
+													$after: 70
+												},
+												Actions: {
+													$dec: "Timeout"
+												},
+												Transition: "Failure"
+											},
+											EndTimer: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "01821807-ff15-4ee3-94ec-d6633cb645ca",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								Type: "statemachine",
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetEscapeStarted: {
+												Transition: "Failure"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "2f964b33-50ad-45f3-8ca6-ac2b0d0d7d4d",
+								Category: "primary",
+								ExcludeFromScoring: true,
+								BriefingText: "$loc UI_CONTRACT_FRENCHMARTINI_OBJ_TARGETESCAPING_TEXT",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_FRENCHMARTINI_OBJ_TARGETESCAPING_HUD"
+								},
+								OnInactive: {
+									IfCompleted: {
+										State: "Completed"
+									}
+								},
+								OnActive: {
+									IfCompleted: {
+										Visible: false
+									}
+								},
+								Activation: {
+									$eq: ["$01821807-ff15-4ee3-94ec-d6633cb645ca", "Failed"]
+								},
+								Type: "statemachine",
+								Definition: {
+									Context: {},
+									States: {
+										Start: {
+											TargetEscapeCompleted: {
+												Transition: "Failure"
+											},
+											Kill: {
+												Condition: {
+													$eq: ["$Value.RepositoryId", "54f583de-f261-4473-956c-dc278e5162e2"]
+												},
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
+						]
 				}
 			}
 
@@ -5462,7 +5395,11 @@ module.exports = function ContractSearch(controller) {
 				}
 			} else if (selectedMission == "cosmopolitan") {
 				baseContract.Data["EnableExits"] = {
-					$eq: objectiveIdList.concat("$907e5a9e-8751-4887-8ed3-e8434131313a", "$1495cf66-c9a8-481e-92da-9990c4e2630f", "Completed")
+					$eq: objectiveIdList.concat(
+						"$907e5a9e-8751-4887-8ed3-e8434131313a",
+						"$1495cf66-c9a8-481e-92da-9990c4e2630f",
+						"Completed"
+					)
 				}
 			} else if (selectedMission == "maitai") {
 				baseContract.Data["EnableExits"] = {
@@ -5490,7 +5427,11 @@ module.exports = function ContractSearch(controller) {
 				}
 			} else if (selectedMission == "lambic") {
 				baseContract.Data["EnableExits"] = {
-					$eq: objectiveIdList.concat("$acd7b21f-a088-4980-a49d-4a7c7e70cdf5", "$0158e00e-88e7-4e95-bbf6-bca90f673a23", "Completed")
+					$eq: objectiveIdList.concat(
+						"$acd7b21f-a088-4980-a49d-4a7c7e70cdf5",
+						"$0158e00e-88e7-4e95-bbf6-bca90f673a23",
+						"Completed"
+					)
 				}
 			} else if (selectedMission == "LOCATION_EDGY_FOX") {
 				baseContract.Data["EnableExits"] = {
