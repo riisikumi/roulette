@@ -1270,7 +1270,8 @@ module.exports = function ContractSearch(controller) {
 											"c95c55aa-34e5-42bd-bf27-32be3978b269",
 											"af8a7b6c-692c-4a76-b9bc-2b91ce32bcbc",
 											"c82fefa7-febe-46c8-90ec-c945fbef0cb4",
-											"a83349bf-3d9c-43ec-92ee-c8c98cbeabc1"
+											"a83349bf-3d9c-43ec-92ee-c8c98cbeabc1",
+											"8b7c3ec6-c072-4a21-a323-0f8751028052"
 										]
 									}
 								}
@@ -1288,7 +1289,8 @@ module.exports = function ContractSearch(controller) {
 										in: [
 											"fc715a9a-3bf1-4768-bd67-0def61b92551",
 											"9d5daae3-10c8-4f03-a85d-9bd92861a672",
-											"293af6cc-dd8d-4641-b650-14cdfd00f1de"
+											"293af6cc-dd8d-4641-b650-14cdfd00f1de",
+											"4aa57da4-07d7-44aa-9a71-8469287d43e2"
 										]
 									}
 								}
