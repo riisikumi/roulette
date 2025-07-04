@@ -37331,7 +37331,7 @@ module.exports = function EscPlugin(controller) {
 					]
 				},
 				Metadata: {
-					Id: "36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4",
+					Id: "adaa2f10-21bf-420d-994d-19a78b0fb76b",
 					IsPublished: !0,
 					CreationTimestamp: "2015-07-02T13:18:30.1639035Z",
 					CreatorUserId: "fadb923c-e6bb-4283-a537-eb4d1150262e",
@@ -59781,7 +59781,7 @@ module.exports = function EscPlugin(controller) {
 				Location: "LOCATION_COASTALTOWN",
 				RequiredUnlockable: "",
 				ScenePath: "assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_octopus.entity",
-				GroupDefinition: { Type: "escalation", Order: ["36b3dcb4-2e22-4b7e-b1b0-3e8708bf52t4"] },
+				GroupDefinition: { Type: "escalation", Order: ["adaa2f10-21bf-420d-994d-19a78b0fb76b"] },
 				Type: "escalation",
 				Release: "1.0.x Escalation",
 				LastUpdate: "2020-11-09T13:35:25.5078466Z",
@@ -60529,7 +60529,7 @@ module.exports = function EscPlugin(controller) {
 		}
 	]
 	escalations.forEach((a) => {
-		controller.addEscalation(a, a.Metadata.Location, "h3")
+		controller.addEscalation(a, "dummylocation", "h3")
 	})
 	///Regenerate Contracts on Escalation Reset
 	controller.hooks.onEscalationReset.tap("randomreset", (t) => {
