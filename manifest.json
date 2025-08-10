@@ -2077,7 +2077,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: The Splitter",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: The Iconoclast",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: The Heartbreaker",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"french": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Inclus un déguisement spécifique",
@@ -4147,7 +4149,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: Le Dédoubleur",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: L'Iconoclaste",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: Le Brise-Coeur",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: Le Banquier"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: Le Banquier",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"italian": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -6217,7 +6221,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: The Splitter",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: The Iconoclast",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: The Heartbreaker",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"german": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -8287,7 +8293,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: The Splitter",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: The Iconoclast",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: The Heartbreaker",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"spanish": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -10357,7 +10365,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: The Splitter",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: The Iconoclast",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: The Heartbreaker",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"russian": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Требуется Определённая Маскировка",
@@ -12427,7 +12437,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Рулетка Трилогии: Шпагатник",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Рулетка Трилогии: Мятежница",
 			"UI_ROULETTE_CLERICO_TITLE": "Рулетка Трилогии: Сердцеед",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Рулетка Трилогии: Банкир"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Рулетка Трилогии: Банкир",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"chineseSimplified": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定伪装",
@@ -14497,7 +14509,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "三部曲轮盘赌：分裂者",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "三部曲轮盘赌：反崇拜者",
 			"UI_ROULETTE_CLERICO_TITLE": "三部曲轮盘赌：偷心人",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三部曲轮盘赌：银行家"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三部曲轮盘赌：银行家",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"chineseTraditional": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定偽裝",
@@ -16567,7 +16581,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "三位一體輪盤：分身師",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "三位一體輪盤：反傳統者",
 			"UI_ROULETTE_CLERICO_TITLE": "三位一體輪盤：碎心者",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三位一體輪盤：銀行家"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三位一體輪盤：銀行家",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		},
 		"japanese": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -18637,7 +18653,9 @@
 			"UI_ROULETTE_LAMBIC_TITLE": "Trilogy Roulette: The Splitter",
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: The Iconoclast",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: The Heartbreaker",
-			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker"
+			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: The Banker",
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		}
 	},
 	"frameworkVersion": "2.33.26",
