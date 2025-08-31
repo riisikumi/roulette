@@ -4150,8 +4150,8 @@
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Trilogy Roulette: L'Iconoclaste",
 			"UI_ROULETTE_CLERICO_TITLE": "Trilogy Roulette: Le Brise-Coeur",
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Trilogy Roulette: Le Banquier",
-			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
-			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
+			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: La Plume et l'Épée",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "La Plume et l'Épée (Nuit)"
 		},
 		"italian": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -12438,8 +12438,8 @@
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "Рулетка Трилогии: Мятежница",
 			"UI_ROULETTE_CLERICO_TITLE": "Рулетка Трилогии: Сердцеед",
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "Рулетка Трилогии: Банкир",
-			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
-			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
+			"UI_ROULETTE_SALTY_TITLE": "Рулетка Трилогии: Перо и Меч",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "Перо и Меч (Ночь)"
 		},
 		"chineseSimplified": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定伪装",
@@ -14510,8 +14510,8 @@
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "三部曲轮盘赌：反崇拜者",
 			"UI_ROULETTE_CLERICO_TITLE": "三部曲轮盘赌：偷心人",
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三部曲轮盘赌：银行家",
-			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
-			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
+			"UI_ROULETTE_SALTY_TITLE": "三部曲轮盘赌：笔与剑",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "笔与剑（夜）"
 		},
 		"chineseTraditional": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定偽裝",
@@ -16582,8 +16582,8 @@
 			"UI_ROULETTE_JOCKEYCLUB_TITLE": "三位一體輪盤：反傳統者",
 			"UI_ROULETTE_CLERICO_TITLE": "三位一體輪盤：碎心者",
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三位一體輪盤：銀行家",
-			"UI_ROULETTE_SALTY_TITLE": "Trilogy Roulette: The Pen and the Sword",
-			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
+			"UI_ROULETTE_SALTY_TITLE": "三位一體輪盤：筆與劍",
+			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "筆與劍（夜）"
 		},
 		"japanese": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
