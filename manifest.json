@@ -1,5 +1,5 @@
 {
-	"version": "2.5.0",
+	"version": "2.6.0",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
@@ -18658,7 +18658,7 @@
 			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "The Pen and the Sword (Night)"
 		}
 	},
-	"frameworkVersion": "2.33.26",
+	"frameworkVersion": "2.33.31",
 	"packagedefinition": [
 		{
 			"type": "entity",

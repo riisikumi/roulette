@@ -1996,18 +1996,18 @@ module.exports = function ContractSearch(controller) {
 
 				let sodersSuitBullshit
 
-				if (rouletteFilters.includes("specificDisguises", 0) && selectedSodersDisguise == "suit"){
+				if (rouletteFilters.includes("specificDisguises", 0) && selectedSodersDisguise == "suit") {
 					sodersSuitBullshit = {
 						Type: "hitmansuit",
 						RepositoryId: "0c90c861-48b2-4058-9785-9e577006f3b4",
-						HardCondition: true,
+						HardCondition: true
 					}
 					sodersObjective.TargetConditions.push(sodersSuitBullshit)
-				} else if (rouletteFilters.includes("specificDisguises", 0) && selectedSodersDisguise != "suit"){
+				} else if (rouletteFilters.includes("specificDisguises", 0) && selectedSodersDisguise != "suit") {
 					sodersSuitBullshit = {
 						Type: "disguise",
 						RepositoryId: selectedSodersDisguise,
-						HardCondition: true,
+						HardCondition: true
 					}
 					sodersObjective.TargetConditions.push(sodersSuitBullshit)
 				}
@@ -5368,205 +5368,209 @@ module.exports = function ContractSearch(controller) {
 					case "LOCATION_SALTY_NORMAL":
 						return [
 							{
-                            "Comment": "----- Do not Eliminate Main Hostage -----",
-                            "Id": "0b935cd6-8ca4-4094-81a4-2b1c24465cee",
-                            "Primary": true,
-                            "ForceShowOnLoadingScreen": true,
-                            "ObjectiveType": "custom",
-                            "ExcludeFromScoring": true,
-                            "LongBriefingText": "$loc UI_CONTRACT_SEAGULL_RESCUE_DESC",
-                            "Image": "images/contracts/seagull/tile_hostages.jpg",
-                            "BriefingName": "$loc UI_CONTRACT_SEAGULL_RESCUE_NAME",
-                            "BriefingText": "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
-                            "HUDTemplate": {
-                                "display": "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
-                                "iconType": 17
-                            },
-                            "Type": "statemachine",
-                            "Definition": {
-                                "display": {
-                                    "iconType": 17
-                                },
-                                "Scope": "session",
-                                "States": {
-                                    "Start": {
-                                        "Main_Hostage_Down": {
-                                            "Transition": "Failure"
-                                        },
-                                        "AllTargetsDown": {
-                                            "Transition": "Start"
-                                        }
-                                    }
-                                }
-                            }
-                        }, {
-                            "Id": "22bdf176-4ca4-4075-9ce3-ea792392983e",
-                            "Type": "statemachine",
-                            "Category": "condition",
-                            "ExcludeFromScoring": true,
-                            "OnActive": {
-                                "IfInProgress": {
-                                    "Visible": false
-                                },
-                                "IfCompleted": {
-                                    "Visible": false
-                                },
-                                "IfFailed": {
-                                    "Visible": false
-                                }
-                            },
-                            "Definition": {
-                                "Scope": "session",
-                                "Context": {},
-                                "States": {
-                                    "Start": {
-                                        "TargetsEscaping": {
-                                            "Transition": "Success"
-                                        }
-                                    }
-                                }
-                            }
-                        }, {
-                            "Activation": {
-                                "$eq": ["$22bdf176-4ca4-4075-9ce3-ea792392983e", "Completed"]
-                            },
-                            "Id": "bee28940-3092-4639-b24a-5c7e16e94d07",
-                            "BriefingText": "$loc UI_CONTRACT_ELUSIVE_STATE_FAILED",
-                            "IsHidden": true,
-                            "ExcludeFromScoring": true,
-                            "HUDTemplate": {
-                                "display": "$loc UI_CONTRACT_SEAGULL_Objective_StopEvacuation"
-                            },
-                            "IgnoreIfInactive": true,
-                            "OnActive": {
-                                "IfCompleted": {
-                                    "Visible": false
-                                },
-                                "IfInProgress": {
-                                    "Visible": false
-                                },
-                                "IfFailed": {
-                                    "Visible": false
-                                }
-                            },
-                            "Scope": "session",
-                            "Type": "statemachine",
-                            "Definition": {
-                                "Context": {},
-                                "States": {
-                                    "Start": {
-                                        "MainTargetEscaped": {
-                                            "Transition": "Failure"
-                                        },
-                                        "PreventedEvacuation": {
-                                            "Transition": "Success"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-					]
+								Comment: "----- Do not Eliminate Main Hostage -----",
+								Id: "0b935cd6-8ca4-4094-81a4-2b1c24465cee",
+								Primary: true,
+								ForceShowOnLoadingScreen: true,
+								ObjectiveType: "custom",
+								ExcludeFromScoring: true,
+								LongBriefingText: "$loc UI_CONTRACT_SEAGULL_RESCUE_DESC",
+								Image: "images/contracts/seagull/tile_hostages.jpg",
+								BriefingName: "$loc UI_CONTRACT_SEAGULL_RESCUE_NAME",
+								BriefingText: "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
+									iconType: 17
+								},
+								Type: "statemachine",
+								Definition: {
+									display: {
+										iconType: 17
+									},
+									Scope: "session",
+									States: {
+										Start: {
+											Main_Hostage_Down: {
+												Transition: "Failure"
+											},
+											AllTargetsDown: {
+												Transition: "Start"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "22bdf176-4ca4-4075-9ce3-ea792392983e",
+								Type: "statemachine",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetsEscaping: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								Activation: {
+									$eq: ["$22bdf176-4ca4-4075-9ce3-ea792392983e", "Completed"]
+								},
+								Id: "bee28940-3092-4639-b24a-5c7e16e94d07",
+								BriefingText: "$loc UI_CONTRACT_ELUSIVE_STATE_FAILED",
+								IsHidden: true,
+								ExcludeFromScoring: true,
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SEAGULL_Objective_StopEvacuation"
+								},
+								IgnoreIfInactive: true,
+								OnActive: {
+									IfCompleted: {
+										Visible: false
+									},
+									IfInProgress: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Scope: "session",
+								Type: "statemachine",
+								Definition: {
+									Context: {},
+									States: {
+										Start: {
+											MainTargetEscaped: {
+												Transition: "Failure"
+											},
+											PreventedEvacuation: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
+						]
 					case "LOCATION_SALTY_NIGHT":
 						return [
 							{
-                            "Comment": "----- Do not Eliminate Main Hostage -----",
-                            "Id": "0b935cd6-8ca4-4094-81a4-2b1c24465cee",
-                            "Primary": true,
-                            "ForceShowOnLoadingScreen": true,
-                            "ObjectiveType": "custom",
-                            "ExcludeFromScoring": true,
-                            "LongBriefingText": "$loc UI_CONTRACT_SEAGULL_RESCUE_DESC",
-                            "Image": "images/contracts/seagull/tile_hostages.jpg",
-                            "BriefingName": "$loc UI_CONTRACT_SEAGULL_RESCUE_NAME",
-                            "BriefingText": "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
-                            "HUDTemplate": {
-                                "display": "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
-                                "iconType": 17
-                            },
-                            "Type": "statemachine",
-                            "Definition": {
-                                "display": {
-                                    "iconType": 17
-                                },
-                                "Scope": "session",
-                                "States": {
-                                    "Start": {
-                                        "Main_Hostage_Down": {
-                                            "Transition": "Failure"
-                                        },
-                                        "AllTargetsDown": {
-                                            "Transition": "Start"
-                                        }
-                                    }
-                                }
-                            }
-                        }, {
-                            "Id": "22bdf176-4ca4-4075-9ce3-ea792392983e",
-                            "Type": "statemachine",
-                            "Category": "condition",
-                            "ExcludeFromScoring": true,
-                            "OnActive": {
-                                "IfInProgress": {
-                                    "Visible": false
-                                },
-                                "IfCompleted": {
-                                    "Visible": false
-                                },
-                                "IfFailed": {
-                                    "Visible": false
-                                }
-                            },
-                            "Definition": {
-                                "Scope": "session",
-                                "Context": {},
-                                "States": {
-                                    "Start": {
-                                        "TargetsEscaping": {
-                                            "Transition": "Success"
-                                        }
-                                    }
-                                }
-                            }
-                        }, {
-                            "Activation": {
-                                "$eq": ["$22bdf176-4ca4-4075-9ce3-ea792392983e", "Completed"]
-                            },
-                            "Id": "bee28940-3092-4639-b24a-5c7e16e94d07",
-                            "BriefingText": "$loc UI_CONTRACT_ELUSIVE_STATE_FAILED",
-                            "IsHidden": true,
-                            "ExcludeFromScoring": true,
-                            "HUDTemplate": {
-                                "display": "$loc UI_CONTRACT_SEAGULL_Objective_StopEvacuation"
-                            },
-                            "IgnoreIfInactive": true,
-                            "OnActive": {
-                                "IfCompleted": {
-                                    "Visible": false
-                                },
-                                "IfInProgress": {
-                                    "Visible": false
-                                },
-                                "IfFailed": {
-                                    "Visible": false
-                                }
-                            },
-                            "Scope": "session",
-                            "Type": "statemachine",
-                            "Definition": {
-                                "Context": {},
-                                "States": {
-                                    "Start": {
-                                        "MainTargetEscaped": {
-                                            "Transition": "Failure"
-                                        },
-                                        "PreventedEvacuation": {
-                                            "Transition": "Success"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-					]
+								Comment: "----- Do not Eliminate Main Hostage -----",
+								Id: "0b935cd6-8ca4-4094-81a4-2b1c24465cee",
+								Primary: true,
+								ForceShowOnLoadingScreen: true,
+								ObjectiveType: "custom",
+								ExcludeFromScoring: true,
+								LongBriefingText: "$loc UI_CONTRACT_SEAGULL_RESCUE_DESC",
+								Image: "images/contracts/seagull/tile_hostages.jpg",
+								BriefingName: "$loc UI_CONTRACT_SEAGULL_RESCUE_NAME",
+								BriefingText: "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SEAGULL_RESCUE_OBJ",
+									iconType: 17
+								},
+								Type: "statemachine",
+								Definition: {
+									display: {
+										iconType: 17
+									},
+									Scope: "session",
+									States: {
+										Start: {
+											Main_Hostage_Down: {
+												Transition: "Failure"
+											},
+											AllTargetsDown: {
+												Transition: "Start"
+											}
+										}
+									}
+								}
+							},
+							{
+								Id: "22bdf176-4ca4-4075-9ce3-ea792392983e",
+								Type: "statemachine",
+								Category: "condition",
+								ExcludeFromScoring: true,
+								OnActive: {
+									IfInProgress: {
+										Visible: false
+									},
+									IfCompleted: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Definition: {
+									Scope: "session",
+									Context: {},
+									States: {
+										Start: {
+											TargetsEscaping: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							},
+							{
+								Activation: {
+									$eq: ["$22bdf176-4ca4-4075-9ce3-ea792392983e", "Completed"]
+								},
+								Id: "bee28940-3092-4639-b24a-5c7e16e94d07",
+								BriefingText: "$loc UI_CONTRACT_ELUSIVE_STATE_FAILED",
+								IsHidden: true,
+								ExcludeFromScoring: true,
+								HUDTemplate: {
+									display: "$loc UI_CONTRACT_SEAGULL_Objective_StopEvacuation"
+								},
+								IgnoreIfInactive: true,
+								OnActive: {
+									IfCompleted: {
+										Visible: false
+									},
+									IfInProgress: {
+										Visible: false
+									},
+									IfFailed: {
+										Visible: false
+									}
+								},
+								Scope: "session",
+								Type: "statemachine",
+								Definition: {
+									Context: {},
+									States: {
+										Start: {
+											MainTargetEscaped: {
+												Transition: "Failure"
+											},
+											PreventedEvacuation: {
+												Transition: "Success"
+											}
+										}
+									}
+								}
+							}
+						]
 				}
 			}
 
