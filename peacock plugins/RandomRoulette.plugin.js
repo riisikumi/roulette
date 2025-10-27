@@ -62542,15 +62542,15 @@ module.exports = function EscPlugin(controller) {
 			//daily contract creation
 			if (locationid === contract.RouletteType && daily) {
 				var modifiedcontract = require("@peacockproject/core/utils").fastClone(contract)
-				Jsonfilename = "contracts/" + "Random Roulette/Daily Contracts/" + month + "_" + day + "_" + year + ".json"
+				Jsonfilename = "contracts/" + "Random Roulette/Daily Contracts/" + year + "-" + String(month).padStart(2, '0') + "-" + String(day).padStart(2, '0') + ".json"
 				//log(LogLevel.INFO, Jsonfilename)
 				require("node:fs").mkdirSync(require("node:path").dirname(Jsonfilename), { recursive: true })
-				modifiedcontract.Metadata.Title = "RR Daily " + day + "|" + month + "|" + year
+				modifiedcontract.Metadata.Title = "RR Daily " + year + "-" + String(month).padStart(2, '0') + "-" + String(day).padStart(2, '0')
 				modifiedcontract.Metadata.Id = generaterandomUUID(finalDate)
 				modifiedcontract.Metadata.Type = "usercreated"
 				modifiedcontract.Data.GameChangers
 				modifiedcontract.Data.GameChangers.pop()
-				modifiedcontract.Metadata.Description = "Random Roulette Daily " + day + "|" + month + "|" + year
+				modifiedcontract.Metadata.Description = "Random Roulette Daily " + year + "-" + String(month).padStart(2, '0') + "-" + String(day).padStart(2, '0')
 				require("node:fs").writeFileSync(Jsonfilename, JSON.stringify(modifiedcontract))
 				//log(LogLevel.INFO, "Archive: " + JSON.stringify(modifiedcontract) );
 				modifiedcontract.Metadata.Type = "bulletdancer"
