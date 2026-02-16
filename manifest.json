@@ -1,5 +1,5 @@
 {
-	"version": "2.6.0",
+	"version": "2.7.0",
 	"id": "BurnthewitchRiisikumi.Roulette",
 	"name": "Peacock Roulette",
 	"description": "Generates randomized Contracts.",
@@ -2089,7 +2089,6 @@
 			"UI_LOCATION_BLOSSOM_TITLE": "Hokkaido Blossom Festival",
 			"UI_LOCATION_BLOSSOM_COUNTRY": "Hokkaido",
 			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "Generate News Headlines"
-
 		},
 		"french": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Inclus un déguisement spécifique",
@@ -12487,14 +12486,14 @@
 			"UI_ROULETTE_SALTY_TITLE": "Рулетка Трилогии: Перо и Меч",
 			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "Перо и Меч (Ночь)",
 			"UI_ROULETTE_BAIJU_TITLE": "Рулетка Трилогии: Лазутчик",
-  			"UI_ROULETTE_BELLINI_TITLE": "Рулетка Трилогии: Отражение",
-  			"UI_ROULETTE_PUMPKIN_TITLE": "Рулетка Трилогии: Хэллоуин в Уиттлтон-Крик",
-  			"UI_LOCATION_PUMPKIN_TITLE": "Хэллоуин в Уиттлтон-Крик",
-  			"UI_LOCATION_PUMPKIN_COUNTRY": "Уиттлтон-Крик",
-  			"UI_ROULETTE_BLOSSOM_TITLE": "Рулетка Трилогии: Фестиваль Цветения Сакуры на Хоккайдо",
-  			"UI_LOCATION_BLOSSOM_TITLE": "Фестиваль Цветения Сакуры на Хоккайдо",
-  			"UI_LOCATION_BLOSSOM_COUNTRY": "Хоккайдо",
-  			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "Сгенерировать Новые Заголовки"
+			"UI_ROULETTE_BELLINI_TITLE": "Рулетка Трилогии: Отражение",
+			"UI_ROULETTE_PUMPKIN_TITLE": "Рулетка Трилогии: Хэллоуин в Уиттлтон-Крик",
+			"UI_LOCATION_PUMPKIN_TITLE": "Хэллоуин в Уиттлтон-Крик",
+			"UI_LOCATION_PUMPKIN_COUNTRY": "Уиттлтон-Крик",
+			"UI_ROULETTE_BLOSSOM_TITLE": "Рулетка Трилогии: Фестиваль Цветения Сакуры на Хоккайдо",
+			"UI_LOCATION_BLOSSOM_TITLE": "Фестиваль Цветения Сакуры на Хоккайдо",
+			"UI_LOCATION_BLOSSOM_COUNTRY": "Хоккайдо",
+			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "Сгенерировать Новые Заголовки"
 		},
 		"chineseSimplified": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定伪装",
@@ -14567,15 +14566,15 @@
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三部曲轮盘赌：银行家",
 			"UI_ROULETTE_SALTY_TITLE": "三部曲轮盘赌：笔与剑",
 			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "笔与剑（夜）",
-  			"UI_ROULETTE_BAIJU_TITLE": "三部曲轮盘赌：渗透者",
-  			"UI_ROULETTE_BELLINI_TITLE": "三部曲轮盘赌：倒影",
-  			"UI_ROULETTE_PUMPKIN_TITLE": "三部曲轮盘赌：维多顿小溪万圣夜",
-  			"UI_LOCATION_PUMPKIN_TITLE": "维多顿小溪万圣夜",
-  			"UI_LOCATION_PUMPKIN_COUNTRY": "维多顿小溪",
-  			"UI_ROULETTE_BLOSSOM_TITLE": "三部曲轮盘赌：北海道樱花节",
-  			"UI_LOCATION_BLOSSOM_TITLE": "北海道樱花节",
-  			"UI_LOCATION_BLOSSOM_COUNTRY": "北海道",
-  			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "生成新闻摘要"
+			"UI_ROULETTE_BAIJU_TITLE": "三部曲轮盘赌：渗透者",
+			"UI_ROULETTE_BELLINI_TITLE": "三部曲轮盘赌：倒影",
+			"UI_ROULETTE_PUMPKIN_TITLE": "三部曲轮盘赌：维多顿小溪万圣夜",
+			"UI_LOCATION_PUMPKIN_TITLE": "维多顿小溪万圣夜",
+			"UI_LOCATION_PUMPKIN_COUNTRY": "维多顿小溪",
+			"UI_ROULETTE_BLOSSOM_TITLE": "三部曲轮盘赌：北海道樱花节",
+			"UI_LOCATION_BLOSSOM_TITLE": "北海道樱花节",
+			"UI_LOCATION_BLOSSOM_COUNTRY": "北海道",
+			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "生成新闻摘要"
 		},
 		"chineseTraditional": {
 			"REQUIRE_SPECIFIC_DISGUISE": "需要特定偽裝",
@@ -16648,15 +16647,15 @@
 			"UI_ROULETTE_FRENCHMARTINI_TITLE": "三位一體輪盤：銀行家",
 			"UI_ROULETTE_SALTY_TITLE": "三位一體輪盤：筆與劍",
 			"UI_LOCATION_SALTY_NIGHT_TITLE_R": "筆與劍（夜）",
-  			"UI_ROULETTE_BAIJU_TITLE": "三位一體輪盤：滲透者",
-  			"UI_ROULETTE_BELLINI_TITLE": "三位一體輪盤：倒影",
-  			"UI_ROULETTE_PUMPKIN_TITLE": "三位一體輪盤：維多頓小溪的萬聖節",
-  			"UI_LOCATION_PUMPKIN_TITLE": "維多頓小溪的萬聖節",
-  			"UI_LOCATION_PUMPKIN_COUNTRY": "維多頓小溪",
-  			"UI_ROULETTE_BLOSSOM_TITLE": "三位一體輪盤：北海道櫻花祭",
-  			"UI_LOCATION_BLOSSOM_TITLE": "北海道櫻花祭",
-  			"UI_LOCATION_BLOSSOM_COUNTRY": "北海道",
-  			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "產生新聞標題"
+			"UI_ROULETTE_BAIJU_TITLE": "三位一體輪盤：滲透者",
+			"UI_ROULETTE_BELLINI_TITLE": "三位一體輪盤：倒影",
+			"UI_ROULETTE_PUMPKIN_TITLE": "三位一體輪盤：維多頓小溪的萬聖節",
+			"UI_LOCATION_PUMPKIN_TITLE": "維多頓小溪的萬聖節",
+			"UI_LOCATION_PUMPKIN_COUNTRY": "維多頓小溪",
+			"UI_ROULETTE_BLOSSOM_TITLE": "三位一體輪盤：北海道櫻花祭",
+			"UI_LOCATION_BLOSSOM_TITLE": "北海道櫻花祭",
+			"UI_LOCATION_BLOSSOM_COUNTRY": "北海道",
+			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "產生新聞標題"
 		},
 		"japanese": {
 			"REQUIRE_SPECIFIC_DISGUISE": "Require Specific Disguise",
@@ -18740,7 +18739,7 @@
 			"UI_ROULETTE_GAMEPLAY_VARIATIONS": "Generate News Headlines"
 		}
 	},
-	"frameworkVersion": "2.33.31",
+	"frameworkVersion": "2.33.34",
 	"packagedefinition": [
 		{
 			"type": "entity",
