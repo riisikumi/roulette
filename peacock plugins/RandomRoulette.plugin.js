@@ -49920,6 +49920,14 @@ module.exports = function EscPlugin(controller) {
 				)
 			}
 
+			if (controller.configManager.configs.LocationsData.children["LOCATION_PUMPKIN"]) {
+				controller.configManager.configs.FilterData[0]["Values"].push({ Title: "UI_LOCATION_PUMPKIN_TITLE", Value: "LOCATION_PUMPKIN", Key: "Location"})
+			}
+
+			if (controller.configManager.configs.LocationsData.children["LOCATION_HAY"]) {
+				controller.configManager.configs.FilterData[0]["Values"].push({ Title: "UI_LOCATION_HAY_TITLE", Value: "LOCATION_HAY", Key: "Location"})
+			}
+
 			controller.configManager.configs.ContractSearchPaginateTemplate = {
 				"$if $gt ($.Data.TotalCount,0)": {
 					$then: {

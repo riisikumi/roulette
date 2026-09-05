@@ -36,7 +36,7 @@ function initPlugin(controller) {
 	if (compare(PEACOCKVERSTRING, "8.0.0-beta.2") < 0) {
 		return
 	}
-	const groupName = "roulette-challenge-pack"
+	const groupName = "roulette-challenges"
 	const version = "h3"
 	const location = "GLOBAL_ROULETTE_CHALLENGES"
 	const cateogryLoc = "UI_MENU_PAGE_PROFILE_CHALLENGES_ROULETTE"
